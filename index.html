@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>ACCESS CI Menus</title>
+    <link
+      rel="stylesheet"
+      id="google-font-archivo-css"
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,70,400;0,100,400;0,100,500;0,100,600;0,100,700;0,100,800;1,100,400&amp;display=swap"
+      media="all"
+    />
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      #site-menus {
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="universal-menus"></div>
+    <div id="site-menus"></div>
+    <script type="module">
+      import {
+        universalMenuItems,
+        universalMenus,
+        siteMenus,
+      } from "/src/index.js";
+
+      universalMenus({
+        loginUrl: "/login",
+        logoutUrl: "/logout",
+        target: document.getElementById("universal-menus"),
+      });
+
+      siteMenus({
+        items: [
+          {
+            name: "One",
+            items: [
+              {
+                name: "Item A",
+                href: "/one/a",
+              },
+              {
+                name: "Item B",
+                href: "/one/b",
+              },
+              {
+                name: "Item C",
+                href: "/one/c",
+              },
+            ],
+          },
+          {
+            name: "Two",
+            items: [
+              {
+                name: "Item A",
+                href: "/two/a",
+              },
+              {
+                name: "Item B",
+                href: "/two/b",
+              },
+            ],
+          },
+          {
+            name: "Three",
+            href: "/three",
+          },
+        ],
+        siteName: "Allocations",
+        target: document.getElementById("site-menus"),
+      });
+    </script>
+  </body>
+</html>
