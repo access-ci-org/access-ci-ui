@@ -101,7 +101,7 @@ export const loginMenuItem = {
   items: [
     {
       name: "Login",
-      href: "https://cilogon.org/",
+      href: "https://cilogon.org/?skin=access",
     },
     {
       name: "Questions",
