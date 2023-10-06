@@ -1,10 +1,15 @@
-.acim-menu {
+:host {
+  --acim-teal-100: #cee8e9;
   --acim-teal-600: #107180;
   --acim-teal-700: #1a5b6e;
   --acim-color: white;
   --acim-padding: 30px;
   --acim-offset: 0px;
   --acim-outline: white;
+}
+:host,
+:host button {
+  font-family: "Archivo", sans-serif;
 }
 .acim-universal {
   --acim-background: var(--acim-teal-700);
@@ -16,10 +21,6 @@
 }
 .acim-site ul ul {
   --acim-border: rgba(19, 133, 151, 0.35);
-}
-.acim-menu,
-.acim-menu button {
-  font-family: "Archivo", sans-serif;
 }
 .acim-menu ul,
 .acim-menu li {
@@ -116,21 +117,76 @@
 .acim-hamburger > button {
   display: none;
 }
+.acim-footer {
+  background-color: var(--acim-teal-700);
+  color: white;
+}
+.acim-columns {
+  margin: 0 auto;
+  padding: 50px var(--acim-padding) 36px;
+  width: var(--acim-width);
+}
+.acim-column {
+  padding-bottom: 14px;
+}
+.acim-footer a,
+.acim-footer a:visited {
+  color: white;
+  text-decoration: none;
+}
+.acim-footer a:active,
+.acim-footer a:focus,
+.acim-footer a:hover {
+  color: var(--acim-teal-100);
+  text-decoration: underline;
+}
+.acim-footer h2 {
+  font-size: 14px;
+  font-weight: 800;
+  margin: 0;
+}
+.acim-footer ul {
+  margin: 0;
+  padding: 0;
+}
+.acim-footer li {
+  font-size: 14px;
+  font-weight: 600;
+  list-style-type: none;
+  padding: 14px 0 0;
+}
 @media (min-width: 600px) {
-  .acim-menu {
-    --acim-padding: calc((100% - 540px) / 2);
+  :host {
+    --acim-padding: calc((100% - var(--acim-width)) / 2);
     --acim-offset: 7px;
+    --acim-width: 540px;
   }
 }
 @media (min-width: 768px) {
-  .acim-menu {
-    --acim-padding: calc((100% - 712px) / 2);
+  :host {
+    --acim-width: 712px;
+  }
+  .acim-columns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 50px 0 10px;
+  }
+  .acim-column {
+    padding-bottom: 40px;
+    padding-right: 20px;
+    width: calc((var(--acim-width) - 60px) / 4);
+  }
+  .acim-column:nth-child(4),
+  .acim-column:last-child {
+    padding-right: 0;
   }
 }
 @media (min-width: 900px) {
-  .acim-menu {
+  :host {
     --acim-padding: 10px;
     --acim-offset: 0px;
+    --acim-width: 840px;
   }
   .acim-site {
     --acim-background: white;
@@ -150,7 +206,7 @@
     display: flex;
     flex-direction: row;
     margin: 0 auto;
-    width: calc(840px + (2 * var(--acim-padding)));
+    width: calc(var(--acim-width) + (2 * var(--acim-padding)));
   }
   .acim-item,
   .acim-track .acim-item {
@@ -233,12 +289,23 @@
   }
 }
 @media (min-width: 1024px) {
-  .acim-menu > ul {
-    width: calc(940px + (2 * var(--acim-padding)));
+  :host {
+    --acim-width: 940px;
   }
 }
 @media (min-width: 1280px) {
-  .acim-menu > ul {
-    width: calc(1180px + (2 * var(--acim-padding)));
+  :host {
+    --acim-width: 1180px;
+  }
+  .acim-columns {
+    flex-wrap: nowrap;
+    padding: 72px 0 0;
+  }
+  .acim-column {
+    padding-bottom: 72px;
+    width: calc((var(--acim-width) - 120px) / 7);
+  }
+  .acim-column:nth-child(4) {
+    padding-right: 20px;
   }
 }

@@ -1,4 +1,5 @@
 import {
+  footerMenus,
   loginMenuItem,
   myAccessMenuItem,
   siteMenus,
@@ -7,6 +8,7 @@ import {
 } from "./menus";
 
 export {
+  footerMenus,
   loginMenuItem,
   myAccessMenuItem,
   siteMenus,

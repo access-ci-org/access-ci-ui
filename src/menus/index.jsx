@@ -1,5 +1,5 @@
 import { render } from "preact";
-import { Menus } from "./menu";
+import { FooterMenus, Menus } from "./menu";
 import { loginMenuItem, myAccessMenuItem, universalMenuItems } from "./items";
 
 const renderShadow = (content, target) => {
@@ -41,7 +41,7 @@ const universalMenus = ({
   );
 };
 
-const siteMenus = ({ items, siteName, target }) => {
+const siteMenus = ({ items, siteName, target }) =>
   renderShadow(
     <Menus
       classes="acim-site"
@@ -51,9 +51,12 @@ const siteMenus = ({ items, siteName, target }) => {
     />,
     target
   );
-};
+
+const footerMenus = ({ items, target }) =>
+  renderShadow(<FooterMenus items={items} />, target);
 
 export {
+  footerMenus,
   loginMenuItem,
   myAccessMenuItem,
   siteMenus,
