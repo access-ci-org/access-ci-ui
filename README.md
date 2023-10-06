@@ -19,15 +19,59 @@ Sites using ACCESS user interface components should include the Archivo font fam
 
 ## Menus
 
-The library includes functions for rendering the ACCESS universal navigation menus
-and site menus:
+The library includes functions for rendering the ACCESS universal navigation menus,
+site menus, and footer menus:
 
 ```html
 <div id="universal-menus"></div>
 ...
 <div id="site-menus"></div>
+...
+<div id="footer-menus"></div>
 <script type="module">
-  import { universalMenus, siteMenus } from "https://esm.sh/@access-ci/ui";
+  import {
+    footerMenus,
+    universalMenuItems,
+    universalMenus,
+    siteMenus,
+  } from "/src/index.js";
+
+  const siteItems = [
+    {
+      name: "One",
+      items: [
+        {
+          name: "Item A",
+          href: "/one/a",
+        },
+        {
+          name: "Item B",
+          href: "/one/b",
+        },
+        {
+          name: "Item C",
+          href: "/one/c",
+        },
+      ],
+    },
+    {
+      name: "Two",
+      items: [
+        {
+          name: "Item A",
+          href: "/two/a",
+        },
+        {
+          name: "Item B",
+          href: "/two/b",
+        },
+      ],
+    },
+    {
+      name: "Three",
+      href: "/three",
+    },
+  ];
 
   universalMenus({
     loginUrl: "/login",
@@ -36,44 +80,14 @@ and site menus:
   });
 
   siteMenus({
-    items: [
-      {
-        name: "One",
-        items: [
-          {
-            name: "Item A",
-            href: "/one/a",
-          },
-          {
-            name: "Item B",
-            href: "/one/b",
-          },
-          {
-            name: "Item C",
-            href: "/one/c",
-          },
-        ],
-      },
-      {
-        name: "Two",
-        items: [
-          {
-            name: "Item A",
-            href: "/two/a",
-          },
-          {
-            name: "Item B",
-            href: "/two/b",
-          },
-        ],
-      },
-      {
-        name: "Three",
-        href: "/three",
-      },
-    ],
+    items: siteItems,
     siteName: "Allocations",
     target: document.getElementById("site-menus"),
+  });
+
+  footerMenus({
+    items: siteItems,
+    target: document.getElementById("footer-menus"),
   });
 </script>
 ```
