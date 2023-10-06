@@ -2,36 +2,36 @@ export const universalMenuItems = [
   {
     name: "Allocations",
     href: "https://allocations.access-ci.org/",
-    classes: "acim-track",
+    classes: "track",
   },
   {
     name: "Support",
     href: "https://support.access-ci.org/",
-    classes: "acim-track",
+    classes: "track",
   },
   {
     name: "Operations",
     href: "https://operations.access-ci.org/",
-    classes: "acim-track",
+    classes: "track",
   },
   {
     name: "Metrics",
     href: "https://metrics.access-ci.org/",
-    classes: "acim-track acim-grow",
+    classes: "track grow",
   },
   {
     name: "ACCESS Home",
     href: "https://access-ci.org/",
-    classes: "acim-icon acim-icon-home",
+    classes: "icon icon-home",
   },
   {
     name: "Search",
     href: "https://support.access-ci.org/knowledge-base",
-    classes: "acim-icon acim-icon-search",
+    classes: "icon icon-search",
   },
   {
     name: "Menu",
-    classes: "acim-icon acim-icon-hamburger acim-hamburger",
+    classes: "icon icon-hamburger hamburger",
     autoOpenMode: "mobile",
     items: [
       {

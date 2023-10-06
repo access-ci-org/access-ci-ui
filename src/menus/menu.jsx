@@ -1,5 +1,5 @@
 import { useEffect, useId, useState } from "preact/hooks";
-import style from "./style.css?inline";
+import style from "./menus.css?inline";
 
 const getMode = (breakpoint = 900) =>
   document.body.clientWidth >= breakpoint ? "desktop" : "mobile";
@@ -35,7 +35,7 @@ export const Menu = ({
 
   if (href)
     return (
-      <a href={href} class={`acim-item ${classes || ""}`}>
+      <a href={href} class={`item ${classes || ""}`}>
         {name}
       </a>
     );
@@ -46,7 +46,7 @@ export const Menu = ({
           <button
             aria-expanded={expanded}
             aria-controls={id}
-            class={`acim-item ${expanded ? "acim-expanded" : "acim-collapsed"}`}
+            class={`item ${expanded ? "expanded" : "collapsed"}`}
             onClick={toggleOpen}
           >
             {name}
@@ -89,7 +89,7 @@ export const Menus = ({ classes, items, name, target }) => {
 
   return (
     <>
-      <nav class={`acim-menu ${classes || ""}`}>
+      <nav class={`menu ${classes || ""}`}>
         <Menu
           autoOpenMode="desktop"
           items={items}
@@ -115,14 +115,14 @@ export const FooterMenus = ({ items }) => {
       }
     if (href)
       return (
-        <div class="acim-column">
+        <div class="column">
           <h2>
             <a href={href}>{name}</a>
           </h2>
         </div>
       );
     return (
-      <div class="acim-column">
+      <div class="column">
         <h2>{name}</h2>
         <ul>
           {items.map(({ name, href }) => (
@@ -137,8 +137,8 @@ export const FooterMenus = ({ items }) => {
 
   return (
     <>
-      <nav class="acim-footer">
-        <div class="acim-columns">{menus}</div>
+      <nav class="footer">
+        <div class="columns">{menus}</div>
       </nav>
       <style>{style}</style>
     </>

@@ -32,7 +32,7 @@ const universalMenus = ({
 
   renderShadow(
     <Menus
-      classes="acim-universal"
+      classes="universal"
       items={items}
       name="ACCESS Menu"
       target={target}
@@ -44,7 +44,7 @@ const universalMenus = ({
 const siteMenus = ({ items, siteName, target }) =>
   renderShadow(
     <Menus
-      classes="acim-site"
+      classes="site"
       items={items}
       name={`${siteName} Menu`}
       target={target}
