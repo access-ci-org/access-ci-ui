@@ -34,7 +34,7 @@ site menus, and footer menus:
     universalMenuItems,
     universalMenus,
     siteMenus,
-  } from "/src/index.js";
+  } from "https://esm.sh/@access-ci/ui@0.1.2";
 
   const siteItems = [
     {
