@@ -1,6 +1,7 @@
 import { useEffect, useId, useState } from "preact/hooks";
 import { getMode, useMode } from "./utils";
-import style from "./menus.css?inline";
+import baseStyle from "./base.css?inline";
+import menuStyle from "./menus.css?inline";
 
 export const Menu = ({
   autoOpenMode,
@@ -89,7 +90,8 @@ export const Menus = ({ classes, items, name, target }) => {
           setOpen={setOpen}
         />
       </nav>
-      <style>{style}</style>
+      <style>{baseStyle}</style>
+      <style>{menuStyle}</style>
     </>
   );
 };
@@ -130,7 +132,8 @@ export const FooterMenus = ({ items }) => {
       <nav class="footer">
         <div class="columns">{menus}</div>
       </nav>
-      <style>{style}</style>
+      <style>{baseStyle}</style>
+      <style>{menuStyle}</style>
     </>
   );
 };
