@@ -1,16 +1,6 @@
 import { useEffect, useId, useState } from "preact/hooks";
+import { getMode, useMode } from "./utils";
 import style from "./menus.css?inline";
-
-const getMode = (breakpoint = 900) =>
-  document.body.clientWidth >= breakpoint ? "desktop" : "mobile";
-
-const useMode = (breakpoint = 900) => {
-  const [mode, setMode] = useState(getMode(breakpoint));
-  useEffect(() => {
-    window.addEventListener("resize", () => setMode(getMode(breakpoint)));
-  }, []);
-  return mode;
-};
 
 export const Menu = ({
   autoOpenMode,

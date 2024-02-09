@@ -1,0 +1,107 @@
+.logo {
+  align-items: start;
+  display: flex;
+  flex-direction: row;
+}
+.nsf-logo {
+  height: 49px;
+}
+.access-logo {
+  height: 23px;
+  margin-top: 12px;
+}
+.access,
+.nsf {
+  display: block;
+  text-decoration: none;
+}
+.divider {
+  border-right: 1px solid #bbbbbb;
+  height: 40px;
+  margin: 4px 15px 0 12px;
+  width: 0;
+}
+.name {
+  color: var(--teal-700);
+  display: block;
+  font-size: 17.5px;
+  font-stretch: 80%;
+  font-weight: 200;
+  line-height: 1;
+  margin: 3px 0 0 0;
+  text-align: right;
+}
+.name::before {
+  content: "";
+  display: inline-block;
+  height: 0;
+  margin: 0 5px 0 0;
+  width: 0;
+}
+.name-allocations::before {
+  border-bottom: 12px solid var(--orange-400);
+  border-left: 12px solid transparent;
+}
+.name-coordination-office::before {
+  background-color: var(--teal-400);
+  border-radius: 6px;
+  height: 12px;
+  margin: 0 6px 0 0;
+  width: 12px;
+}
+.name-metrics::before {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg' width='12'><circle cx='12' cy='0' r='12' fill='%23008496' /></svg>");
+  background-size: cover;
+  height: 12px;
+  margin: 0 2px 0 0;
+  width: 12px;
+}
+.name-operations::before {
+  border-top: 12px solid var(--yellow-400);
+  border-right: 12px solid transparent;
+}
+.name-support::before {
+  background-color: var(--teal-700);
+  height: 12px;
+  margin: 0 6px 0 0;
+  width: 12px;
+}
+@media (min-width: 900px) {
+  .nsf-logo {
+    height: 82px;
+  }
+  .divider {
+    height: 68px;
+    margin: 6px 23px 0 20px;
+  }
+  .access-logo {
+    height: 39px;
+    margin-top: 21px;
+  }
+  .name {
+    font-size: 30px;
+  }
+  .name-allocations::before {
+    border-bottom: 20px solid var(--orange-400);
+    border-left: 20px solid transparent;
+  }
+  .name-metrics::before {
+    height: 20px;
+    margin: 0 4px 0 0;
+    width: 20px;
+  }
+  .name-operations::before {
+    border-top: 20px solid var(--yellow-400);
+    border-right: 20px solid transparent;
+  }
+  .name-coordination-office::before {
+    border-radius: 9.5px;
+    height: 19px;
+    width: 19px;
+  }
+  .name-support::before {
+    height: 19px;
+    margin: 0 7px 0 0;
+    width: 19px;
+  }
+}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light" />
-    <title>ACCESS CI Menus</title>
+    <title>ACCESS CI User Interface Components</title>
     <link
       rel="stylesheet"
       id="google-font-archivo-css"
@@ -17,9 +17,6 @@
         margin: 0;
         padding: 0;
       }
-      #site-menus {
-        margin-top: 30px;
-      }
       #footer-menus {
         margin-top: 100px;
       }
@@ -27,15 +24,17 @@
   </head>
   <body>
     <div id="universal-menus"></div>
+    <div id="header"></div>
     <div id="site-menus"></div>
     <div id="footer-menus"></div>
     <script type="module">
       import {
+        header,
         footerMenus,
         universalMenuItems,
         universalMenus,
         siteMenus,
-      } from "/src/index.js";
+      } from "/src/index.jsx";
 
       const siteItems = [
         {
@@ -78,6 +77,11 @@
         loginUrl: "/login",
         logoutUrl: "/logout",
         target: document.getElementById("universal-menus"),
+      });
+
+      header({
+        siteName: "Allocations",
+        target: document.getElementById("header"),
       });
 
       siteMenus({

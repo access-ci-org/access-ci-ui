@@ -1,10 +1,10 @@
-import { render } from "preact";
+import { Header } from "./header";
 import { FooterMenus, Menus } from "./menu";
 import { loginMenuItem, myAccessMenuItem, universalMenuItems } from "./items";
+import { renderShadow } from "./utils";
 
-const renderShadow = (content, target) => {
-  const shadow = target.attachShadow({ mode: "open" });
-  render(content, shadow);
+const header = (params = {}) => {
+  renderShadow(<Header {...params} />, params.target);
 };
 
 const universalMenus = ({
@@ -56,6 +56,7 @@ const footerMenus = ({ items, target }) =>
   renderShadow(<FooterMenus items={items} />, target);
 
 export {
+  header,
   footerMenus,
   loginMenuItem,
   myAccessMenuItem,

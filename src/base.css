@@ -1,0 +1,50 @@
+:host {
+  --orange-400: #f07537;
+  --teal-100: #cee8e9;
+  --teal-400: #48c0b9;
+  --teal-600: #107180;
+  --teal-700: #1a5b6e;
+  --yellow-400: #ffc42d;
+  --color: white;
+  --padding: 30px;
+  --offset: 0px;
+  --outline: white;
+}
+:host,
+:host button {
+  font-family: "Archivo", sans-serif;
+}
+.container {
+  margin: 0 auto;
+  padding: 0 var(--padding);
+  width: var(--width);
+}
+@media (min-width: 600px) {
+  :host {
+    --padding: calc((100% - var(--width)) / 2);
+    --offset: 7px;
+    --width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  :host {
+    --width: 712px;
+  }
+}
+@media (min-width: 900px) {
+  :host {
+    --padding: 10px;
+    --offset: 0px;
+    --width: 840px;
+  }
+}
+@media (min-width: 1024px) {
+  :host {
+    --width: 940px;
+  }
+}
+@media (min-width: 1280px) {
+  :host {
+    --width: 1180px;
+  }
+}
