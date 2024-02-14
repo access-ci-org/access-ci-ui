@@ -6,7 +6,7 @@ import preact from "@preact/preset-vite";
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(__dirname, "src/index.js"),
+      entry: resolve(__dirname, "src/index.jsx"),
       name: "AccessCiUi",
       fileName: "access-ci-ui",
     },
