@@ -3,6 +3,7 @@ import footerStyle from "./footer.css?inline";
 
 import { AwardLink } from "./award-link";
 import { Logo } from "./logo";
+import { ScrollToTop } from "./scroll-to-top";
 
 export const Footer = (params = {}) => {
   return (
@@ -76,6 +77,7 @@ export const Footer = (params = {}) => {
           </ul>
         </div>
       </div>
+      <ScrollToTop {...params} />
       <style>{baseStyle}</style>
       <style>{footerStyle}</style>
     </>

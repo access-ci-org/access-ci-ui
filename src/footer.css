@@ -70,7 +70,7 @@ a.linkedin {
 }
 .lower {
   border-top: 1px solid var(--contrast-3);
-  padding: 10px 0 50px;
+  padding: 10px 0 60px;
 }
 .links {
   display: flex;
@@ -89,6 +89,27 @@ a.linkedin {
 .links a {
   font-size: 12px;
   font-weight: 600;
+}
+.scroll-to-top {
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' stroke='white' stroke-width='1' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z'/></svg>");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 13px;
+  border: 0 none transparent;
+  bottom: 30px;
+  cursor: pointer;
+  display: block;
+  height: 40px;
+  opacity: 0;
+  position: fixed;
+  right: 30px;
+  text-indent: -999999px;
+  transition: opacity 0.25s ease-out;
+  width: 40px;
+}
+.scroll-to-top.visible {
+  opacity: 1;
 }
 @media (min-width: 900px) {
   .upper {
