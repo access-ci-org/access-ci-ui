@@ -1,4 +1,7 @@
 :host {
+  --contrast: #232323;
+  --contrast-2: #3f3f3f;
+  --contrast-3: #707070;
   --orange-400: #f07537;
   --teal-100: #cee8e9;
   --teal-400: #48c0b9;
@@ -9,6 +12,7 @@
   --padding: 30px;
   --offset: 0px;
   --outline: white;
+  color: var(--contrast);
 }
 :host,
 :host button {

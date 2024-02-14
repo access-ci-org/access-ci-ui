@@ -1,7 +1,12 @@
+import { Footer } from "./footer";
 import { Header } from "./header";
 import { FooterMenus, Menus } from "./menu";
 import { loginMenuItem, myAccessMenuItem, universalMenuItems } from "./items";
 import { renderShadow } from "./utils";
+
+const footer = (params = {}) => {
+  renderShadow(<Footer {...params} />, params.target);
+};
 
 const header = (params = {}) => {
   renderShadow(<Header {...params} />, params.target);
@@ -56,6 +61,7 @@ const footerMenus = ({ items, target }) =>
   renderShadow(<FooterMenus items={items} />, target);
 
 export {
+  footer,
   header,
   footerMenus,
   loginMenuItem,

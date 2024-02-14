@@ -105,3 +105,16 @@
     width: 19px;
   }
 }
+@media (min-width: 600px) {
+  .logo-footer .nsf-logo {
+    height: 36px;
+  }
+  .logo-footer .divider {
+    height: 30px;
+    margin: 3px 11px 0 9px;
+  }
+  .logo-footer .access-logo {
+    margin-top: 10px;
+    height: 17px;
+  }
+}

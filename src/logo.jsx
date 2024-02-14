@@ -8,7 +8,7 @@ export const Logo = ({
 }) => {
   return (
     <>
-      <div class="logo">
+      <div class={`logo logo-${placement}`}>
         <a class="nsf" href={nsfUrl}>
           <img
             class="nsf-logo"

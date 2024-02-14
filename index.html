@@ -27,13 +27,15 @@
     <div id="header"></div>
     <div id="site-menus"></div>
     <div id="footer-menus"></div>
+    <div id="footer"></div>
     <script type="module">
       import {
-        header,
+        footer,
         footerMenus,
+        header,
+        siteMenus,
         universalMenuItems,
         universalMenus,
-        siteMenus,
       } from "/src/index.jsx";
 
       const siteItems = [
@@ -94,6 +96,8 @@
         items: siteItems,
         target: document.getElementById("footer-menus"),
       });
+
+      footer({ target: document.getElementById("footer") });
     </script>
   </body>
 </html>
