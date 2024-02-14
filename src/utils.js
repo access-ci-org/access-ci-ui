@@ -16,3 +16,9 @@ export const renderShadow = (content, target) => {
   const shadow = target.attachShadow({ mode: "open" });
   render(content, shadow);
 };
+
+export const getScrollTop = () =>
+  window.pageYOffset !== undefined
+    ? window.pageYOffset
+    : (document.documentElement || document.body.parentNode || document.body)
+        .scrollTop;

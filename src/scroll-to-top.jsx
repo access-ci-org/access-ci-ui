@@ -1,19 +1,12 @@
 import { useEffect, useState } from "preact/hooks";
+import { getScrollTop } from "./utils";
 
 export const ScrollToTop = ({ showAfterScroll = 300 }) => {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      const scrollTop =
-        window.pageYOffset !== undefined
-          ? window.pageYOffset
-          : (
-              document.documentElement ||
-              document.body.parentNode ||
-              document.body
-            ).scrollTop;
-      setVisible(scrollTop >= showAfterScroll);
-    });
+    window.addEventListener("scroll", () =>
+      setVisible(getScrollTop() >= showAfterScroll)
+    );
   }, []);
 
   return (

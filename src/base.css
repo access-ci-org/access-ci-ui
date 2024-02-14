@@ -1,4 +1,5 @@
-:host {
+:host,
+:root {
   --contrast: #232323;
   --contrast-2: #3f3f3f;
   --contrast-3: #707070;
@@ -15,7 +16,9 @@
   color: var(--contrast);
 }
 :host,
-:host button {
+:host button,
+:root,
+:root button {
   font-family: "Archivo", sans-serif;
 }
 .container {
@@ -24,31 +27,36 @@
   width: var(--width);
 }
 @media (min-width: 600px) {
-  :host {
+  :host,
+  :root {
     --padding: calc((100% - var(--width)) / 2);
     --offset: 7px;
     --width: 540px;
   }
 }
 @media (min-width: 768px) {
-  :host {
+  :host,
+  :root {
     --width: 712px;
   }
 }
 @media (min-width: 900px) {
-  :host {
+  :host,
+  :root {
     --padding: 10px;
     --offset: 0px;
     --width: 840px;
   }
 }
 @media (min-width: 1024px) {
-  :host {
+  :host,
+  :root {
     --width: 940px;
   }
 }
 @media (min-width: 1280px) {
-  :host {
+  :host,
+  :root {
     --width: 1180px;
   }
 }

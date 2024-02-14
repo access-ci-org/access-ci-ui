@@ -1,0 +1,45 @@
+.toc {
+  background-color: var(--teal-600);
+  color: white;
+  padding: 20px;
+  position: sticky;
+  top: 50px;
+}
+h2 {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0 0 16px 0;
+}
+ul {
+  margin: 0;
+  padding: 0 0 0 20px;
+}
+li {
+  line-height: 1.125;
+  list-style-type: none;
+  margin: 0;
+  padding: 9px 0;
+}
+a {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+}
+a :active,
+a:focus,
+a:hover {
+  color: var(--teal-100);
+  text-decoration-color: var(--teal-100);
+}
+@media (min-width: 768px) {
+  a.active {
+    color: var(--teal-100);
+  }
+}
+@media (min-width: 900px) {
+  .toc {
+    padding: 32px;
+  }
+}

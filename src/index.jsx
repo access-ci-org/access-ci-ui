@@ -2,6 +2,7 @@ import { Footer } from "./footer";
 import { Header } from "./header";
 import { FooterMenus, Menus } from "./menu";
 import { loginMenuItem, myAccessMenuItem, universalMenuItems } from "./items";
+import { TableOfContents } from "./table-of-contents";
 import { renderShadow } from "./utils";
 
 const footer = (params = {}) => {
@@ -60,6 +61,9 @@ const siteMenus = ({ items, siteName, target }) =>
 const footerMenus = ({ items, target }) =>
   renderShadow(<FooterMenus items={items} />, target);
 
+const tableOfContents = ({ headings = [], target }) =>
+  renderShadow(<TableOfContents headings={headings} />, target);
+
 export {
   footer,
   header,
@@ -67,6 +71,7 @@ export {
   loginMenuItem,
   myAccessMenuItem,
   siteMenus,
+  tableOfContents,
   universalMenuItems,
   universalMenus,
 };
