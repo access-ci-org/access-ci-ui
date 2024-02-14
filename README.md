@@ -17,24 +17,44 @@ Sites using ACCESS user interface components should include the Archivo font fam
 />
 ```
 
-## Menus
+## Components
 
-The library includes functions for rendering the ACCESS universal navigation menus,
-site menus, and footer menus:
+The library includes functions for rendering common ACCESS user interface components:
+
+- `universalMenus`: Universal navigation menus
+- `header`: Logo header
+- `siteMenus`: Site-specific navigation menus
+- `tableOfContents`: Page table of contents
+- `footerMenus`: Site-specific navigation menus above the footer
+- `footer`: Universal footer
+
+## Example
 
 ```html
 <div id="universal-menus"></div>
-...
+<div id="header"></div>
 <div id="site-menus"></div>
-...
+<div id="main" class="container">
+  <div id="body">
+    <h1>Page Title</h1>
+    <h2>First Section</h2>
+    <h2>Second Section</h2>
+    <h2>Third Section</h2>
+  </div>
+  <div id="table-of-contents"></div>
+</div>
 <div id="footer-menus"></div>
+<div id="footer"></div>
 <script type="module">
   import {
+    footer,
     footerMenus,
+    header,
+    siteMenus,
+    tableOfContents,
     universalMenuItems,
     universalMenus,
-    siteMenus,
-  } from "https://esm.sh/@access-ci/ui@0.1.2";
+  } from "https://esm.sh/@access-ci/ui@0.2.0";
 
   const siteItems = [
     {
@@ -79,15 +99,27 @@ site menus, and footer menus:
     target: document.getElementById("universal-menus"),
   });
 
+  header({
+    siteName: "Allocations",
+    target: document.getElementById("header"),
+  });
+
   siteMenus({
     items: siteItems,
     siteName: "Allocations",
     target: document.getElementById("site-menus"),
   });
 
+  tableOfContents({
+    headings: document.querySelectorAll("#body h1, #body h2"),
+    target: document.getElementById("table-of-contents"),
+  });
+
   footerMenus({
     items: siteItems,
     target: document.getElementById("footer-menus"),
   });
+
+  footer({ target: document.getElementById("footer") });
 </script>
 ```
