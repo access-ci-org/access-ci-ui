@@ -1,5 +1,7 @@
 :host {
   background-color: #fbfbfb;
+}
+.container {
   color: var(--contrast);
 }
 a {
