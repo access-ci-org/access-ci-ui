@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/access-ci-org/access-ci-ui/compare/v0.2.0...v0.2.1) (2024-02-15)
+
+
+### Bug Fixes
+
+* **header:** set parent element box sizing model ([dd4dd80](https://github.com/access-ci-org/access-ci-ui/commit/dd4dd802fc2124e1712b8503cd1e833cf5297389))
+* **logo:** include images in published bundle ([a8214b3](https://github.com/access-ci-org/access-ci-ui/commit/a8214b301a4c10be404d8fec00243c615886da13))
+
 ## [0.2.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.1.2...v0.2.0) (2024-02-14)
 
 
