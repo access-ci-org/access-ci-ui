@@ -1,4 +1,5 @@
 :host {
+  box-sizing: content-box;
   height: 84px;
   padding: 20px 0 0;
 }
