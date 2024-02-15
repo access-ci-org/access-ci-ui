@@ -22,7 +22,7 @@ export const Footer = (params = {}) => {
             <p class="disclaimer">
               Any opinions, findings, conclusions or recommendations expressed
               in this material are those of the authors and do not necessarily
-              reflect the views of the National Science Foundation.
+              reflect the views of NSF.
             </p>
             <a class="contact" href="https://access-ci.org/contact/">
               Contact ACCESS
