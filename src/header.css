@@ -1,11 +1,11 @@
 .container {
   box-sizing: content-box;
   height: 84px;
-  padding: 20px 0 0;
+  padding-top: 20px;
 }
 @media (min-width: 900px) {
   .container {
     height: 146px;
-    padding: 50px 0 0;
+    padding-top: 50px;
   }
 }
