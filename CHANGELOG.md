@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.2](https://github.com/access-ci-org/access-ci-ui/compare/v0.2.1...v0.2.2) (2024-02-15)
+
+
+### Bug Fixes
+
+* **footer:** use NSF acronym in disclaimer text ([f8fb3e8](https://github.com/access-ci-org/access-ci-ui/commit/f8fb3e844a01b1507dd1c867b85b5dbacb76e506))
+* **header:** move styles to child element to avoid conflicts ([a5bd218](https://github.com/access-ci-org/access-ci-ui/commit/a5bd218754b0aa773aff88604d3bf2e044be4d70))
+
 ### [0.2.1](https://github.com/access-ci-org/access-ci-ui/compare/v0.2.0...v0.2.1) (2024-02-15)
 
 
