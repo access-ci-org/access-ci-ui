@@ -1,4 +1,6 @@
 import style from "./logo.css?inline";
+import nsfLogoUrl from "./images/nsf-logo.png";
+import accessLogoUrl from "./images/access-logo.svg";
 
 export const Logo = ({
   nsfUrl = "https://www.nsf.gov",
@@ -12,13 +14,13 @@ export const Logo = ({
         <a class="nsf" href={nsfUrl}>
           <img
             class="nsf-logo"
-            src="/images/nsf-logo.png"
+            src={nsfLogoUrl}
             alt="National Science Foundation"
           />
         </a>
         <div class="divider" />
         <a class="access" href={siteUrl}>
-          <img class="access-logo" src="/images/access-logo.svg" alt="ACCESS" />
+          <img class="access-logo" src={accessLogoUrl} alt="ACCESS" />
           {siteName && placement == "header" ? (
             <span
               class={`name name-${siteName
