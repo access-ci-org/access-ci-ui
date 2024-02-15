@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/access-ci-org/access-ci-ui/compare/v0.2.2...v0.2.3) (2024-02-15)
+
+
+### Bug Fixes
+
+* **header:** fix side padding on mobile ([83558e4](https://github.com/access-ci-org/access-ci-ui/commit/83558e4a1b91cfcf75be5104108372bf63130a40))
+
 ### [0.2.2](https://github.com/access-ci-org/access-ci-ui/compare/v0.2.1...v0.2.2) (2024-02-15)
 
 
