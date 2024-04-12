@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.4](https://github.com/access-ci-org/access-ci-ui/compare/v0.2.3...v0.2.4) (2024-04-12)
+
+
+### Features
+
+* **logo:** adjust logo to match main ACCESS site ([e9491a9](https://github.com/access-ci-org/access-ci-ui/commit/e9491a99ca090e56ea127cd1310586d3b0b086b6))
+* **menus:** highlight current site in universal menus ([a88dd51](https://github.com/access-ci-org/access-ci-ui/commit/a88dd5166157e2ccdad34fbda3008f7580a07d89))
+* **menus:** use FontAwesome home icon ([6101066](https://github.com/access-ci-org/access-ci-ui/commit/6101066748681eff99d0248ba15ec9ca549af178))
+
 ### [0.2.3](https://github.com/access-ci-org/access-ci-ui/compare/v0.2.2...v0.2.3) (2024-02-15)
 
 
