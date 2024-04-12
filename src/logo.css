@@ -16,7 +16,7 @@
   text-decoration: none;
 }
 .divider {
-  border-right: 1px solid #bbbbbb;
+  border-right: 2px solid #bbbbbb;
   height: 40px;
   margin: 4px 15px 0 12px;
   width: 0;
@@ -71,12 +71,13 @@
     height: 82px;
   }
   .divider {
-    height: 68px;
+    height: 70px;
     margin: 6px 23px 0 20px;
   }
   .access-logo {
-    height: 39px;
-    margin-top: 21px;
+    height: auto;
+    margin-top: 22px;
+    width: 253px;
   }
   .name {
     font-size: 30px;
