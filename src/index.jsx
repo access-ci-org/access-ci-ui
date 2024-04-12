@@ -18,6 +18,7 @@ const universalMenus = ({
   isLoggedIn,
   loginUrl,
   logoutUrl,
+  siteName,
   target,
 } = {}) => {
   if (isLoggedIn === undefined)
@@ -34,6 +35,8 @@ const universalMenus = ({
     }));
 
     items = [...universalMenuItems, lastItem];
+    if (siteName)
+      items.find((item) => item.name == siteName).classes += " active";
   }
 
   renderShadow(

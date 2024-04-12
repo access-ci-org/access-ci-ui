@@ -96,6 +96,7 @@ The library includes functions for rendering common ACCESS user interface compon
   universalMenus({
     loginUrl: "/login",
     logoutUrl: "/logout",
+    siteName: "Allocations",
     target: document.getElementById("universal-menus"),
   });
 

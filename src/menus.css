@@ -214,6 +214,7 @@
   .menu > ul > li.grow > .item {
     flex: 0 1 0;
   }
+  .menu > ul > li.active > .item,
   .menu > ul > li > .expanded,
   .menu > ul > li > .item:active,
   .menu > ul > li > .item:focus,
