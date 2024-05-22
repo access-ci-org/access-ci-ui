@@ -26,7 +26,7 @@ export const universalMenuItems = [
   },
   {
     name: "Search",
-    href: "https://support.access-ci.org/knowledge-base",
+    href: "https://support.access-ci.org/find",
     classes: "icon icon-search",
   },
   {
