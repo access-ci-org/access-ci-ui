@@ -1,0 +1,27 @@
+:root {
+  color: #232323;
+  font-family: "Archivo", sans-serif;
+  font-size: 16px;
+}
+h1 {
+  font-size: 36px;
+  font-stretch: 70%;
+  font-weight: 500;
+  margin-top: 60px;
+}
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 36px;
+}
+a {
+  color: var(--contrast);
+  font-weight: 800;
+  text-decoration: underline;
+}
+a:active,
+a:focus,
+a:hover {
+  color: var(--teal-600);
+  text-decoration: none;
+}

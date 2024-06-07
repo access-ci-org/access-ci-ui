@@ -21,6 +21,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@glidejs/glide": "^3.6.1",
     "preact": "^10.13.1"
   },
   "devDependencies": {
