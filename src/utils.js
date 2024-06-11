@@ -22,3 +22,18 @@ export const getScrollTop = () =>
     ? window.pageYOffset
     : (document.documentElement || document.body.parentNode || document.body)
         .scrollTop;
+
+export const useJSON = (uri, defaultValue, prop) => {
+  const [value, setValue] = useState(defaultValue);
+  useEffect(() => {
+    if (uri)
+      (async () => {
+        const res = await fetch(uri);
+        const data = await res.json();
+        setValue(prop ? data[prop] : data);
+      })();
+  }, []);
+  return value;
+};
+
+export const sortOn = (prop) => (a, b) => a[prop] < b[prop] ? -1 : 1;

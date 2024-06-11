@@ -1,15 +1,11 @@
-import { useEffect, useState } from "preact/hooks";
 import { Carousel, CarouselSlide } from "./carousel";
+import { useJSON } from "./utils";
 
-export function ResourceHome({ title, showTitle, slidesURI }) {
-  const [slides, setSlides] = useState([]);
-  useEffect(() => {
-    if (slidesURI)
-      (async () => {
-        const res = await fetch(slidesURI);
-        setSlides((await res.json()).slides);
-      })();
-  }, []);
+import { ResourceGroups } from "./resource-groups";
+
+export function ResourceHome({ title, showTitle, slidesURI, groupsURI }) {
+  const slides = useJSON(slidesURI, [], "slides");
+  const groups = useJSON(groupsURI, null);
 
   return (
     <>
@@ -17,6 +13,7 @@ export function ResourceHome({ title, showTitle, slidesURI }) {
       {slides.length ? (
         <Carousel>{slides.map((slide) => CarouselSlide(slide))}</Carousel>
       ) : null}
+      {groups ? <ResourceGroups {...groups} /> : null}
     </>
   );
 }

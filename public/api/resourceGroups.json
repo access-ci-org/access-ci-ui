@@ -1,0 +1,55 @@
+{
+  "categories": [
+    {
+      "categoryId": 1,
+      "name": "General Purpose Compute & Storage",
+      "order": 1
+    },
+    { "categoryId": 2, "name": "Specialized Compute & Storage", "order": 2 },
+    { "categoryId": 3, "name": "Coordination & Support", "order": 3 }
+  ],
+  "resourceGroups": [
+    {
+      "resourceGroupId": 1,
+      "name": "Bridges-2",
+      "summary": "Bridges-2 is an integrated compute and storage platform that combines traditional high-performance computing with artificial intelligence and big data capabilities.",
+      "imageType": "photo",
+      "imageUri": "https://i0.wp.com/www.psc.edu/wp-content/uploads/2024/02/bridges-2-50.png?w=694&ssl=1",
+      "categoryId": 1,
+      "resourceProviderId": 1,
+      "tagIds": [1, 2, 3, 4]
+    },
+    {
+      "resourceGroupId": 2,
+      "name": "Jetstream2",
+      "summary": "Jetstream2 is a hybrid-cloud platform that provides flexible, on-demand, programmable cyberinfrastructure, including interactive virtual machine services.",
+      "imageType": "logo",
+      "imageUri": "https://jetstream-cloud.org/images/home/jetstream-2.png",
+      "categoryId": 1,
+      "resourceProviderId": 2,
+      "tagIds": [1, 2, 3, 4, 5]
+    }
+  ],
+  "resourceProviders": [
+    {
+      "resourceProviderId": 1,
+      "name": "Pittsburgh Supercomputing Center",
+      "iconUri": "https://i0.wp.com/www.psc.edu/wp-content/uploads/2020/09/cropped-PSClogo_Gradient-e1600870263745.jpg?fit=32%2C32&ssl=1"
+    },
+    {
+      "resourceProviderId": 2,
+      "name": "Indiana University",
+      "iconUri": "https://www.iu.edu/favicon.ico"
+    }
+  ],
+  "tags": [
+    { "tagId": 1, "name": "CPU", "tagCategoryId": 1, "order": 1 },
+    { "tagId": 2, "name": "GPU", "tagCategoryId": 1, "order": 2 },
+    { "tagId": 3, "name": "Storage", "tagCategoryId": 1, "order": 3 },
+    { "tagId": 4, "name": "Large Memory", "tagCategoryId": 1, "order": 4 },
+    { "tagId": 5, "name": "Virtual Machines", "tagCategoryId": 1, "order": 5 }
+  ],
+  "tagCategories": [
+    { "tagCategoryId": 1, "name": "Compute Features", "order": 1 }
+  ]
+}

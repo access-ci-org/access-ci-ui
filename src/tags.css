@@ -1,0 +1,38 @@
+ul.tags {
+  margin: 0;
+  padding: 0;
+}
+li.tag {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0 5px 5px 0;
+}
+.tag a {
+  background-color: var(--teal-100);
+  border: 1px solid var(--teal-400);
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: 500;
+  line-height: 18px;
+  padding: 3px 7px;
+  text-decoration: none;
+}
+.tag.active a,
+.tag a:active,
+.tag a:focus,
+.tag a:hover {
+  background-color: var(--teal-200);
+  color: var(--contrast);
+}
+.tag img,
+.tag svg {
+  background-position: center;
+  background-size: contain;
+  display: inline-block;
+  height: 16px;
+  margin-right: 5px;
+  vertical-align: text-bottom;
+  width: 16px;
+}
+.tag .collection-resource-providers a {
+}

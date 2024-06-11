@@ -1,3 +1,5 @@
+import { render } from "preact";
+
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { FooterMenus, Menus } from "./menu";
@@ -68,8 +70,7 @@ const footerMenus = ({ items, target }) =>
 const tableOfContents = ({ headings = [], target }) =>
   renderShadow(<TableOfContents headings={headings} />, target);
 
-const resourceCatalog = ({ target }) =>
-  renderShadow(<ResourceCatalog />, target);
+const resourceCatalog = ({ target }) => render(<ResourceCatalog />, target);
 
 export {
   footer,
