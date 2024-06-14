@@ -11,18 +11,20 @@ li.tag {
   background-color: var(--teal-100);
   border: 1px solid var(--teal-400);
   border-radius: 8px;
+  color: var(--contrast);
   display: inline-block;
   font-weight: 500;
   line-height: 18px;
   padding: 3px 7px;
   text-decoration: none;
 }
-.tag.active a,
-.tag a:active,
-.tag a:focus,
 .tag a:hover {
   background-color: var(--teal-200);
   color: var(--contrast);
+}
+.tag.active a {
+  border-color: var(--orange-400);
+  background-color: var(--orange-200);
 }
 .tag img,
 .tag svg {
@@ -33,6 +35,4 @@ li.tag {
   margin-right: 5px;
   vertical-align: text-bottom;
   width: 16px;
-}
-.tag .collection-resource-providers a {
 }

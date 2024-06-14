@@ -1,12 +1,16 @@
 {
-  "categories": [
+  "resourceCategories": [
     {
-      "categoryId": 1,
+      "resourceCategoryId": 1,
       "name": "General Purpose Compute & Storage",
       "order": 1
     },
-    { "categoryId": 2, "name": "Specialized Compute & Storage", "order": 2 },
-    { "categoryId": 3, "name": "Coordination & Support", "order": 3 }
+    {
+      "resourceCategoryId": 2,
+      "name": "Specialized Compute & Storage",
+      "order": 2
+    },
+    { "resourceCategoryId": 3, "name": "Coordination & Support", "order": 3 }
   ],
   "resourceGroups": [
     {
@@ -15,9 +19,8 @@
       "summary": "Bridges-2 is an integrated compute and storage platform that combines traditional high-performance computing with artificial intelligence and big data capabilities.",
       "imageType": "photo",
       "imageUri": "https://i0.wp.com/www.psc.edu/wp-content/uploads/2024/02/bridges-2-50.png?w=694&ssl=1",
-      "categoryId": 1,
-      "resourceProviderId": 1,
-      "tagIds": [1, 2, 3, 4]
+      "resourceCategoryId": 1,
+      "tagIds": [1, 3, 4, 5, 6]
     },
     {
       "resourceGroupId": 2,
@@ -25,31 +28,33 @@
       "summary": "Jetstream2 is a hybrid-cloud platform that provides flexible, on-demand, programmable cyberinfrastructure, including interactive virtual machine services.",
       "imageType": "logo",
       "imageUri": "https://jetstream-cloud.org/images/home/jetstream-2.png",
-      "categoryId": 1,
-      "resourceProviderId": 2,
-      "tagIds": [1, 2, 3, 4, 5]
-    }
-  ],
-  "resourceProviders": [
-    {
-      "resourceProviderId": 1,
-      "name": "Pittsburgh Supercomputing Center",
-      "iconUri": "https://i0.wp.com/www.psc.edu/wp-content/uploads/2020/09/cropped-PSClogo_Gradient-e1600870263745.jpg?fit=32%2C32&ssl=1"
-    },
-    {
-      "resourceProviderId": 2,
-      "name": "Indiana University",
-      "iconUri": "https://www.iu.edu/favicon.ico"
+      "resourceCategoryId": 1,
+      "tagIds": [2, 3, 4, 5, 6, 7]
     }
   ],
   "tags": [
-    { "tagId": 1, "name": "CPU", "tagCategoryId": 1, "order": 1 },
-    { "tagId": 2, "name": "GPU", "tagCategoryId": 1, "order": 2 },
-    { "tagId": 3, "name": "Storage", "tagCategoryId": 1, "order": 3 },
-    { "tagId": 4, "name": "Large Memory", "tagCategoryId": 1, "order": 4 },
-    { "tagId": 5, "name": "Virtual Machines", "tagCategoryId": 1, "order": 5 }
+    {
+      "tagId": 1,
+      "name": "Pittsburgh Supercomputing Center",
+      "iconUri": "https://i0.wp.com/www.psc.edu/wp-content/uploads/2020/09/cropped-PSClogo_Gradient-e1600870263745.jpg?fit=32%2C32&ssl=1",
+      "tagCategoryId": 1,
+      "order": 1
+    },
+    {
+      "tagId": 2,
+      "name": "Indiana University",
+      "iconUri": "https://www.iu.edu/favicon.ico",
+      "tagCategoryId": 1,
+      "order": 2
+    },
+    { "tagId": 3, "name": "CPU", "tagCategoryId": 2, "order": 1 },
+    { "tagId": 4, "name": "GPU", "tagCategoryId": 2, "order": 2 },
+    { "tagId": 5, "name": "Storage", "tagCategoryId": 2, "order": 3 },
+    { "tagId": 6, "name": "Large Memory", "tagCategoryId": 2, "order": 4 },
+    { "tagId": 7, "name": "Virtual Machines", "tagCategoryId": 2, "order": 5 }
   ],
   "tagCategories": [
-    { "tagCategoryId": 1, "name": "Compute Features", "order": 1 }
+    { "tagCategoryId": 1, "name": "Resource Provider", "order": 1 },
+    { "tagCategoryId": 2, "name": "Compute & Storage Feature", "order": 2 }
   ]
 }

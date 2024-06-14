@@ -2,13 +2,14 @@ import { Tag } from "./tag";
 import { Tags } from "./tags";
 
 export function ResourceGroup({
+  active,
   imageType,
   imageUri,
   name,
   summary,
   resourceGroupId,
-  resourceProvider,
   tags,
+  toggleTag,
 }) {
   const detailUri = `/resources/${resourceGroupId}`;
   return (
@@ -24,14 +25,8 @@ export function ResourceGroup({
           <a href={detailUri}>{name}</a>
         </h3>
         <Tags>
-          <Tag
-            collection="resource-providers"
-            tagId={resourceProvider.resourceProviderId}
-            name={resourceProvider.name}
-            icon={resourceProvider.iconUri}
-          />
           {tags.map((tag) => (
-            <Tag tagId={tag.tagId} name={tag.name} />
+            <Tag {...tag} active={active} toggleTag={toggleTag} />
           ))}
         </Tags>
         <p>
