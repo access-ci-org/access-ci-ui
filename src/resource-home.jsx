@@ -3,6 +3,7 @@ import { useJSON } from "./utils";
 
 import { Carousel, CarouselSlide } from "./carousel";
 import { ResourceCategory } from "./resource-category";
+import { ResourceFilters } from "./resource-filters";
 
 const linkGroupData = ({
   resourceCategories,
@@ -53,6 +54,12 @@ const getActive = ({ resourceGroups, tags, tagCategories }, activeTagIds) => {
     tagCategoryIds.has(tagCategoryId)
   );
 
+  const disabledTagIds = new Set(
+    tags
+      .filter((tag) => !tagCategoryIds.has(tag.tagCategoryId))
+      .map((tag) => tag.tagId)
+  );
+
   for (let resourceGroup of resourceGroups) {
     let resourceGroupActive = true;
     for (let tagCategory of activeTagCategories) {
@@ -72,10 +79,17 @@ const getActive = ({ resourceGroups, tags, tagCategories }, activeTagIds) => {
     if (resourceGroupActive) {
       resourceGroupIds.add(resourceGroup.resourceGroupId);
       resourceCategoryIds.add(resourceGroup.resourceCategoryId);
+      for (let tagId of resourceGroup.tagIds) disabledTagIds.delete(tagId);
     }
   }
 
-  return { resourceCategoryIds, resourceGroupIds, tagCategoryIds, tagIds };
+  return {
+    disabledTagIds,
+    resourceCategoryIds,
+    resourceGroupIds,
+    tagCategoryIds,
+    tagIds,
+  };
 };
 
 export function ResourceHome({ title, showTitle, slidesURI, groupsURI }) {
@@ -105,6 +119,13 @@ export function ResourceHome({ title, showTitle, slidesURI, groupsURI }) {
         <Carousel>{slides.map((slide) => CarouselSlide(slide))}</Carousel>
       ) : null}
 
+      {active ? (
+        <ResourceFilters
+          tagCategories={groups.tagCategories}
+          active={active}
+          toggleTag={toggleTag}
+        />
+      ) : null}
       {groups
         ? groups.resourceCategories
             .filter(({ resourceCategoryId }) =>

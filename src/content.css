@@ -10,9 +10,14 @@ h1 {
   margin-top: 60px;
 }
 h2 {
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 800;
   margin-top: 36px;
+}
+h3 {
+  color: var(--teal-700);
+  font-size: 18px;
+  font-weight: 800;
 }
 a {
   color: var(--contrast);
@@ -24,4 +29,24 @@ a:focus,
 a:hover {
   color: var(--teal-600);
   text-decoration: none;
+}
+.btn {
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.btn-lite {
+  background-color: white;
+  border: 1px solid var(--contrast);
+  color: var(--contrast);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px 25px;
+  text-transform: uppercase;
+}
+.btn-lite:active,
+.btn-lite:focus,
+.btn-lite:hover {
+  background-color: var(--contrast-9);
+  cursor: pointer;
 }

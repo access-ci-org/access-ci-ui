@@ -7,22 +7,29 @@ li.tag {
   list-style-type: none;
   margin: 0 5px 5px 0;
 }
-.tag a {
+.tag button {
   background-color: var(--teal-100);
   border: 1px solid var(--teal-400);
   border-radius: 8px;
   color: var(--contrast);
+  cursor: pointer;
   display: inline-block;
+  font-size: 16px;
   font-weight: 500;
   line-height: 18px;
   padding: 3px 7px;
   text-decoration: none;
 }
-.tag a:hover {
+.tag button:hover {
   background-color: var(--teal-200);
   color: var(--contrast);
 }
-.tag.active a {
+.tag button:disabled {
+  background-color: var(--contrast-9);
+  border-color: var(--contrast-6);
+  color: var(--contrast-3);
+}
+.tag.active button {
   border-color: var(--orange-400);
   background-color: var(--orange-200);
 }

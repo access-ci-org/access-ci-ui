@@ -5,6 +5,7 @@ import contentStyle from "./content.css?inline";
 import glideCoreStyle from "@glidejs/glide/dist/css/glide.core.min.css?inline";
 import glideThemeStyle from "@glidejs/glide/dist/css/glide.theme.min.css?inline";
 import carouselStyle from "./carousel.css?inline";
+import resourceFiltersStyle from "./resource-filters.css?inline";
 import resourceGroupStyle from "./resource-group.css?inline";
 import tagsStyle from "./tags.css?inline";
 
@@ -32,6 +33,7 @@ export function ResourceCatalog({
       <style>{glideCoreStyle}</style>
       <style>{glideThemeStyle}</style>
       <style>{carouselStyle}</style>
+      <style>{resourceFiltersStyle}</style>
       <style>{resourceGroupStyle}</style>
       <style>{tagsStyle}</style>
     </>

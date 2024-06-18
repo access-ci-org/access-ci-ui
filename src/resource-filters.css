@@ -1,0 +1,14 @@
+.filters-outer {
+  float: right;
+  position: relative;
+}
+.filters-inner {
+  background-color: white;
+  border: 1px solid var(--contrast);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  position: absolute;
+  right: 0;
+  top: 38px;
+  width: calc(var(--width) * 0.4);
+}

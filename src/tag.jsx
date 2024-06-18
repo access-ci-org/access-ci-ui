@@ -7,8 +7,9 @@ export function Tag({ active, tagCategory, tagId, iconUri, name, toggleTag }) {
         .toLowerCase()
         .replace(/[^a-z]+/g, "-")}${active.tagIds.has(tagId) ? " active" : ""}`}
     >
-      <a
+      <button
         href="#"
+        disabled={active.disabledTagIds.has(tagId)}
         onClick={(e) => {
           e.preventDefault();
           toggleTag(tagId);
@@ -20,7 +21,7 @@ export function Tag({ active, tagCategory, tagId, iconUri, name, toggleTag }) {
           defaultIcons[name] || defaultIcons.Tag
         )}
         {name}
-      </a>
+      </button>
     </li>
   );
 }
