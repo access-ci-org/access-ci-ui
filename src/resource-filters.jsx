@@ -1,5 +1,4 @@
 import { useLayoutEffect, useRef, useState } from "preact/hooks";
-import { defaultIcons } from "./icons";
 
 import { Tag } from "./tag";
 import { Tags } from "./tags";
@@ -26,7 +25,7 @@ export function ResourceFilters({
         onClick={() => setOpen(!open)}
         class={`btn-filters btn ${open ? "active" : ""}`}
       >
-        Filters
+        <Icon name="filter" /> Filters
         {active.tagIds.size > 0 ? (
           <span class="active-tag-count">{active.tagIds.size}</span>
         ) : null}
