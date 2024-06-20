@@ -1,3 +1,4 @@
+/* Resource home page */
 .resource-group {
   align-items: flex-start;
   display: flex;
@@ -27,4 +28,25 @@
 }
 .resource-group-text *:first-child {
   margin-top: 0;
+}
+/* Resource detail page */
+.resource-group-detail {
+  margin-bottom: 70px;
+  width: var(--width);
+}
+.resource-group-feature-image {
+  margin-top: 60px;
+}
+.resource-group-description::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .resource-group-feature-image {
+    float: right;
+    margin: 0 0 0 20px;
+    width: calc(((var(--width) - 140px) / 8) * 3 + 40px);
+  }
 }

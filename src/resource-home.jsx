@@ -96,7 +96,12 @@ const getActive = ({ resourceGroups, tags, tagCategories }, activeTagIds) => {
   };
 };
 
-export function ResourceHome({ title, showTitle, slidesURI, groupsURI }) {
+export default function ResourceHome({
+  title,
+  showTitle,
+  slidesURI,
+  groupsURI,
+}) {
   const [activeTagIds, setActiveTagIds] = useState([]);
   const slides = useJSON(slidesURI, [], "slides");
   const allGroups = useJSON(groupsURI, null);

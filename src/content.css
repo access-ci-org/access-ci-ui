@@ -30,15 +30,22 @@ a:hover {
   color: var(--teal-600);
   text-decoration: none;
 }
+p {
+  font-size: 1.125rem;
+  line-height: 1.875rem;
+  margin: 0 0 1.25rem;
+}
 .btn {
   background-color: var(--teal-700);
   border: 4px solid var(--teal-700);
   color: white;
+  display: inline-block;
   font-family: "Archivo", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
   padding: 6px 12px;
+  text-decoration: none;
   text-transform: uppercase;
 }
 .secondary {
@@ -49,6 +56,11 @@ a:hover {
 .danger {
   background-color: var(--red-400);
   border-color: var(--red-400);
+}
+.lg {
+  font-size: 20px;
+  line-height: 30px;
+  padding: 8px 16px;
 }
 .btn.active,
 .btn:active,
@@ -66,4 +78,7 @@ a:hover {
 }
 .btn .bi {
   vertical-align: middle;
+}
+.btn + .btn {
+  margin-left: 10px;
 }
