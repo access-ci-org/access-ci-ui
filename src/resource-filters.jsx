@@ -1,9 +1,15 @@
 import { useLayoutEffect, useRef, useState } from "preact/hooks";
+import { defaultIcons } from "./icons";
 
 import { Tag } from "./tag";
 import { Tags } from "./tags";
 
-export function ResourceFilters({ active, tagCategories, toggleTag }) {
+export function ResourceFilters({
+  active,
+  clearTags,
+  tagCategories,
+  toggleTag,
+}) {
   const [open, setOpen] = useState(false);
   const outer = useRef(null);
   useLayoutEffect(() => {
@@ -15,8 +21,14 @@ export function ResourceFilters({ active, tagCategories, toggleTag }) {
 
   return (
     <section class="filters-outer" ref={outer}>
-      <button onClick={() => setOpen(!open)} class="filters btn-lite">
+      <button
+        onClick={() => setOpen(!open)}
+        class={`btn-filters btn ${open ? "active" : ""}`}
+      >
         Filters
+        {active.tagIds.size > 0 ? (
+          <span class="active-tag-count">{active.tagIds.size}</span>
+        ) : null}
       </button>
       {open ? (
         <div class="filters-inner">
@@ -30,6 +42,13 @@ export function ResourceFilters({ active, tagCategories, toggleTag }) {
               </Tags>
             </>
           ))}
+          <button
+            onClick={clearTags}
+            disabled={active.tagIds.size == 0}
+            class="btn danger"
+          >
+            {defaultIcons.Trash} Clear Filters
+          </button>
         </div>
       ) : null}
     </section>

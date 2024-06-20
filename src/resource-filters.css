@@ -4,11 +4,47 @@
 }
 .filters-inner {
   background-color: white;
-  border: 1px solid var(--contrast);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  border: 4px solid var(--contrast);
   padding: 20px;
   position: absolute;
   right: 0;
-  top: 38px;
+  top: 40px;
   width: calc(var(--width) * 0.4);
+}
+.filters-inner h2 {
+  font-size: 16px;
+  margin: 0 0 1rem;
+}
+.filters-inner ul.tags {
+  margin-bottom: 1rem;
+}
+.btn-filters {
+  position: relative;
+}
+.btn-filters .active-tag-count {
+  background-color: var(--orange-400);
+  border-radius: 10px;
+  color: white;
+  display: block;
+  font-size: 12px;
+  height: 20px;
+  line-height: 20px;
+  top: -10px;
+  position: absolute;
+  text-align: center;
+  right: -10px;
+  width: 20px;
+}
+.btn-filters.active {
+  z-index: 100;
+}
+.btn-filters.active::after {
+  background-color: white;
+  bottom: -4px;
+  content: "";
+  display: block;
+  height: 4px;
+  left: 0;
+  position: absolute;
+  width: 100%;
 }

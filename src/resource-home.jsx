@@ -54,6 +54,10 @@ const getActive = ({ resourceGroups, tags, tagCategories }, activeTagIds) => {
     tagCategoryIds.has(tagCategoryId)
   );
 
+  // TODO: Improve logic for disabled tags. Tags should be disabled if the active
+  // tags in all *other* tag categories eliminate all resource groups containing
+  // that tag. The current logic fails to disable some tags when another tag in
+  // the same tag category is active.
   const disabledTagIds = new Set(
     tags
       .filter((tag) => !tagCategoryIds.has(tag.tagCategoryId))
@@ -112,6 +116,8 @@ export function ResourceHome({ title, showTitle, slidesURI, groupsURI }) {
         : [...activeTagIds, tagId]
     );
 
+  const clearTags = () => setActiveTagIds([]);
+
   return (
     <>
       {title && <h1 class={showTitle ? "" : "visually-hidden"}>{title}</h1>}
@@ -123,6 +129,7 @@ export function ResourceHome({ title, showTitle, slidesURI, groupsURI }) {
         <ResourceFilters
           tagCategories={groups.tagCategories}
           active={active}
+          clearTags={clearTags}
           toggleTag={toggleTag}
         />
       ) : null}
@@ -135,6 +142,7 @@ export function ResourceHome({ title, showTitle, slidesURI, groupsURI }) {
               <ResourceCategory
                 {...resourceCategory}
                 active={active}
+                clearTags={clearTags}
                 toggleTag={toggleTag}
               />
             ))
