@@ -3,6 +3,7 @@ import { defaultIcons } from "./icons";
 
 import { Tag } from "./tag";
 import { Tags } from "./tags";
+import Icon from "./icon";
 
 export function ResourceFilters({
   active,
@@ -47,7 +48,7 @@ export function ResourceFilters({
             disabled={active.tagIds.size == 0}
             class="btn danger"
           >
-            {defaultIcons.Trash} Clear Filters
+            <Icon name="trash" /> Clear Filters
           </button>
         </div>
       ) : null}

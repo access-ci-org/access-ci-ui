@@ -1,5 +1,7 @@
 import { defaultIcons } from "./icons";
 
+import Icon from "./icon";
+
 export function Tag({ active, tagCategory, tagId, iconUri, name, toggleTag }) {
   return (
     <li
@@ -16,9 +18,9 @@ export function Tag({ active, tagCategory, tagId, iconUri, name, toggleTag }) {
         }}
       >
         {iconUri ? (
-          <img src={iconUri} />
+          <Icon alt={name} src={iconUri} />
         ) : (
-          defaultIcons[name] || defaultIcons.Tag
+          <Icon name={defaultIcons[name] || "tag"} />
         )}
         {name}
       </button>

@@ -33,13 +33,3 @@ li.tag {
   border-color: var(--orange-400);
   background-color: var(--orange-200);
 }
-.tag img,
-.tag svg {
-  background-position: center;
-  background-size: contain;
-  display: inline-block;
-  height: 16px;
-  margin-right: 5px;
-  vertical-align: text-bottom;
-  width: 16px;
-}
