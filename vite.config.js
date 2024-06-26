@@ -11,5 +11,6 @@ export default defineConfig({
   //     fileName: "access-ci-ui",
   //   },
   // },
+  base: "/access-ci-ui",
   plugins: [preact()],
 });

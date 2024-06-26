@@ -4,7 +4,7 @@ import Icon from "./icon";
 
 export default function ResourceGroupDescription({ resourceId }) {
   const data = useJSON(
-    `/api/resourceGroup.json?resourceId=${resourceId}`,
+    `/access-ci-ui/api/resourceGroup.json?resourceId=${resourceId}`,
     null
   );
   if (!data) return;

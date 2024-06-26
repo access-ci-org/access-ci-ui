@@ -3,6 +3,7 @@ import { Tags } from "./tags";
 
 export function ResourceGroup({
   active,
+  baseUri,
   imageType,
   imageUri,
   name,
@@ -11,7 +12,7 @@ export function ResourceGroup({
   tags,
   toggleTag,
 }) {
-  const detailUri = `/resources/${resourceGroupId}`;
+  const detailUri = `${baseUri}/resources/${resourceGroupId}`;
   return (
     <div class="resource-group">
       <a

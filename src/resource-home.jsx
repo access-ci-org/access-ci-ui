@@ -97,14 +97,15 @@ const getActive = ({ resourceGroups, tags, tagCategories }, activeTagIds) => {
 };
 
 export default function ResourceHome({
+  baseUri,
   title,
   showTitle,
   slidesURI,
   groupsURI,
 }) {
   const [activeTagIds, setActiveTagIds] = useState([]);
-  const slides = useJSON(slidesURI, [], "slides");
-  const allGroups = useJSON(groupsURI, null);
+  const slides = useJSON(`${baseUri}${slidesURI}`, [], "slides");
+  const allGroups = useJSON(`${baseUri}${groupsURI}`, null);
   const groups = useMemo(
     () => (allGroups ? linkGroupData(allGroups) : null),
     [allGroups]
@@ -147,6 +148,7 @@ export default function ResourceHome({
               <ResourceCategory
                 {...resourceCategory}
                 active={active}
+                baseUri={baseUri}
                 clearTags={clearTags}
                 toggleTag={toggleTag}
               />
