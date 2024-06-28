@@ -1,0 +1,97 @@
+{
+  "resources": [
+    {
+      "resourceId": 1,
+      "name": "Bridges-2 Regular Memory",
+      "summary": "Regular Memory (RM) nodes provide extremely powerful general-purpose computing, pre- and post-processing, AI inferencing, and machine learning and data analytics. Most RM nodes contain 256GB of RAM, but 16 of them have 512GB.",
+      "resourceTypeId": 1,
+      "nodeTypes": [
+        {
+          "count": 488,
+          "cpu": "2 AMD EPYC 7742 CPUs, 64 cores per CPU, 128 cores per node, 2.25-3.40 GHz",
+          "ram": "256GB",
+          "cache": "256MB L3, 8 memory channels",
+          "localStorage": "3.84TB NVMe SSD",
+          "network": "Mellanox ConnectX-6-HDR Infiniband 200Gb/s Adapter"
+        },
+        {
+          "count": 16,
+          "cpu": "2 AMD EPYC 7742 CPUs, 64 cores per CPU, 128 cores per node, 2.25-3.40 GHz",
+          "ram": "512GB",
+          "cache": "256MB L3, 8 memory channels",
+          "localStorage": "3.84TB NVMe SSD",
+          "network": "Mellanox ConnectX-6-HDR Infiniband 200Gb/s Adapter"
+        }
+      ],
+      "order": 1
+    },
+    {
+      "resourceId": 2,
+      "name": "Bridges-2 Extreme Memory",
+      "summary": "Extreme Memory (EM) nodes provide 4TB of shared memory for statistics, graph analytics, genome sequence assembly, and other applications requiring a large amount of memory for which distributed-memory implementations are not available.",
+      "resourceTypeId": 1,
+      "nodeTypes": [
+        {
+          "count": 4,
+          "cpu": "4 Intel Xeon Platinum 8260M Cascade lake CPUs, 24 cores per CPU, 96 cores per node, 2.40-3.90 GHz",
+          "ram": "4TB, DDR4-2933",
+          "cache": "37.75MB LLC, 6 memory channels",
+          "localStorage": "7.68TB NVMe SSD",
+          "network": "Mellanox ConnectX-6-HDR Infiniband 200Gb/s Adapter"
+        }
+      ],
+      "order": 2
+    },
+    {
+      "resourceId": 3,
+      "name": "Bridges-2 GPU",
+      "summary": "Bridges-2's GPU nodes provide exceptional performance and scalability for deep learning and accelerated computing, with a total of 40, 960 CUDA cores and 5,120 tensor cores. Bridges' GPU-AI resources have been migrated to Bridges-2, adding the DGX-2 and nine more V100 GPU nodes to Bridges-2's GPU resources.",
+      "resourceTypeId": 1,
+      "nodeTypes": [
+        {
+          "count": 24,
+          "gpu": "8 NVIDIA Tesla V100-32GB SXM2",
+          "gpuMemory": "32 GB per GPU, 256GB total/node",
+          "gpuPerformance": "1 Pf/s tensor",
+          "cpu": "2 Intel Xeon Gold 6248 Cascade Lake CPUs, 20 cores per CPU, 40 cores per node, 2.50-3.90 GHz",
+          "ram": "512GB, DDR4-2933",
+          "interconnect": "NVLink",
+          "nvCache": "27.5MB LLC, 6 memory channels",
+          "localStorage": "7.68TB NVMe SSD",
+          "network": "2 Mellanox ConnectX-6 HDR Infiniband 200 Gbs/s Adapters"
+        },
+        {
+          "count": 9,
+          "gpu": "8 NVIDIA V100-16GB",
+          "gpuMemory": "16GB per GPU, 128GB total/node",
+          "cpu": "2 Intel Xeon Gold 6148 CPUs, 20 cores per CPU, 40 cores per node, 2.4-3.7 GHz",
+          "ram": "192 GB, DDR4-2666",
+          "interconnect": "PCIe",
+          "localStorage": "4 NVMe SSDs, 2TB each (total 8TB)"
+        },
+        {
+          "count": 1,
+          "gpu": "16 NVIDIA Volta V100-32GB",
+          "gpuMemory": "32GB per GPU, 512GB total",
+          "cpu": "2 Intel Xeon Platinum 8168, 24 cores per CPU, 48 cores total, 2.7-3.7 GHz",
+          "ram": "1.5 TB, DDR4-2666",
+          "interconnect": "NVLink",
+          "nvCache": "33MB",
+          "localStorage": "8 NVMe SSDs, 8.84TB each (total ~30TB)"
+        }
+      ],
+      "order": 3
+    },
+    {
+      "resourceId": 4,
+      "name": "Bridges-2 Ocean",
+      "summary": "Data management on Bridges-2 is accomplished through a unified, high performance filesystem for active project data, archive, and resilience, named Ocean. Used for active project data, Ocean is a high performance, internally resilient Lustre parallel filesystem with 15PB of usable capacity, configured to deliver up to 129GB/s and 142GB/s of read and write bandwidth, respectively.",
+      "resourceTypeId": 2,
+      "order": 4
+    }
+  ],
+  "resourceTypes": [
+    { "resourceTypeId": 1, "name": "Compute Resources" },
+    { "resourceTypeId": 2, "name": "Storage Resources" }
+  ]
+}

@@ -104,10 +104,10 @@ export default function ResourceHome({
   groupsURI,
 }) {
   const [activeTagIds, setActiveTagIds] = useState([]);
-  const slides = useJSON(`${baseUri}${slidesURI}`, [], "slides");
+  const slides = useJSON(`${baseUri}${slidesURI}`, null);
   const allGroups = useJSON(`${baseUri}${groupsURI}`, null);
   const groups = useMemo(
-    () => (allGroups ? linkGroupData(allGroups) : null),
+    () => (allGroups && !allGroups.error ? linkGroupData(allGroups) : null),
     [allGroups]
   );
   const active = useMemo(
@@ -127,8 +127,10 @@ export default function ResourceHome({
   return (
     <>
       {title && <h1 class={showTitle ? "" : "visually-hidden"}>{title}</h1>}
-      {slides.length ? (
-        <Carousel>{slides.map((slide) => CarouselSlide(slide))}</Carousel>
+      {slides && slides.slides.length ? (
+        <Carousel>
+          {slides.slides.map((slide) => CarouselSlide(slide))}
+        </Carousel>
       ) : null}
 
       {active ? (

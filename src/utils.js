@@ -23,14 +23,18 @@ export const getScrollTop = () =>
     : (document.documentElement || document.body.parentNode || document.body)
         .scrollTop;
 
-export const useJSON = (uri, defaultValue, prop) => {
+export const useJSON = (uri, defaultValue) => {
   const [value, setValue] = useState(defaultValue);
   useEffect(() => {
     if (uri)
       (async () => {
         const res = await fetch(uri);
-        const data = await res.json();
-        setValue(prop ? data[prop] : data);
+        if (res.status < 200 || res.status > 299) {
+          setValue({ error: { status: res.status } });
+        } else {
+          const data = await res.json();
+          setValue(data);
+        }
       })();
   }, []);
   return value;

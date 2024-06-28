@@ -82,3 +82,16 @@ p {
 .btn + .btn {
   margin-left: 10px;
 }
+.table {
+  border-top: 1px solid var(--contrast);
+  border-collapse: collapse;
+  width: 100%;
+}
+.table td,
+.table th {
+  border-bottom: 1px solid var(--contrast);
+  padding: 16px;
+}
+.table tbody th {
+  text-align: right;
+}

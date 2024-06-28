@@ -1,4 +1,5 @@
 import { ErrorBoundary, lazy, LocationProvider, Router } from "preact-iso";
+import accordionStyle from "./accordion.css?inline";
 import baseStyle from "./base.css?inline";
 import contentStyle from "./content.css?inline";
 import iconStyle from "./icon.css?inline";
@@ -34,13 +35,14 @@ export function ResourceCatalog({
             />
             <ResourceGroupDetail
               baseUri={baseUri}
-              path={`${baseUri}/resources/:resourceId`}
+              path={`${baseUri}/resources/:resourceGroupId`}
             />
           </Router>
         </ErrorBoundary>
       </LocationProvider>
       <style>{baseStyle}</style>
       <style>{contentStyle}</style>
+      <style>{accordionStyle}</style>
       <style>{iconStyle}</style>
       <style>{glideCoreStyle}</style>
       <style>{glideThemeStyle}</style>

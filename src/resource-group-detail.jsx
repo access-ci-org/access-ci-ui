@@ -1,9 +1,17 @@
 import ResourceGroupDescription from "./resource-group-description";
+import ResourceGroupResources from "./resource-group-resources";
 
-export default function ResourceGroupDetail({ baseUri, resourceId }) {
+export default function ResourceGroupDetail({ baseUri, resourceGroupId }) {
   return (
     <div class="resource-group-detail">
-      <ResourceGroupDescription baseUri={baseUri} resourceId={resourceId} />
+      <ResourceGroupDescription
+        baseUri={baseUri}
+        resourceGroupId={resourceGroupId}
+      />
+      <ResourceGroupResources
+        baseUri={baseUri}
+        resourceGroupId={resourceGroupId}
+      />
     </div>
   );
 }
