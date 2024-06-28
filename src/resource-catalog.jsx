@@ -16,8 +16,8 @@ export function ResourceCatalog({
   title = "Resource Catalog",
   showTitle = false,
   baseUri = "/access-ci-ui",
-  groupsURI = "/api/resourceGroups.json",
-  slidesURI = "/api/resourceSlides.json",
+  groupsURI = "/api/resource-groups.json",
+  slidesURI = "/api/resource-slides.json",
 }) {
   return (
     <>

@@ -2,9 +2,9 @@ import { useJSON } from "./utils";
 
 import Icon from "./icon";
 
-export default function ResourceGroupDescription({ resourceId }) {
+export default function ResourceGroupDescription({ baseUri, resourceId }) {
   const data = useJSON(
-    `/access-ci-ui/api/resourceGroup.json?resourceId=${resourceId}`,
+    `${baseUri}/api/resource-group/${resourceId}.json`,
     null
   );
   if (!data) return;
