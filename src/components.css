@@ -1,0 +1,9 @@
+.flex-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.highlight {
+  background-color: var(--yellow-200);
+  padding: 2px 0;
+}

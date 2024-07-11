@@ -1,10 +1,12 @@
 import { ErrorBoundary, lazy, LocationProvider, Router } from "preact-iso";
 import accordionStyle from "./accordion.css?inline";
 import baseStyle from "./base.css?inline";
+import componentsStyle from "./components.css?inline";
 import contentStyle from "./content.css?inline";
 import iconStyle from "./icon.css?inline";
 import glideCoreStyle from "@glidejs/glide/dist/css/glide.core.min.css?inline";
 import glideThemeStyle from "@glidejs/glide/dist/css/glide.theme.min.css?inline";
+import gridStyle from "./grid.css?inline";
 import carouselStyle from "./carousel.css?inline";
 import resourceFiltersStyle from "./resource-filters.css?inline";
 import resourceGroupStyle from "./resource-group.css?inline";
@@ -42,10 +44,12 @@ export function ResourceCatalog({
       </LocationProvider>
       <style>{baseStyle}</style>
       <style>{contentStyle}</style>
+      <style>{componentsStyle}</style>
       <style>{accordionStyle}</style>
       <style>{iconStyle}</style>
       <style>{glideCoreStyle}</style>
       <style>{glideThemeStyle}</style>
+      <style>{gridStyle}</style>
       <style>{carouselStyle}</style>
       <style>{resourceFiltersStyle}</style>
       <style>{resourceGroupStyle}</style>

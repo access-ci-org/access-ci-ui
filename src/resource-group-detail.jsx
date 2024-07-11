@@ -1,5 +1,6 @@
 import ResourceGroupDescription from "./resource-group-description";
 import ResourceGroupResources from "./resource-group-resources";
+import ResourceGroupSoftware from "./resource-group-software";
 
 export default function ResourceGroupDetail({ baseUri, resourceGroupId }) {
   return (
@@ -9,6 +10,10 @@ export default function ResourceGroupDetail({ baseUri, resourceGroupId }) {
         resourceGroupId={resourceGroupId}
       />
       <ResourceGroupResources
+        baseUri={baseUri}
+        resourceGroupId={resourceGroupId}
+      />
+      <ResourceGroupSoftware
         baseUri={baseUri}
         resourceGroupId={resourceGroupId}
       />

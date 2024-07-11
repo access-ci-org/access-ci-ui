@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.6.1",
+    "fuse.js": "^7.0.0",
     "preact": "^10.13.1",
     "preact-iso": "^2.6.3"
   },

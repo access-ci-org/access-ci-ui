@@ -1,0 +1,56 @@
+.grid {
+  border-top: 1px solid var(--contrast);
+  max-height: 400px;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  overflow: scroll;
+  position: relative;
+}
+.grid table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-top: 0 none transparent;
+  margin-bottom: 0;
+  position: relative;
+}
+.grid th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.grid th,
+.grid td {
+  background-color: white;
+}
+.grid th:last-child,
+.grid td:last-child {
+  border-right: 0 none transparent;
+}
+.grid th.important,
+.grid td.important {
+  background-color: #f8f9fa;
+}
+.grid th.input,
+.grid td.input {
+  background-color: var(--teal-200);
+}
+.grid .edited td,
+.grid .edited select {
+  background-color: #faf1d7;
+}
+.grid .edited td.important,
+.grid .edited select.important {
+  background-color: #fbeeca;
+}
+.grid .disabled td,
+.grid .disabled select {
+  background-color: #dddddd;
+}
+.grid .disabled td.important,
+.grid .disabled select.important {
+  background-color: #cccccc;
+}
+.grid tbody tr:last-child th,
+.grid tbody tr:last-child td {
+  border-bottom: 0 none transparent;
+}

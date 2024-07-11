@@ -92,6 +92,16 @@ p {
   border-bottom: 1px solid var(--contrast);
   padding: 16px;
 }
+.table thead th {
+  text-align: left;
+}
 .table tbody th {
   text-align: right;
+}
+input {
+  border: 1px solid var(--contrast-8);
+  border-radius: 0;
+  color: var(--contrast);
+  font-size: 1rem;
+  padding: 6px 12px;
 }
