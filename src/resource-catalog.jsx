@@ -4,6 +4,7 @@ import baseStyle from "./base.css?inline";
 import componentsStyle from "./components.css?inline";
 import contentStyle from "./content.css?inline";
 import iconStyle from "./icon.css?inline";
+import infoTipStyle from "./info-tip.css?inline";
 import glideCoreStyle from "@glidejs/glide/dist/css/glide.core.min.css?inline";
 import glideThemeStyle from "@glidejs/glide/dist/css/glide.theme.min.css?inline";
 import gridStyle from "./grid.css?inline";
@@ -12,6 +13,7 @@ import resourceFiltersStyle from "./resource-filters.css?inline";
 import resourceGroupStyle from "./resource-group.css?inline";
 import searchStyle from "./search.css?inline";
 import tagsStyle from "./tags.css?inline";
+import tippyStyle from "tippy.js/dist/tippy.css?inline";
 
 const ResourceGroupDetail = lazy(() => import("./resource-group-detail.jsx"));
 const ResourceHome = lazy(() => import("./resource-home.jsx"));
@@ -48,6 +50,7 @@ export function ResourceCatalog({
       <style>{componentsStyle}</style>
       <style>{accordionStyle}</style>
       <style>{iconStyle}</style>
+      <style>{infoTipStyle}</style>
       <style>{glideCoreStyle}</style>
       <style>{glideThemeStyle}</style>
       <style>{gridStyle}</style>
@@ -56,6 +59,7 @@ export function ResourceCatalog({
       <style>{resourceGroupStyle}</style>
       <style>{searchStyle}</style>
       <style>{tagsStyle}</style>
+      <style>{tippyStyle}</style>
     </>
   );
 }
