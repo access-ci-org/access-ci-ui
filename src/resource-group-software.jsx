@@ -56,7 +56,7 @@ export default function ResourceGroupSoftware({ baseUri, resourceGroupId }) {
         </h2>
         <Search
           placeholder="Search software packages..."
-          setText={setSearchText}
+          setSearchText={setSearchText}
         />
       </div>
       <Grid columns={columns} rows={rows} scrollResetOnUpdate={true} />

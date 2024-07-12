@@ -71,6 +71,15 @@ p {
   color: var(--contrast);
   cursor: pointer;
 }
+.btn-clear,
+.btn-clear.active,
+.btn-clear:active,
+.btn-clear:focus,
+.btn-clear:hover {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--contrast);
+}
 .btn:disabled {
   background-color: var(--contrast-8);
   border-color: var(--contrast-8);
