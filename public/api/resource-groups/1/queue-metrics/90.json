@@ -1,0 +1,31 @@
+{
+  "queueMetrics": [
+    {
+      "resourceId": 1,
+      "name": "Bridges-2 Regular Memory",
+      "resourceRepositoryKey": 2900,
+      "waitTime": 12.564133,
+      "wallTime": 2.7384,
+      "expansionFactor": 7.684,
+      "order": 1
+    },
+    {
+      "resourceId": 2,
+      "name": "Bridges-2 Extreme Memory",
+      "resourceRepositoryKey": 2903,
+      "waitTime": 5.413989,
+      "wallTime": 6.426771,
+      "expansionFactor": 1.839,
+      "order": 2
+    },
+    {
+      "resourceId": 3,
+      "name": "Bridges-2 GPU",
+      "resourceRepositoryKey": 2902,
+      "waitTime": 44.75172,
+      "wallTime": 2.512934,
+      "expansionFactor": 18.7756,
+      "order": 3
+    }
+  ]
+}

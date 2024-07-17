@@ -1,3 +1,4 @@
+import { useState } from "preact/hooks";
 import { useJSON } from "./utils";
 
 import Grid from "./grid";
@@ -25,8 +26,9 @@ export default function ResourceGroupQueueMetrics({
   baseUri,
   resourceGroupId,
 }) {
+  const [days, setDays] = useState(30);
   const data = useJSON(
-    `${baseUri}/api/resource-groups/${resourceGroupId}/queue-metrics.json`,
+    `${baseUri}/api/resource-groups/${resourceGroupId}/queue-metrics/${days}.json`,
     null
   );
   if (!data || data.error) return;
@@ -55,7 +57,8 @@ export default function ResourceGroupQueueMetrics({
     {
       key: "expansionFactor",
       name: "Expansion Factor",
-      format: (value) => value.toFixed(2),
+      format: (_value, row) =>
+        ((row.waitTime + row.wallTime) / row.wallTime).toFixed(2),
       formatHeader: formatHeaderTip(
         'Expansion factor is the ratio of the total time (wait time and wall time) to the wall time. It measures how much waiting in the queue "expands" the total time taken to complete a job relative to its length.'
       ),
@@ -64,10 +67,20 @@ export default function ResourceGroupQueueMetrics({
 
   return (
     <>
-      <h2>
-        <Icon name="clock" />
-        Queue Metrics
-      </h2>
+      <div class="flex-header">
+        <h2>
+          <Icon name="clock" />
+          Queue Metrics
+        </h2>
+        <select
+          value={days}
+          onChange={(e) => setDays(parseInt(e.target.value))}
+        >
+          <option value="30">Last 30 days</option>
+          <option value="90">Last 90 days</option>
+          <option value="365">Last year</option>
+        </select>
+      </div>
       <Grid columns={columns} rows={data.queueMetrics} />
     </>
   );

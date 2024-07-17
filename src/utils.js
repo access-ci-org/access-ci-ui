@@ -36,15 +36,8 @@ export const useJSON = (uri, defaultValue) => {
           setValue(data);
         }
       })();
-  }, []);
+  }, [uri]);
   return value;
 };
 
 export const sortOn = (prop) => (a, b) => a[prop] < b[prop] ? -1 : 1;
-
-// export const useActiveIds = (initial = []) => {
-//   const [ids, setIds] = useState(initial);
-//   const toggle = (id) => setIds(id in ids ? ids.filter((x) => x != id) : [...ids, id]);
-//   const clear = () => setIds([]);
-
-// }
