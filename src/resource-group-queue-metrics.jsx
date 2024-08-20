@@ -2,8 +2,8 @@ import { useState } from "preact/hooks";
 import { useJSON } from "./utils";
 
 import Grid from "./grid";
-import Icon from "./icon";
 import InfoTip from "./info-tip";
+import Section from "./section";
 
 const formatTime = (value) => {
   const hours = Math.floor(value);
@@ -65,23 +65,21 @@ export default function ResourceGroupQueueMetrics({
     },
   ];
 
+  const headerComponents = [
+    <select value={days} onChange={(e) => setDays(parseInt(e.target.value))}>
+      <option value="30">Last 30 days</option>
+      <option value="90">Last 90 days</option>
+      <option value="365">Last year</option>
+    </select>,
+  ];
+
   return (
-    <>
-      <div class="flex-header">
-        <h2>
-          <Icon name="clock" />
-          Queue Metrics
-        </h2>
-        <select
-          value={days}
-          onChange={(e) => setDays(parseInt(e.target.value))}
-        >
-          <option value="30">Last 30 days</option>
-          <option value="90">Last 90 days</option>
-          <option value="365">Last year</option>
-        </select>
-      </div>
+    <Section
+      title="Queue Metrics"
+      icon="clock"
+      headerComponents={headerComponents}
+    >
       <Grid columns={columns} rows={data.queueMetrics} />
-    </>
+    </Section>
   );
 }

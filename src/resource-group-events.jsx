@@ -1,8 +1,8 @@
 import { useJSON } from "./utils";
 
 import Alert from "./alert";
-import Icon from "./icon";
 import ResourceGroupEvent from "./resource-group-event";
+import Section from "./section";
 
 export default function ResourceGroupEvents({ baseUri, resourceGroupId }) {
   const announcementData = useJSON(
@@ -15,11 +15,7 @@ export default function ResourceGroupEvents({ baseUri, resourceGroupId }) {
   );
   if (!announcementData && !eventData) return;
   return (
-    <>
-      <h2>
-        <Icon name="calendar3" />
-        Announcements and Events
-      </h2>
+    <Section title="Announcements and Events" icon="calendar3">
       {announcementData &&
         announcementData.announcements.map(
           ({ description, announcementUri }) => (
@@ -32,6 +28,6 @@ export default function ResourceGroupEvents({ baseUri, resourceGroupId }) {
           )
         )}
       {eventData && eventData.events.map((event) => ResourceGroupEvent(event))}
-    </>
+    </Section>
   );
 }

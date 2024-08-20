@@ -3,8 +3,8 @@ import { defaultIcons } from "./icons";
 import { useJSON } from "./utils";
 
 import Accordion from "./accordion";
-import Icon from "./icon";
 import ResourceDetail from "./resource-detail";
+import Section from "./section";
 
 const linkResourceData = ({ resources, resourceTypes }) => {
   const resourceTypesMap = {};
@@ -35,17 +35,13 @@ export default function ResourceGroupResources({ baseUri, resourceGroupId }) {
   return types.resourceTypes.map(({ name, resources }) => {
     if (resources.length)
       return (
-        <>
-          <h2>
-            <Icon name={defaultIcons[name] || "stars"} />
-            {name}
-          </h2>
+        <Section title={name} icon={defaultIcons[name] || "stars"}>
           {resources.map((resource) => (
             <Accordion title={resource.name}>
               <ResourceDetail {...resource} />
             </Accordion>
           ))}
-        </>
+        </Section>
       );
   });
 }

@@ -4,8 +4,8 @@ import Fuse from "fuse.js";
 
 import Grid from "./grid";
 import Highlight from "./highlight";
-import Icon from "./icon";
 import Search from "./search";
+import Section from "./section";
 
 export default function ResourceGroupSoftware({ baseUri, resourceGroupId }) {
   const data = useJSON(
@@ -47,19 +47,20 @@ export default function ResourceGroupSoftware({ baseUri, resourceGroupId }) {
     ? fuse.search(searchText).map((result) => result.item)
     : data.software;
 
+  const headerComponents = [
+    <Search
+      placeholder="Search software packages..."
+      setSearchText={setSearchText}
+    />,
+  ];
+
   return (
-    <>
-      <div class="flex-header">
-        <h2>
-          <Icon name="terminal" />
-          Software
-        </h2>
-        <Search
-          placeholder="Search software packages..."
-          setSearchText={setSearchText}
-        />
-      </div>
+    <Section
+      title="Software"
+      icon="terminal"
+      headerComponents={headerComponents}
+    >
       <Grid columns={columns} rows={rows} scrollResetOnUpdate={true} />
-    </>
+    </Section>
   );
 }
