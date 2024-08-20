@@ -1,5 +1,6 @@
 import { ErrorBoundary, lazy, LocationProvider, Router } from "preact-iso";
 import accordionStyle from "./accordion.css?inline";
+import alertStyle from "./alert.css?inline";
 import baseStyle from "./base.css?inline";
 import componentsStyle from "./components.css?inline";
 import contentStyle from "./content.css?inline";
@@ -11,6 +12,7 @@ import gridStyle from "./grid.css?inline";
 import carouselStyle from "./carousel.css?inline";
 import resourceFiltersStyle from "./resource-filters.css?inline";
 import resourceGroupStyle from "./resource-group.css?inline";
+import resourceGroupEventStyle from "./resource-group-event.css?inline";
 import searchStyle from "./search.css?inline";
 import tagsStyle from "./tags.css?inline";
 import tippyStyle from "tippy.js/dist/tippy.css?inline";
@@ -49,6 +51,7 @@ export function ResourceCatalog({
       <style>{contentStyle}</style>
       <style>{componentsStyle}</style>
       <style>{accordionStyle}</style>
+      <style>{alertStyle}</style>
       <style>{iconStyle}</style>
       <style>{infoTipStyle}</style>
       <style>{glideCoreStyle}</style>
@@ -57,6 +60,7 @@ export function ResourceCatalog({
       <style>{carouselStyle}</style>
       <style>{resourceFiltersStyle}</style>
       <style>{resourceGroupStyle}</style>
+      <style>{resourceGroupEventStyle}</style>
       <style>{searchStyle}</style>
       <style>{tagsStyle}</style>
       <style>{tippyStyle}</style>

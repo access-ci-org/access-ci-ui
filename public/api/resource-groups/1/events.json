@@ -1,0 +1,12 @@
+{
+  "events": [
+    {
+      "title": "Bridges-2 Webinar: Scaling Up Ecological Monitoring with AI: How Supercomputing Is Unlocking the Value of Autonomous Acoustic Sensing",
+      "startDateTime": "2024-08-23T13:00:00-04:00",
+      "endDateTime": "2024-08-23T14:00:00-04:00",
+      "eventUri": "https://www.psc.edu/events/bridges-2-webinar-series/scaling-up-ecological-monitoring-with-ai/",
+      "speaker": "Sam Lapp, University of Pittsburgh",
+      "description": "Automated acoustic recording devices monitor wildlife at an unprecedented scale. Using hundreds of sensors, bioacoustic monitoring transforms our understanding of birds, bats, and frogs, aiding biodiversity management."
+    }
+  ]
+}
