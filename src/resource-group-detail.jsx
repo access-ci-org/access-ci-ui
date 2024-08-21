@@ -3,6 +3,7 @@ import ResourceGroupEvents from "./resource-group-events";
 import ResourceGroupQueueMetrics from "./resource-group-queue-metrics";
 import ResourceGroupResources from "./resource-group-resources";
 import ResourceGroupSoftware from "./resource-group-software";
+import SectionNavigation from "./section-navigation";
 
 export default function ResourceGroupDetail({ baseUri, resourceGroupId }) {
   return (
@@ -11,6 +12,7 @@ export default function ResourceGroupDetail({ baseUri, resourceGroupId }) {
         baseUri={baseUri}
         resourceGroupId={resourceGroupId}
       />
+      <SectionNavigation />
       <ResourceGroupResources
         baseUri={baseUri}
         resourceGroupId={resourceGroupId}

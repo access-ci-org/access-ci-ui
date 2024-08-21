@@ -14,6 +14,7 @@ import resourceFiltersStyle from "./resource-filters.css?inline";
 import resourceGroupStyle from "./resource-group.css?inline";
 import resourceGroupEventStyle from "./resource-group-event.css?inline";
 import searchStyle from "./search.css?inline";
+import sectionNavigationStyle from "./section-navigation.css?inline";
 import tagsStyle from "./tags.css?inline";
 import tippyStyle from "tippy.js/dist/tippy.css?inline";
 
@@ -62,6 +63,7 @@ export function ResourceCatalog({
       <style>{resourceGroupStyle}</style>
       <style>{resourceGroupEventStyle}</style>
       <style>{searchStyle}</style>
+      <style>{sectionNavigationStyle}</style>
       <style>{tagsStyle}</style>
       <style>{tippyStyle}</style>
     </>
