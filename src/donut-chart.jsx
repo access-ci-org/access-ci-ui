@@ -1,4 +1,4 @@
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 
 const circleCoords = (pct, radius) =>
   `${Math.cos(2 * Math.PI * pct) * radius} ${
@@ -55,6 +55,10 @@ export default function DonutChart({
   topItemsHeading = null,
 }) {
   const [activeIdx, setActiveIdx] = useState(null);
+
+  // Reset the active index when the items change.
+  useEffect(() => setActiveIdx(null), [items]);
+
   const sortedItems = items.toSorted((a, b) =>
     a.count < b.count || (a.count == b.count && a.name < b.name) ? 1 : -1
   );
