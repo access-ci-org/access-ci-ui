@@ -26,7 +26,7 @@ export default function Section({
           {icon ? <Icon name={icon} /> : null}
           {title}
         </h2>
-        {headerComponents}
+        <div>{headerComponents}</div>
       </div>
       {children}
     </section>
