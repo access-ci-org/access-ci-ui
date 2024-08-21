@@ -19,7 +19,10 @@
   padding: 10px 0;
 }
 .section-navigation li {
+  line-height: 1;
   list-style-type: none;
   flex: 0 0 auto;
+  font-size: 1rem;
   margin: 10px 0 10px 20px;
+  padding: 0;
 }
