@@ -13,24 +13,9 @@ export default function Grid({
   frozenColumns = 0,
   minWidth,
   rowClasses = [],
-  scrollBehavior = "smooth",
   scrollResetOnUpdate = false,
-  scrollRowIndex = 0,
 }) {
   const container = useRef();
-  useLayoutEffect(() => {
-    if (!container.current) return;
-    const row = container.current.querySelector(
-      `tbody tr:nth-child(${scrollRowIndex + 1})`
-    );
-    if (row)
-      row.scrollIntoView({
-        behavior: scrollBehavior,
-        block: "nearest",
-        inline: "nearest",
-      });
-  }, [scrollRowIndex, scrollBehavior]);
-
   useLayoutEffect(() => {
     if (container.current && scrollResetOnUpdate)
       container.current.scrollTop = 0;
