@@ -1,0 +1,66 @@
+{
+  "projects": {
+    "projectType": [
+      {
+        "name": "Explore ACCESS",
+        "count": 264
+      },
+      {
+        "name": "Discover ACCESS",
+        "count": 36
+      },
+      {
+        "name": "Accelerate ACCESS",
+        "count": 9
+      },
+      {
+        "name": "Maximize ACCESS",
+        "count": 14
+      }
+    ],
+    "fieldOfScience": [
+      {
+        "name": "Materials Engineering",
+        "count": 99
+      },
+      {
+        "name": "Physical Chemistry",
+        "count": 67
+      },
+      {
+        "name": "Applied Computer Science",
+        "count": 66
+      },
+      {
+        "name": "Health Sciences",
+        "count": 49
+      },
+      {
+        "name": "Ecology",
+        "count": 42
+      }
+    ],
+    "institution": [
+      {
+        "name": "Carnegie Mellon University",
+        "count": 187
+      },
+      {
+        "name": "University of Pittsburgh",
+        "count": 65
+      },
+      {
+        "name": "University of Somewhere",
+        "count": 26
+      },
+      {
+        "name": "Another University",
+        "count": 36
+      },
+      {
+        "name": "Computing College",
+        "count": 9
+      }
+    ]
+  }
+}

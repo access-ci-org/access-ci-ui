@@ -1,0 +1,38 @@
+{
+  "projects": {
+    "projectType": [
+      {
+        "name": "Explore ACCESS",
+        "count": 52
+      }
+    ],
+    "fieldOfScience": [
+      {
+        "name": "Materials Engineering",
+        "count": 21
+      },
+      {
+        "name": "Physical Chemistry",
+        "count": 12
+      },
+      {
+        "name": "Applied Computer Science",
+        "count": 19
+      }
+    ],
+    "institution": [
+      {
+        "name": "University of Somewhere",
+        "count": 26
+      },
+      {
+        "name": "Another University",
+        "count": 22
+      },
+      {
+        "name": "Computing College",
+        "count": 4
+      }
+    ]
+  }
+}

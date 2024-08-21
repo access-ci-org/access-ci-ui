@@ -4,6 +4,7 @@ import alertStyle from "./alert.css?inline";
 import baseStyle from "./base.css?inline";
 import componentsStyle from "./components.css?inline";
 import contentStyle from "./content.css?inline";
+import donutChartStyle from "./donut-chart.css?inline";
 import iconStyle from "./icon.css?inline";
 import infoTipStyle from "./info-tip.css?inline";
 import glideCoreStyle from "@glidejs/glide/dist/css/glide.core.min.css?inline";
@@ -13,6 +14,7 @@ import carouselStyle from "./carousel.css?inline";
 import resourceFiltersStyle from "./resource-filters.css?inline";
 import resourceGroupStyle from "./resource-group.css?inline";
 import resourceGroupEventStyle from "./resource-group-event.css?inline";
+import resourceGroupProjectsStyle from "./resource-group-projects.css?inline";
 import searchStyle from "./search.css?inline";
 import sectionNavigationStyle from "./section-navigation.css?inline";
 import tagsStyle from "./tags.css?inline";
@@ -53,6 +55,7 @@ export function ResourceCatalog({
       <style>{componentsStyle}</style>
       <style>{accordionStyle}</style>
       <style>{alertStyle}</style>
+      <style>{donutChartStyle}</style>
       <style>{iconStyle}</style>
       <style>{infoTipStyle}</style>
       <style>{glideCoreStyle}</style>
@@ -62,6 +65,7 @@ export function ResourceCatalog({
       <style>{resourceFiltersStyle}</style>
       <style>{resourceGroupStyle}</style>
       <style>{resourceGroupEventStyle}</style>
+      <style>{resourceGroupProjectsStyle}</style>
       <style>{searchStyle}</style>
       <style>{sectionNavigationStyle}</style>
       <style>{tagsStyle}</style>

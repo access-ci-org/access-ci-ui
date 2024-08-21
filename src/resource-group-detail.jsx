@@ -1,6 +1,7 @@
 import ResourceGroupAffinityGroup from "./resource-group-affinity-group";
 import ResourceGroupDescription from "./resource-group-description";
 import ResourceGroupEvents from "./resource-group-events";
+import ResourceGroupProjects from "./resource-group-projects";
 import ResourceGroupQueueMetrics from "./resource-group-queue-metrics";
 import ResourceGroupResources from "./resource-group-resources";
 import ResourceGroupSoftware from "./resource-group-software";
@@ -27,6 +28,10 @@ export default function ResourceGroupDetail({ baseUri, resourceGroupId }) {
         resourceGroupId={resourceGroupId}
       />
       <ResourceGroupSoftware
+        baseUri={baseUri}
+        resourceGroupId={resourceGroupId}
+      />
+      <ResourceGroupProjects
         baseUri={baseUri}
         resourceGroupId={resourceGroupId}
       />

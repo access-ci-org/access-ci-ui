@@ -1,0 +1,34 @@
+.projects-columns {
+  --chart-width: min(350px, var(--width));
+}
+.projects-columns .column {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.projects-columns svg {
+  height: var(--chart-width);
+  margin: 0 auto;
+  width: var(--chart-width);
+}
+.projects-columns .donut-chart .center-text {
+  font-size: 0.8rem;
+}
+@media (min-width: 768px) {
+  .projects-columns {
+    display: flex;
+    flex-direction: row;
+    --chart-width: calc((var(--width) - 120px) / 3);
+  }
+  .projects-columns .column {
+    align-items: flex-start;
+    width: var(--chart-width);
+  }
+  .projects-columns .column:not(:last-child) {
+    margin-right: 60px;
+  }
+  .projects-columns svg {
+    margin: 0;
+  }
+}
