@@ -33,26 +33,32 @@ views.
 ##
 
 The ACCESS Resource Catalog efforts needs to display resource information organized by resource groups, where resource
-groups are made up of 1 or more tightly coupled resources at an RP.
+groups are made up of 1 or more tightly coupled resources.
 
 The above design would be applied to this example as follows:
 
 1) Associate all bridges2 related resources to a shared resource group
-   These resources (info_resourceid)
-    - bridges2-em.psc.access-ci.org
-    - bridges2-gpu-ai.psc.access-ci.org
-    - bridges2-gpu.psc.access-ci.org
-    - bridges2-ocean.psc.access-ci.org
-    - bridges2-rm..psc.access-ci.org
-   Would all be associated with group (info_groupid): bridges2.psc.access-ci.org
+    These resources (info_resourceid)
+        - bridges2-em.psc.access-ci.org
+        - bridges2-gpu-ai.psc.access-ci.org
+        - bridges2-gpu.psc.access-ci.org
+        - bridges2-ocean.psc.access-ci.org
+        - bridges2-rm.psc.access-ci.org
+    Would all be associated with group (info_groupid):
+        - bridges2.psc.access-ci.org
+    
+    See an example of these mappings in the file: cider_resource_groups.json
 
 2) Associate resource groups with the ACCESS Resource Catalog view
-   These resource groups (info_groupid):
-   - aces.tamu.access-ci.org
-   - bridges2.psc.access-ci.org
-   - expanse.sdsc.access-ci.org
-   - <many more groups>
-   Would all be associated with the group view (info_groupviewid): resource-catalog.access-ci.org
+    These resource groups (info_groupid):
+        - aces.tamu.access-ci.org
+        - bridges2.psc.access-ci.org
+        - expanse.sdsc.access-ci.org
+        - <many more groups>
+   Would all be associated with the group view (info_groupviewid):
+        - resource-catalog.access-ci.org
+
+    See an example of these mappings in the file: cider_view_groups.json
 
 ##
 ## Persona Interfaces
