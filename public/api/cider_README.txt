@@ -1,27 +1,32 @@
 ##
-## CiDeR Resource Groups - Introduction
+## CiDeR Resource Groups
 ##
 ## Background & Design
 ##
 
-CiDeR is used to maintain public descriptive information about resources by multiple projects (Affiliations)
+CiDeR is used to maintain public descriptive information about resources by multiple projects (Affiliations) besides ACCESS
 
 CiDeR includes (or will) externally visible identifiers that are globally unique across projects.
-  -- Resource Identifier (info_resourceid)
-  -- Resource Group Identifier (info_groupid)
-  -- Resource Group View Identifiers (info_groupviewid)
+  - Resource Identifier (info_resourceid)
+  - Resource Group Identifier (info_groupid)
+  - Resource Group View Identifier (info_groupviewid)
 
 So that all the information published by ACCESS can be cross-referenced these identifiers should be used in other
 database and catalogs to associate information with CiDeR resources or resource groups.
 
 To make the above identifiers globally unique and meaningful (at least to developers and technical staff), we have
-chosen to make them look like hostnames: they are derived from real owned domains which identify their scope and
-guarantees that they will be unique across projects and affiliations. These identifiers are NOT required to be
-DNS resolvable hostnames.
+chosen to make them look like hostnames: they are derived from real owned domains which identifies their scope and
+guarantees that they will be unique across projects and affiliations. These identifiers do NOT have to be DNS
+DNS resolvable.
 
-A Resource Group is a collectios of Resources.
+A Resource Group is a collection of Resources.
 
 A Resource Group View is a collections of Resource Groups that are displayed through a common view or interface.
+
+This design supports any combination of resources and resource groups to be visible through multiple configurable
+views. Resource providers associate their resources with groups, and view developers associate groups with their
+views. Resource providers and view developers collaborate to define which groups are needed to achive needed
+views.
 
 ##
 ## Example
@@ -48,7 +53,7 @@ The above design would be applied to this example as follows:
    - expanse.sdsc.access-ci.org
    - <many more groups>
    Would all be associated with the group view (info_groupviewid): resource-catalog.access-ci.org
-   
+
 ##
 ## Persona Interfaces
 ##
@@ -60,10 +65,10 @@ ACCESS staff:
 Resource provider staff:
 - Associate each of their Resources with one or more Resource Groups
 
-Resource catalog developers:
-- Retrieve by API all the Resource Groups associated with info_groupviewid = resource-catalog.access-ci.org
-- Retrieve by API all ACCESS affiliated CiDeR resources, which includes what Resource Groups each is in
-- Retrieve other information from other sources which must include either the info_resourceid or info_groupid
+Resource Catalog developers:
+- Retrieve by API all the Resource Groups associated with their info_groupviewid = resource-catalog.access-ci.org
+- Retrieve by API all ACCESS affiliated CiDeR resources, each of which lists what Resource Groups they are a part of
+- Retrieve other information from other sources all of which MUST include either the info_resourceid or info_groupid
   that the information is associated with.
-- Build a resource catalog wi
-  
+- Metadata about the view could be stored somewhere by info_groupviewid
+- Build a resource catalog displaying all the resource groups and associated resources
