@@ -54,7 +54,7 @@ The library includes functions for rendering common ACCESS user interface compon
     tableOfContents,
     universalMenuItems,
     universalMenus,
-  } from "https://esm.sh/@access-ci/ui@0.2.0";
+  } from "https://esm.sh/@access-ci/ui@0.2.5";
 
   const siteItems = [
     {
