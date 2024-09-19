@@ -7,9 +7,9 @@ import Highlight from "./highlight";
 import Search from "./search";
 import Section from "./section";
 
-export default function ResourceGroupSoftware({ baseUri, resourceGroupId }) {
+export default function ResourceGroupSoftware({ baseUri, infoGroupId }) {
   const data = useJSON(
-    `${baseUri}/api/resource-groups/${resourceGroupId}/software.json`,
+    `${baseUri}/api/resource-groups/${infoGroupId}/software.json`,
     null
   );
   const [searchText, setSearchText] = useState("");

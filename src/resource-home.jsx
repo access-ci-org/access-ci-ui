@@ -43,7 +43,7 @@ const linkGroupData = ({
 
 const getActive = ({ resourceGroups, tags, tagCategories }, activeTagIds) => {
   const resourceCategoryIds = new Set();
-  const resourceGroupIds = new Set();
+  const infoGroupIds = new Set();
   const tagCategoryIds = new Set();
   const tagIds = new Set(activeTagIds);
 
@@ -81,7 +81,7 @@ const getActive = ({ resourceGroups, tags, tagCategories }, activeTagIds) => {
       }
     }
     if (resourceGroupActive) {
-      resourceGroupIds.add(resourceGroup.resourceGroupId);
+      infoGroupIds.add(resourceGroup.infoGroupId);
       resourceCategoryIds.add(resourceGroup.resourceCategoryId);
       for (let tagId of resourceGroup.tagIds) disabledTagIds.delete(tagId);
     }
@@ -90,7 +90,7 @@ const getActive = ({ resourceGroups, tags, tagCategories }, activeTagIds) => {
   return {
     disabledTagIds,
     resourceCategoryIds,
-    resourceGroupIds,
+    infoGroupIds,
     tagCategoryIds,
     tagIds,
   };

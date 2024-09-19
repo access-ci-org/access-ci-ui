@@ -17,10 +17,10 @@ const column = (items, title, topItemsHeading = null) => {
   );
 };
 
-export default function ResourceGroupProjects({ baseUri, resourceGroupId }) {
+export default function ResourceGroupProjects({ baseUri, infoGroupId }) {
   const [persona, setPersona] = useState("all");
   const data = useJSON(
-    `${baseUri}/api/resource-groups/${resourceGroupId}/projects/${persona}.json`,
+    `${baseUri}/api/resource-groups/${infoGroupId}/projects/${persona}.json`,
     null
   );
 

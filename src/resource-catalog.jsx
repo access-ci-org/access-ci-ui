@@ -45,7 +45,7 @@ export function ResourceCatalog({
             />
             <ResourceGroupDetail
               baseUri={baseUri}
-              path={`${baseUri}/resources/:resourceGroupId`}
+              path={`${baseUri}/resources/:infoGroupId`}
             />
           </Router>
         </ErrorBoundary>

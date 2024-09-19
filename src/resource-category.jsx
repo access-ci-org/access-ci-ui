@@ -11,9 +11,7 @@ export function ResourceCategory({
     <>
       <h2>{name}</h2>
       {resourceGroups
-        .filter(({ resourceGroupId }) =>
-          active.resourceGroupIds.has(resourceGroupId)
-        )
+        .filter(({ infoGroupId }) => active.infoGroupIds.has(infoGroupId))
         .map((resourceGroup) => (
           <ResourceGroup
             {...resourceGroup}

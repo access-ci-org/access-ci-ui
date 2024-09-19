@@ -22,9 +22,9 @@ const linkResourceData = ({ resources, resourceTypes }) => {
   return { resources, resourceTypes };
 };
 
-export default function ResourceGroupResources({ baseUri, resourceGroupId }) {
+export default function ResourceGroupResources({ baseUri, infoGroupId }) {
   const allTypes = useJSON(
-    `${baseUri}/api/resource-groups/${resourceGroupId}/resources.json`,
+    `${baseUri}/api/resource-groups/${infoGroupId}/resources.json`,
     null
   );
   const types = useMemo(

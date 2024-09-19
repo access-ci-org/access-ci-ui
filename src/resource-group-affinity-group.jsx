@@ -1,9 +1,6 @@
 import Section from "./section";
 
-export default function ResourceGroupAffinityGroup({
-  baseUri,
-  resourceGroupId,
-}) {
+export default function ResourceGroupAffinityGroup({ baseUri, infoGroupId }) {
   return (
     <Section title="Affinity Group" icon="people-fill">
       <p>

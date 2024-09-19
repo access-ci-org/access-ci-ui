@@ -3,9 +3,9 @@ import { useJSON } from "./utils";
 import Grid from "./grid";
 import Section from "./section";
 
-export default function ResourceGroupDiscussion({ baseUri, resourceGroupId }) {
+export default function ResourceGroupDiscussion({ baseUri, infoGroupId }) {
   const data = useJSON(
-    `${baseUri}/api/resource-groups/${resourceGroupId}/discussion.json`,
+    `${baseUri}/api/resource-groups/${infoGroupId}/discussion.json`,
     null
   );
 
