@@ -1,0 +1,9 @@
+.mini-bar {
+  flex: 0 0 auto;
+  position: relative;
+  width: 100px;
+}
+.mini-bar .bar {
+  background-color: #dddddd;
+  height: 1em;
+}
