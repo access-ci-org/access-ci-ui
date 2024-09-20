@@ -19,19 +19,30 @@ const column = (items, title, topItemsHeading = null) => {
 
 export default function ResourceGroupProjects({ baseUri, infoGroupId }) {
   const [persona, setPersona] = useState("all");
+  const apiBaseUrl =
+    "https://allocations.access-ci.org/current-projects/summary.json";
+  const apiUrl = `${apiBaseUrl}?info_groupid=${infoGroupId}&persona=${persona}`;
   const data = useJSON(
-    `${baseUri}/api/resource-groups/${infoGroupId}/projects/${persona}.json`,
+    `https://corsproxy.io/?${encodeURIComponent(apiUrl)}`,
     null
   );
 
   if (!data || data.error) return;
+
+  const stats = {
+    "allocation-type": [],
+    "field-of-science": [],
+    "pi-institution": [],
+  };
+  for (let stat of data.projectStatistics)
+    stats[stat["type"]].push({ name: stat.value, count: stat.count });
 
   const headerComponents = [
     <select value={persona} onChange={(e) => setPersona(e.target.value)}>
       <option value="all">All PIs</option>
       <option value="researcher">Researchers</option>
       <option value="educator">Educators</option>
-      <option value="grad-student">Graduate Students</option>
+      <option value="graduate-student">Graduate Students</option>
     </select>,
   ];
 
@@ -42,14 +53,14 @@ export default function ResourceGroupProjects({ baseUri, infoGroupId }) {
       headerComponents={headerComponents}
     >
       <div class="projects-columns">
-        {column(data.projects.projectType, "Project Type")}
+        {column(stats["allocation-type"], "Project Type")}
         {column(
-          data.projects.fieldOfScience,
+          stats["field-of-science"],
           "Field of Science",
           "Top Fields of Science"
         )}
         {column(
-          data.projects.institution,
+          stats["pi-institution"],
           "PI's Institution",
           "Top Institutions"
         )}
