@@ -1,18 +1,28 @@
 import { useState } from "preact/hooks";
 import { useJSON } from "./utils";
 
-import DonutChart from "./donut-chart";
+import Grid from "./grid";
+import { MiniBar } from "./mini-bar";
 import Section from "./section";
 
-const column = (items, title, topItemsHeading = null) => {
+const column = (items, title, topItemsHeading) => {
+  const columns = [
+    { key: "value", name: title },
+    {
+      key: "count",
+      name: "Projects",
+      format: (value) => (
+        <div class="project-count">
+          <span class="count">{value.toLocaleString("en-US")}</span>
+          <MiniBar value={value} maxValue={items[0].count} />
+        </div>
+      ),
+    },
+  ];
   return (
     <div class="column">
-      <DonutChart
-        items={items}
-        title={title}
-        itemLabel="projects"
-        topItemsHeading={topItemsHeading}
-      />
+      <h3>{topItemsHeading}</h3>
+      <Grid columns={columns} rows={items} />
     </div>
   );
 };
@@ -34,8 +44,7 @@ export default function ResourceGroupProjects({ baseUri, infoGroupId }) {
     "field-of-science": [],
     "pi-institution": [],
   };
-  for (let stat of data.projectStatistics)
-    stats[stat["type"]].push({ name: stat.value, count: stat.count });
+  for (let stat of data.projectStatistics) stats[stat["type"]].push(stat);
 
   const headerComponents = [
     <select value={persona} onChange={(e) => setPersona(e.target.value)}>
@@ -53,7 +62,7 @@ export default function ResourceGroupProjects({ baseUri, infoGroupId }) {
       headerComponents={headerComponents}
     >
       <div class="projects-columns">
-        {column(stats["allocation-type"], "Project Type")}
+        {column(stats["allocation-type"], "Project Type", "Top Project Types")}
         {column(
           stats["field-of-science"],
           "Field of Science",

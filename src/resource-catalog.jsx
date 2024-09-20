@@ -11,6 +11,7 @@ import glideCoreStyle from "@glidejs/glide/dist/css/glide.core.min.css?inline";
 import glideThemeStyle from "@glidejs/glide/dist/css/glide.theme.min.css?inline";
 import gridStyle from "./grid.css?inline";
 import carouselStyle from "./carousel.css?inline";
+import miniBarStyle from "./mini-bar.css?inline";
 import resourceFiltersStyle from "./resource-filters.css?inline";
 import resourceGroupStyle from "./resource-group.css?inline";
 import resourceGroupEventStyle from "./resource-group-event.css?inline";
@@ -62,6 +63,7 @@ export function ResourceCatalog({
       <style>{glideThemeStyle}</style>
       <style>{gridStyle}</style>
       <style>{carouselStyle}</style>
+      <style>{miniBarStyle}</style>
       <style>{resourceFiltersStyle}</style>
       <style>{resourceGroupStyle}</style>
       <style>{resourceGroupEventStyle}</style>
