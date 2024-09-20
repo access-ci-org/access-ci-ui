@@ -4,6 +4,9 @@
   flex-direction: column;
   margin-bottom: 20px;
 }
+.projects-columns .column > * {
+  width: 100%;
+}
 .projects-columns .project-count {
   display: flex;
   flex-direction: row;
@@ -13,16 +16,14 @@
   text-align: right;
   width: 3rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .projects-columns {
     display: flex;
     flex-direction: row;
   }
   .projects-columns .column {
     align-items: flex-start;
-    width: calc((var(--width) - 40px) / 3);
-  }
-  .projects-columns .column > * {
+    position: relative;
     width: calc((var(--width) - 40px) / 3);
   }
   .projects-columns .column:not(:last-child) {
