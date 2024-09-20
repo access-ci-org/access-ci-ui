@@ -2,12 +2,9 @@ import { useJSON } from "./utils";
 
 import Section from "./section";
 
-export default function ResourceGroupDocumentation({
-  baseUri,
-  resourceGroupId,
-}) {
+export default function ResourceGroupDocumentation({ baseUri, infoGroupId }) {
   const data = useJSON(
-    `${baseUri}/api/resource-groups/${resourceGroupId}/documentation.json`,
+    `${baseUri}/api/resource-groups/${infoGroupId}/documentation.json`,
     null
   );
 

@@ -1,37 +1,57 @@
 import { useState } from "preact/hooks";
 import { useJSON } from "./utils";
 
-import DonutChart from "./donut-chart";
+import Grid from "./grid";
+import { MiniBar } from "./mini-bar";
 import Section from "./section";
 
-const column = (items, title, topItemsHeading = null) => {
+const column = (items, title, topItemsHeading) => {
+  const columns = [
+    { key: "value", name: title },
+    {
+      key: "count",
+      name: "Projects",
+      format: (value) => (
+        <div class="project-count">
+          <span class="count">{value.toLocaleString("en-US")}</span>
+          <MiniBar value={value} maxValue={items[0].count} />
+        </div>
+      ),
+    },
+  ];
   return (
     <div class="column">
-      <DonutChart
-        items={items}
-        title={title}
-        itemLabel="projects"
-        topItemsHeading={topItemsHeading}
-      />
+      <h3>{topItemsHeading}</h3>
+      <Grid columns={columns} rows={items} />
     </div>
   );
 };
 
-export default function ResourceGroupProjects({ baseUri, resourceGroupId }) {
+export default function ResourceGroupProjects({ baseUri, infoGroupId }) {
   const [persona, setPersona] = useState("all");
+  const apiBaseUrl =
+    "https://allocations.access-ci.org/current-projects/summary.json";
+  const apiUrl = `${apiBaseUrl}?info_groupid=${infoGroupId}&persona=${persona}`;
   const data = useJSON(
-    `${baseUri}/api/resource-groups/${resourceGroupId}/projects/${persona}.json`,
+    `https://corsproxy.io/?${encodeURIComponent(apiUrl)}`,
     null
   );
 
   if (!data || data.error) return;
+
+  const stats = {
+    "allocation-type": [],
+    "field-of-science": [],
+    "pi-institution": [],
+  };
+  for (let stat of data.projectStatistics) stats[stat["type"]].push(stat);
 
   const headerComponents = [
     <select value={persona} onChange={(e) => setPersona(e.target.value)}>
       <option value="all">All PIs</option>
       <option value="researcher">Researchers</option>
       <option value="educator">Educators</option>
-      <option value="grad-student">Graduate Students</option>
+      <option value="graduate-student">Graduate Students</option>
     </select>,
   ];
 
@@ -42,14 +62,14 @@ export default function ResourceGroupProjects({ baseUri, resourceGroupId }) {
       headerComponents={headerComponents}
     >
       <div class="projects-columns">
-        {column(data.projects.projectType, "Project Type")}
+        {column(stats["allocation-type"], "Project Type", "Top Project Types")}
         {column(
-          data.projects.fieldOfScience,
+          stats["field-of-science"],
           "Field of Science",
           "Top Fields of Science"
         )}
         {column(
-          data.projects.institution,
+          stats["pi-institution"],
           "PI's Institution",
           "Top Institutions"
         )}

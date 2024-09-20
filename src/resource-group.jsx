@@ -8,11 +8,11 @@ export function ResourceGroup({
   imageUri,
   name,
   summary,
-  resourceGroupId,
+  infoGroupId,
   tags,
   toggleTag,
 }) {
-  const detailUri = `${baseUri}/resources/${resourceGroupId}`;
+  const detailUri = `${baseUri}/resources/${infoGroupId}`;
   return (
     <div class="resource-group">
       <a

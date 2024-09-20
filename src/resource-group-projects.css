@@ -1,34 +1,31 @@
-.projects-columns {
-  --chart-width: min(350px, var(--width));
-}
 .projects-columns .column {
   align-items: center;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 }
-.projects-columns svg {
-  height: var(--chart-width);
-  margin: 0 auto;
-  width: var(--chart-width);
+.projects-columns .project-count {
+  display: flex;
+  flex-direction: row;
 }
-.projects-columns .donut-chart .center-text {
-  font-size: 0.8rem;
+.projects-columns .project-count .count {
+  margin-right: 0.5rem;
+  text-align: right;
+  width: 3rem;
 }
 @media (min-width: 768px) {
   .projects-columns {
     display: flex;
     flex-direction: row;
-    --chart-width: calc((var(--width) - 120px) / 3);
   }
   .projects-columns .column {
     align-items: flex-start;
-    width: var(--chart-width);
+    width: calc((var(--width) - 40px) / 3);
+  }
+  .projects-columns .column > * {
+    width: calc((var(--width) - 40px) / 3);
   }
   .projects-columns .column:not(:last-child) {
-    margin-right: 60px;
-  }
-  .projects-columns svg {
-    margin: 0;
+    margin-right: 20px;
   }
 }

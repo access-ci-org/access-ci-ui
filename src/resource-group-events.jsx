@@ -4,13 +4,13 @@ import Alert from "./alert";
 import ResourceGroupEvent from "./resource-group-event";
 import Section from "./section";
 
-export default function ResourceGroupEvents({ baseUri, resourceGroupId }) {
+export default function ResourceGroupEvents({ baseUri, infoGroupId }) {
   const announcementData = useJSON(
-    `${baseUri}/api/resource-groups/${resourceGroupId}/announcements.json`,
+    `${baseUri}/api/resource-groups/${infoGroupId}/announcements.json`,
     null
   );
   const eventData = useJSON(
-    `${baseUri}/api/resource-groups/${resourceGroupId}/events.json`,
+    `${baseUri}/api/resource-groups/${infoGroupId}/events.json`,
     null
   );
   if (!announcementData && !eventData) return;

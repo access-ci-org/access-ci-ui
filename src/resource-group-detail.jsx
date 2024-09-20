@@ -9,46 +9,19 @@ import ResourceGroupResources from "./resource-group-resources";
 import ResourceGroupSoftware from "./resource-group-software";
 import SectionNavigation from "./section-navigation";
 
-export default function ResourceGroupDetail({ baseUri, resourceGroupId }) {
+export default function ResourceGroupDetail({ baseUri, infoGroupId }) {
   return (
     <div class="resource-group-detail">
-      <ResourceGroupDescription
-        baseUri={baseUri}
-        resourceGroupId={resourceGroupId}
-      />
+      <ResourceGroupDescription baseUri={baseUri} infoGroupId={infoGroupId} />
       <SectionNavigation />
-      <ResourceGroupResources
-        baseUri={baseUri}
-        resourceGroupId={resourceGroupId}
-      />
-      <ResourceGroupEvents
-        baseUri={baseUri}
-        resourceGroupId={resourceGroupId}
-      />
-      <ResourceGroupAffinityGroup
-        baseUri={baseUri}
-        resourceGroupId={resourceGroupId}
-      />
-      <ResourceGroupSoftware
-        baseUri={baseUri}
-        resourceGroupId={resourceGroupId}
-      />
-      <ResourceGroupProjects
-        baseUri={baseUri}
-        resourceGroupId={resourceGroupId}
-      />
-      <ResourceGroupQueueMetrics
-        baseUri={baseUri}
-        resourceGroupId={resourceGroupId}
-      />
-      <ResourceGroupDocumentation
-        baseUri={baseUri}
-        resourceGroupId={resourceGroupId}
-      />
-      <ResourceGroupDiscussion
-        baseUri={baseUri}
-        resourceGroupId={resourceGroupId}
-      />
+      <ResourceGroupResources baseUri={baseUri} infoGroupId={infoGroupId} />
+      <ResourceGroupEvents baseUri={baseUri} infoGroupId={infoGroupId} />
+      <ResourceGroupAffinityGroup baseUri={baseUri} infoGroupId={infoGroupId} />
+      <ResourceGroupSoftware baseUri={baseUri} infoGroupId={infoGroupId} />
+      <ResourceGroupProjects baseUri={baseUri} infoGroupId={infoGroupId} />
+      <ResourceGroupQueueMetrics baseUri={baseUri} infoGroupId={infoGroupId} />
+      <ResourceGroupDocumentation baseUri={baseUri} infoGroupId={infoGroupId} />
+      <ResourceGroupDiscussion baseUri={baseUri} infoGroupId={infoGroupId} />
     </div>
   );
 }
