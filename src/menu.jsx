@@ -65,7 +65,7 @@ export const Menu = ({
 };
 
 export const Menus = ({ classes, items, name, target }) => {
-  const mode = useMode();
+  const mode = useMode(1280);
   const [open, setOpen] = useState({});
 
   useEffect(() => {

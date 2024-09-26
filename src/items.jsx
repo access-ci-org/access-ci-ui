@@ -5,19 +5,55 @@ export const universalMenuItems = [
     classes: "track",
   },
   {
+    name: "Resources",
+    href: "https://allocations.access-ci.org/resources",
+    classes: "track",
+  },
+  {
+    name: "Events & Trainings",
+    href: "https://support.access-ci.org/events",
+    classes: "track",
+  },
+  {
     name: "Support",
     href: "https://support.access-ci.org/",
     classes: "track",
   },
   {
-    name: "Operations",
-    href: "https://operations.access-ci.org/",
+    name: "News",
+    href: "https://access-ci.org/news/",
     classes: "track",
   },
   {
-    name: "Metrics",
-    href: "https://metrics.access-ci.org/",
+    name: "About",
+    href: "https://access-ci.org/about/",
     classes: "track grow",
+  },
+  {
+    name: "Find info for you",
+    classes: "highlight",
+    items: [
+      {
+        name: "Researchers",
+        href: "https://access-ci.org/get-started/for-researchers/",
+      },
+      {
+        name: "Educators",
+        href: "https://access-ci.org/get-started/for-educators/",
+      },
+      {
+        name: "Graduate Students",
+        href: "https://access-ci.org/get-started/for-graduate-students/",
+      },
+      {
+        name: "Resource Providers",
+        href: "https://access-ci.org/get-started/for-resource-providers/",
+      },
+      {
+        name: "Programs & Organizations",
+        href: "https://access-ci.org/get-started/for-programs-organizations/",
+      },
+    ],
   },
   {
     name: "ACCESS Home",
@@ -28,41 +64,6 @@ export const universalMenuItems = [
     name: "Search",
     href: "https://support.access-ci.org/find",
     classes: "icon icon-search",
-  },
-  {
-    name: "Menu",
-    classes: "icon icon-hamburger hamburger",
-    autoOpenMode: "mobile",
-    items: [
-      {
-        name: "About",
-        href: "https://access-ci.org/about/",
-      },
-      {
-        name: "Announcements",
-        href: "https://support.access-ci.org/announcements",
-      },
-      {
-        name: "Contact",
-        href: "https://access-ci.org/about/contact/",
-      },
-      {
-        name: "Events & Trainings",
-        href: "https://support.access-ci.org/events",
-      },
-      {
-        name: "News",
-        href: "https://access-ci.org/news/",
-      },
-      {
-        name: "Outages",
-        href: "https://support.access-ci.org/outages",
-      },
-      {
-        name: "Resource Providers",
-        href: "https://access-ci.org/resource-providers/",
-      },
-    ],
   },
 ];
 
