@@ -1,3 +1,26 @@
+export const personaItems = [
+  {
+    name: "Researchers",
+    href: "https://access-ci.org/get-started/for-researchers/",
+  },
+  {
+    name: "Educators",
+    href: "https://access-ci.org/get-started/for-educators/",
+  },
+  {
+    name: "Graduate Students",
+    href: "https://access-ci.org/get-started/for-graduate-students/",
+  },
+  {
+    name: "Resource Providers",
+    href: "https://access-ci.org/get-started/for-resource-providers/",
+  },
+  {
+    name: "Programs & Organizations",
+    href: "https://access-ci.org/get-started/for-programs-organizations/",
+  },
+];
+
 export const universalMenuItems = [
   {
     name: "Allocations",
@@ -32,28 +55,7 @@ export const universalMenuItems = [
   {
     name: "Find info for you",
     classes: "highlight",
-    items: [
-      {
-        name: "Researchers",
-        href: "https://access-ci.org/get-started/for-researchers/",
-      },
-      {
-        name: "Educators",
-        href: "https://access-ci.org/get-started/for-educators/",
-      },
-      {
-        name: "Graduate Students",
-        href: "https://access-ci.org/get-started/for-graduate-students/",
-      },
-      {
-        name: "Resource Providers",
-        href: "https://access-ci.org/get-started/for-resource-providers/",
-      },
-      {
-        name: "Programs & Organizations",
-        href: "https://access-ci.org/get-started/for-programs-organizations/",
-      },
-    ],
+    items: personaItems,
   },
   {
     name: "ACCESS Home",
@@ -118,3 +120,49 @@ export const loginMenuItem = {
     },
   ],
 };
+
+export const socialItems = [
+  {
+    className: "x",
+    href: "https://twitter.com/ACCESSforCI",
+    name: "X",
+  },
+  {
+    className: "youtube",
+    href: "https://www.youtube.com/c/ACCESSforCI",
+    name: "YouTube",
+  },
+  {
+    className: "facebook",
+    href: "https://www.facebook.com/ACCESSforCI",
+    name: "Facebook",
+  },
+  {
+    className: "linkedin",
+    href: "https://www.linkedin.com/company/accessforci/",
+    name: "LinkedIn",
+  },
+];
+
+export const utilityItems = [
+  {
+    href: "https://access-ci.org/acceptable-use/",
+    name: "Acceptable Use Policy",
+  },
+  {
+    href: "https://access-ci.org/code-of-conduct/",
+    name: "Code of Conduct",
+  },
+  {
+    href: "https://access-ci.org/privacy-policy",
+    name: "Privacy Policy",
+  },
+  {
+    href: "https://access-ci.org/glossary/",
+    name: "Glossary",
+  },
+  {
+    href: "https://access-ci.org/site-map/",
+    name: "Site Map",
+  },
+];

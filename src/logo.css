@@ -66,6 +66,18 @@
   margin: 0 6px 0 0;
   width: 12px;
 }
+.logo-footer .nsf-logo {
+  height: 40px;
+}
+.logo-footer .divider {
+  height: 34px;
+  margin: 3px 11px 0 9px;
+}
+.logo-footer .access-logo {
+  margin-top: 10px;
+  height: 21px;
+  width: auto;
+}
 @media (min-width: 900px) {
   .nsf-logo {
     height: 82px;
@@ -104,18 +116,5 @@
     height: 19px;
     margin: 0 7px 0 0;
     width: 19px;
-  }
-}
-@media (min-width: 600px) {
-  .logo-footer .nsf-logo {
-    height: 36px;
-  }
-  .logo-footer .divider {
-    height: 30px;
-    margin: 3px 11px 0 9px;
-  }
-  .logo-footer .access-logo {
-    margin-top: 10px;
-    height: 17px;
   }
 }
