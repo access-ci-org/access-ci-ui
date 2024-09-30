@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0-beta1](https://github.com/access-ci-org/access-ci-ui/compare/v0.2.5...v0.3.0-beta1) (2024-09-30)
+
+
+### Features
+
+* **footer:** add persona links and update style ([deae672](https://github.com/access-ci-org/access-ci-ui/commit/deae672d658248c50079e6e8ed9960a96053ff27))
+* **menu:** update icons and spacing ([274d6db](https://github.com/access-ci-org/access-ci-ui/commit/274d6dbf387e69bfe82cacde4122c3ec98246087))
+* **menu:** update menu items and styles ([5d4ef70](https://github.com/access-ci-org/access-ci-ui/commit/5d4ef70624b2c4213a438d6b107e48b9548846db))
+
+
+### Miscellaneous Chores
+
+* release 0.3.0-beta1 ([e67a563](https://github.com/access-ci-org/access-ci-ui/commit/e67a563f2e8056feefdfedb3a67fd908d854a887))
+
 ### [0.2.5](https://github.com/access-ci-org/access-ci-ui/compare/v0.2.4...v0.2.5) (2024-05-22)
 
 
