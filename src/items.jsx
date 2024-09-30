@@ -1,7 +1,40 @@
+export const personaItems = [
+  {
+    name: "Researchers",
+    href: "https://access-ci.org/get-started/for-researchers/",
+  },
+  {
+    name: "Educators",
+    href: "https://access-ci.org/get-started/for-educators/",
+  },
+  {
+    name: "Graduate Students",
+    href: "https://access-ci.org/get-started/for-graduate-students/",
+  },
+  {
+    name: "Resource Providers",
+    href: "https://access-ci.org/get-started/for-resource-providers/",
+  },
+  {
+    name: "Programs & Organizations",
+    href: "https://access-ci.org/get-started/for-programs-organizations/",
+  },
+];
+
 export const universalMenuItems = [
   {
     name: "Allocations",
     href: "https://allocations.access-ci.org/",
+    classes: "track",
+  },
+  {
+    name: "Resources",
+    href: "https://allocations.access-ci.org/resources",
+    classes: "track",
+  },
+  {
+    name: "Events & Trainings",
+    href: "https://support.access-ci.org/events",
     classes: "track",
   },
   {
@@ -10,14 +43,19 @@ export const universalMenuItems = [
     classes: "track",
   },
   {
-    name: "Operations",
-    href: "https://operations.access-ci.org/",
+    name: "News",
+    href: "https://access-ci.org/news/",
     classes: "track",
   },
   {
-    name: "Metrics",
-    href: "https://metrics.access-ci.org/",
+    name: "About",
+    href: "https://access-ci.org/about/",
     classes: "track grow",
+  },
+  {
+    name: "Find info for you",
+    classes: "highlight",
+    items: personaItems,
   },
   {
     name: "ACCESS Home",
@@ -28,41 +66,6 @@ export const universalMenuItems = [
     name: "Search",
     href: "https://support.access-ci.org/find",
     classes: "icon icon-search",
-  },
-  {
-    name: "Menu",
-    classes: "icon icon-hamburger hamburger",
-    autoOpenMode: "mobile",
-    items: [
-      {
-        name: "About",
-        href: "https://access-ci.org/about/",
-      },
-      {
-        name: "Announcements",
-        href: "https://support.access-ci.org/announcements",
-      },
-      {
-        name: "Contact",
-        href: "https://access-ci.org/about/contact/",
-      },
-      {
-        name: "Events & Trainings",
-        href: "https://support.access-ci.org/events",
-      },
-      {
-        name: "News",
-        href: "https://access-ci.org/news/",
-      },
-      {
-        name: "Outages",
-        href: "https://support.access-ci.org/outages",
-      },
-      {
-        name: "Resource Providers",
-        href: "https://access-ci.org/resource-providers/",
-      },
-    ],
   },
 ];
 
@@ -117,3 +120,49 @@ export const loginMenuItem = {
     },
   ],
 };
+
+export const socialItems = [
+  {
+    className: "x",
+    href: "https://twitter.com/ACCESSforCI",
+    name: "X",
+  },
+  {
+    className: "youtube",
+    href: "https://www.youtube.com/c/ACCESSforCI",
+    name: "YouTube",
+  },
+  {
+    className: "facebook",
+    href: "https://www.facebook.com/ACCESSforCI",
+    name: "Facebook",
+  },
+  {
+    className: "linkedin",
+    href: "https://www.linkedin.com/company/accessforci/",
+    name: "LinkedIn",
+  },
+];
+
+export const utilityItems = [
+  {
+    href: "https://access-ci.org/acceptable-use/",
+    name: "Acceptable Use",
+  },
+  {
+    href: "https://access-ci.org/code-of-conduct/",
+    name: "Code of Conduct",
+  },
+  {
+    href: "https://access-ci.org/privacy-policy",
+    name: "Privacy Policy",
+  },
+  {
+    href: "https://access-ci.org/glossary/",
+    name: "Glossary",
+  },
+  {
+    href: "https://access-ci.org/site-map/",
+    name: "Site Map",
+  },
+];

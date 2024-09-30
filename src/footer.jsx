@@ -1,7 +1,9 @@
+import { personaItems, socialItems, utilityItems } from "./items";
 import baseStyle from "./base.css?inline";
 import footerStyle from "./footer.css?inline";
 
 import { AwardLink } from "./award-link";
+import { LinksList } from "./links-list";
 import { Logo } from "./logo";
 import { ScrollToTop } from "./scroll-to-top";
 
@@ -27,54 +29,16 @@ export const Footer = (params = {}) => {
             <a class="contact" href="https://access-ci.org/contact/">
               Contact ACCESS
             </a>
+            <LinksList className="social" items={socialItems} />
           </div>
-          <ul class="social">
-            <li>
-              <a class="x" href="https://twitter.com/ACCESSforCI">
-                X
-              </a>
-            </li>
-            <li>
-              <a class="youtube" href="https://www.youtube.com/c/ACCESSforCI">
-                YouTube
-              </a>
-            </li>
-            <li>
-              <a class="facebook" href="https://www.facebook.com/ACCESSforCI">
-                Facebook
-              </a>
-            </li>
-            <li>
-              <a
-                class="linkedin"
-                href="https://www.linkedin.com/company/accessforci/"
-              >
-                LinkedIn
-              </a>
-            </li>
-          </ul>
+          <div class="personas">
+            <p>For:</p>
+            <LinksList items={personaItems} />
+          </div>
         </div>
         <div class="lower">
           <Logo {...params} placement="footer" />
-          <ul class="links">
-            <li>
-              <a href="https://access-ci.org/acceptable-use/">Acceptable Use</a>
-            </li>
-            <li>
-              <a href="https://access-ci.org/code-of-conduct/">
-                Code of Conduct
-              </a>
-            </li>
-            <li>
-              <a href="https://access-ci.org/privacy-policy/">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="https://access-ci.org/glossary/">Glossary</a>
-            </li>
-            <li>
-              <a href="https://access-ci.org/site-map/">Site Map</a>
-            </li>
-          </ul>
+          <LinksList className="links" items={utilityItems} />
         </div>
       </div>
       <ScrollToTop {...params} />

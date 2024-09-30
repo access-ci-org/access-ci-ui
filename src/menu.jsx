@@ -3,6 +3,8 @@ import { getMode, useMode } from "./utils";
 import baseStyle from "./base.css?inline";
 import menuStyle from "./menus.css?inline";
 
+import { LinksList } from "./links-list";
+
 export const Menu = ({
   autoOpenMode,
   classes = "",
@@ -65,7 +67,7 @@ export const Menu = ({
 };
 
 export const Menus = ({ classes, items, name, target }) => {
-  const mode = useMode();
+  const mode = useMode(1280);
   const [open, setOpen] = useState({});
 
   useEffect(() => {
@@ -116,13 +118,7 @@ export const FooterMenus = ({ items }) => {
     return (
       <div class="column">
         <h2>{name}</h2>
-        <ul>
-          {items.map(({ name, href }) => (
-            <li>
-              <a href={href}>{name}</a>
-            </li>
-          ))}
-        </ul>
+        <LinksList items={items} />
       </div>
     );
   });
