@@ -19,7 +19,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "preversion": "",
+    "version": "npm run build && esbuild ./dist/access-ci-ui.js --bundle --outfile=./dist/access-ci-ui.esbuild.js && git add -f -A dist",
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {
     "preact": "^10.24.1"

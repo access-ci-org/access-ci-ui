@@ -30,6 +30,7 @@ The library includes functions for rendering common ACCESS user interface compon
 
 ## Example
 
+### ES6
 ```html
 <div id="universal-menus"></div>
 <div id="header"></div>
@@ -123,4 +124,91 @@ The library includes functions for rendering common ACCESS user interface compon
 
   footer({ target: document.getElementById("footer") });
 </script>
+```
+
+### Plain Javascript
+```html
+<div id="universal-menus"></div>
+<div id="header"></div>
+<div id="site-menus"></div>
+<div id="main" class="container">
+  <div id="body">
+    <h1>Page Title</h1>
+    <h2>First Section</h2>
+    <h2>Second Section</h2>
+    <h2>Third Section</h2>
+  </div>
+  <div id="table-of-contents"></div>
+</div>
+<div id="footer-menus"></div>
+<div id="footer"></div>
+<script type="module">
+
+  const siteItems = [
+    {
+      name: "One",
+      items: [
+        {
+          name: "Item A",
+          href: "/one/a",
+        },
+        {
+          name: "Item B",
+          href: "/one/b",
+        },
+        {
+          name: "Item C",
+          href: "/one/c",
+        },
+      ],
+    },
+    {
+      name: "Two",
+      items: [
+        {
+          name: "Item A",
+          href: "/two/a",
+        },
+        {
+          name: "Item B",
+          href: "/two/b",
+        },
+      ],
+    },
+    {
+      name: "Three",
+      href: "/three",
+    },
+  ];
+
+  window.ACCESS_CI_UI_CONFIG = {
+      universalMenus: {
+        loginUrl: "/login",
+        logoutUrl: "/logout",
+        siteName: "Allocations",
+        targetId: "universal-menus"
+      },
+      header: {
+        siteName: "Allocations",
+        targetId: "header"
+      },
+      siteMenus: {
+        items: siteItems,
+        siteName: "Allocations",
+        targetId: "site-menus"
+      },
+      tableOfContents: {
+        headings: document.querySelectorAll("#body h1, #body h2"),
+        targetId: "table-of-contents",
+      },
+      footerMenus: {
+        items: siteItems,
+        targetId: "footer-menus"
+      },
+      footer: {
+        targetId: "footer"
+      }
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/access-ci-org/access-ci-ui@<version>/dist/access-ci-ui.esbuild.js"></script>
 ```
