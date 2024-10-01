@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0-beta2](https://github.com/access-ci-org/access-ci-ui/compare/v0.3.0-beta1...v0.3.0-beta2) (2024-10-01)
+
+
+### Bug Fixes
+
+* **menu:** fix error for sites without a top-level nav item ([3722bf8](https://github.com/access-ci-org/access-ci-ui/commit/3722bf8acbe5a082c52bdcc5c0c32ae64b11f793))
+
+
+### Miscellaneous Chores
+
+* release 0.3.0-beta2 ([b2f9985](https://github.com/access-ci-org/access-ci-ui/commit/b2f9985db7e2aca9056f3cfd9e195f0d10c62c11))
+
 ## [0.3.0-beta1](https://github.com/access-ci-org/access-ci-ui/compare/v0.2.5...v0.3.0-beta1) (2024-09-30)
 
 
