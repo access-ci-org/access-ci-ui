@@ -35,8 +35,14 @@ const universalMenus = ({
     }));
 
     items = [...universalMenuItems, lastItem];
-    if (siteName)
-      items.find((item) => item.name == siteName).classes += " active";
+    let currentItem = items.find(
+      (item) =>
+        (item.href || "").replace(/\/$/, "") ==
+        document.location.href.replace(/\/$/, "")
+    );
+    if (siteName && !currentItem)
+      currentItem = items.find((item) => item.name == siteName);
+    if (currentItem) currentItem.classes += " active";
   }
 
   renderShadow(
