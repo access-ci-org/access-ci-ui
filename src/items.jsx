@@ -147,7 +147,7 @@ export const socialItems = [
 export const utilityItems = [
   {
     href: "https://access-ci.org/acceptable-use/",
-    name: "Acceptable Use",
+    name: "Acceptable Use Policy",
   },
   {
     href: "https://access-ci.org/code-of-conduct/",
