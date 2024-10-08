@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0-beta3](https://github.com/access-ci-org/access-ci-ui/compare/v0.3.0-beta2...v0.3.0-beta3) (2024-10-08)
+
+
+### Bug Fixes
+
+* **footer:** use lighter color for footer rule ([70a3d81](https://github.com/access-ci-org/access-ci-ui/commit/70a3d81850f3650e46a1521c116563c0debde1d8))
+* **menu:** rename Acceptable Use menu item ([d8a82bc](https://github.com/access-ci-org/access-ci-ui/commit/d8a82bc087a66a2d925fb77d06b97f8e9b9e75af))
+
+
+### Miscellaneous Chores
+
+* release 0.3.0-beta3 ([88db9a2](https://github.com/access-ci-org/access-ci-ui/commit/88db9a2eff9eb9b22156ffc0aa94332efbabd985))
+
 ## [0.3.0-beta2](https://github.com/access-ci-org/access-ci-ui/compare/v0.3.0-beta1...v0.3.0-beta2) (2024-10-01)
 
 
