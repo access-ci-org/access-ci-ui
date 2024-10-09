@@ -127,6 +127,10 @@ The library includes functions for rendering common ACCESS user interface compon
 ```
 
 ### Plain Javascript
+
+The components will be created for those defined in window.ACCESS_CI_UI_CONFIG. As long as each component 
+has at least {} or true as its value, the components will be generated successfully.
+
 ```html
 <div id="universal-menus"></div>
 <div id="header"></div>
@@ -142,7 +146,7 @@ The library includes functions for rendering common ACCESS user interface compon
 </div>
 <div id="footer-menus"></div>
 <div id="footer"></div>
-<script type="module">
+<script>
 
   const siteItems = [
     {

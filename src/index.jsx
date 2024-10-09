@@ -114,12 +114,27 @@ const tableOfContents = ({ headings = [], target }) =>
   renderShadow(<TableOfContents headings={headings} />, target);
 
 // Create the components if the config variable is defined only.
-if(window.ACCESS_CI_UI_CONFIG) {
+if(window.ACCESS_CI_UI_CONFIG.footer) {
   footer(paramConfig.footer);
+}
+
+if(window.ACCESS_CI_UI_CONFIG.header) {
   header(paramConfig.header);
+}
+
+if(window.ACCESS_CI_UI_CONFIG.universalMenus) {
   universalMenus(paramConfig.universalMenus);
+}
+
+if(window.ACCESS_CI_UI_CONFIG.footerMenus) {
   footerMenus(paramConfig.footerMenus);
+}
+
+if(window.ACCESS_CI_UI_CONFIG.siteMenus) {
   siteMenus(paramConfig.siteMenus);
+}
+
+if(window.ACCESS_CI_UI_CONFIG.tableOfContents) {
   tableOfContents(paramConfig.tableOfContents);
 }
 
