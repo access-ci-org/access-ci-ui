@@ -15,17 +15,12 @@ export default function ResourceGroupDocumentation({ baseUri, infoGroupId }) {
   return (
     <Section title="Documentation" icon="book">
       <ul>
-        {data.map(({ title, description, link }) => {
-          console.log(link, extractHref(link));
-          return (
-            <li>
-              <a href={extractHref(link)}>{title}</a>
-              {description ? (
-                <InfoTip tooltip={stripTags(description)} />
-              ) : null}
-            </li>
-          );
-        })}
+        {data.map(({ title, description, link }) => (
+          <li>
+            <a href={extractHref(link)}>{title}</a>
+            {description ? <InfoTip tooltip={stripTags(description)} /> : null}
+          </li>
+        ))}
       </ul>
     </Section>
   );
