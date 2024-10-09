@@ -48,17 +48,15 @@ export const useJSON = (
 
 export const sortOn = (prop) => (a, b) => a[prop] < b[prop] ? -1 : 1;
 
+export const stripTags = (html) =>
+  html.replace(/(<[^>]+>)/g, "").replace(/&nbsp;/g, " ");
+
 export const htmlToJsx = (html) => {
   const links = Array.from(html.matchAll(/<a([^>]+)>([^<]+)<\/a>/g));
   const textNodes = html.split(/<a[^<]+<\/a>/g);
   const result = [];
   while (textNodes.length > 0) {
-    result.push(
-      textNodes
-        .shift()
-        .replace(/(<[^>]+>)/g, "")
-        .replace(/&nbsp;/g, " ")
-    );
+    result.push(stripTags(textNodes.shift()));
     let link = links.shift();
     if (link) {
       let href = link[1].match(/href="([^"]+)"/g);
