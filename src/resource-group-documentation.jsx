@@ -1,23 +1,31 @@
-import { useJSON } from "./utils";
+import { extractHref, stripTags, useJSON } from "./utils";
 
+import InfoTip from "./info-tip";
 import Section from "./section";
 
 export default function ResourceGroupDocumentation({ baseUri, infoGroupId }) {
   const data = useJSON(
-    `${baseUri}/api/resource-groups/${infoGroupId}/documentation.json`,
-    null
+    `https://support.access-ci.org/api/1.0/kb/${infoGroupId}`,
+    null,
+    { corsProxy: true }
   );
 
-  if (!data || data.error) return;
+  if (!data || data.error || !data.length) return;
 
   return (
     <Section title="Documentation" icon="book">
       <ul>
-        {data.documentation.map(({ name, documentationUri }) => (
-          <li>
-            <a href={documentationUri}>{name}</a>
-          </li>
-        ))}
+        {data.map(({ title, description, link }) => {
+          console.log(link, extractHref(link));
+          return (
+            <li>
+              <a href={extractHref(link)}>{title}</a>
+              {description ? (
+                <InfoTip tooltip={stripTags(description)} />
+              ) : null}
+            </li>
+          );
+        })}
       </ul>
     </Section>
   );

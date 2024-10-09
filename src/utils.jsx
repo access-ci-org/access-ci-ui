@@ -53,6 +53,12 @@ export const useJSON = (
 
 export const sortOn = (prop) => (a, b) => a[prop] < b[prop] ? -1 : 1;
 
+export const extractHref = (html) => {
+  let href = html.match(/href="([^"]+)"/);
+  if (href) return href[1];
+  return null;
+};
+
 export const stripTags = (html) =>
   html.replace(/(<[^>]+>)/g, "").replace(/&nbsp;/g, " ");
 
@@ -64,8 +70,8 @@ export const htmlToJsx = (html) => {
     result.push(stripTags(textNodes.shift()));
     let link = links.shift();
     if (link) {
-      let href = link[1].match(/href="([^"]+)"/g);
-      if (href) result.push(<a href={href[1]}>{link[2]}</a>);
+      let href = extractHref(link[1]);
+      if (href) result.push(<a href={href}>{link[2]}</a>);
     }
   }
   return result;
