@@ -23,12 +23,18 @@ export const getScrollTop = () =>
     : (document.documentElement || document.body.parentNode || document.body)
         .scrollTop;
 
-export const useJSON = (uri, defaultValue) => {
+export const useJSON = (
+  uri,
+  defaultValue,
+  { corsProxy } = { corsProxy: false }
+) => {
   const [value, setValue] = useState(defaultValue);
   useEffect(() => {
     if (uri)
       (async () => {
-        const res = await fetch(uri);
+        const res = await fetch(
+          corsProxy ? `https://corsproxy.io/?${encodeURIComponent(uri)}` : uri
+        );
         if (res.status < 200 || res.status > 299) {
           setValue({ error: { status: res.status } });
         } else {
@@ -41,3 +47,23 @@ export const useJSON = (uri, defaultValue) => {
 };
 
 export const sortOn = (prop) => (a, b) => a[prop] < b[prop] ? -1 : 1;
+
+export const htmlToJsx = (html) => {
+  const links = Array.from(html.matchAll(/<a([^>]+)>([^<]+)<\/a>/g));
+  const textNodes = html.split(/<a[^<]+<\/a>/g);
+  const result = [];
+  while (textNodes.length > 0) {
+    result.push(
+      textNodes
+        .shift()
+        .replace(/(<[^>]+>)/g, "")
+        .replace(/&nbsp;/g, " ")
+    );
+    let link = links.shift();
+    if (link) {
+      let href = link[1].match(/href="([^"]+)"/g);
+      if (href) result.push(<a href={href[1]}>{link[2]}</a>);
+    }
+  }
+  return result;
+};

@@ -1,14 +1,19 @@
-import { useJSON } from "./utils";
+import { htmlToJsx, useJSON } from "./utils";
 
 import Icon from "./icon";
 
 export default function ResourceGroupDescription({ baseUri, infoGroupId }) {
   const data = useJSON(
-    `${baseUri}/api/resource-groups/${infoGroupId}.json`,
-    null
+    `https://support.access-ci.org/api/1.0/affinity_groups/${infoGroupId}`,
+    null,
+    { corsProxy: true }
   );
-  if (!data) return;
-  const { name, resourceProvider, imageUri, description, userGuideUri } = data;
+  if (!data || !data.length) return;
+  const name = data[0].title;
+  const imageUri = `https://support.access-ci.org/${data[0].field_image}`;
+  const description = htmlToJsx(data[0].description);
+  // TODO: Add resource provider and user guide data.
+  const { resourceProvider, userGuideUri } = data;
   return (
     <div class="resource-group-description">
       {imageUri ? (
