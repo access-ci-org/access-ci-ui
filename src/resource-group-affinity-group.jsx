@@ -9,7 +9,7 @@ export default function ResourceGroupAffinityGroup({ baseUri, infoGroupId }) {
     null,
     { corsProxy: true }
   );
-  if (!data || !data.length) return;
+  if (!data || data.error || !data.length) return;
   const slackUri = stripTags(data[0].slack_link);
   return (
     <Section title="Affinity Group" icon="people-fill">

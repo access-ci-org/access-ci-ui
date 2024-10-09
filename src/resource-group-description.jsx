@@ -8,7 +8,7 @@ export default function ResourceGroupDescription({ baseUri, infoGroupId }) {
     null,
     { corsProxy: true }
   );
-  if (!data || !data.length) return;
+  if (!data || data.error || !data.length) return;
   const name = data[0].title;
   const imageUri = `https://support.access-ci.org/${data[0].field_image}`;
   const description = htmlToJsx(data[0].description);

@@ -38,7 +38,12 @@ export const useJSON = (
         if (res.status < 200 || res.status > 299) {
           setValue({ error: { status: res.status } });
         } else {
-          const data = await res.json();
+          let data;
+          try {
+            data = await res.json();
+          } catch (error) {
+            setValue({ error: { message: error } });
+          }
           setValue(data);
         }
       })();
