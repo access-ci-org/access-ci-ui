@@ -5,6 +5,7 @@ import baseStyle from "./base.css?inline";
 import componentsStyle from "./components.css?inline";
 import contentStyle from "./content.css?inline";
 import donutChartStyle from "./donut-chart.css?inline";
+import expandTextStyle from "./expand-text.css?inline";
 import iconStyle from "./icon.css?inline";
 import infoTipStyle from "./info-tip.css?inline";
 import glideCoreStyle from "@glidejs/glide/dist/css/glide.core.min.css?inline";
@@ -57,6 +58,7 @@ export function ResourceCatalog({
       <style>{accordionStyle}</style>
       <style>{alertStyle}</style>
       <style>{donutChartStyle}</style>
+      <style>{expandTextStyle}</style>
       <style>{iconStyle}</style>
       <style>{infoTipStyle}</style>
       <style>{glideCoreStyle}</style>

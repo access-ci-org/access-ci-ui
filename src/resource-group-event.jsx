@@ -1,17 +1,25 @@
+import { extractHref, htmlToJsx } from "./utils";
+
+import ExpandText from "./expand-text";
 import Icon from "./icon";
 
 export default function ResourceGroupEvent({
-  title,
-  startDateTime,
-  endDateTime,
-  eventUri,
-  speaker,
+  date__end,
+  date__start,
   description,
+  location,
+  registration,
+  speaker,
+  title,
 }) {
+  const eventUri = extractHref(registration || "");
   const headingContent = eventUri ? <a href={eventUri}>{title}</a> : title;
   const metadata = [];
   let icon = null;
 
+  // Start and end time
+  const startDateTime = date__start;
+  const endDateTime = date__end;
   if (startDateTime) {
     const start = new Date(startDateTime);
     const end = new Date(endDateTime || startDateTime);
@@ -33,6 +41,12 @@ export default function ResourceGroupEvent({
     parts.push(`(${tz})`);
     metadata.push(<Icon name="calendar" />, parts.join(" "));
 
+    // Speaker
+    if (speaker) metadata.push(<Icon name="people-fill" />, speaker);
+
+    // Event location
+    if (location) metadata.push(<Icon name="geo-alt-fill" />, location);
+
     const iconContent = start
       .toLocaleString("en-US", { dateStyle: "medium" })
       .split(",")[0]
@@ -47,15 +61,17 @@ export default function ResourceGroupEvent({
     );
   }
 
-  if (speaker) metadata.push(<Icon name="people-fill" />, speaker);
-
   return (
     <div class="event">
       {icon}
       <div class="event-details">
         <h3>{headingContent}</h3>
         {metadata.length ? <div class="event-metadata">{metadata}</div> : null}
-        {description ? <p>{description}</p> : null}
+        {description ? (
+          <ExpandText>
+            <p>{htmlToJsx(description)}</p>
+          </ExpandText>
+        ) : null}
       </div>
     </div>
   );
