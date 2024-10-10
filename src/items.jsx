@@ -116,7 +116,7 @@ export const loginMenuItem = {
     },
     {
       name: "Reset Password",
-      href: "https://identity.access-ci.orgg/password-reset",
+      href: "https://identity.access-ci.org/password-reset",
     },
   ],
 };
