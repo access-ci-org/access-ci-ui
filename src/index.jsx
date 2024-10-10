@@ -5,6 +5,52 @@ import { loginMenuItem, myAccessMenuItem, universalMenuItems } from "./items";
 import { TableOfContents } from "./table-of-contents";
 import { renderShadow } from "./utils";
 
+const windowParamConfig = {...window.ACCESS_CI_UI_CONFIG};
+console.log("windowParamConfig", windowParamConfig)
+
+const paramConfig = {
+  universalMenus: {
+    loginUrl: "/login",
+    logoutUrl: "/logout",
+    siteName: "Allocations",
+    targetId: "universal-menus",
+    ...windowParamConfig.universalMenus
+  },
+  header: {
+    siteName: "Allocations",
+    targetId: "header",
+    ...windowParamConfig.header
+  },
+  siteMenus: {
+    items: [],
+    siteName: "Allocations",
+    targetId: "site-menus",
+    ...windowParamConfig.siteMenus
+  },
+  tableOfContents: {
+    headings: document.querySelectorAll("#body h1, #body h2"),
+    targetId: "table-of-contents",
+    ...windowParamConfig.tableOfContents
+  },
+  footerMenus: {
+    items: [],
+    targetId: "footer-menus",
+    ...windowParamConfig.footerMenus
+  },
+  footer: {
+    targetId: "footer",
+    ...windowParamConfig.footer
+  }
+};
+
+console.log("paramConfig", paramConfig)
+
+for (let key in paramConfig) {
+  if (!paramConfig[key].target) {
+    paramConfig[key].target = document.getElementById(paramConfig[key].targetId)
+  }
+}
+
 const footer = (params = {}) => {
   renderShadow(<Footer {...params} />, params.target);
 };
@@ -72,6 +118,31 @@ const footerMenus = ({ items, target }) =>
 
 const tableOfContents = ({ headings = [], target }) =>
   renderShadow(<TableOfContents headings={headings} />, target);
+
+// Create the components if the config variable is defined only.
+if(window.ACCESS_CI_UI_CONFIG.footer) {
+  footer(paramConfig.footer);
+}
+
+if(window.ACCESS_CI_UI_CONFIG.header) {
+  header(paramConfig.header);
+}
+
+if(window.ACCESS_CI_UI_CONFIG.universalMenus) {
+  universalMenus(paramConfig.universalMenus);
+}
+
+if(window.ACCESS_CI_UI_CONFIG.footerMenus) {
+  footerMenus(paramConfig.footerMenus);
+}
+
+if(window.ACCESS_CI_UI_CONFIG.siteMenus) {
+  siteMenus(paramConfig.siteMenus);
+}
+
+if(window.ACCESS_CI_UI_CONFIG.tableOfContents) {
+  tableOfContents(paramConfig.tableOfContents);
+}
 
 export {
   footer,
