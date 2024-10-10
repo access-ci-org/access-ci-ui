@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.1](https://github.com/access-ci-org/access-ci-ui/compare/v0.3.0...v0.3.1) (2024-10-10)
+
+
+### Bug Fixes
+
+* **menus:** fix typo in reset password URL ([241c1d0](https://github.com/access-ci-org/access-ci-ui/commit/241c1d0ecdeed5daab6722b94b236ed9beefa622))
+
 ## [0.3.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.3.0-beta3...v0.3.0) (2024-10-10)
 
 
