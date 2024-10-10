@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.3.0-beta3...v0.3.0) (2024-10-10)
+
+
+### Miscellaneous Chores
+
+* release 0.3.0 ([c23b8a6](https://github.com/access-ci-org/access-ci-ui/commit/c23b8a6a8891227ac2393e6430a74283cbacf529))
+
 ## [0.3.0-beta3](https://github.com/access-ci-org/access-ci-ui/compare/v0.3.0-beta2...v0.3.0-beta3) (2024-10-08)
 
 
