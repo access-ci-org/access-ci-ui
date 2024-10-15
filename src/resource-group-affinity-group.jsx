@@ -12,10 +12,10 @@ export default function ResourceGroupAffinityGroup({ baseUri, infoGroupId }) {
   if (!data || data.error || !data.length) return;
   const slackUri = stripTags(data[0].slack_link);
   return (
-    <Section title="Affinity Group" icon="people-fill">
+    <Section title="User Community" icon="people-fill">
       <p>
-        Join the community! Members get update about announcements, events, and
-        outages.
+        Join the community by participating in an affinity group! Members get
+        update about announcements, events, and outages.
       </p>
       <a href="https://support.access-ci.org/user" class="btn secondary">
         <Icon name="person-plus-fill" /> Join Affinity Group
@@ -25,7 +25,7 @@ export default function ResourceGroupAffinityGroup({ baseUri, infoGroupId }) {
           <Icon name="slack" /> Connect on Slack
         </a>
       ) : null}
-      <a href="#ask-ci-topics" class="btn">
+      <a href="#questions-and-answers" class="btn">
         <Icon name="chat-fill" /> Ask and Answer Questions
       </a>
     </Section>
