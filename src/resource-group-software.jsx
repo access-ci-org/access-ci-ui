@@ -4,48 +4,111 @@ import Fuse from "fuse.js";
 
 import Grid from "./grid";
 import Highlight from "./highlight";
+import Icon from "./icon";
 import Search from "./search";
 import Section from "./section";
 
+const apiFields = [
+  "software_name",
+  "software_description",
+  "software_web_page",
+  "software_documentation",
+  "software_use_link",
+];
+
 export default function ResourceGroupSoftware({ baseUri, infoGroupId }) {
   const data = useJSON(
-    `${baseUri}/api/resource-groups/${infoGroupId}/software.json`,
+    `https://ara-db.ccs.uky.edu/api=API_0/${
+      import.meta.env.VITE_SDS_API_KEY
+    }/rp=${infoGroupId}?include=${apiFields.join(",")}`,
     null
   );
   const [searchText, setSearchText] = useState("");
   const fuse = useMemo(
     () =>
-      data && !data.error
-        ? new Fuse(data.software, {
+      data && data.length
+        ? new Fuse(data, {
             keys: [
-              { name: "name", weight: 0.7 },
-              { name: "summary", weight: 0.3 },
+              { name: "software_name", weight: 0.6 },
+              { name: "software_description", weight: 0.4 },
             ],
           })
         : null,
     [data]
   );
-  if (!data || data.error) return;
+  if (!data || !data.length) return;
 
   const highlightFormat = (value) => (
     <Highlight text={value} highlight={searchText} />
   );
+  const nameFormat = (value, row) => {
+    const result = [];
+    const name = highlightFormat(value);
+    const nameLink = row.software_web_page || row.software_documentation;
+    result.push(nameLink ? <a href={nameLink}>{name}</a> : name);
+    if (row.software_documentation)
+      result.push(
+        <> </>,
+        <a
+          href={row.software_documentation}
+          title={`Documentation for ${value}`}
+        >
+          <Icon name="book" />
+        </a>
+      );
+    if (
+      row.software_use_link &&
+      row.software_use_link != row.software_documentation
+    )
+      result.push(
+        <> </>,
+        <a href={row.software_use_link} title={`Usage example for ${value}`}>
+          <Icon name="terminal" />
+        </a>
+      );
+    return <span style={{ lineHeight: 1.3 }}>{result}</span>;
+  };
+  const descriptionFormat = (value, row) => {
+    const sourcePattern = /Description Source:[ ]+(http[^ ]+)/;
+    const match = value.match(sourcePattern);
+    return (
+      <>
+        {highlightFormat(value.replace(sourcePattern, ""))}{" "}
+        {match ? (
+          <a
+            href={match[1]}
+            title={`Description source for ${row.software_name}`}
+          >
+            <Icon name="info-circle" />
+          </a>
+        ) : null}
+      </>
+    );
+  };
+  const versionsFormat = (value, row) => {
+    return value.map((item) => item.replace(`${row.rp_name}: `, ""));
+  };
   const columns = [
     {
-      key: "name",
+      key: "software_name",
       name: "Package",
-      format: highlightFormat,
+      format: nameFormat,
     },
     {
-      key: "summary",
+      key: "software_versions",
+      name: "Versions",
+      format: versionsFormat,
+    },
+    {
+      key: "software_description",
       name: "Description",
-      format: highlightFormat,
+      format: descriptionFormat,
     },
   ];
 
   const rows = searchText.length
     ? fuse.search(searchText).map((result) => result.item)
-    : data.software;
+    : data;
 
   const headerComponents = [
     <Search

@@ -28,6 +28,8 @@ jobs:
         run: npm ci
       - name: Build project
         run: npm run build
+        env:
+          VITE_SDS_API_KEY: ${{ secrets.VITE_SDS_API_KEY }}
       - name: Copy index to 404 page
         run: cp dist/index.html dist/404.html
       - name: Setup Pages
