@@ -36,7 +36,7 @@ export default function ResourceGroupDescription({ baseUri, infoGroupId }) {
         </p>
       ) : null}
       {description ? <p>{description}</p> : null}
-      <a href="#" class="btn secondary lg">
+      <a href="https://allocations.access-ci.org" class="btn secondary lg">
         <Icon name="check2-circle" /> Get Started with {name}
       </a>
       {userGuideUri ? (
