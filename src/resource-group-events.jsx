@@ -21,7 +21,11 @@ export default function ResourceGroupEvents({ baseUri, infoGroupId }) {
       ? `https://support.access-ci.org/api/1.0/events/ag/${affinityGroupData[0].nid}`
       : null;
   const eventData = useJSON(eventUri, null, { corsProxy: true });
-  if (!announcementData && !eventData) return;
+  const filteredEvents =
+    eventData && !eventData.error
+      ? eventData.filter((event) => new Date(event.date__start) >= new Date())
+      : [];
+  if (!announcementData && !filteredEvents.length) return;
   return (
     <Section title="Announcements and Events" icon="calendar3">
       {announcementData &&
@@ -35,7 +39,7 @@ export default function ResourceGroupEvents({ baseUri, infoGroupId }) {
             </Alert>
           )
         )}
-      {eventData && eventData.map((event) => ResourceGroupEvent(event))}
+      {filteredEvents.map((event) => ResourceGroupEvent(event))}
     </Section>
   );
 }
