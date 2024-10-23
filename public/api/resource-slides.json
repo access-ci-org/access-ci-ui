@@ -2,7 +2,7 @@
   "slides": [
     {
       "title": "Stampede3 Now Available!",
-      "description": "Stampede3, the latest compute and storage resource from TACC, is now accepting allocation requests. This powerful Dell Technologies and Intel based supercomputer is the only system in the ACCESS environment to integrate the new Intel Max Series GPUs.",
+      "description": "Stampede3, the latest resource from TACC, is now accepting allocation requests. This powerful Dell Technologies and Intel based supercomputer is the only system in the ACCESS environment to integrate the new Intel Max Series GPUs.",
       "linkText": "Learn more about Stampede3",
       "linkURI": "https://tacc.utexas.edu/systems/stampede3/",
       "imageURI": "/access-ci-ui/images/stampede3.jpg",

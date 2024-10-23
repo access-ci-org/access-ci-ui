@@ -4,6 +4,7 @@ import { useJSON } from "./utils";
 import { Carousel, CarouselSlide } from "./carousel";
 import { ResourceCategory } from "./resource-category";
 import { ResourceFilters } from "./resource-filters";
+import { ResourcePathways } from "./resource-pathways";
 
 const makeMap = (items, key) => {
   const map = {};
@@ -163,35 +164,37 @@ export default function ResourceHome({
   return (
     <>
       {title && <h1 class={showTitle ? "" : "visually-hidden"}>{title}</h1>}
+      <ResourcePathways />
       {slides && slides.slides.length ? (
         <Carousel>
           {slides.slides.map((slide) => CarouselSlide(slide))}
         </Carousel>
       ) : null}
-
-      {active ? (
-        <ResourceFilters
-          tagCategories={groups.tagCategories}
-          active={active}
-          clearTags={clearTags}
-          toggleTag={toggleTag}
-        />
-      ) : null}
-      {groups
-        ? groups.resourceCategories
-            .filter(({ resourceCategoryId }) =>
-              active.resourceCategoryIds.has(resourceCategoryId)
-            )
-            .map((resourceCategory) => (
-              <ResourceCategory
-                {...resourceCategory}
-                active={active}
-                baseUri={baseUri}
-                clearTags={clearTags}
-                toggleTag={toggleTag}
-              />
-            ))
-        : null}
+      <div id="browse-resources">
+        {active ? (
+          <ResourceFilters
+            tagCategories={groups.tagCategories}
+            active={active}
+            clearTags={clearTags}
+            toggleTag={toggleTag}
+          />
+        ) : null}
+        {groups
+          ? groups.resourceCategories
+              .filter(({ resourceCategoryId }) =>
+                active.resourceCategoryIds.has(resourceCategoryId)
+              )
+              .map((resourceCategory) => (
+                <ResourceCategory
+                  {...resourceCategory}
+                  active={active}
+                  baseUri={baseUri}
+                  clearTags={clearTags}
+                  toggleTag={toggleTag}
+                />
+              ))
+          : null}
+      </div>
     </>
   );
 }

@@ -1,0 +1,75 @@
+ul.resource-pathways {
+  list-style-type: none;
+  margin: 0 0 20px;
+  padding: 0;
+}
+ul.resource-pathways li {
+  margin: 0 0 20px;
+}
+ul.resource-pathways li a {
+  align-items: center;
+  border: 5px solid transparent;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 35px;
+  text-decoration: none;
+}
+ul.resource-pathways a > .bi {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+ul.resource-pathways .title {
+  font-size: 1.4rem;
+}
+ul.resource-pathways .description {
+  font-weight: 400;
+}
+ul.resource-pathways .login {
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 400;
+}
+ul.resource-pathways .login .bi {
+  vertical-align: middle;
+}
+.resource-pathway-0 {
+  background-color: var(--yellow-400);
+}
+.resource-pathway-1 {
+  background-color: var(--teal-600);
+}
+.resource-pathway-1 a {
+  color: white;
+}
+.resource-pathway-2 {
+  background-color: var(--orange-400);
+}
+ul.resource-pathways li a:active,
+ul.resource-pathways li a:focus,
+ul.resource-pathways li a:hover {
+  background-color: white;
+  border: 5px solid var(--contrast);
+  color: var(--contrast);
+}
+@media (min-width: 768px) {
+  ul.resource-pathways {
+    display: flex;
+    flex-direction: row;
+  }
+  ul.resource-pathways li {
+    margin: 0 20px 0 0;
+    position: relative;
+  }
+  ul.resource-pathways li:last-child {
+    margin-right: 0;
+  }
+  ul.resource-pathways li a {
+    height: 100%;
+    width: calc((var(--width) - 40px) / 3);
+  }
+  ul.resource-pathways a > .bi {
+    font-size: 5rem;
+  }
+}

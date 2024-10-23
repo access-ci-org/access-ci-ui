@@ -8,7 +8,7 @@
   padding: 20px;
   position: absolute;
   right: 0;
-  top: 42px;
+  top: 41px;
   width: calc(var(--width) * 0.4);
 }
 .filters-inner h2 {
