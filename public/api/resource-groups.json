@@ -1,60 +1,179 @@
 {
-  "resourceCategories": [
+  "groups": [
     {
-      "resourceCategoryId": 1,
-      "name": "General Purpose Compute & Storage",
-      "order": 1
+      "infoGroupid": "aces.tamu.access-ci.org",
+      "name": "ACES",
+      "description": "Accelerating Computing for Emerging Sciences (ACES) is a NSF-Category II-funded test bed (award number 2112356) that offers state of the art GPUs and other novel accelerators in a composable environment.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/1/group_logo",
+      "infoResourceids": ["aces.tamu.access-ci.org"]
     },
     {
-      "resourceCategoryId": 2,
-      "name": "Specialized Compute & Storage",
-      "order": 2
+      "infoGroupid": "anvil.purdue.access-ci.org",
+      "name": "Anvil",
+      "description": "Purdue University is the home of Anvil, a powerful new supercomputer that provides advanced computing capabilities to support a wide range of computational and data-intensive research spanning from traditional high-performance computing to modern artificial intelligence applications.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/2/group_logo",
+      "infoResourceids": [
+        "anvil-gpu.purdue.access-ci.org",
+        "anvil.purdue.access-ci.org"
+      ]
     },
-    { "resourceCategoryId": 3, "name": "Coordination & Support", "order": 3 }
-  ],
-  "resourceGroups": [
     {
-      "infoGroupId": "bridges2.psc.access-ci.org",
+      "infoGroupid": "bridges2.psc.access-ci.org",
       "name": "Bridges-2",
-      "summary": "Bridges-2 is an integrated compute and storage platform that combines traditional high-performance computing with artificial intelligence and big data capabilities.",
-      "imageType": "photo",
-      "imageUri": "https://i0.wp.com/www.psc.edu/wp-content/uploads/2024/02/bridges-2-50.png?w=694&ssl=1",
-      "resourceCategoryId": 1,
-      "tagIds": [1, 3, 4, 5, 6]
+      "description": "Bridges-2, a resource of Pittsburgh Supercomputing Center, is designed for converged HPC + AI + Data. Its custom topology is optimized for data-centric HPC, AI, and HPDA (High Performance Data Analytics). An extremely flexible software environment along with community data collections and BDaaS (Big Data as a Service) provide the tools necessary for modern pioneering research. The data management system, Ocean, consists of two-tiers, disk and tape, transparently managed as a single, highly usable namespace.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/3/group_logo",
+      "infoResourceids": [
+        "bridges2-em.psc.access-ci.org",
+        "bridges2-gpu.psc.access-ci.org",
+        "bridges2-gpu-ai.psc.access-ci.org",
+        "bridges2-rm.psc.access-ci.org",
+        "bridges2-ocean.psc.access-ci.org"
+      ]
     },
     {
-      "infoGroupId": "jetstream2.indiana.access-ci.org",
+      "infoGroupid": "delta.ncsa.access-ci.org",
+      "name": "DELTA",
+      "description": "DELTA is a dedicated, ACCESS-allocated resource designed by HPE and NCSA, delivering a highly capable GPU-focused compute environment for GPU and CPU workloads.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/35/group_logo",
+      "infoResourceids": [
+        "delta-cpu.ncsa.access-ci.org",
+        "delta-gpu.ncsa.access-ci.org",
+        "delta-storage.ncsa.access-ci.org",
+        "deltaai.ncsa.access-ci.org"
+      ]
+    },
+    {
+      "infoGroupid": "expanse.sdsc.access-ci.org",
+      "name": "Expanse",
+      "description": "Expanse is a dedicated ACCESS cluster designed by Dell and SDSC delivering 5.16 peak petaflops, and will offer Composable Systems and Cloud Bursting.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/37/group_logo",
+      "infoResourceids": [
+        "expanse-gpu.sdsc.access-ci.org",
+        "expanse-ps.sdsc.access-ci.org",
+        "expanse.sdsc.access-ci.org"
+      ]
+    },
+    {
+      "infoGroupid": "faster.tamu.access-ci.org",
+      "name": "FASTER",
+      "description": "Fostering Accelerated Scientific Transformations, Education, and Research (FASTER) is a NSF-MRI-funded cluster (award number 2019129) that offers state of the art CPUs, GPUs, and NVMe (Non-Volatile MemoryExpress) based storage in a composable environment.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/38/group_logo",
+      "infoResourceids": ["faster.tamu.access-ci.org"]
+    },
+    {
+      "infoGroupid": "derecho.ncar.access-ci.org",
+      "name": "Derecho",
+      "description": "Installed in 2023, Derecho is NCAR's latest supercomputer. The HPE Cray EX cluster is a 19.87-petaflops system. University researchers and NSF NCAR scientists can use Derecho to pursue work in Earth systems science and related sciences.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/36/group_logo",
+      "infoResourceids": ["derecho-gpu.ncar.ucar.edu", "derecho.ncar.ucar.edu"]
+    },
+    {
+      "infoGroupid": "granite.ncsa.access-ci.org",
+      "name": "Granite",
+      "description": "Granite is NCSA’s tape archive system, closely integrated with Taiga, to provide users with a place to store long-term archive datasets. The system is built using a 19-frame Spectra TFinity tape library outfitted with 20 LTO-9 tape drives and can hold over 300PB of replicated data.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/39/group_logo",
+      "infoResourceids": ["granite.ncsa.access-ci.org"]
+    },
+    {
+      "infoGroupid": "osg.access-ci.org",
+      "name": "Open Science Grid",
+      "description": "The OSG provides technologies and services for supporting pools of distributed high-throughput computing (dHTC) and data capacity that serve a number of research communities, worldwide. Among these services, the OSG operates the Open Science Pool (OSPool), which includes capacity contributed from clusters at campuses and national labs across and beyond the US, organized as a single virtual cluster.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/40/group_logo",
+      "infoResourceids": ["grid1.osg.access-ci.org"]
+    },
+    {
+      "infoGroupid": "hive.gatech.access-ci.org",
+      "name": "Hive",
+      "description": "The Partnership for an Advanced Computing Environment (PACE) at Georgia Institute of Technology has deployed a new high performance computing (HPC) cluster, Hive.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/41/group_logo",
+      "infoResourceids": ["hive.gatech.access-ci.org"]
+    },
+    {
+      "infoGroupid": "jetstream2.indiana.access-ci.org",
       "name": "Jetstream2",
-      "summary": "Jetstream2 is a hybrid-cloud platform that provides flexible, on-demand, programmable cyberinfrastructure, including interactive virtual machine services.",
-      "imageType": "logo",
-      "imageUri": "https://jetstream-cloud.org/images/home/jetstream-2.png",
-      "resourceCategoryId": 1,
-      "tagIds": [2, 3, 4, 5, 6, 7]
+      "description": "Jetstream2 is a transformative update to the NSF’s science and engineering cloud infrastructure and provides 8 petaFLOPS of supercomputing power to simplify data analysis, boost discovery, and increase availability of AI resources. It is an NSF-funded, user-friendly cloud environment designed to allow “always on” research infrastructure and to give researchers access to interactive computing and data analysis resources on demand, whenever and wherever they want to analyze their data.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/42/group_logo",
+      "infoResourceids": [
+        "jetstream2-gpu.indiana.access-ci.org",
+        "jetstream2-lm.indiana.access-ci.org",
+        "jetstream2-storage.indiana.access-ci.org",
+        "jetstream2.indiana.access-ci.org"
+      ]
+    },
+    {
+      "infoGroupid": "kyric.uky.access-ci.org",
+      "name": "KyRIC",
+      "description": "The KyRIC cluster will advance several exciting research programs across many disciplines, such as Bioinformatics and System Biology Algorithms, Large Graph and Evolutionary Network Analysis, Image Processing, and Computational Modeling and Simulation.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/43/group_logo",
+      "infoResourceids": ["kyric.uky.access-ci.org"]
+    },
+    {
+      "infoGroupid": "launch.tamu.access-ci.org",
+      "name": "Launch",
+      "description": "Launch is a Dell cluster with AMD EPYC Genoa 9654 processors and NVIDIA A30 GPUs. The compute nodes are interconnected with HDR100 InfiniBand connections for MPI and access to the NFS storage.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": null,
+      "infoResourceids": ["launch.tamu.access-ci.org"]
+    },
+    {
+      "infoGroupid": "neocortex.psc.access-ci.org",
+      "name": "Neocortex",
+      "description": "Neocortex is a highly innovative resource that targets the acceleration of AI-powered scientific discovery by greatly shortening the time required for deep learning training and by fostering greater integration of artificial deep learning with scientific workflows. The revolutionary hardware in Neocortex facilitates the development of more efficient algorithms for artificial intelligence and graph analytics.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/45/group_logo",
+      "infoResourceids": ["neocortex-sdflex.psc.access-ci.org"]
+    },
+    {
+      "infoGroupid": "ookami.sbu.access-ci.org",
+      "name": "Ookami",
+      "description": "Ookami is a computer technology testbed supported by the National Science Foundation under grant OAC 1927880. It provides researchers with access to the A64FX processor developed by Riken and Fujitsu for the Japanese path to exascale computing and is currently deployed in the until June 2022 fastest computer in the world, Fugaku.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/46/group_logo",
+      "infoResourceids": ["ookami.sbu.access-ci.org"]
+    },
+    {
+      "infoGroupid": "osn.access-ci.org",
+      "name": "Open Storage Network",
+      "description": "The Open Storage Network (OSN) is a distributed data sharing and transfer service intended to facilitate exchanges of active scientific data sets between research organizations, communities and projects, providing easy access and high bandwidth delivery of large data sets to researchers.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/47/group_logo",
+      "infoResourceids": ["osn.osn.access-ci.org"]
+    },
+    {
+      "infoGroupid": "ranch.tacc.access-ci.org",
+      "name": "Ranch",
+      "description": "TACC's High Performance Computing (HPC) systems are used primarily for scientific computing and while their disk systems are large, they are unable to store the long-term final data generated on these systems. The Ranch archive system fills this need for high capacity long-term storage, by providing a massive high performance file system and tape-based backing store designed, implemented, and supported specifically for archival purposes.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/48/group_logo",
+      "infoResourceids": ["ranch.tacc.access-ci.org"]
+    },
+    {
+      "infoGroupid": "stampede3.tacc.access-ci.org",
+      "name": "Stampede3",
+      "description": "Stampede3 is generously funded through the National Science Foundation and is designed to serve today's researchers as well as support the research community on an evolutionary path toward many-core processors and accelerated technologies. Stampede 3 maintains the familiar programming model for all of today's users, and thus will be broadly useful for traditional simulation users, users performing data intensive computations, and emerging classes of new users.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/49/group_logo",
+      "infoResourceids": ["stampede3.tacc.access-ci.org"]
+    },
+    {
+      "infoGroupid": "voyager.sdsc.access-ci.org",
+      "name": "Voyager",
+      "description": "Voyager is an innovative AI system designed specifically for science and engineering research at scale. Voyager is focused on supporting research in science and engineering that is increasingly dependent upon artificial intelligence and deep learning as a critical element in the experimental and/or computational work.",
+      "groupTypes": ["resource-catalog.access-ci.org"],
+      "groupLogoUrl": "/groups/50/group_logo",
+      "infoResourceids": ["voyager.sdsc.access-ci.org"]
     }
-  ],
-  "tags": [
-    {
-      "tagId": 1,
-      "name": "Pittsburgh Supercomputing Center",
-      "iconUri": "https://i0.wp.com/www.psc.edu/wp-content/uploads/2020/09/cropped-PSClogo_Gradient-e1600870263745.jpg?fit=32%2C32&ssl=1",
-      "tagCategoryId": 1,
-      "order": 1
-    },
-    {
-      "tagId": 2,
-      "name": "Indiana University",
-      "iconUri": "https://www.iu.edu/favicon.ico",
-      "tagCategoryId": 1,
-      "order": 2
-    },
-    { "tagId": 3, "name": "CPU", "tagCategoryId": 2, "order": 1 },
-    { "tagId": 4, "name": "GPU", "tagCategoryId": 2, "order": 2 },
-    { "tagId": 5, "name": "Storage", "tagCategoryId": 2, "order": 3 },
-    { "tagId": 6, "name": "Large Memory", "tagCategoryId": 2, "order": 4 },
-    { "tagId": 7, "name": "Virtual Machines", "tagCategoryId": 2, "order": 5 }
-  ],
-  "tagCategories": [
-    { "tagCategoryId": 1, "name": "Resource Provider", "order": 1 },
-    { "tagCategoryId": 2, "name": "Compute & Storage Feature", "order": 2 }
   ]
 }

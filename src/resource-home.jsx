@@ -5,37 +5,67 @@ import { Carousel, CarouselSlide } from "./carousel";
 import { ResourceCategory } from "./resource-category";
 import { ResourceFilters } from "./resource-filters";
 
-const linkGroupData = ({
-  resourceCategories,
-  resourceGroups,
-  tags,
-  tagCategories,
-}) => {
-  const tagCategoryMap = {};
-  for (let tagCategory of tagCategories) {
-    tagCategory.tags = [];
-    tagCategoryMap[tagCategory.tagCategoryId] = tagCategory;
-  }
+const makeMap = (items, key) => {
+  const map = {};
+  for (let item of items) map[item[key]] = item;
+  return map;
+};
 
-  const tagMap = {};
-  for (let tag of tags) {
-    tag.tagCategory = tagCategoryMap[tag.tagCategoryId];
-    tag.tagCategory.tags.push(tag);
-    tag.resources = [];
-    tagMap[tag.tagId] = tag;
-  }
-
-  const resourceCategoryMap = {};
-  for (let resourceCategory of resourceCategories) {
-    resourceCategory.resourceGroups = [];
-    resourceCategoryMap[resourceCategory.resourceCategoryId] = resourceCategory;
-  }
+const linkGroupData = ({ groups: resourceGroups }, { results: resources }) => {
+  const tagCategories = [
+    {
+      tagCategoryId: 1,
+      name: "Resource Provider",
+      tags: [],
+    },
+  ];
+  const resourceCategories = [
+    {
+      resourceCategoryId: 1,
+      name: "Compute & Storage Resources",
+      resourceGroups: [],
+      resourceGroupIds: [],
+    },
+  ];
+  let nextTagId = 1;
+  const tags = [];
+  const rpTagMap = {};
+  const resourceMap = makeMap(resources, "info_resourceid");
+  const tagCategoryMap = makeMap(tagCategories, "tagCategoryId");
+  const resourceCategoryMap = makeMap(resourceCategories, "resourceCategoryId");
 
   for (let resourceGroup of resourceGroups) {
-    resourceGroup.resourceCategory =
-      resourceCategoryMap[resourceGroup.resourceCategoryId];
+    resourceGroup.infoGroupId = resourceGroup.infoGroupid;
+    delete resourceGroup.infoGroupid;
+    resourceGroup.tags = [];
+    resourceGroup.tagIds = [];
+    for (let infoResourceId of resourceGroup.infoResourceids) {
+      let resource = resourceMap[infoResourceId];
+      if (resource.organization_name) {
+        let tag = rpTagMap[resource.organization_name];
+        if (!tag) {
+          tag = {
+            tagId: nextTagId++,
+            tagCategoryId: 1,
+            name: resource.organization_name,
+          };
+          tags.push(tag);
+          rpTagMap[resource.organization_name] = tag;
+          tagCategoryMap[1].tags.push(tag);
+          tag.tagCategory = tagCategoryMap[1];
+        }
+        if (!resourceGroup.tagIds.includes(tag.tagId)) {
+          resourceGroup.tagIds.push(tag.tagId);
+          resourceGroup.tags.push(tag);
+        }
+      }
+    }
+    resourceGroup.resourceCategoryId = 1;
+    resourceGroup.resourceCategory = resourceCategoryMap[1];
     resourceGroup.resourceCategory.resourceGroups.push(resourceGroup);
-    resourceGroup.tags = resourceGroup.tagIds.map((tagId) => tagMap[tagId]);
+    resourceGroup.resourceCategory.resourceGroupIds.push(
+      resourceGroup.infoGroupId
+    );
   }
 
   return { resourceCategories, resourceGroups, tags, tagCategories };
@@ -106,9 +136,15 @@ export default function ResourceHome({
   const [activeTagIds, setActiveTagIds] = useState([]);
   const slides = useJSON(`${baseUri}${slidesURI}`, null);
   const allGroups = useJSON(`${baseUri}${groupsURI}`, null);
+  const allResources = useJSON(
+    "https://operations-api.access-ci.org/wh2/cider/v2/access-active/"
+  );
   const groups = useMemo(
-    () => (allGroups && !allGroups.error ? linkGroupData(allGroups) : null),
-    [allGroups]
+    () =>
+      allGroups && !allGroups.error && allResources && !allResources.error
+        ? linkGroupData(allGroups, allResources)
+        : null,
+    [allGroups, allResources]
   );
   const active = useMemo(
     () => (groups ? getActive(groups, activeTagIds) : null),

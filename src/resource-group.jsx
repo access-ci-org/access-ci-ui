@@ -4,10 +4,10 @@ import { Tags } from "./tags";
 export function ResourceGroup({
   active,
   baseUri,
+  description,
   imageType,
   imageUri,
   name,
-  summary,
   infoGroupId,
   tags,
   toggleTag,
@@ -31,7 +31,7 @@ export function ResourceGroup({
           ))}
         </Tags>
         <p>
-          {summary && summary}{" "}
+          {description && description}{" "}
           <a href={detailUri}>Learn more about {name} &raquo;</a>
         </p>
       </div>

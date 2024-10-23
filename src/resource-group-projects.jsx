@@ -34,7 +34,7 @@ export default function ResourceGroupProjects({ baseUri, infoGroupId }) {
   const apiUrl = `${apiBaseUrl}?info_groupid=${infoGroupId}&persona=${persona}`;
   const data = useJSON(apiUrl, null, { corsProxy: true });
 
-  if (!data || data.error) return;
+  if (!data || data.error || !data.projectStatistics.length) return;
 
   const stats = {
     "allocation-type": [],
