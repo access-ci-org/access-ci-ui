@@ -37,7 +37,6 @@ const linkGroupData = ({ groups: resourceGroups }, { results: resources }) => {
 
   for (let resourceGroup of resourceGroups) {
     resourceGroup.infoGroupId = resourceGroup.infoGroupid;
-    delete resourceGroup.infoGroupid;
     resourceGroup.tags = [];
     resourceGroup.tagIds = [];
     for (let infoResourceId of resourceGroup.infoResourceids) {
