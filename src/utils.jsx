@@ -23,30 +23,37 @@ export const getScrollTop = () =>
     : (document.documentElement || document.body.parentNode || document.body)
         .scrollTop;
 
+const jsonCache = {};
 export const useJSON = (
   uri,
   defaultValue,
-  { corsProxy } = { corsProxy: false }
+  { cache = true, corsProxy = false } = { cache: true, corsProxy: false }
 ) => {
   const [value, setValue] = useState(defaultValue);
   useEffect(() => {
     if (uri)
-      (async () => {
-        const res = await fetch(
-          corsProxy ? `https://corsproxy.io/?${encodeURIComponent(uri)}` : uri
-        );
-        if (res.status < 200 || res.status > 299) {
-          setValue({ error: { status: res.status } });
-        } else {
-          let data;
-          try {
-            data = await res.json();
-          } catch (error) {
-            setValue({ error: { message: error } });
-          }
+      if (cache && jsonCache[uri]) {
+        setValue(jsonCache[uri]);
+        return;
+      }
+    (async () => {
+      const res = await fetch(
+        corsProxy ? `https://corsproxy.io/?${encodeURIComponent(uri)}` : uri
+      );
+      if (res.status < 200 || res.status > 299) {
+        setValue({ error: { status: res.status } });
+      } else {
+        let data;
+        try {
+          data = await res.json();
+        } catch (error) {
+          data = { error: { message: error } };
+        } finally {
           setValue(data);
+          if (cache) jsonCache[uri] = data;
         }
-      })();
+      }
+    })();
   }, [uri]);
   return value;
 };
