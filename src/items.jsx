@@ -146,6 +146,10 @@ export const socialItems = [
 
 export const utilityItems = [
   {
+    href: "https://access-ci.org/about/acknowledging-access/",
+    name: "How to Acknowledge ACCESS",
+  },
+  {
     href: "https://access-ci.org/acceptable-use/",
     name: "Acceptable Use Policy",
   },

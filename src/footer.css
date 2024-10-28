@@ -127,6 +127,17 @@ a.linkedin {
 .personas li {
   padding: 3px 0;
 }
+@media (min-width: 1024px) {
+  .lower {
+    align-items: start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .links {
+    margin-top: 0;
+  }
+}
 @media (min-width: 900px) {
   .upper {
     display: flex;
@@ -146,14 +157,5 @@ a.linkedin {
   .personas {
     font-size: 18px;
     padding: 40px calc(((var(--width) - 140px) / 8) + 20px) 30px;
-  }
-  .lower {
-    align-items: start;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .links {
-    margin-top: 0;
   }
 }
