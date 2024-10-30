@@ -25,46 +25,63 @@ export const getScrollTop = () =>
 
 const jsonCache = {};
 export const useJSON = (
-  uri,
-  defaultValue,
-  { cache = true, corsProxy = false } = { cache: true, corsProxy: false }
+  uris,
+  { cache = true, corsProxy = false, defaultValue = null } = {
+    cache: true,
+    corsProxy: false,
+    defaultValue: null,
+  }
 ) => {
   const [value, setValue] = useState(defaultValue);
+  let single = false;
+  if (!Array.isArray(uris)) {
+    uris = uris ? [uris] : [];
+    single = true;
+  }
   useEffect(() => {
-    if (uri) {
-      if (cache && jsonCache[uri]) {
-        setValue(jsonCache[uri]);
+    if (uris.length) {
+      const cacheKey = uris.join(" ");
+      if (cache && jsonCache[cacheKey]) {
+        setValue(jsonCache[cacheKey]);
         return;
       }
       (async () => {
-        const res = await fetch(
-          corsProxy ? `https://corsproxy.io/?${encodeURIComponent(uri)}` : uri
+        const responses = await Promise.all(
+          uris.map((uri) =>
+            fetch(
+              corsProxy
+                ? `https://corsproxy.io/?${encodeURIComponent(uri)}`
+                : uri
+            )
+          )
         );
-        if (res.status < 200 || res.status > 299) {
-          setValue({ error: { status: res.status } });
-        } else {
-          let data;
-          try {
-            data = await res.json();
-          } catch (error) {
-            data = { error: { message: error } };
-          } finally {
-            setValue(data);
-            if (cache) jsonCache[uri] = data;
-          }
-        }
+        const json = await Promise.all(
+          responses.map((response) => {
+            if (response.status < 200 || response.status > 299) {
+              return { error: { status: response.status } };
+            } else {
+              try {
+                return response.json();
+              } catch (error) {
+                return { error: { message: error } };
+              }
+            }
+          })
+        );
+        const result = single ? json[0] : json;
+        setValue(result);
+        if (cache) jsonCache[cacheKey] = result;
       })();
     }
-  }, [uri]);
+  }, [...uris]);
   return value;
 };
 
 export const useResourceGroupJSON = (infoGroupId, defaultValue = null) => {
   // TODO: Replace this with the individual group endpoint once it is available.
-  const groupsData = useJSON(
-    "/access-ci-ui/api/resource-groups.json",
-    defaultValue
-  );
+  const groupsData = useJSON("/access-ci-ui/api/resource-groups.json", {
+    defaultValue,
+  });
   return groupsData
     ? groupsData.groups.find((group) => group.infoGroupid == infoGroupId) ||
         defaultValue

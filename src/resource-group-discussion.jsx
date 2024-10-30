@@ -18,13 +18,9 @@ const getCategoryUri = (category, siteData) => {
 };
 
 export default function ResourceGroupDiscussion({ baseUri, infoGroupId }) {
-  const siteData = useJSON(
-    `https://ask.cyberinfrastructure.org/site.json`,
-    null,
-    {
-      corsProxy: true,
-    }
-  );
+  const siteData = useJSON(`https://ask.cyberinfrastructure.org/site.json`, {
+    corsProxy: true,
+  });
   // Try to find a category with a slug that matches the info group ID.
   // TODO: Replace this with better logic once the CID and slug are available
   // in the Support APIs.
@@ -37,7 +33,7 @@ export default function ResourceGroupDiscussion({ baseUri, infoGroupId }) {
         );
 
   const categoryDataUri = getCategoryUri(category, siteData);
-  const categoryData = useJSON(categoryDataUri, null, {
+  const categoryData = useJSON(categoryDataUri, {
     corsProxy: true,
   });
 

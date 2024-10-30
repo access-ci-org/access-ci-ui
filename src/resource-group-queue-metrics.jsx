@@ -25,8 +25,7 @@ const formatHeaderTip = (content) => (value) => {
 export default function ResourceGroupQueueMetrics({ baseUri, infoGroupId }) {
   const [days, setDays] = useState(30);
   const data = useJSON(
-    `${baseUri}/api/resource-groups/${infoGroupId}/queue-metrics/${days}.json`,
-    null
+    `${baseUri}/api/resource-groups/${infoGroupId}/queue-metrics/${days}.json`
   );
   if (!data || data.error) return;
 

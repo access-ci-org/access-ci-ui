@@ -32,7 +32,7 @@ export default function ResourceGroupProjects({ baseUri, infoGroupId }) {
   const apiBaseUrl =
     "https://allocations.access-ci.org/current-projects/summary.json";
   const apiUrl = `${apiBaseUrl}?info_groupid=${infoGroupId}&persona=${persona}`;
-  const data = useJSON(apiUrl, null, { corsProxy: true });
+  const data = useJSON(apiUrl, { corsProxy: true });
 
   if (!data || data.error || !data.projectStatistics.length) return;
 

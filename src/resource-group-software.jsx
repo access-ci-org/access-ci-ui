@@ -20,8 +20,7 @@ export default function ResourceGroupSoftware({ baseUri, infoGroupId }) {
   const data = useJSON(
     `https://ara-db.ccs.uky.edu/api=API_0/${
       import.meta.env.VITE_SDS_API_KEY
-    }/rp=${infoGroupId}?include=${apiFields.join(",")}`,
-    null
+    }/rp=${infoGroupId}?include=${apiFields.join(",")}`
   );
   const [searchText, setSearchText] = useState("");
   const fuse = useMemo(

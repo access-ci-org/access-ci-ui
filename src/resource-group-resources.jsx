@@ -24,8 +24,7 @@ const linkResourceData = ({ resources, resourceTypes }) => {
 
 export default function ResourceGroupResources({ baseUri, infoGroupId }) {
   const allTypes = useJSON(
-    `${baseUri}/api/resource-groups/${infoGroupId}/resources.json`,
-    null
+    `${baseUri}/api/resource-groups/${infoGroupId}/resources.json`
   );
   const types = useMemo(
     () => (allTypes && !allTypes.error ? linkResourceData(allTypes) : null),

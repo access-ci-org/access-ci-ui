@@ -6,7 +6,6 @@ import Section from "./section";
 export default function ResourceGroupDocumentation({ baseUri, infoGroupId }) {
   const data = useJSON(
     `https://support.access-ci.org/api/1.0/kb/${infoGroupId}`,
-    null,
     { corsProxy: true }
   );
 

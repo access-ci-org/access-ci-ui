@@ -134,8 +134,8 @@ export default function ResourceHome({
   groupsURI,
 }) {
   const [activeTagIds, setActiveTagIds] = useState([]);
-  const slides = useJSON(`${baseUri}${slidesURI}`, null);
-  const allGroups = useJSON(`${baseUri}${groupsURI}`, null);
+  const slides = useJSON(`${baseUri}${slidesURI}`);
+  const allGroups = useJSON(`${baseUri}${groupsURI}`);
   const allResources = useJSON(
     "https://operations-api.access-ci.org/wh2/cider/v2/access-active/"
   );

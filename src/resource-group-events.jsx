@@ -7,16 +7,13 @@ import Section from "./section";
 export default function ResourceGroupEvents({ baseUri, infoGroupId }) {
   const groupData = useResourceGroupJSON(infoGroupId);
   const currentAnnouncementData = useJSON(
-    "https://operations-api.access-ci.org/wh2/news/v1/affiliation/access-ci.org/current_outages/",
-    null
+    "https://operations-api.access-ci.org/wh2/news/v1/affiliation/access-ci.org/current_outages/"
   );
   const futureAnnouncementData = useJSON(
-    "https://operations-api.access-ci.org/wh2/news/v1/affiliation/access-ci.org/future_outages/",
-    null
+    "https://operations-api.access-ci.org/wh2/news/v1/affiliation/access-ci.org/future_outages/"
   );
   const eventData = useJSON(
     `https://support.access-ci.org/api/1.1/events/ag/${infoGroupId}`,
-    null,
     { corsProxy: true }
   );
   const filteredAnnouncements = useTransform(

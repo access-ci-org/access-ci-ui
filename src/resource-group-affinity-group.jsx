@@ -6,7 +6,6 @@ import Section from "./section";
 export default function ResourceGroupAffinityGroup({ baseUri, infoGroupId }) {
   const data = useJSON(
     `https://support.access-ci.org/api/1.0/affinity_groups/${infoGroupId}`,
-    null,
     { corsProxy: true }
   );
   if (!data || data.error || !data.length) return;
