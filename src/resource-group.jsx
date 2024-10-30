@@ -1,3 +1,4 @@
+import Icon from "./icon";
 import { Tag } from "./tag";
 import { Tags } from "./tags";
 
@@ -19,7 +20,7 @@ export function ResourceGroup({
         class={`resource-group-image image-type-${imageType}`}
         href={detailUri}
       >
-        {imageUri ? <img src={imageUri} /> : null}
+        {imageUri ? <img src={imageUri} /> : <Icon name="motherboard" />}
       </a>
       <div class="resource-group-text">
         <h3>

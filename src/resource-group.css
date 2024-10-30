@@ -3,16 +3,31 @@
   align-items: flex-start;
   display: flex;
   flex-direction: row;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 .resource-group-image {
+  --image-width: calc((var(--width) - 140px) / 4 + 20px);
+  align-items: center;
+  background-color: var(--contrast-9);
   border: 1px solid var(--contrast);
+  color: var(--contrast-8);
+  display: flex;
   flex: 0 0 auto;
+  flex-direction: column;
+  font-size: 5rem;
+  justify-content: center;
   margin-right: 20px;
+  min-height: calc(var(--image-width) / 3 * 2);
   position: relative;
-  width: calc((var(--width) - 140px) / 4 + 20px);
+  width: var(--image-width);
 }
-.resource-group-image > * {
+.resource-group-image:active,
+.resource-group-image:focus,
+.resource-group-image:hover {
+  color: var(--contrast-8);
+}
+
+.resource-group-image > img {
   display: block;
   width: 100%;
 }

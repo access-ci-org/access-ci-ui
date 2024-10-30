@@ -30,7 +30,6 @@ export function ResourceCatalog({
   title = "Resource Catalog",
   showTitle = false,
   baseUri = "/access-ci-ui",
-  groupsURI = "/api/resource-groups.json",
   slidesURI = "/api/resource-slides.json",
 }) {
   return (
@@ -44,7 +43,6 @@ export function ResourceCatalog({
               title={title}
               showTitle={showTitle}
               slidesURI={slidesURI}
-              groupsURI={groupsURI}
             />
             <ResourceGroupDetail
               baseUri={baseUri}
