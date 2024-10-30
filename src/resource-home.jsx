@@ -1,5 +1,5 @@
 import { useMemo, useState } from "preact/hooks";
-import { useJSON } from "./utils";
+import { useJSON, useResourceGroupsJSON } from "./utils";
 
 import { Carousel, CarouselSlide } from "./carousel";
 import { ResourceCategory } from "./resource-category";
@@ -12,21 +12,7 @@ const makeMap = (items, key) => {
   return map;
 };
 
-const linkGroupData = ({ results: groupResults }, { results: resources }) => {
-  const resourceGroups = groupResults
-    .filter((group) => group.info_resourceids)
-    .map((group) => ({
-      infoGroupId: group.info_groupid,
-      name: group.group_descriptive_name,
-      description: group.group_description,
-      infoResourceIds: group.info_resourceids,
-      imageUri: group.group_logo_url
-        ? `https://cider.access-ci.org/public/groups/${
-            group.group_logo_url.match(/[0-9]+/)[0]
-          }/logo`
-        : null,
-    }))
-    .sort((a, b) => a.name.localeCompare(b.name));
+const linkGroupData = (resourceGroups, { results: resources }) => {
   const tagCategories = [
     {
       tagCategoryId: 1,
@@ -143,9 +129,7 @@ const getActive = ({ resourceGroups, tags, tagCategories }, activeTagIds) => {
 export default function ResourceHome({ baseUri, title, showTitle, slidesURI }) {
   const [activeTagIds, setActiveTagIds] = useState([]);
   const slides = useJSON(`${baseUri}${slidesURI}`);
-  const allGroups = useJSON(
-    `https://operations-api.access-ci.org/wh2/cider/v1/groups/group_type/resource-catalog.access-ci.org/`
-  );
+  const allGroups = useResourceGroupsJSON();
   const allResources = useJSON(
     "https://operations-api.access-ci.org/wh2/cider/v2/access-active/"
   );

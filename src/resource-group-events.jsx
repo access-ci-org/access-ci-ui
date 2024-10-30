@@ -21,7 +21,7 @@ export default function ResourceGroupEvents({ baseUri, infoGroupId }) {
     (groups, current, future) =>
       [...current.results, ...future.results].filter((ann) =>
         ann.AffectedResources.some((res) =>
-          groups.infoResourceids.includes(res.ResourceID)
+          groups.infoResourceIds.includes(res.ResourceID)
         )
       ),
     []

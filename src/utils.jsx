@@ -77,14 +77,33 @@ export const useJSON = (
   return value;
 };
 
+export const useResourceGroupsJSON = () => {
+  const data = useJSON(
+    `https://operations-api.access-ci.org/wh2/cider/v1/groups/group_type/resource-catalog.access-ci.org/`
+  );
+  return useTransform([data], (response) =>
+    response.results
+      .filter((group) => group.info_resourceids)
+      .map((group) => ({
+        infoGroupId: group.info_groupid,
+        name: group.group_descriptive_name,
+        description: group.group_description,
+        infoResourceIds: group.info_resourceids,
+        imageUri: group.group_logo_url
+          ? `https://cider.access-ci.org/public/groups/${
+              group.group_logo_url.match(/[0-9]+/)[0]
+            }/logo`
+          : null,
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name))
+  );
+};
+
 export const useResourceGroupJSON = (infoGroupId, defaultValue = null) => {
   // TODO: Replace this with the individual group endpoint once it is available.
-  const groupsData = useJSON("/access-ci-ui/api/resource-groups.json", {
-    defaultValue,
-  });
-  return groupsData
-    ? groupsData.groups.find((group) => group.infoGroupid == infoGroupId) ||
-        defaultValue
+  const groups = useResourceGroupsJSON();
+  return groups
+    ? groups.find((group) => group.infoGroupId == infoGroupId) || defaultValue
     : defaultValue;
 };
 
