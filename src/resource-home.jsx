@@ -1,10 +1,5 @@
 import { useMemo, useState } from "preact/hooks";
-import {
-  filterResourceGroups,
-  linkResourceGroups,
-  useJSON,
-  useResourceGroupsJSON,
-} from "./utils";
+import { filterResourceGroups, useJSON, useResourceGroups } from "./utils";
 
 import { Carousel, CarouselSlide } from "./carousel";
 import { ResourceCategory } from "./resource-category";
@@ -14,17 +9,7 @@ import { ResourcePathways } from "./resource-pathways";
 export default function ResourceHome({ baseUri, title, showTitle, slidesURI }) {
   const [activeTagIds, setActiveTagIds] = useState([]);
   const slides = useJSON(`${baseUri}${slidesURI}`);
-  const allGroups = useResourceGroupsJSON();
-  const allResources = useJSON(
-    "https://operations-api.access-ci.org/wh2/cider/v2/access-active/"
-  );
-  const groups = useMemo(
-    () =>
-      allGroups && !allGroups.error && allResources && !allResources.error
-        ? linkResourceGroups(allGroups, allResources)
-        : null,
-    [allGroups, allResources]
-  );
+  const groups = useResourceGroups();
   const active = useMemo(
     () => (groups ? filterResourceGroups(groups, activeTagIds) : null),
     [groups, activeTagIds]

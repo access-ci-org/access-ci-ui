@@ -77,12 +77,16 @@ export const useJSON = (
   return value;
 };
 
-export const useResourceGroupsJSON = () => {
-  const data = useJSON(
-    `https://operations-api.access-ci.org/wh2/cider/v1/groups/group_type/resource-catalog.access-ci.org/`
+export const useResourceGroups = () => {
+  const responses = useJSON(
+    [
+      "https://operations-api.access-ci.org/wh2/cider/v1/groups/group_type/resource-catalog.access-ci.org/",
+      "https://operations-api.access-ci.org/wh2/cider/v2/access-active/",
+    ],
+    { defaultValue: [] }
   );
-  return useTransform([data], (response) =>
-    response.results
+  return useTransform(responses, (allGroups, allResources) => {
+    const resourceGroups = allGroups.results
       .filter((group) => group.info_resourceids)
       .map((group) => ({
         infoGroupId: group.info_groupid,
@@ -95,15 +99,17 @@ export const useResourceGroupsJSON = () => {
             }/logo`
           : null,
       }))
-      .sort((a, b) => a.name.localeCompare(b.name))
-  );
+      .sort((a, b) => a.name.localeCompare(b.name));
+    return linkResourceGroups(resourceGroups, allResources.results);
+  });
 };
 
-export const useResourceGroupJSON = (infoGroupId, defaultValue = null) => {
+export const useResourceGroup = (infoGroupId, defaultValue = null) => {
   // TODO: Replace this with the individual group endpoint once it is available.
-  const groups = useResourceGroupsJSON();
+  const groups = useResourceGroups();
   return groups
-    ? groups.find((group) => group.infoGroupId == infoGroupId) || defaultValue
+    ? groups.resourceGroups.find((group) => group.infoGroupId == infoGroupId) ||
+        defaultValue
     : defaultValue;
 };
 
@@ -113,6 +119,7 @@ export const useTransform = (
   defaultValue = null
 ) => {
   return useMemo(() => {
+    if (!responseArray.length) return defaultValue;
     for (let response of responseArray)
       if (!response || response.error) return defaultValue;
     return transformFunction.apply(null, responseArray);
@@ -125,7 +132,7 @@ const makeMap = (items, key) => {
   return map;
 };
 
-export const linkResourceGroups = (resourceGroups, { results: resources }) => {
+export const linkResourceGroups = (resourceGroups, resources) => {
   const tagCategories = [
     {
       tagCategoryId: 1,
