@@ -11,6 +11,7 @@ export default function Grid({
   rows,
   classes,
   frozenColumns = 0,
+  maxHeight = 400,
   minWidth,
   rowClasses = [],
   scrollResetOnUpdate = false,
@@ -66,7 +67,17 @@ export default function Grid({
   if (minWidth) style.minWidth = minWidth;
 
   return (
-    <div class={`grid ${classes || ""}`} ref={container}>
+    <div
+      class={`grid ${classes || ""}`}
+      style={{
+        maxHeight: Number.isInteger(maxHeight)
+          ? `${maxHeight}px`
+          : maxHeight
+          ? maxHeight
+          : null,
+      }}
+      ref={container}
+    >
       <table class="table" style={style}>
         <thead>
           <tr>{th}</tr>

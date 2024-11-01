@@ -1,9 +1,0 @@
-{
-  "announcements": [
-    {
-      "type": "outage",
-      "description": "Bridges-2 compute, storage, and virtual machines will be unavailable on September 1, 2024 from 8:00 a.m. to 5:00 p.m. EDT for scheduled filesystem maintenance.",
-      "announcementUri": "https://www.psc.edu/resources/bridges-2/"
-    }
-  ]
-}

@@ -1,6 +1,5 @@
 .grid {
   border-top: 1px solid var(--contrast);
-  max-height: 400px;
   max-width: 100%;
   margin-bottom: 1rem;
   overflow: scroll;
