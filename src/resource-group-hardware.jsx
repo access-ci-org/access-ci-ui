@@ -67,6 +67,14 @@ export default function ResourceGroupHardware({ baseUri, infoGroupId }) {
           name: "Network Interconnect",
           attr: "interconnect",
         },
+        {
+          name: "Operating System",
+          attr: "operating_system",
+        },
+        {
+          name: "Batch System",
+          attr: "batch_system",
+        },
       ]
         .map((row) => ({
           ...row,
@@ -95,7 +103,7 @@ export default function ResourceGroupHardware({ baseUri, infoGroupId }) {
           {resourceTypes.compute}
           {hasComputeGrid && (
             <>
-              <h3>Hardware Specifications</h3>
+              <h3>Specifications</h3>
               <Grid
                 columns={[nameColumn, ...computeColumns]}
                 rows={computeRows}
