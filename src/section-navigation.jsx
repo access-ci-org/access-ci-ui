@@ -19,7 +19,7 @@ export default function SectionNavigation({ prompt = "Jump To:" }) {
     updateSections();
     document.addEventListener("accessci-update-sections", updateSections);
   }, []);
-  return (
+  return sections.length >= 2 ? (
     <nav class="section-navigation">
       {prompt ? <h2>{prompt}</h2> : null}
       <ul>
@@ -37,5 +37,5 @@ export default function SectionNavigation({ prompt = "Jump To:" }) {
         ))}
       </ul>
     </nav>
-  );
+  ) : null;
 }
