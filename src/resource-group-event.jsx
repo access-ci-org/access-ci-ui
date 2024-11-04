@@ -12,7 +12,7 @@ export default function ResourceGroupEvent({
   speaker,
   title,
 }) {
-  const eventUri = extractHref(registration || "");
+  const eventUri = registration;
   const headingContent = eventUri ? <a href={eventUri}>{title}</a> : title;
   const metadata = [];
   let icon = null;

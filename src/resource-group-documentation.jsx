@@ -5,8 +5,7 @@ import Section from "./section";
 
 export default function ResourceGroupDocumentation({ baseUri, infoGroupId }) {
   const data = useJSON(
-    `https://support.access-ci.org/api/1.0/kb/${infoGroupId}`,
-    { corsProxy: true }
+    `https://md-2261-accessmatch.pantheonsite.io/api/1.0/kb/${infoGroupId}`
   );
 
   if (!data || data.error || !data.length) return;

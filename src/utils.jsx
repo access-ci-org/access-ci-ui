@@ -261,16 +261,21 @@ export const stripTags = (html) =>
   html.replace(/(<[^>]+>)/g, "").replace(/&nbsp;/g, " ");
 
 export const htmlToJsx = (html) => {
-  const links = Array.from(html.matchAll(/<a([^>]+)>([^<]+)<\/a>/g));
-  const textNodes = html.split(/<a[^<]+<\/a>/g);
-  const result = [];
-  while (textNodes.length > 0) {
-    result.push(stripTags(textNodes.shift()));
-    let link = links.shift();
-    if (link) {
-      let href = extractHref(link[1]);
-      if (href) result.push(<a href={href}>{link[2]}</a>);
+  const paragraphs = [];
+  for (let pText of html.split("</p>")) {
+    const links = Array.from(pText.matchAll(/<a([^>]+)>([^<]+)<\/a>/g));
+    const textNodes = pText.split(/<a[^<]+<\/a>/g);
+    const paragraph = [];
+    while (textNodes.length > 0) {
+      paragraph.push(stripTags(textNodes.shift()));
+      let link = links.shift();
+      if (link) {
+        let href = extractHref(link[1]);
+        if (href) paragraph.push(<a href={href}>{link[2]}</a>);
+      }
     }
+    paragraphs.push(<p>{paragraph}</p>);
   }
-  return result;
+
+  return paragraphs;
 };
