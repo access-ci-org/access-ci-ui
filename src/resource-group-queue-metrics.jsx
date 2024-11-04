@@ -1,81 +1,83 @@
 import { useState } from "preact/hooks";
-import { useJSON } from "./utils";
+import { useJSON, useResourceGroup } from "./utils";
 
-import Grid from "./grid";
-import InfoTip from "./info-tip";
 import Section from "./section";
 
-const formatTime = (value) => {
-  const hours = Math.floor(value);
-  const minutes = Math.floor((value - hours) * 60);
-  const seconds = Math.round((value - hours) * 3600 - minutes * 60);
-  return [hours, minutes, seconds]
-    .map((value) => value.toString().padStart(2, "0"))
-    .join(":");
+const pluralize = (count, label, places = 0) =>
+  `${count.toFixed(places)} ${label}${count == 1 ? "" : "s"}`;
+
+const formatTime = (seconds) => {
+  const hours = seconds / 3600;
+  if (hours >= 1) return pluralize(hours, "hour", 1);
+  const minutes = seconds / 60;
+  if (minutes >= 1) return pluralize(minutes, "minute", 0);
+  return pluralize(seconds, "second", 0);
 };
 
-const formatHeaderTip = (content) => (value) => {
-  return (
-    <>
-      <span>{value}</span> <InfoTip tooltip={content} />
-    </>
+export default function ResourceGroupQueueMetrics({ infoGroupId }) {
+  const [view, setView] = useState("overview");
+  const resourceGroup = useResourceGroup(infoGroupId);
+  const resources = useJSON(
+    resourceGroup
+      ? resourceGroup.infoResourceIds.map(
+          (infoResourceId) =>
+            `https://operations-api.access-ci.org/wh2/cider/v1/info_resourceid/${infoResourceId}/?format=json`
+        )
+      : null,
+    { defaultValue: [] }
   );
-};
-
-export default function ResourceGroupQueueMetrics({ baseUri, infoGroupId }) {
-  const [days, setDays] = useState(30);
-  const data = useJSON(
-    `${baseUri}/api/resource-groups/${infoGroupId}/queue-metrics/${days}.json`
+  const overviewMetrics = useJSON(
+    resourceGroup
+      ? resourceGroup.infoResourceIds.map(
+          (infoResourceId) =>
+            `https://rest-test.ccr.xdmod.org/rest/v0.1/custom_queries/wait_times/${infoResourceId}/`
+        )
+      : null,
+    { corsProxy: true, defaultValue: [] }
   );
-  if (!data || data.error) return;
 
-  const columns = [
-    {
-      key: "name",
-      name: "Resource",
-    },
-    {
-      key: "waitTime",
-      name: "Wait Time",
-      format: formatTime,
-      formatHeader: formatHeaderTip(
-        "Wait time is the average time a job spends waiting in the queue before running on a resource."
-      ),
-    },
-    {
-      key: "wallTime",
-      name: "Wall Time",
-      format: formatTime,
-      formatHeader: formatHeaderTip(
-        "Wall time is the average time a job spends running on a resource."
-      ),
-    },
-    {
-      key: "expansionFactor",
-      name: "Expansion Factor",
-      format: (_value, row) =>
-        ((row.waitTime + row.wallTime) / row.wallTime).toFixed(2),
-      formatHeader: formatHeaderTip(
-        'Expansion factor is the ratio of the total time (wait time and wall time) to the wall time. It measures how much waiting in the queue "expands" the total time taken to complete a job relative to its length.'
-      ),
-    },
-  ];
+  if (!overviewMetrics.length || !resources.length) return;
 
-  const headerComponents = [
-    <select value={days} onChange={(e) => setDays(parseInt(e.target.value))}>
-      <option value="30">Last 30 days</option>
-      <option value="90">Last 90 days</option>
-      <option value="365">Last year</option>
-    </select>,
-  ];
+  const overview = overviewMetrics
+    .map((om, i) =>
+      om.error ? om : { ...om.data[0], ...resources[i].results }
+    )
+    .filter((data) => !data.error);
+
+  if (!overview.length) return;
 
   return (
-    <Section
-      title="Queue Metrics"
-      icon="clock"
-      headerComponents={headerComponents}
-    >
-      <Grid columns={columns} rows={data.queueMetrics} />
+    <Section title="Queue Metrics" icon="clock">
+      {overview.map(
+        ({
+          job_count,
+          median_expansion_factor,
+          median_wait_time,
+          median_wall_time,
+          resource_descriptive_name,
+        }) => {
+          return (
+            <p>
+              <strong>
+                {resource_descriptive_name.replace(/ \([^)]+\)/, "")}:
+              </strong>{" "}
+              Users ran{" "}
+              <strong>{parseInt(job_count).toLocaleString("en-us")}</strong>{" "}
+              jobs during the last 30 days. Waiting in the queue increased the
+              time to complete these jobs by{" "}
+              <strong>
+                {((median_expansion_factor - 1) * 100).toLocaleString("en-us", {
+                  maximumFractionDigits: 0,
+                })}
+                %
+              </strong>{" "}
+              on average. The median job waited for{" "}
+              <strong>{formatTime(median_wait_time)}</strong> and ran for{" "}
+              <strong>{formatTime(median_wall_time)}</strong>.
+            </p>
+          );
+        }
+      )}
     </Section>
   );
 }

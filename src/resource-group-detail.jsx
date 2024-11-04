@@ -19,7 +19,7 @@ export default function ResourceGroupDetail({ baseUri, infoGroupId }) {
       <ResourceGroupAffinityGroup baseUri={baseUri} infoGroupId={infoGroupId} />
       <ResourceGroupSoftware baseUri={baseUri} infoGroupId={infoGroupId} />
       <ResourceGroupProjects baseUri={baseUri} infoGroupId={infoGroupId} />
-      {/* <ResourceGroupQueueMetrics baseUri={baseUri} infoGroupId={infoGroupId} /> */}
+      <ResourceGroupQueueMetrics baseUri={baseUri} infoGroupId={infoGroupId} />
       <ResourceGroupDocumentation baseUri={baseUri} infoGroupId={infoGroupId} />
       <ResourceGroupDiscussion baseUri={baseUri} infoGroupId={infoGroupId} />
     </div>
