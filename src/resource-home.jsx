@@ -4,6 +4,7 @@ import { filterResourceGroups, useResourceGroups } from "./utils";
 import { ResourceCategory } from "./resource-category";
 import { ResourceFilters } from "./resource-filters";
 import { ResourcePathways } from "./resource-pathways";
+import { ResourceNews } from "./resource-news";
 
 export default function ResourceHome({ baseUri, title, showTitle, slidesURI }) {
   const [activeTagIds, setActiveTagIds] = useState([]);
@@ -25,7 +26,10 @@ export default function ResourceHome({ baseUri, title, showTitle, slidesURI }) {
   return (
     <>
       {title && <h1 class={showTitle ? "" : "visually-hidden"}>{title}</h1>}
-      <ResourcePathways />
+      <div id="resource-navigation">
+        <ResourcePathways />
+        <ResourceNews />
+      </div>
       <div id="browse-resources">
         {active ? (
           <ResourceFilters

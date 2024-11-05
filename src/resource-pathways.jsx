@@ -16,29 +16,32 @@ export function ResourcePathways() {
       login: true,
     },
     {
-      title: "Take a quiz",
+      title: "Get suggestions",
       icon: "card-checklist",
       href: "https://access-ara.ccs.uky.edu:8080/",
-      description:
-        "Tell us about your research to get resource recommendations.",
+      description: "Fill out a form to get resource recommendations.",
     },
   ];
   return (
-    <ul class="resource-pathways">
-      {pathways.map(({ title, icon, href, description, login }, i) => (
-        <li class={`resource-pathway-${i}`}>
-          <a href={href}>
-            {icon ? <Icon name={icon} /> : null}
-            <span class="title">{title}</span>
-            <span class="description">{description}</span>
-            {login ? (
-              <span class="login">
-                <Icon name="key" /> Requires ACCESS Login
+    <section id="resource-pathways">
+      <ul class="resource-pathways">
+        {pathways.map(({ title, icon, href, description, login }, i) => (
+          <li class={`resource-pathway-${i}`}>
+            <a href={href}>
+              {icon ? <Icon name={icon} /> : null}
+              <span class="detail">
+                <span class="title">{title}</span>
+                <span class="description">{description}</span>
+                {login ? (
+                  <span class="login">
+                    <Icon name="key" /> Requires ACCESS Login
+                  </span>
+                ) : null}
               </span>
-            ) : null}
-          </a>
-        </li>
-      ))}
-    </ul>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }

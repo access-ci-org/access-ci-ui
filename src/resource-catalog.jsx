@@ -17,6 +17,8 @@ import resourceFiltersStyle from "./resource-filters.css?inline";
 import resourceGroupStyle from "./resource-group.css?inline";
 import resourceGroupEventStyle from "./resource-group-event.css?inline";
 import resourceGroupProjectsStyle from "./resource-group-projects.css?inline";
+import resourceHomeStyle from "./resource-home.css?inline";
+import resourceNewsStyle from "./resource-news.css?inline";
 import resourcePathwaysStyle from "./resource-pathways.css?inline";
 import searchStyle from "./search.css?inline";
 import sectionNavigationStyle from "./section-navigation.css?inline";
@@ -27,8 +29,8 @@ const ResourceGroupDetail = lazy(() => import("./resource-group-detail.jsx"));
 const ResourceHome = lazy(() => import("./resource-home.jsx"));
 
 export function ResourceCatalog({
-  title = "Resource Catalog",
-  showTitle = false,
+  title = "Resources",
+  showTitle = true,
   baseUri = "/access-ci-ui",
   slidesURI = "/api/resource-slides.json",
 }) {
@@ -69,6 +71,8 @@ export function ResourceCatalog({
       <style>{resourceGroupStyle}</style>
       <style>{resourceGroupEventStyle}</style>
       <style>{resourceGroupProjectsStyle}</style>
+      <style>{resourceHomeStyle}</style>
+      <style>{resourceNewsStyle}</style>
       <style>{resourcePathwaysStyle}</style>
       <style>{searchStyle}</style>
       <style>{sectionNavigationStyle}</style>
