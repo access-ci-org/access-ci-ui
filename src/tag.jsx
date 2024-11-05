@@ -3,6 +3,7 @@ import { defaultIcons } from "./icons";
 import Icon from "./icon";
 
 export function Tag({ active, tagCategory, tagId, iconUri, name, toggleTag }) {
+  const icon = iconUri || defaultIcons[name] || "tag";
   return (
     <li
       class={`tag tag-category-${tagCategory.name
@@ -17,10 +18,10 @@ export function Tag({ active, tagCategory, tagId, iconUri, name, toggleTag }) {
           toggleTag(tagId);
         }}
       >
-        {iconUri ? (
-          <Icon alt={name} src={iconUri} />
+        {icon.startsWith("http") ? (
+          <Icon alt={name} src={icon} />
         ) : (
-          <Icon name={defaultIcons[name] || "tag"} />
+          <Icon name={icon} />
         )}
         {name}
       </button>

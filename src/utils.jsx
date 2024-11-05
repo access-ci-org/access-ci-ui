@@ -78,29 +78,89 @@ export const useJSON = (
 };
 
 export const useResourceGroups = () => {
-  const responses = useJSON(
-    [
-      "https://operations-api.access-ci.org/wh2/cider/v1/groups/group_type/resource-catalog.access-ci.org/",
-      "https://operations-api.access-ci.org/wh2/cider/v2/access-active/",
-    ],
-    { defaultValue: [] }
+  const response = useJSON(
+    "https://operations-api.access-ci.org/wh2/cider/v1/access-active-groups/type/resource-catalog.access-ci.org/"
   );
-  return useTransform(responses, (allGroups, allResources) => {
-    const resourceGroups = allGroups.results
-      .filter((group) => group.info_resourceids)
+  return useTransform([response], ({ results }) => {
+    const { active_groups, feature_categories, features, organizations } =
+      results;
+
+    const tagCategories = [
+      {
+        tagCategoryId: -1,
+        name: "Resource Provider",
+        tags: [],
+      },
+    ];
+    const tagCategoryIds = [-1];
+    for (let category of feature_categories)
+      if ([100, 102, 103].includes(category.feature_category_id)) {
+        tagCategories.push({
+          tagCategoryId: category.feature_category_id,
+          name: category.feature_category_name,
+          tags: [],
+        });
+        tagCategoryIds.push(category.feature_category_id);
+      }
+
+    const tags = features
+      .filter((feature) => tagCategoryIds.includes(feature.feature_category_id))
+      .map((feature) => ({
+        tagId: feature.feature_id,
+        name: feature.feature_name,
+        tagCategoryId: feature.feature_category_id,
+      }));
+    for (let organization of organizations)
+      tags.push({
+        tagId: organization.organization_id * -1,
+        name: organization.organization_name,
+        tagCategoryId: -1,
+        iconUri: organization.organization_logo_url
+          ? organization.organization_logo_url.replace(/\/logo$/, "/favicon")
+          : null,
+      });
+
+    const tagIds = tags.map((tag) => tag.tagId);
+
+    const resourceCategories = [
+      {
+        resourceCategoryId: 1,
+        name: "Compute & Storage Resources",
+        resourceGroups: [],
+        resourceGroupIds: [],
+      },
+    ];
+
+    const resourceGroups = active_groups
+      .filter((group) => group.rollup_info_resourceids)
       .map((group) => ({
         infoGroupId: group.info_groupid,
         name: group.group_descriptive_name,
         description: group.group_description,
-        infoResourceIds: group.info_resourceids,
+        infoResourceIds: group.rollup_info_resourceids,
         imageUri: group.group_logo_url
           ? `https://cider.access-ci.org/public/groups/${
               group.group_logo_url.match(/[0-9]+/)[0]
             }/logo`
           : null,
+        tagIds: [
+          ...group.rollup_organization_ids
+            .map((orgId) => orgId * -1)
+            .filter((tagId) => tagIds.includes(tagId)),
+          ...group.rollup_feature_ids.filter((featureId) =>
+            tagIds.includes(featureId)
+          ),
+        ],
+        resourceCategoryId: 1, // TODO: Implement other resource categories.
       }))
       .sort((a, b) => a.name.localeCompare(b.name));
-    return linkResourceGroups(resourceGroups, allResources.results);
+
+    return linkResourceGroups({
+      resourceCategories,
+      resourceGroups,
+      tags,
+      tagCategories,
+    });
   });
 };
 
@@ -132,62 +192,39 @@ const makeMap = (items, key) => {
   return map;
 };
 
-export const linkResourceGroups = (resourceGroups, resources) => {
-  const tagCategories = [
-    {
-      tagCategoryId: 1,
-      name: "Resource Provider",
-      tags: [],
-    },
-  ];
-  const resourceCategories = [
-    {
-      resourceCategoryId: 1,
-      name: "Compute & Storage Resources",
-      resourceGroups: [],
-      resourceGroupIds: [],
-    },
-  ];
-  let nextTagId = 1;
-  const tags = [];
-  const rpTagMap = {};
-  const resourceMap = makeMap(resources, "info_resourceid");
-  const tagCategoryMap = makeMap(tagCategories, "tagCategoryId");
-  const resourceCategoryMap = makeMap(resourceCategories, "resourceCategoryId");
+const linkResourceGroups = ({
+  resourceCategories,
+  resourceGroups,
+  tags,
+  tagCategories,
+}) => {
+  const tagCategoryMap = {};
+  for (let tagCategory of tagCategories) {
+    tagCategory.tags = [];
+    tagCategoryMap[tagCategory.tagCategoryId] = tagCategory;
+  }
+
+  const tagMap = {};
+  for (let tag of tags) {
+    tag.tagCategory = tagCategoryMap[tag.tagCategoryId];
+    tag.tagCategory.tags.push(tag);
+    tag.resources = [];
+    tagMap[tag.tagId] = tag;
+  }
+
+  const resourceCategoryMap = {};
+  for (let resourceCategory of resourceCategories) {
+    resourceCategory.resourceGroups = [];
+    resourceCategoryMap[resourceCategory.resourceCategoryId] = resourceCategory;
+  }
 
   for (let resourceGroup of resourceGroups) {
-    resourceGroup.infoGroupId = resourceGroup.infoGroupId;
-    resourceGroup.tags = [];
-    resourceGroup.tagIds = [];
-    for (let infoResourceId of resourceGroup.infoResourceIds) {
-      let resource = resourceMap[infoResourceId];
-      if (!resource) continue;
-      if (resource.organization_name) {
-        let tag = rpTagMap[resource.organization_name];
-        if (!tag) {
-          tag = {
-            tagId: nextTagId++,
-            tagCategoryId: 1,
-            name: resource.organization_name,
-          };
-          tags.push(tag);
-          rpTagMap[resource.organization_name] = tag;
-          tagCategoryMap[1].tags.push(tag);
-          tag.tagCategory = tagCategoryMap[1];
-        }
-        if (!resourceGroup.tagIds.includes(tag.tagId)) {
-          resourceGroup.tagIds.push(tag.tagId);
-          resourceGroup.tags.push(tag);
-        }
-      }
-    }
-    resourceGroup.resourceCategoryId = 1;
-    resourceGroup.resourceCategory = resourceCategoryMap[1];
+    resourceGroup.resourceCategory =
+      resourceCategoryMap[resourceGroup.resourceCategoryId];
     resourceGroup.resourceCategory.resourceGroups.push(resourceGroup);
-    resourceGroup.resourceCategory.resourceGroupIds.push(
-      resourceGroup.infoGroupId
-    );
+    resourceGroup.tags = resourceGroup.tagIds.map((tagId) => tagMap[tagId]);
   }
+
   return { resourceCategories, resourceGroups, tags, tagCategories };
 };
 
