@@ -1,12 +1,13 @@
 /* Resource home page */
 .resource-group {
   align-items: flex-start;
+  clear: both;
   display: flex;
-  flex-direction: row;
-  margin-bottom: 40px;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 .resource-group-image {
-  --image-width: calc((var(--width) - 140px) / 4 + 20px);
+  --image-width: 100%;
   align-items: center;
   background-color: var(--contrast-9);
   border: 1px solid var(--contrast);
@@ -16,7 +17,7 @@
   flex-direction: column;
   font-size: 5rem;
   justify-content: center;
-  margin-right: 20px;
+  margin: 20px 0;
   min-height: calc(var(--image-width) / 3 * 2);
   position: relative;
   width: var(--image-width);
@@ -26,7 +27,6 @@
 .resource-group-image:hover {
   color: var(--contrast-8);
 }
-
 .resource-group-image > img {
   display: block;
   width: 100%;
@@ -51,6 +51,7 @@
 }
 .resource-group-feature-image {
   margin-top: 60px;
+  width: 100%;
 }
 .resource-group-description::after {
   clear: both;
@@ -58,6 +59,16 @@
   display: block;
 }
 
+@media (min-width: 768px) {
+  .resource-group {
+    flex-direction: row;
+    margin-bottom: 40px;
+  }
+  .resource-group-image {
+    --image-width: calc((var(--width) - 140px) / 4 + 20px);
+    margin: 0 20px 0 0;
+  }
+}
 @media (min-width: 900px) {
   .resource-group-feature-image {
     float: right;

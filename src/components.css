@@ -1,9 +1,28 @@
-.flex-header {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-}
 .highlight {
   background-color: var(--yellow-200);
   padding: 2px 0;
+}
+.header-components {
+  margin-bottom: 2rem;
+}
+.button-group .btn {
+  display: block;
+  margin: 0 0 10px;
+}
+@media (min-width: 768px) {
+  .flex-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  .header-components {
+    margin-bottom: 0;
+  }
+  .button-group {
+    display: flex;
+  }
+  .button-group .btn {
+    display: flex;
+    margin: 0 10px 0 0;
+  }
 }

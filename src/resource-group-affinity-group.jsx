@@ -15,17 +15,19 @@ export default function ResourceGroupAffinityGroup({ baseUri, infoGroupId }) {
         Join the community by participating in an affinity group! Members get
         update about announcements, events, and outages.
       </p>
-      <a href="https://support.access-ci.org/user" class="btn secondary">
-        <Icon name="person-plus-fill" /> Join Affinity Group
-      </a>
-      {slackUri ? (
-        <a href={slackUri} class="btn">
-          <Icon name="slack" /> Connect on Slack
+      <div class="button-group">
+        <a href="https://support.access-ci.org/user" class="btn secondary">
+          <Icon name="person-plus-fill" /> Join Affinity Group
         </a>
-      ) : null}
-      <a href="#questions-and-answers" class="btn">
-        <Icon name="chat-fill" /> Ask and Answer Questions
-      </a>
+        {slackUri ? (
+          <a href={slackUri} class="btn">
+            <Icon name="slack" /> Connect on Slack
+          </a>
+        ) : null}
+        <a href="#questions-and-answers" class="btn">
+          <Icon name="chat-fill" /> Ask and Answer Questions
+        </a>
+      </div>
     </Section>
   );
 }
