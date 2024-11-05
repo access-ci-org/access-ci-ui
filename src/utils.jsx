@@ -103,6 +103,8 @@ export const useResourceGroups = () => {
         tagCategoryIds.push(category.feature_category_id);
       }
 
+    tagCategories.sort((a, b) => a.name.localeCompare(b.name));
+
     const tags = features
       .filter((feature) => tagCategoryIds.includes(feature.feature_category_id))
       .map((feature) => ({
