@@ -1,0 +1,29 @@
+.expand-text {
+  margin-bottom: 1rem;
+  position: relative;
+}
+.expand-text.contracted {
+  max-height: 5.3rem;
+  overflow: hidden;
+}
+.expand-text button {
+  background-color: white;
+  border: 0 none transparent;
+  color: var(--teal-700);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.expand-text.contracted button {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    white 50%,
+    white 100%
+  );
+  position: absolute;
+  right: 0;
+  text-align: right;
+  bottom: 0;
+  width: 12rem;
+}

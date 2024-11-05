@@ -1,0 +1,26 @@
+#resource-news {
+  background-color: var(--teal-100);
+  padding: 20px;
+}
+#resource-news h2 {
+  font-size: 1.2rem;
+  font-weight: 200;
+  margin: 0 0 0.5rem;
+}
+#resource-news ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#resource-news li {
+  font-size: 1rem;
+  line-height: 1.3;
+  margin: 0 0 0.5rem;
+  padding: 0;
+}
+@media (min-width: 1024px) {
+  #resource-news {
+    box-sizing: border-box;
+    width: calc((var(--width) - 60px) / 4);
+  }
+}

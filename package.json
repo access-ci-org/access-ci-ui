@@ -22,11 +22,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "preact": "^10.24.1"
+    "@glidejs/glide": "^3.6.1",
+    "fuse.js": "^7.0.0",
+    "preact-iso": "^2.6.3",
+    "preact": "^10.24.1",
+    "tippy.js": "^6.3.7"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.9.1",
     "vite": "^5.4.8"
+
   },
   "eslintConfig": {
     "extends": "preact"

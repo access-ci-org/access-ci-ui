@@ -1,0 +1,27 @@
+.accordion {
+  margin: 0 0 16px;
+}
+.accordion-heading {
+  margin: 0;
+}
+.accordion-heading button {
+  background-color: var(--teal-050);
+  border: 0 none transparent;
+  color: var(--teal-700);
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 16px 40px 16px 20px;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+.accordion-heading button .icon {
+  position: absolute;
+  right: 20px;
+  top: 16px;
+}
+.accordion-content {
+  padding: 16px 20px 0;
+}

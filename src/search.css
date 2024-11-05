@@ -1,0 +1,11 @@
+.search {
+  position: relative;
+}
+.search input {
+  padding-right: 35px;
+}
+.search .btn-clear {
+  position: absolute;
+  right: -5px;
+  top: -6px;
+}

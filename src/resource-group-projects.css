@@ -1,0 +1,31 @@
+.projects-columns .column {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.projects-columns .project-count {
+  display: flex;
+  flex-direction: row;
+}
+.projects-columns .project-count .count {
+  margin-right: 0.5rem;
+  text-align: right;
+  width: 3rem;
+}
+@media (min-width: 768px) {
+  .projects-columns {
+    display: flex;
+    flex-direction: row;
+  }
+  .projects-columns .column {
+    align-items: flex-start;
+    width: calc((var(--width) - 40px) / 3);
+  }
+  .projects-columns .column > * {
+    width: calc((var(--width) - 40px) / 3);
+  }
+  .projects-columns .column:not(:last-child) {
+    margin-right: 20px;
+  }
+}

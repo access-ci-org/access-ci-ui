@@ -1,7 +1,10 @@
+import { render } from "preact";
+
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { FooterMenus, Menus } from "./menu";
 import { loginMenuItem, myAccessMenuItem, universalMenuItems } from "./items";
+import { ResourceCatalog } from "./resource-catalog";
 import { TableOfContents } from "./table-of-contents";
 import { renderShadow } from "./utils";
 
@@ -73,12 +76,15 @@ const footerMenus = ({ items, target }) =>
 const tableOfContents = ({ headings = [], target }) =>
   renderShadow(<TableOfContents headings={headings} />, target);
 
+const resourceCatalog = ({ target }) => render(<ResourceCatalog />, target);
+
 export {
   footer,
   header,
   footerMenus,
   loginMenuItem,
   myAccessMenuItem,
+  resourceCatalog,
   siteMenus,
   tableOfContents,
   universalMenuItems,
