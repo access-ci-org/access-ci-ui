@@ -120,6 +120,8 @@ export const useResourceGroups = () => {
           : null,
       });
 
+    tags.sort((a, b) => a.name.localeCompare(b.name));
+
     const tagIds = tags.map((tag) => tag.tagId);
 
     const resourceCategories = [
