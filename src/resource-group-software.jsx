@@ -61,7 +61,10 @@ export default function ResourceGroupSoftware({ baseUri, infoGroupId }) {
     )
       result.push(
         <> </>,
-        <a href={row.software_use_link} title={`Usage example for ${value}`}>
+        <a
+          href={row.software_use_link.split("\n")[0].trim()}
+          title={`Usage example for ${value}`}
+        >
           <Icon name="terminal" />
         </a>
       );
@@ -85,7 +88,9 @@ export default function ResourceGroupSoftware({ baseUri, infoGroupId }) {
     );
   };
   const versionsFormat = (value, row) => {
-    return value.map((item) => item.replace(`${row.rp_name}: `, ""));
+    return value.map((item) =>
+      item.replace(`${row.rp_name}: `, "").split(",").join(", ")
+    );
   };
   const columns = [
     {
