@@ -33,7 +33,7 @@ export default function ResourceGroupQueueMetrics({ infoGroupId }) {
             `https://rest-test.ccr.xdmod.org/rest/v0.1/custom_queries/wait_times/${infoResourceId}/`
         )
       : null,
-    { corsProxy: true, defaultValue: [] }
+    { defaultValue: [] }
   );
 
   if (!overviewMetrics.length || !resources.length) return;
