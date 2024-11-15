@@ -13,7 +13,7 @@ export default function ResourceGroupEvents({ baseUri, infoGroupId }) {
     "https://operations-api.access-ci.org/wh2/news/v1/affiliation/access-ci.org/future_outages/"
   );
   const eventData = useJSON(
-    `https://md-2261-accessmatch.pantheonsite.io/api/1.1/events/ag/${infoGroupId}`
+    `https://support.access-ci.org/api/1.1/events/ag/${infoGroupId}`
   );
   const filteredAnnouncements = useTransform(
     [groupData, currentAnnouncementData, futureAnnouncementData],

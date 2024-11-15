@@ -2,7 +2,6 @@ import { useJSON } from "./utils";
 
 export function ResourceNews({ maxItems = 2 }) {
   const newsItems = useJSON("https://support.access-ci.org/access_news/api", {
-    corsProxy: true,
     defaultValue: [],
   });
 
