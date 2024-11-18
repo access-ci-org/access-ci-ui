@@ -4,7 +4,7 @@ import Grid from "./grid";
 import ResourceDetail from "./resource-detail";
 import Section from "./section";
 
-export default function ResourceGroupHardware({ baseUri, infoGroupId }) {
+export default function ResourceGroupHardware({ infoGroupId }) {
   const resourceGroup = useResourceGroup(infoGroupId);
   const resources = useJSON(
     resourceGroup

@@ -2,7 +2,7 @@ import { useResourceGroup } from "./utils";
 
 import Icon from "./icon";
 
-export default function ResourceGroupDescription({ baseUri, infoGroupId }) {
+export default function ResourceGroupDescription({ infoGroupId }) {
   const resourceGroup = useResourceGroup(infoGroupId);
   if (!resourceGroup) return;
   const { name, description, imageUri, tags } = resourceGroup;

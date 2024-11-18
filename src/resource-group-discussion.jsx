@@ -17,7 +17,7 @@ const getCategoryUri = (category, siteData) => {
   return `https://ask.cyberinfrastructure.org/c/${uri}`;
 };
 
-export default function ResourceGroupDiscussion({ baseUri, infoGroupId }) {
+export default function ResourceGroupDiscussion({ infoGroupId }) {
   const siteData = useJSON(`https://ask.cyberinfrastructure.org/site.json`, {
     corsProxy: true,
   });

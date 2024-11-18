@@ -9,19 +9,19 @@ import ResourceGroupQueueMetrics from "./resource-group-queue-metrics";
 import ResourceGroupSoftware from "./resource-group-software";
 import SectionNavigation from "./section-navigation";
 
-export default function ResourceGroupDetail({ baseUri, infoGroupId }) {
+export default function ResourceGroupDetail({ infoGroupId }) {
   return (
     <div class="resource-group-detail">
-      <ResourceGroupDescription baseUri={baseUri} infoGroupId={infoGroupId} />
+      <ResourceGroupDescription infoGroupId={infoGroupId} />
       <SectionNavigation />
-      <ResourceGroupHardware baseUri={baseUri} infoGroupId={infoGroupId} />
-      <ResourceGroupEvents baseUri={baseUri} infoGroupId={infoGroupId} />
-      <ResourceGroupAffinityGroup baseUri={baseUri} infoGroupId={infoGroupId} />
-      <ResourceGroupSoftware baseUri={baseUri} infoGroupId={infoGroupId} />
-      <ResourceGroupProjects baseUri={baseUri} infoGroupId={infoGroupId} />
-      <ResourceGroupQueueMetrics baseUri={baseUri} infoGroupId={infoGroupId} />
-      <ResourceGroupDocumentation baseUri={baseUri} infoGroupId={infoGroupId} />
-      <ResourceGroupDiscussion baseUri={baseUri} infoGroupId={infoGroupId} />
+      <ResourceGroupHardware infoGroupId={infoGroupId} />
+      <ResourceGroupEvents infoGroupId={infoGroupId} />
+      <ResourceGroupAffinityGroup infoGroupId={infoGroupId} />
+      <ResourceGroupSoftware infoGroupId={infoGroupId} />
+      <ResourceGroupProjects infoGroupId={infoGroupId} />
+      <ResourceGroupQueueMetrics infoGroupId={infoGroupId} />
+      <ResourceGroupDocumentation infoGroupId={infoGroupId} />
+      <ResourceGroupDiscussion infoGroupId={infoGroupId} />
     </div>
   );
 }

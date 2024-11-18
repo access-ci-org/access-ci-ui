@@ -3,7 +3,7 @@ import { extractHref, stripTags, useJSON } from "./utils";
 import InfoTip from "./info-tip";
 import Section from "./section";
 
-export default function ResourceGroupDocumentation({ baseUri, infoGroupId }) {
+export default function ResourceGroupDocumentation({ infoGroupId }) {
   const data = useJSON(
     `https://support.access-ci.org/api/1.0/kb/${infoGroupId}`
   );

@@ -3,7 +3,7 @@ import { stripTags, useJSON } from "./utils";
 import Icon from "./icon";
 import Section from "./section";
 
-export default function ResourceGroupAffinityGroup({ baseUri, infoGroupId }) {
+export default function ResourceGroupAffinityGroup({ infoGroupId }) {
   const data = useJSON(
     `https://support.access-ci.org/api/1.0/affinity_groups/${infoGroupId}`
   );

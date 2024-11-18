@@ -4,7 +4,7 @@ import Alert from "./alert";
 import ResourceGroupEvent from "./resource-group-event";
 import Section from "./section";
 
-export default function ResourceGroupEvents({ baseUri, infoGroupId }) {
+export default function ResourceGroupEvents({ infoGroupId }) {
   const groupData = useResourceGroup(infoGroupId);
   const currentAnnouncementData = useJSON(
     "https://operations-api.access-ci.org/wh2/news/v1/affiliation/access-ci.org/current_outages/"

@@ -27,7 +27,7 @@ const column = (items, title, topItemsHeading) => {
   );
 };
 
-export default function ResourceGroupProjects({ baseUri, infoGroupId }) {
+export default function ResourceGroupProjects({ infoGroupId }) {
   const [persona, setPersona] = useState("all");
   const apiBaseUrl =
     "https://allocations.access-ci.org/current-projects/summary.json";

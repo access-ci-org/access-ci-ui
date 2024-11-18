@@ -6,7 +6,7 @@ import { ResourceFilters } from "./resource-filters";
 import { ResourcePathways } from "./resource-pathways";
 import { ResourceNews } from "./resource-news";
 
-export default function ResourceHome({ baseUri, title, showTitle, slidesURI }) {
+export default function ResourceHome({ baseUri, title, showTitle }) {
   const [activeTagIds, setActiveTagIds] = useState([]);
   const groups = useResourceGroups();
   const active = useMemo(

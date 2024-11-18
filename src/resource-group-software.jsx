@@ -16,7 +16,7 @@ const apiFields = [
   "software_use_link",
 ];
 
-export default function ResourceGroupSoftware({ baseUri, infoGroupId }) {
+export default function ResourceGroupSoftware({ infoGroupId }) {
   const data = useJSON(
     `https://ara-db.ccs.uky.edu/api=API_0/${
       import.meta.env.VITE_SDS_API_KEY
