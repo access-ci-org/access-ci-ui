@@ -15,12 +15,12 @@ export default function ResourceGroupDetail({ infoGroupId }) {
       <ResourceGroupDescription infoGroupId={infoGroupId} />
       <SectionNavigation />
       <ResourceGroupHardware infoGroupId={infoGroupId} />
+      <ResourceGroupDocumentation infoGroupId={infoGroupId} />
       <ResourceGroupEvents infoGroupId={infoGroupId} />
       <ResourceGroupAffinityGroup infoGroupId={infoGroupId} />
       <ResourceGroupSoftware infoGroupId={infoGroupId} />
       <ResourceGroupProjects infoGroupId={infoGroupId} />
       <ResourceGroupQueueMetrics infoGroupId={infoGroupId} />
-      <ResourceGroupDocumentation infoGroupId={infoGroupId} />
       <ResourceGroupDiscussion infoGroupId={infoGroupId} />
     </div>
   );
