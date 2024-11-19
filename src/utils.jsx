@@ -177,6 +177,13 @@ export const useResourceGroup = (infoGroupId, defaultValue = null) => {
     : defaultValue;
 };
 
+export const useResourceGroupResources = (infoGroupId, defaultValue = []) => {
+  const res = useJSON(
+    `https://operations-api.access-ci.org/wh2/cider/v1/access-active/info_groupid/${infoGroupId}/?format=json`
+  );
+  return res && !res.error ? res.results : defaultValue;
+};
+
 export const useTransform = (
   responseArray,
   transformFunction,
