@@ -3,6 +3,7 @@ import { useJSON, useResourceGroupResources } from "./utils";
 
 import Section from "./section";
 import Chart from "./chart";
+import Icon from "./icon";
 
 const colorVars = [
   "--teal-700",
@@ -80,32 +81,62 @@ export default function ResourceGroupQueueMetrics({ infoGroupId }) {
 
   let content = null;
   if (view === "overview") {
-    content = overview.map(
-      ({
-        job_count,
-        median_expansion_factor,
-        median_wait_time,
-        median_wall_time,
-        resource_descriptive_name,
-      }) => {
-        return (
-          <p>
-            <strong>{formatName(resource_descriptive_name)}:</strong> Users ran{" "}
-            <strong>{parseInt(job_count).toLocaleString("en-us")}</strong> jobs
-            during the last 30 days. Waiting in the queue increased the time to
-            complete these jobs by{" "}
-            <strong>
-              {((median_expansion_factor - 1) * 100).toLocaleString("en-us", {
-                maximumFractionDigits: 0,
-              })}
-              %
-            </strong>{" "}
-            on average. The median job waited for{" "}
-            <strong>{formatTime(median_wait_time)}</strong> and ran for{" "}
-            <strong>{formatTime(median_wall_time)}</strong>.
-          </p>
-        );
-      }
+    content = (
+      <div class="cards">
+        {overview.map(
+          ({
+            info_resourceid,
+            job_count,
+            median_expansion_factor,
+            median_wait_time,
+            median_wall_time,
+            resource_descriptive_name,
+          }) => {
+            return (
+              <p class="card metrics-overview">
+                <b>{formatName(resource_descriptive_name)}:</b> Users ran{" "}
+                <strong>
+                  <Icon name="file-earmark-code" />
+                  {parseInt(job_count).toLocaleString("en-us")} jobs
+                </strong>{" "}
+                during the last 30 days. Waiting in the queue caused an average{" "}
+                <strong>
+                  <Icon name="calculator" />
+                  {((median_expansion_factor - 1) * 100).toLocaleString(
+                    "en-us",
+                    {
+                      maximumFractionDigits: 0,
+                    }
+                  )}
+                  % increase
+                </strong>{" "}
+                in the total completion time. The average job waited for{" "}
+                <strong>
+                  <Icon name="hourglass-split" /> {formatTime(median_wait_time)}
+                </strong>{" "}
+                and ran for{" "}
+                <strong>
+                  <Icon name="stopwatch" />
+                  {formatTime(median_wall_time)}
+                </strong>
+                .{" "}
+                <a
+                  title={`Wait time chart for ${formatName(
+                    resource_descriptive_name
+                  )}`}
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setView(info_resourceid);
+                  }}
+                >
+                  View chart &raquo;
+                </a>
+              </p>
+            );
+          }
+        )}
+      </div>
     );
   } else if (detailMetrics && detailMetrics.info_resource_id === view) {
     const datasetsMap = {};
@@ -125,6 +156,9 @@ export default function ResourceGroupQueueMetrics({ infoGroupId }) {
         colorVar
       );
     });
+    const overviewItem = overview.find(
+      (item) => item.info_resourceid == detailMetrics.info_resource_id
+    );
     const options = {
       interaction: {
         intersect: false,
@@ -133,7 +167,9 @@ export default function ResourceGroupQueueMetrics({ infoGroupId }) {
       plugins: {
         title: {
           display: true,
-          text: "Median Wait Time by Queue and Job Wall Time",
+          text: `Median Wait Time by Queue on ${formatName(
+            overviewItem.resource_descriptive_name
+          )}: Last 30 Days`,
         },
       },
       scales: {
@@ -146,14 +182,27 @@ export default function ResourceGroupQueueMetrics({ infoGroupId }) {
       },
     };
     content = (
-      <Chart type="bar" data={{ labels, datasets }} options={options} />
+      <>
+        <Chart type="bar" data={{ labels, datasets }} options={options} />
+        <p>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              setView("overview");
+            }}
+          >
+            &laquo; Back to overview
+          </a>
+        </p>
+      </>
     );
   }
 
   return (
     <Section
-      title="Queue Metrics"
-      icon="clock"
+      title="Wait Time"
+      icon="hourglass-split"
       headerComponents={headerComponents}
     >
       {content}

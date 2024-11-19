@@ -17,6 +17,7 @@ import resourceFiltersStyle from "./resource-filters.css?inline";
 import resourceGroupStyle from "./resource-group.css?inline";
 import resourceGroupEventStyle from "./resource-group-event.css?inline";
 import resourceGroupProjectsStyle from "./resource-group-projects.css?inline";
+import resourceGroupQueueMetricsStyle from "./resource-group-queue-metrics.css?inline";
 import resourceHomeStyle from "./resource-home.css?inline";
 import resourceNewsStyle from "./resource-news.css?inline";
 import resourcePathwaysStyle from "./resource-pathways.css?inline";
@@ -66,6 +67,7 @@ export function ResourceCatalog({
       <style>{resourceGroupStyle}</style>
       <style>{resourceGroupEventStyle}</style>
       <style>{resourceGroupProjectsStyle}</style>
+      <style>{resourceGroupQueueMetricsStyle}</style>
       <style>{resourceHomeStyle}</style>
       <style>{resourceNewsStyle}</style>
       <style>{resourcePathwaysStyle}</style>

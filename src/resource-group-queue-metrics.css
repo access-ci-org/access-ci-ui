@@ -1,0 +1,12 @@
+.metrics-overview strong {
+  background-color: var(--yellow-200);
+  font-size: 1.2rem;
+  padding: 2px;
+  white-space: nowrap;
+}
+.metrics-overview .bi {
+  vertical-align: middle;
+}
+.metrics-overview .btn {
+  font-size: 1rem;
+}
