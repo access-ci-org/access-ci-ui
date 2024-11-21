@@ -112,14 +112,13 @@ export const useResourceGroups = () => {
         name: feature.feature_name,
         tagCategoryId: feature.feature_category_id,
       }));
+
     for (let organization of organizations)
       tags.push({
         tagId: organization.organization_id * -1,
         name: organization.organization_name,
         tagCategoryId: -1,
-        iconUri: organization.organization_logo_url
-          ? organization.organization_logo_url.replace(/\/logo$/, "/favicon")
-          : null,
+        iconUri: organization.organization_favicon_url || null,
       });
 
     tags.sort((a, b) => a.name.localeCompare(b.name));
