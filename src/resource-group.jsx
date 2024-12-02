@@ -13,7 +13,7 @@ export function ResourceGroup({
   tags,
   toggleTag,
 }) {
-  const detailUri = `${baseUri}/resources/${infoGroupId}`;
+  const detailUri = `${baseUri}/${infoGroupId}`;
   return (
     <div class="resource-group">
       <a

@@ -20,7 +20,7 @@ export function ResourceCatalog({
               title={title}
               showTitle={showTitle}
             />
-            <ResourceGroupDetail path={`${baseUri}/resources/:infoGroupId`} />
+            <ResourceGroupDetail path={`${baseUri}/:infoGroupId`} />
           </Router>
         </ErrorBoundary>
       </LocationProvider>
