@@ -1,4 +1,4 @@
-import { extractHref, htmlToJsx } from "./utils";
+import { htmlToJsx } from "./utils";
 
 import ExpandText from "./expand-text";
 import Icon from "./icon";

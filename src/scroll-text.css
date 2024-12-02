@@ -1,0 +1,24 @@
+.scroll-text {
+  position: relative;
+}
+.scroll-text::after {
+  background-color: red;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    white 50%,
+    white 100%
+  );
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2rem;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 99999;
+}
+.scroll-text-inner {
+  padding-bottom: 2rem;
+  overflow-y: scroll;
+}

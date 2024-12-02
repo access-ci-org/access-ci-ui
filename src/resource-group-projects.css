@@ -1,31 +1,22 @@
-.projects-columns .column {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
+.carousel-projects .glide__slide {
+  font-size: 16px;
 }
-.projects-columns .project-count {
-  display: flex;
-  flex-direction: row;
+.carousel-projects h3 {
+  margin: 0 0 0.25rem;
 }
-.projects-columns .project-count .count {
-  margin-right: 0.5rem;
-  text-align: right;
-  width: 3rem;
+.carousel-projects .project-metadata {
+  margin-bottom: 0.5rem;
 }
-@media (min-width: 768px) {
-  .projects-columns {
-    display: flex;
-    flex-direction: row;
-  }
-  .projects-columns .column {
-    align-items: flex-start;
-    width: calc((var(--width) - 40px) / 3);
-  }
-  .projects-columns .column > * {
-    width: calc((var(--width) - 40px) / 3);
-  }
-  .projects-columns .column:not(:last-child) {
-    margin-right: 20px;
-  }
+.carousel-projects .project-meta {
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.1;
+  margin-right: 1rem;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.carousel-projects .project-meta .bi {
+  vertical-align: middle;
 }

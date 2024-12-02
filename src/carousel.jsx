@@ -1,13 +1,13 @@
-import { useLayoutEffect, useRef } from "preact/hooks";
+import { useEffect, useRef } from "preact/hooks";
 import Glide, { Controls } from "@glidejs/glide/dist/glide.modular.esm";
 
-export function Carousel({ children }) {
+export default function Carousel({ children, cssClass = "" }) {
   const glide = useRef(null);
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (glide.current) new Glide(glide.current).mount({ Controls });
   }, []);
   return (
-    <section class="carousel">
+    <section class={`carousel ${cssClass}`}>
       <div class="glide" ref={glide}>
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides">{children}</ul>
@@ -39,7 +39,11 @@ export function Carousel({ children }) {
   );
 }
 
-export function CarouselSlide({
+function Slide({ children }) {
+  return <li class="glide__slide">{children}</li>;
+}
+
+function ImageSlide({
   title,
   description,
   linkText,
@@ -48,7 +52,7 @@ export function CarouselSlide({
   imageAltText,
 }) {
   return (
-    <li class="glide__slide">
+    <Slide>
       <span class="slide-inner">
         {imageURI && (
           <a href={linkURI} class="slide-image">
@@ -61,6 +65,9 @@ export function CarouselSlide({
           {linkText && <a href={linkURI}>{linkText}</a>}
         </span>
       </span>
-    </li>
+    </Slide>
   );
 }
+
+Carousel.Slide = Slide;
+Carousel.ImageSlide = ImageSlide;

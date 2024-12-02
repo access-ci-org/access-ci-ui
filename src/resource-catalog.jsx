@@ -21,6 +21,7 @@ import resourceGroupQueueMetricsStyle from "./resource-group-queue-metrics.css?i
 import resourceHomeStyle from "./resource-home.css?inline";
 import resourceNewsStyle from "./resource-news.css?inline";
 import resourcePathwaysStyle from "./resource-pathways.css?inline";
+import scrollTextStyle from "./scroll-text.css?inline";
 import searchStyle from "./search.css?inline";
 import sectionNavigationStyle from "./section-navigation.css?inline";
 import tagsStyle from "./tags.css?inline";
@@ -71,6 +72,7 @@ export function ResourceCatalog({
       <style>{resourceHomeStyle}</style>
       <style>{resourceNewsStyle}</style>
       <style>{resourcePathwaysStyle}</style>
+      <style>{scrollTextStyle}</style>
       <style>{searchStyle}</style>
       <style>{sectionNavigationStyle}</style>
       <style>{tagsStyle}</style>
