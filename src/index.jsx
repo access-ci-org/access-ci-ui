@@ -74,8 +74,11 @@ const footerMenus = ({ items, target }) =>
 const tableOfContents = ({ headings = [], target }) =>
   renderShadow(<TableOfContents headings={headings} />, target);
 
-const resourceCatalog = ({ target }) =>
-  renderShadow(<ResourceCatalog />, target);
+const resourceCatalog = ({ baseUri, showTitle, target, title }) =>
+  renderShadow(
+    <ResourceCatalog baseUri={baseUri} showTitle={showTitle} title={title} />,
+    target
+  );
 
 export {
   footer,
