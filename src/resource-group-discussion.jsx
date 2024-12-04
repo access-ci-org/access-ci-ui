@@ -4,33 +4,14 @@ import Grid from "./grid";
 import Icon from "./icon";
 import Section from "./section";
 
-const getCategoryUri = (category, siteData) => {
-  if (!category) return null;
-  let uri = `${category.slug}/${category.id}.json`;
-  let currentCategory = category;
-  while (currentCategory.parent_category_id) {
-    currentCategory = siteData.categories.find(
-      (cat) => cat.id == currentCategory.parent_category_id
-    );
-    uri = `${currentCategory.slug}/${uri}`;
-  }
-  return `https://ask.cyberinfrastructure.org/c/${uri}`;
-};
-
 export default function ResourceGroupDiscussion({ infoGroupId }) {
-  const siteData = useJSON(`https://ask.cyberinfrastructure.org/site.json`);
-  // Try to find a category with a slug that matches the info group ID.
-  // TODO: Replace this with better logic once the CID and slug are available
-  // in the Support APIs.
-  const slugNeedle = infoGroupId.split(".")[0].replace(/[^a-z]/g, "");
-  const category =
-    !siteData || siteData.error
-      ? null
-      : siteData.categories.find((cat) =>
-          cat.slug.split("-").includes(slugNeedle)
-        );
+  const data = useJSON(
+    `https://support.access-ci.org/api/1.0/affinity_groups/${infoGroupId}`
+  );
 
-  const categoryDataUri = getCategoryUri(category, siteData);
+  const categoryWebUri =
+    data && !data.error && data.length ? data[0].field_ask_ci_locale : null;
+  const categoryDataUri = categoryWebUri ? `${categoryWebUri}.json` : null;
   const categoryData = useJSON(categoryDataUri);
 
   if (
@@ -70,7 +51,6 @@ export default function ResourceGroupDiscussion({ infoGroupId }) {
     },
   ];
 
-  const categoryWebUri = categoryDataUri.replace(/\.json$/, "");
   const headerComponents = [
     <a href={categoryWebUri} class="btn secondary">
       Ask a Question
