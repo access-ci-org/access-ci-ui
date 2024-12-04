@@ -16,7 +16,7 @@ export default function ResourceGroupAffinityGroup({ infoGroupId }) {
         update about announcements, events, and outages.
       </p>
       <div class="button-group">
-        <a href="https://support.access-ci.org/user" class="btn secondary">
+        <a href={data[0].url} class="btn secondary">
           <Icon name="person-plus-fill" /> Join Affinity Group
         </a>
         {slackUri ? (
