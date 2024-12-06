@@ -32,7 +32,8 @@ export function ResourceGroup({
           ))}
         </Tags>
         <p>
-          {description && description}{" "}
+          {description && description}
+          <br />
           <a href={detailUri}>Learn more about {name} &raquo;</a>
         </p>
       </div>
