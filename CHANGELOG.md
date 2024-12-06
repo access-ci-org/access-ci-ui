@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0-beta2](https://github.com/access-ci-org/access-ci-ui/compare/v0.5.0-beta2...v0.6.0-beta2) (2024-12-06)
+
+
+### Features
+
+* **resource-group:** place learn more link on a new line ([a734add](https://github.com/access-ci-org/access-ci-ui/commit/a734addf9506f6569b052daae5308e6880c4ba90))
+
 ## [0.5.0-beta2](https://github.com/access-ci-org/access-ci-ui/compare/v0.5.1-beta1...v0.5.0-beta2) (2024-12-06)
 
 
