@@ -60,6 +60,9 @@ ul.resource-pathways .login .bi {
 .resource-pathway-2 {
   background-color: var(--orange-400);
 }
+.resource-pathway-3 {
+  background-color: var(--teal-200);
+}
 ul.resource-pathways li a:active,
 ul.resource-pathways li a:focus,
 ul.resource-pathways li a:hover {

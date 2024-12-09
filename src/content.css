@@ -128,3 +128,6 @@ select {
   background-repeat: no-repeat;
   padding: 6px 36px 6px 12px;
 }
+.intro {
+  font-size: 24px;
+}
