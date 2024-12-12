@@ -4,8 +4,9 @@ import Icon from "./icon";
 
 export default function ResourceGroupDescription({ infoGroupId }) {
   const resourceGroup = useResourceGroup(infoGroupId);
+  console.log(resourceGroup);
   if (!resourceGroup) return;
-  const { name, description, imageUri, tags } = resourceGroup;
+  const { name, description, imageUri, organizations, tags } = resourceGroup;
   return (
     <div class="resource-group-description">
       {imageUri ? (
@@ -13,16 +14,19 @@ export default function ResourceGroupDescription({ infoGroupId }) {
       ) : null}
       <h1>{resourceGroup.name}</h1>
 
-      {tags
-        .filter((tag) => tag.tagCategory.name == "Resource Provider")
-        .map((tag) => (
-          <p>
-            <a href="#">
-              {tag.iconUri ? <Icon alt={tag.name} src={tag.iconUri} /> : null}
-              {tag.name}
-            </a>
-          </p>
-        ))}
+      {organizations.map((org) => (
+        <p>
+          <a href={org.organization_url || "#"}>
+            {org.organization_favicon_url ? (
+              <Icon
+                alt={org.organization_name}
+                src={org.organization_favicon_url}
+              />
+            ) : null}
+            {org.organization_name}
+          </a>
+        </p>
+      ))}
       {description ? <p>{description}</p> : null}
       <a href="https://allocations.access-ci.org" class="btn secondary lg">
         <Icon name="check2-circle" /> Get Started with {name}

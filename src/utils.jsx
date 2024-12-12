@@ -113,13 +113,16 @@ export const useResourceGroups = () => {
         tagCategoryId: feature.feature_category_id,
       }));
 
-    for (let organization of organizations)
+    const organizationsMap = {};
+    for (let organization of organizations) {
       tags.push({
         tagId: organization.organization_id * -1,
         name: organization.organization_name,
         tagCategoryId: -1,
         iconUri: organization.organization_favicon_url || null,
       });
+      organizationsMap[organization.organization_id] = organization;
+    }
 
     tags.sort((a, b) => a.name.localeCompare(b.name));
 
@@ -161,6 +164,10 @@ export const useResourceGroups = () => {
           ),
         ],
         resourceCategoryId: group.rollup_feature_ids.includes(137) ? 2 : 1,
+        accessAllocated: group.rollup_feature_ids.includes(139),
+        organizations: group.rollup_organization_ids
+          .map((orgId) => organizationsMap[orgId])
+          .filter((org) => org),
       }))
       .sort((a, b) => a.name.localeCompare(b.name));
 
@@ -200,12 +207,6 @@ export const useTransform = (
       if (!response || response.error) return defaultValue;
     return transformFunction.apply(null, responseArray);
   }, responseArray);
-};
-
-const makeMap = (items, key) => {
-  const map = {};
-  for (let item of items) map[item[key]] = item;
-  return map;
 };
 
 const linkResourceGroups = ({
