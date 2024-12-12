@@ -11,7 +11,11 @@ export default function InfoTip({
   const trigger = useRef(null);
   useLayoutEffect(() => {
     if (trigger.current)
-      tippy(trigger.current, { content: tooltip, theme: "access" });
+      tippy(trigger.current, {
+        content: tooltip,
+        theme: "access",
+        appendTo: trigger.current.parentElement,
+      });
   }, [trigger.current]);
 
   return (
