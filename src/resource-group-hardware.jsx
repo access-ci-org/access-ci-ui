@@ -90,7 +90,8 @@ export default function ResourceGroupHardware({ infoGroupId }) {
   };
 
   const hasComputeGrid = computeColumns.length > 0 && computeRows.length > 0;
-  const resourceTypes = { compute: [], storage: [], other: {} };
+  const resourceTypes = { compute: [], storage: [], other: [] };
+
   for (let { results: res } of resources)
     (resourceTypes[res.cider_type.toLowerCase()] || resourceTypes.other).push(
       <ResourceDetail {...res} />
@@ -119,8 +120,8 @@ export default function ResourceGroupHardware({ infoGroupId }) {
         </Section>
       ) : null}
       {resourceTypes.other.length > 0 ? (
-        <Section title="Specialized Resources" icon="hdd-fill">
-          {resourceTypes.storage}
+        <Section title="Other Resources" icon="stars">
+          {resourceTypes.other}
         </Section>
       ) : null}
     </>

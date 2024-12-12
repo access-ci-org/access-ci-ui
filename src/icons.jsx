@@ -12,6 +12,7 @@ export const defaultIcons = {
   "Large Memory Nodes": "arrows-fullscreen",
   Preemption: "clock-history",
   "Science Gateway support": "globe",
+  "Service / Other": "stars",
   "Storage Resources": "hdd-fill",
   "Virtual Machines": "pc-display-horizontal",
   Cloud: "cloud",

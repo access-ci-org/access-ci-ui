@@ -1,7 +1,6 @@
-import Accordion from "./accordion";
+import { htmlToJsx } from "./utils";
 
-const toP = (text) =>
-  text ? text.split(/[\n\r]+/g).map((p) => <p>{p}</p>) : null;
+import Accordion from "./accordion";
 
 export default function ResourceDetail({
   resource_descriptive_name,
@@ -12,11 +11,11 @@ export default function ResourceDetail({
   const recommendedUse = (compute || storage || {}).recommended_use;
   return (
     <Accordion title={resource_descriptive_name}>
-      {toP(resource_description)}
+      {resource_description ? htmlToJsx(resource_description) : null}
       {recommendedUse ? (
         <>
           <h3>Recommended Use</h3>
-          {toP(recommendedUse)}
+          {htmlToJsx(recommendedUse)}
         </>
       ) : null}
     </Accordion>

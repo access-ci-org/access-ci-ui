@@ -132,6 +132,12 @@ export const useResourceGroups = () => {
         resourceGroups: [],
         resourceGroupIds: [],
       },
+      {
+        resourceCategoryId: 2,
+        name: "Program & Other Resources",
+        resourceGroups: [],
+        resourceGroupIds: [],
+      },
     ];
 
     const resourceGroups = active_groups
@@ -154,7 +160,7 @@ export const useResourceGroups = () => {
             tagIds.includes(featureId)
           ),
         ],
-        resourceCategoryId: 1, // TODO: Implement other resource categories.
+        resourceCategoryId: group.rollup_feature_ids.includes(137) ? 2 : 1,
       }))
       .sort((a, b) => a.name.localeCompare(b.name));
 
@@ -309,7 +315,8 @@ export const stripTags = (html) =>
 
 export const htmlToJsx = (html) => {
   const paragraphs = [];
-  for (let pText of html.split("</p>")) {
+  for (let pText of html.split(/(\<\/p\>)|[\n\r]+/g)) {
+    if (!pText) continue;
     const links = Array.from(pText.matchAll(/<a([^>]+)>([^<]+)<\/a>/g));
     const textNodes = pText.split(/<a[^<]+<\/a>/g);
     const paragraph = [];
