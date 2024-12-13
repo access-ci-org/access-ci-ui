@@ -23,7 +23,32 @@ export const getScrollTop = () =>
     : (document.documentElement || document.body.parentNode || document.body)
         .scrollTop;
 
-const jsonCache = {};
+const fetchJsonDataCache = {};
+const fetchJsonPromiseCache = {};
+const fetchJson = (
+  uri,
+  { cache = true, corsProxy = false } = { cache: true, corsProxy: false }
+) => {
+  if (cache && uri in fetchJsonDataCache) return fetchJsonDataCache[uri];
+  if (uri in fetchJsonPromiseCache) return fetchJsonPromiseCache[uri];
+  const promise = fetch(
+    corsProxy ? `https://corsproxy.io/?${encodeURIComponent(uri)}` : uri
+  ).then((response) => {
+    delete fetchJsonPromiseCache[uri];
+    if (response.status < 200 || response.status > 299) {
+      return { error: { status: response.status } };
+    } else {
+      try {
+        return response.json();
+      } catch (error) {
+        return { error: { message: error } };
+      }
+    }
+  });
+  fetchJsonPromiseCache[uri] = promise;
+  return promise;
+};
+
 export const useJSON = (
   uris,
   { cache = true, corsProxy = false, defaultValue = null } = {
@@ -40,37 +65,12 @@ export const useJSON = (
   }
   useEffect(() => {
     if (uris.length) {
-      const cacheKey = uris.join(" ");
-      if (cache && jsonCache[cacheKey]) {
-        setValue(jsonCache[cacheKey]);
-        return;
-      }
       (async () => {
-        const responses = await Promise.all(
-          uris.map((uri) =>
-            fetch(
-              corsProxy
-                ? `https://corsproxy.io/?${encodeURIComponent(uri)}`
-                : uri
-            )
-          )
-        );
         const json = await Promise.all(
-          responses.map((response) => {
-            if (response.status < 200 || response.status > 299) {
-              return { error: { status: response.status } };
-            } else {
-              try {
-                return response.json();
-              } catch (error) {
-                return { error: { message: error } };
-              }
-            }
-          })
+          uris.map((uri) => fetchJson(uri, { cache, corsProxy }))
         );
         const result = single ? json[0] : json;
         setValue(result);
-        if (cache) jsonCache[cacheKey] = result;
       })();
     }
   }, [...uris]);
