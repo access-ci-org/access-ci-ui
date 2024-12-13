@@ -7,7 +7,7 @@ const ResourceHome = lazy(() => import("./resource-home.jsx"));
 export function ResourceCatalog({
   title = "Resources",
   showTitle = true,
-  baseUri = "/access-ci-ui",
+  baseUri = "/resources",
 }) {
   return (
     <>
@@ -20,7 +20,10 @@ export function ResourceCatalog({
               title={title}
               showTitle={showTitle}
             />
-            <ResourceGroupDetail path={`${baseUri}/:infoGroupId`} />
+            <ResourceGroupDetail
+              path={`${baseUri}/:infoGroupId`}
+              baseUri={baseUri}
+            />
           </Router>
         </ErrorBoundary>
       </LocationProvider>

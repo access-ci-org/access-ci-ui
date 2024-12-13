@@ -1,11 +1,17 @@
 import { useMemo, useState } from "preact/hooks";
 import { filterResourceGroups, useResourceGroups } from "./utils";
 
+import Breadcrumbs from "./breadcrumbs";
 import { ResourceCategory } from "./resource-category";
 import { ResourceFilters } from "./resource-filters";
 import { ResourcePathways } from "./resource-pathways";
 
-export default function ResourceHome({ baseUri, title, showTitle }) {
+export default function ResourceHome({
+  baseUri,
+  title,
+  showBreadcrumbs = true,
+  showTitle = true,
+}) {
   const [activeTagIds, setActiveTagIds] = useState([]);
   const groups = useResourceGroups();
   const active = useMemo(
@@ -24,6 +30,13 @@ export default function ResourceHome({ baseUri, title, showTitle }) {
 
   return (
     <>
+      {showBreadcrumbs && (
+        <Breadcrumbs
+          expandWidth={true}
+          items={[{ name: "Resources" }]}
+          topBorder={true}
+        />
+      )}
       {title && <h1 class={showTitle ? "" : "visually-hidden"}>{title}</h1>}
       <ResourcePathways />
       <div id="browse-resources">

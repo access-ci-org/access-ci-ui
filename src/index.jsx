@@ -1,3 +1,5 @@
+import Breadcrumbs from "./breadcrumbs";
+import breadcrumbsStyle from "./breadcrumbs.css?inline";
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { FooterMenus, Menus } from "./menu";
@@ -5,6 +7,16 @@ import { loginMenuItem, myAccessMenuItem, universalMenuItems } from "./items";
 import { ResourceCatalog } from "./resource-catalog";
 import { TableOfContents } from "./table-of-contents";
 import { renderShadow } from "./utils";
+
+const breadcrumbs = (params = {}) => {
+  renderShadow(
+    <>
+      <Breadcrumbs {...params} />
+      <style>{breadcrumbsStyle}</style>
+    </>,
+    params.target
+  );
+};
 
 const footer = (params = {}) => {
   renderShadow(<Footer {...params} />, params.target);
@@ -81,6 +93,7 @@ const resourceCatalog = ({ baseUri, showTitle, target, title }) =>
   );
 
 export {
+  breadcrumbs,
   footer,
   header,
   footerMenus,

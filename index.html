@@ -53,25 +53,12 @@
     <script type="module">
       import {
         footer,
-        footerMenus,
         header,
         resourceCatalog,
-        siteMenus,
         tableOfContents,
         universalMenuItems,
         universalMenus,
       } from "/src/index.jsx";
-
-      const siteItems = [
-        {
-          name: "Resources",
-          href: "/access-ci-ui",
-        },
-        {
-          name: "Resource Providers",
-          href: "https://access-ci.org/about/resource-providers/",
-        },
-      ];
 
       universalMenus({
         loginUrl: "/login",
@@ -83,19 +70,9 @@
         target: document.getElementById("header"),
       });
 
-      siteMenus({
-        items: siteItems,
-        target: document.getElementById("site-menus"),
-        siteName: "Resources",
-      });
-
       resourceCatalog({
+        baseUri: "/access-ci-ui",
         target: document.getElementById("resource-catalog"),
-      });
-
-      footerMenus({
-        items: siteItems,
-        target: document.getElementById("footer-menus"),
       });
 
       footer({ target: document.getElementById("footer") });
