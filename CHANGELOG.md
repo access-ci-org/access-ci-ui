@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0-beta3](https://github.com/access-ci-org/access-ci-ui/compare/v0.5.0-beta2...v0.5.0-beta3) (2024-12-13)
+
+
+### Features
+
+* **breadcrumbs:** add breadcrumbs component ([8a56d0c](https://github.com/access-ci-org/access-ci-ui/commit/8a56d0c676243196be853f8e61c19f05ce80a566))
+* **resource-catalog:** add support for other-type resources ([4bbb215](https://github.com/access-ci-org/access-ci-ui/commit/4bbb2159f03418f26d77ccbb65b01fce571005d8))
+* **resource-group-description:** link RP name to RP website on resource detail page ([c8428d5](https://github.com/access-ci-org/access-ci-ui/commit/c8428d555ef079cfdb2cbad2dcde867f84615a86))
+* **resource-group-description:** show user guide button if available ([5d072a6](https://github.com/access-ci-org/access-ci-ui/commit/5d072a6455ad34d82213645d42f990dd56848c7f))
+* **resource-group:** place learn more link on a new line ([a734add](https://github.com/access-ci-org/access-ci-ui/commit/a734addf9506f6569b052daae5308e6880c4ba90))
+* **resource-pathways:** temporarily replace headlines with news link ([4150578](https://github.com/access-ci-org/access-ci-ui/commit/4150578817c4b52cf72f0dc5750a2855ea89a776))
+
+
+### Bug Fixes
+
+* **info-tip:** fix style in shadow DOM ([1cc7289](https://github.com/access-ci-org/access-ci-ui/commit/1cc72899109c6db5b39305ec52a2a0b6e1341c9f))
+
+
+### Performance Improvements
+
+* **utils:** avoid fetching the same URL multiple times ([0e2b050](https://github.com/access-ci-org/access-ci-ui/commit/0e2b0502241edddc85c3aaceaaa50fc754fbd8d5))
+
+
+### Miscellaneous Chores
+
+* release 0.5.0-beta3 ([a4b36d2](https://github.com/access-ci-org/access-ci-ui/commit/a4b36d2214aae7eaae70d9ede9002de6ecd2116d))
+
 ## [0.5.0-beta2](https://github.com/access-ci-org/access-ci-ui/compare/v0.5.1-beta1...v0.5.0-beta2) (2024-12-06)
 
 
