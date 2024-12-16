@@ -1,0 +1,44 @@
+.highlight {
+  background-color: var(--yellow-200);
+  padding: 2px 0;
+}
+.header-components {
+  margin-bottom: 2rem;
+}
+.button-group .btn {
+  display: block;
+  margin: 0 0 10px;
+}
+.card {
+  border: 5px solid var(--contrast);
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .flex-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  .header-components {
+    margin-bottom: 0;
+  }
+  .button-group {
+    display: flex;
+  }
+  .button-group .btn {
+    display: flex;
+    margin: 0 10px 0 0;
+  }
+}
+@media (min-width: 1024px) {
+  .cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .card {
+    flex: 1 0 20%;
+    margin: 0;
+  }
+}

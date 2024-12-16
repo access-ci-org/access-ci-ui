@@ -1,0 +1,28 @@
+.section-navigation {
+  border-bottom: 1px solid var(--contrast-8);
+  border-top: 1px solid var(--contrast-8);
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0;
+}
+.section-navigation h2 {
+  flex: 0 0 auto;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 20px 0;
+}
+.section-navigation ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 10px 0;
+}
+.section-navigation li {
+  line-height: 1;
+  list-style-type: none;
+  flex: 0 0 auto;
+  font-size: 1rem;
+  margin: 10px 0 10px 20px;
+  padding: 0;
+}

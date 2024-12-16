@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light" />
-    <title>ACCESS CI User Interface Components</title>
+    <title>ACCESS Resource Catalog Development Prototype</title>
     <link
       rel="stylesheet"
       id="google-font-archivo-css"
@@ -12,28 +12,14 @@
       media="all"
     />
     <link rel="stylesheet" href="/src/base.css" />
+    <link rel="stylesheet" href="/src/icon.css" />
     <style>
       body {
         color: #232323;
         font-family: "Archivo", sans-serif;
-        height: 100vh;
         margin: 0;
+        min-height: 100vh;
         padding: 0;
-      }
-      h1 {
-        font-size: 36px;
-        font-stretch: 70%;
-        font-weight: 500;
-        margin-top: 60px;
-      }
-      h2 {
-        font-size: 24px;
-        font-weight: 700;
-        margin: 36px 0 150px;
-      }
-      #table-of-contents {
-        margin-bottom: 50px;
-        margin-top: 60px;
       }
       @media (min-width: 768px) {
         #main {
@@ -45,6 +31,11 @@
           margin-left: 20px;
           width: calc((var(--width) - 140px) / 4 + 20px);
         }
+        #banner {
+          background-color: #fff3cd;
+          color: #856404;
+          padding: 12px calc((100% - var(--width)) / 2);
+        }
       }
     </style>
   </head>
@@ -54,89 +45,34 @@
     <div id="site-menus"></div>
     <div id="main" class="container">
       <div id="body">
-        <h1>Page Title</h1>
-        <h2>First Section</h2>
-        <h2>Second Section</h2>
-        <h2>Third Section</h2>
+        <div id="resource-catalog"></div>
       </div>
-      <div id="table-of-contents"></div>
     </div>
     <div id="footer-menus"></div>
     <div id="footer"></div>
     <script type="module">
       import {
         footer,
-        footerMenus,
         header,
-        siteMenus,
+        resourceCatalog,
         tableOfContents,
         universalMenuItems,
         universalMenus,
       } from "/src/index.jsx";
 
-      const siteItems = [
-        {
-          name: "One",
-          items: [
-            {
-              name: "Item A",
-              href: "/one/a",
-            },
-            {
-              name: "Item B",
-              href: "/one/b",
-            },
-            {
-              name: "Item C",
-              href: "/one/c",
-            },
-          ],
-        },
-        {
-          name: "Two",
-          items: [
-            {
-              name: "Item A",
-              href: "/two/a",
-            },
-            {
-              name: "Item B",
-              href: "/two/b",
-            },
-          ],
-        },
-        {
-          name: "Three",
-          href: "/three",
-        },
-      ];
-
       universalMenus({
         loginUrl: "/login",
         logoutUrl: "/logout",
-        siteName: "Allocations",
         target: document.getElementById("universal-menus"),
       });
 
       header({
-        siteName: "Allocations",
         target: document.getElementById("header"),
       });
 
-      siteMenus({
-        items: siteItems,
-        siteName: "Allocations",
-        target: document.getElementById("site-menus"),
-      });
-
-      tableOfContents({
-        headings: document.querySelectorAll("#body h1, #body h2"),
-        target: document.getElementById("table-of-contents"),
-      });
-
-      footerMenus({
-        items: siteItems,
-        target: document.getElementById("footer-menus"),
+      resourceCatalog({
+        baseUri: "/access-ci-ui",
+        target: document.getElementById("resource-catalog"),
       });
 
       footer({ target: document.getElementById("footer") });

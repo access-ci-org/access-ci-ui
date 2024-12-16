@@ -24,9 +24,11 @@ The library includes functions for rendering common ACCESS user interface compon
 - `universalMenus`: Universal navigation menus
 - `header`: Logo header
 - `siteMenus`: Site-specific navigation menus
+- `breadcrumbs`: Breadcrumb navigation
 - `tableOfContents`: Page table of contents
 - `footerMenus`: Site-specific navigation menus above the footer
 - `footer`: Universal footer
+- `resourceCatalog`: ACCESS resource catalog
 
 ## Example
 

@@ -107,6 +107,7 @@ a.linkedin {
   text-indent: -999999px;
   transition: opacity 0.25s ease-out;
   width: 40px;
+  z-index: 100;
 }
 .scroll-to-top.visible {
   opacity: 1;

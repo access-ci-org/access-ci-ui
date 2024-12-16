@@ -1,0 +1,11 @@
+#resource-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (min-width: 1024px) {
+  #resource-navigation {
+    flex-direction: row;
+    gap: 20px;
+  }
+}

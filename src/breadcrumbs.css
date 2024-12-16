@@ -1,0 +1,59 @@
+ul.breadcrumbs {
+  --offset: calc((100vw - var(--width)) / 2);
+  border-bottom: 1px solid var(--contrast-7);
+  box-sizing: border-box;
+  font-size: 14px;
+  font-stretch: 70%;
+  font-weight: 600;
+  line-height: 20px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100vw;
+}
+ul.breadcrumbs.top-border {
+  border-top: 1px solid var(--contrast-7);
+}
+ul.breadcrumbs.expand {
+  margin-left: -30px;
+  margin-right: -30px;
+}
+ul.breadcrumbs li {
+  display: inline-block;
+  margin: 0;
+  padding: 11px 0 6px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+ul.breadcrumbs li.home {
+  vertical-align: top;
+}
+ul.breadcrumbs li.home img {
+  height: 14px;
+  margin-top: 3px;
+}
+ul.breadcrumbs li:not(.home)::before {
+  content: "/";
+  margin: 0 12px;
+}
+ul.breadcrumbs li a {
+  color: var(--teal-700);
+  text-decoration: none;
+}
+ul.breadcrumbs li:not(.home) a:active,
+ul.breadcrumbs li:not(.home) a:focus,
+ul.breadcrumbs li:not(.home) a:hover {
+  text-decoration: underline;
+}
+@media (min-width: 600px) {
+  ul.breadcrumbs {
+    padding-left: var(--offset);
+    padding-right: var(--offset);
+  }
+  ul.breadcrumbs.expand {
+    margin-left: calc(var(--offset) * -1);
+    margin-right: calc(var(--offset) * -1);
+  }
+}

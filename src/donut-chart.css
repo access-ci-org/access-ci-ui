@@ -1,0 +1,42 @@
+.donut-chart svg path {
+  cursor: pointer;
+}
+.donut-chart .center-text {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  line-height: 1.2;
+}
+.donut-chart .center-text * {
+  cursor: default;
+  display: block;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+.donut-chart .center-text .percent {
+  color: var(--contrast-2);
+  font-size: 0.7rem;
+}
+.donut-chart .top-items {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.donut-chart .top-items li {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  font-size: 1rem;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+.donut-chart .symbol {
+  border-radius: 8px;
+  display: inline-block;
+  height: 16px;
+  margin-right: 5px;
+  vertical-align: text-top;
+  width: 16px;
+}
