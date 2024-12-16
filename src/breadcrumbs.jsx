@@ -16,7 +16,7 @@ export default function Breadcrumbs({
     >
       <li class="home">
         <a href={homeUrl} title={homeTitle}>
-          <img src={homeIconUrl} alt={homeTitle} />
+          <img src={homeIconUrl} alt={homeTitle} height="14" />
         </a>
       </li>
       {items.map((item) => (
