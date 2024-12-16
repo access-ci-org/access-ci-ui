@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.1](https://github.com/access-ci-org/access-ci-ui/compare/v0.5.0...v0.5.1) (2024-12-16)
+
+
+### Bug Fixes
+
+* **breadcrumbs:** prevent flash of large home icon ([d48f029](https://github.com/access-ci-org/access-ci-ui/commit/d48f02955932b3f0169548fc07a5da0cb4b44384))
+
 ## [0.5.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.5.0-beta3...v0.5.0) (2024-12-16)
 
 
