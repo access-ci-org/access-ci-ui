@@ -206,6 +206,11 @@ export default function ResourceGroupQueueMetrics({ infoGroupId }) {
       headerComponents={headerComponents}
     >
       {content}
+      <p class="metrics-disclaimer">
+        <Icon name="info-circle" />
+        These metrics describe activity from ACCESS projects. Many resources
+        have additional projects that are not part of ACCESS.
+      </p>
     </Section>
   );
 }

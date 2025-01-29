@@ -10,3 +10,10 @@
 .metrics-overview .btn {
   font-size: 1rem;
 }
+.metrics-disclaimer {
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+.metrics-disclaimer .bi {
+  vertical-align: middle;
+}
