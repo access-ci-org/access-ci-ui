@@ -3,7 +3,7 @@ name: Build and Deploy to Pages
 on:
   push:
     branches:
-      - "resource-catalog"
+      - "main"
 
 permissions:
   contents: read
