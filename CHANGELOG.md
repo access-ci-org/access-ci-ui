@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.5.1...v0.6.0) (2025-01-29)
+
+
+### Features
+
+* **resource-group-queue-metrics:** add note that metrics only reflect ACCESS projects ([b4bc088](https://github.com/access-ci-org/access-ci-ui/commit/b4bc0888888b87a15be9acc3de355ada9d2f6006))
+
+
+### Bug Fixes
+
+* **resource-group-queue-metrics:** add margin around ACCESS projects note ([8a284d6](https://github.com/access-ci-org/access-ci-ui/commit/8a284d69710e3cdd94c96c66e2072a20bcd30423))
+
 ## [0.5.1](https://github.com/access-ci-org/access-ci-ui/compare/v0.5.0...v0.5.1) (2024-12-16)
 
 
