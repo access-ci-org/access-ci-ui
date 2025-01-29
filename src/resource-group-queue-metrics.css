@@ -13,6 +13,7 @@
 .metrics-disclaimer {
   font-size: 0.9rem;
   line-height: 1.2;
+  margin: 0.5rem 0;
 }
 .metrics-disclaimer .bi {
   vertical-align: middle;
