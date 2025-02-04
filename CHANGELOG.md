@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.6.0...v0.7.0) (2025-02-04)
+
+
+### Features
+
+* **resource-group-hardware:** get compute table data from resource detail ([83f1d8e](https://github.com/access-ci-org/access-ci-ui/commit/83f1d8eaf4ebc5aeaa67223935ed63a45a527d67))
+
 ## [0.6.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.5.1...v0.6.0) (2025-01-29)
 
 
