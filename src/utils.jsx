@@ -82,8 +82,13 @@ export const useResourceGroups = () => {
     "https://operations-api.access-ci.org/wh2/cider/v1/access-active-groups/type/resource-catalog.access-ci.org/"
   );
   return useTransform([response], ({ results }) => {
-    const { active_groups, feature_categories, features, organizations } =
-      results;
+    const {
+      active_groups,
+      feature_categories,
+      features,
+      organizations,
+      resources,
+    } = results;
 
     const tagCategories = [
       {
@@ -168,6 +173,9 @@ export const useResourceGroups = () => {
         organizations: group.rollup_organization_ids
           .map((orgId) => organizationsMap[orgId])
           .filter((org) => org),
+        resources: resources.filter((res) =>
+          group.rollup_info_resourceids.includes(res.info_resourceid)
+        ),
       }))
       .sort((a, b) => a.name.localeCompare(b.name));
 

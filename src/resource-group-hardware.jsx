@@ -15,27 +15,22 @@ export default function ResourceGroupHardware({ infoGroupId }) {
       : null,
     { defaultValue: [] }
   );
-  const computeComp = useJSON(
-    "https://operations-api.access-ci.org/wh2/cider/v1/coco/?format=json"
-  );
-  const compLoaded = computeComp && !computeComp.error;
-  const computeColumns =
-    compLoaded && resourceGroup
-      ? Object.values(computeComp.results.resources)
-          .filter((res) =>
-            resourceGroup.infoResourceIds.includes(res.info_resourceid)
-          )
-          .map((res) => ({
-            key: res.compute_resource_id,
-            name: res.short_name,
-            format: (value, row) =>
-              row.format && value
-                ? row.format(value, row)
-                : value || <>&mdash;</>,
-          }))
-      : [];
 
-  const computeRows = compLoaded
+  const computeColumns = resources
+    .filter((res) => res.results && res.results.cider_type == "Compute")
+    .map((res) => ({
+      ...res.results.compute,
+      key: res.results.info_resourceid,
+      name: res.results.resource_descriptive_name,
+      format: (_value, row) => {
+        const value = res.results.compute[row.attr];
+        return row.format && value
+          ? row.format(value, row)
+          : value || <>&mdash;</>;
+      },
+    }));
+
+  const computeRows = resources.length
     ? [
         {
           name: "Nodes",
@@ -75,12 +70,7 @@ export default function ResourceGroupHardware({ infoGroupId }) {
           name: "Batch System",
           attr: "batch_system",
         },
-      ]
-        .map((row) => ({
-          ...row,
-          ...computeComp.results.attributes[row.attr],
-        }))
-        .filter((row) => computeColumns.some((col) => row[col.key]))
+      ].filter((row) => computeColumns.some((col) => col[row.attr]))
     : [];
 
   const nameColumn = {
