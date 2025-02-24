@@ -50,10 +50,12 @@
     </div>
     <div id="footer-menus"></div>
     <div id="footer"></div>
+    <div id="q-and-a-tool"></div>
     <script type="module">
       import {
         footer,
         header,
+        qAndATool,
         resourceCatalog,
         tableOfContents,
         universalMenuItems,
@@ -76,6 +78,11 @@
       });
 
       footer({ target: document.getElementById("footer") });
+
+      qAndATool({
+        version: "0.1.1",
+        target: document.getElementById("q-and-a-tool"),
+      });
     </script>
   </body>
 </html>
