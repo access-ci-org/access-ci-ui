@@ -47,6 +47,7 @@ The library includes functions for rendering common ACCESS user interface compon
 </div>
 <div id="footer-menus"></div>
 <div id="footer"></div>
+<div id="q-and-a-tool"></div>
 <script type="module">
   import {
     footer,
