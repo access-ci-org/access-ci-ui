@@ -2,9 +2,6 @@
 @import url("@glidejs/glide/dist/css/glide.theme.min.css");
 @import url("tippy.js/dist/tippy.css");
 
-@import url("./base.css");
-@import url("./content.css");
-
 @import url("./accordion.css");
 @import url("./alert.css");
 @import url("./breadcrumbs.css");

@@ -1,6 +1,4 @@
 import { personaItems, socialItems, utilityItems } from "./items";
-import baseStyle from "./base.css?inline";
-import footerStyle from "./footer.css?inline";
 
 import { AwardLink } from "./award-link";
 import { LinksList } from "./links-list";
@@ -46,8 +44,6 @@ export const Footer = (params = {}) => {
         </div>
       </div>
       <ScrollToTop {...params} />
-      <style>{baseStyle}</style>
-      <style>{footerStyle}</style>
     </>
   );
 };

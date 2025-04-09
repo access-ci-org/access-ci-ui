@@ -12,9 +12,17 @@ export const useMode = (breakpoint = 900) => {
   return mode;
 };
 
-export const renderShadow = (content, target) => {
+export const renderShadow = (content, target, styles = []) => {
   const shadow = target.attachShadow({ mode: "open" });
-  render(content, shadow);
+  render(
+    <>
+      {content}
+      {styles.map((style) => (
+        <style>{style}</style>
+      ))}
+    </>,
+    shadow
+  );
 };
 
 export const getScrollTop = () =>

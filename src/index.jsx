@@ -1,5 +1,4 @@
 import Breadcrumbs from "./breadcrumbs";
-import breadcrumbsStyle from "./breadcrumbs.css?inline";
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { FooterMenus, Menus } from "./menu";
@@ -8,22 +7,33 @@ import { ResourceCatalog } from "./resource-catalog";
 import { TableOfContents } from "./table-of-contents";
 import { renderShadow } from "./utils";
 
+import baseStyle from "./base.css?inline";
+import breadcrumbsStyle from "./breadcrumbs.css?inline";
+import contentStyle from "./content.css?inline";
+import footerStyle from "./footer.css?inline";
+import headerStyle from "./header.css?inline";
+import logoStyle from "./logo.css?inline";
+import menusStyle from "./menus.css?inline";
+import resourceCatalogStyle from "./resource-catalog.css?inline";
+import tocStyle from "./table-of-contents.css?inline";
+
 const breadcrumbs = (params = {}) => {
-  renderShadow(
-    <>
-      <Breadcrumbs {...params} />
-      <style>{breadcrumbsStyle}</style>
-    </>,
-    params.target
-  );
+  renderShadow(<Breadcrumbs {...params} />, params.target, [
+    baseStyle,
+    breadcrumbsStyle,
+  ]);
 };
 
 const footer = (params = {}) => {
-  renderShadow(<Footer {...params} />, params.target);
+  renderShadow(<Footer {...params} />, params.target, [baseStyle, footerStyle]);
 };
 
 const header = (params = {}) => {
-  renderShadow(<Header {...params} />, params.target);
+  renderShadow(<Header {...params} />, params.target, [
+    baseStyle,
+    logoStyle,
+    headerStyle,
+  ]);
 };
 
 const universalMenus = ({
@@ -65,7 +75,8 @@ const universalMenus = ({
       name="ACCESS Menu"
       target={target}
     />,
-    target
+    target,
+    [baseStyle, menusStyle]
   );
 };
 
@@ -77,19 +88,24 @@ const siteMenus = ({ items, siteName, target }) =>
       name={`${siteName} Menu`}
       target={target}
     />,
-    target
+    target,
+    [baseStyle, menusStyle]
   );
 
 const footerMenus = ({ items, target }) =>
-  renderShadow(<FooterMenus items={items} />, target);
+  renderShadow(<FooterMenus items={items} />, target, [baseStyle, menusStyle]);
 
 const tableOfContents = ({ headings = [], target }) =>
-  renderShadow(<TableOfContents headings={headings} />, target);
+  renderShadow(<TableOfContents headings={headings} />, target, [
+    baseStyle,
+    tocStyle,
+  ]);
 
 const resourceCatalog = ({ baseUri, showTitle, target, title }) =>
   renderShadow(
     <ResourceCatalog baseUri={baseUri} showTitle={showTitle} title={title} />,
-    target
+    target,
+    [baseStyle, contentStyle, resourceCatalogStyle]
   );
 
 export {

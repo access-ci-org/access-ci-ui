@@ -1,7 +1,5 @@
 import { useEffect, useId, useState } from "preact/hooks";
 import { getMode, useMode } from "./utils";
-import baseStyle from "./base.css?inline";
-import menuStyle from "./menus.css?inline";
 
 import { LinksList } from "./links-list";
 
@@ -81,20 +79,16 @@ export const Menus = ({ classes, items, name, target }) => {
   }, []);
 
   return (
-    <>
-      <nav class={`menu ${classes || ""}`}>
-        <Menu
-          autoOpenMode="desktop"
-          items={items}
-          mode={mode}
-          name={name}
-          open={open}
-          setOpen={setOpen}
-        />
-      </nav>
-      <style>{baseStyle}</style>
-      <style>{menuStyle}</style>
-    </>
+    <nav class={`menu ${classes || ""}`}>
+      <Menu
+        autoOpenMode="desktop"
+        items={items}
+        mode={mode}
+        name={name}
+        open={open}
+        setOpen={setOpen}
+      />
+    </nav>
   );
 };
 
@@ -124,12 +118,8 @@ export const FooterMenus = ({ items }) => {
   });
 
   return (
-    <>
-      <nav class="footer">
-        <div class="columns">{menus}</div>
-      </nav>
-      <style>{baseStyle}</style>
-      <style>{menuStyle}</style>
-    </>
+    <nav class="footer">
+      <div class="columns">{menus}</div>
+    </nav>
   );
 };

@@ -1,7 +1,4 @@
 import { useEffect, useState } from "preact/hooks";
-
-import baseStyle from "./base.css?inline";
-import tocStyle from "./table-of-contents.css?inline";
 import { getScrollTop } from "./utils";
 
 export const TableOfContents = ({
@@ -41,36 +38,32 @@ export const TableOfContents = ({
   if (!h2.length) return;
 
   return (
-    <>
-      <div class="toc">
-        {h1 && <h2>{h1.textContent}</h2>}
-        {h2.length > 0 && (
-          <ul>
-            {h2.map((h, i) => (
-              <li>
-                <a
-                  href={`#${h.id}`}
-                  class={i == activeIdx ? "active" : ""}
-                  onClick={(e) => {
-                    if (smoothScroll) {
-                      e.preventDefault();
-                      window.scrollTo({
-                        top: h.offsetTop,
-                        behavior: "smooth",
-                      });
-                      history.pushState(null, null, `#${h.id}`);
-                    }
-                  }}
-                >
-                  {h.textContent}
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-      <style>{baseStyle}</style>
-      <style>{tocStyle}</style>
-    </>
+    <div class="toc">
+      {h1 && <h2>{h1.textContent}</h2>}
+      {h2.length > 0 && (
+        <ul>
+          {h2.map((h, i) => (
+            <li>
+              <a
+                href={`#${h.id}`}
+                class={i == activeIdx ? "active" : ""}
+                onClick={(e) => {
+                  if (smoothScroll) {
+                    e.preventDefault();
+                    window.scrollTo({
+                      top: h.offsetTop,
+                      behavior: "smooth",
+                    });
+                    history.pushState(null, null, `#${h.id}`);
+                  }
+                }}
+              >
+                {h.textContent}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };
