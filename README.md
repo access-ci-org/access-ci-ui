@@ -47,16 +47,18 @@ The library includes functions for rendering common ACCESS user interface compon
 </div>
 <div id="footer-menus"></div>
 <div id="footer"></div>
+<div id="q-and-a-tool"></div>
 <script type="module">
   import {
     footer,
     footerMenus,
     header,
+    qAndATool,
     siteMenus,
     tableOfContents,
     universalMenuItems,
     universalMenus,
-  } from "https://esm.sh/@access-ci/ui@0.3.1";
+  } from "https://esm.sh/@access-ci/ui@0.7.0";
 
   const siteItems = [
     {
@@ -124,5 +126,17 @@ The library includes functions for rendering common ACCESS user interface compon
   });
 
   footer({ target: document.getElementById("footer") });
+
+  // Customize this function to return true if the user is anonymous.
+  // Q&A Tool can only be enabled for authenticated users.
+  function isAnonymous() {
+      return !document.querySelector('body').classList.contains('user-logged-in');
+  }
+  window.isAnonymous = isAnonymous();
+
+  qAndATool({
+    version: "0.1.3",
+    target: document.getElementById("q-and-a-tool"),
+  });
 </script>
 ```

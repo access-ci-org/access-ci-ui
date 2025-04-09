@@ -3,6 +3,7 @@ import { Footer } from "./footer";
 import { Header } from "./header";
 import { FooterMenus, Menus } from "./menu";
 import { loginMenuItem, myAccessMenuItem, universalMenuItems } from "./items";
+import { QAndATool } from "./q-and-a-tool";
 import { ResourceCatalog } from "./resource-catalog";
 import { TableOfContents } from "./table-of-contents";
 import { renderShadow } from "./utils";
@@ -108,6 +109,12 @@ const resourceCatalog = ({ baseUri, showTitle, target, title }) =>
     [baseStyle, contentStyle, resourceCatalogStyle]
   );
 
+const qAndATool = ({ version, target }) =>
+  renderShadow(
+    <QAndATool version={version}/>,
+    target
+  );
+
 export {
   breadcrumbs,
   footer,
@@ -115,6 +122,7 @@ export {
   footerMenus,
   loginMenuItem,
   myAccessMenuItem,
+  qAndATool,
   resourceCatalog,
   siteMenus,
   tableOfContents,

@@ -21,6 +21,13 @@ export function ResourcePathways() {
       href: "https://support.access-ci.org/",
       description: "You have resource questions. Our Q&A bot has answers!",
       login: true,
+      onClick: (e) => {
+        e.preventDefault();
+        const button = document.querySelector('.rcb-button-show');
+        if (button instanceof HTMLElement) {
+          button.click();
+        }
+      }
     },
     {
       title: "Get suggestions",
