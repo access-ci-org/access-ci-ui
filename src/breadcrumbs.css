@@ -27,13 +27,6 @@ ul.breadcrumbs li {
   text-transform: uppercase;
   vertical-align: middle;
 }
-ul.breadcrumbs li.home {
-  vertical-align: top;
-}
-ul.breadcrumbs li.home img {
-  height: 14px;
-  margin-top: 3px;
-}
 ul.breadcrumbs li:not(.home)::before {
   content: "/";
   margin: 0 12px;

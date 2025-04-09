@@ -1,4 +1,4 @@
-import homeIconUrl from "./icons/home.svg";
+import homeIconUrl from "./icons/house-door-fill.svg";
 
 export default function Breadcrumbs({
   expandWidth = false,
