@@ -37,7 +37,11 @@ export const Footer = (params = {}) => {
           </div>
         </div>
         <div class="lower">
-          <Logo {...params} placement="footer" />
+          <Logo
+            siteName="ACCESS"
+            siteUrl="https://access-ci.org"
+            placement="footer"
+          />
           <LinksList className="links" items={utilityItems} />
         </div>
       </div>
