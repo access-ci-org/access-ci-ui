@@ -22,6 +22,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@algolia/autocomplete-js": "^1.18.1",
+    "@algolia/autocomplete-theme-classic": "^1.18.1",
     "@glidejs/glide": "^3.6.1",
     "chart.js": "^4.4.6",
     "fuse.js": "^7.0.0",

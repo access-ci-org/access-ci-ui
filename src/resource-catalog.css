@@ -1,3 +1,4 @@
+@import url("@algolia/autocomplete-theme-classic/dist/theme.min.css");
 @import url("@glidejs/glide/dist/css/glide.core.min.css");
 @import url("@glidejs/glide/dist/css/glide.theme.min.css");
 @import url("tippy.js/dist/tippy.css");

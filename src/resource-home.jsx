@@ -3,8 +3,8 @@ import { filterResourceGroups, useResourceGroups } from "./utils";
 
 import Breadcrumbs from "./breadcrumbs";
 import { ResourceCategory } from "./resource-category";
-import { ResourceFilters } from "./resource-filters";
 import { ResourcePathways } from "./resource-pathways";
+import { ResourceSearch } from "./resource-search";
 
 export default function ResourceHome({
   baseUri,
@@ -40,14 +40,7 @@ export default function ResourceHome({
       {title && <h1 class={showTitle ? "" : "visually-hidden"}>{title}</h1>}
       <ResourcePathways />
       <div id="browse-resources">
-        {active ? (
-          <ResourceFilters
-            tagCategories={groups.tagCategories}
-            active={active}
-            clearTags={clearTags}
-            toggleTag={toggleTag}
-          />
-        ) : null}
+        {active ? <ResourceSearch /> : null}
         {groups
           ? groups.resourceCategories
               .filter(({ resourceCategoryId }) =>
