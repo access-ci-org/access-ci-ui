@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0-beta1](https://github.com/access-ci-org/access-ci-ui/compare/v0.7.0...v0.8.0-beta1) (2025-04-11)
+
+
+### Features
+
+* **footer:** increase the size of the Contact ACCESS link ([22fbf68](https://github.com/access-ci-org/access-ci-ui/commit/22fbf68bcdf3e0e1514802872e168fa71f4b3e98))
+* **items:** update menu items ([d81f9f6](https://github.com/access-ci-org/access-ci-ui/commit/d81f9f67afe2bfc02ec8d9c29b92a6ed4d69d813))
+* **menus:** add carets to dropdowns ([b385743](https://github.com/access-ci-org/access-ci-ui/commit/b3857436718cfc1fa3e4bc5f18796b9cf1b8179f))
+* **menus:** add title to footer menus ([1973b31](https://github.com/access-ci-org/access-ci-ui/commit/1973b31ca6b86a4070021043f693d9c078cb4519))
+
+
+### Bug Fixes
+
+* **breadcrumbs:** include base CSS ([5388a50](https://github.com/access-ci-org/access-ci-ui/commit/5388a50e1dc91f2e598a7dae8b0c401be90e8183))
+* **breadcrumbs:** use Bootstrap home icon ([58dbde9](https://github.com/access-ci-org/access-ci-ui/commit/58dbde9aa7738c293770a032d1a5c081b03676df))
+* **footer:** always link logo to ACCESS home ([691bfea](https://github.com/access-ci-org/access-ci-ui/commit/691bfeafc0661cf904b0d13137fdb40efb8aa65a))
+* **items:** revert Events & Trainings item name ([5bce726](https://github.com/access-ci-org/access-ci-ui/commit/5bce72694d12f084423985de444463878cb0fbff))
+
+
+### Miscellaneous Chores
+
+* release 0.8.0-beta1 ([5485cec](https://github.com/access-ci-org/access-ci-ui/commit/5485cecb77cdc63b6334e814898c16978dbc4045))
+
 ## [0.7.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.6.0...v0.7.0) (2025-02-04)
 
 
