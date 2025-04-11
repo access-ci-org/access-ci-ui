@@ -16,12 +16,17 @@ export const personaItems = [
     href: "https://access-ci.org/get-started/for-resource-providers/",
   },
   {
-    name: "Programs & Organizations",
+    name: "CI Community",
     href: "https://access-ci.org/get-started/for-programs-organizations/",
   },
 ];
 
 export const universalMenuItems = [
+  {
+    name: "ACCESS Home",
+    href: "https://access-ci.org/",
+    classes: "icon icon-home",
+  },
   {
     name: "Allocations",
     href: "https://allocations.access-ci.org/",
@@ -33,7 +38,7 @@ export const universalMenuItems = [
     classes: "track",
   },
   {
-    name: "Events & Trainings",
+    name: "Training",
     href: "https://support.access-ci.org/events",
     classes: "track",
   },
@@ -56,11 +61,6 @@ export const universalMenuItems = [
     name: "Find info for you",
     classes: "highlight",
     items: personaItems,
-  },
-  {
-    name: "ACCESS Home",
-    href: "https://access-ci.org/",
-    classes: "icon icon-home",
   },
   {
     name: "Search",
@@ -146,24 +146,28 @@ export const socialItems = [
 
 export const utilityItems = [
   {
-    href: "https://access-ci.org/about/acknowledging-access/",
-    name: "How to Acknowledge ACCESS",
+    href: "https://access-ci.org/acceptable-use/",
+    name: "Acceptable Use",
   },
   {
-    href: "https://access-ci.org/acceptable-use/",
-    name: "Acceptable Use Policy",
+    href: "https://access-ci.org/about/acknowledging-access/",
+    name: "Acknowledging ACCESS",
   },
   {
     href: "https://access-ci.org/code-of-conduct/",
     name: "Code of Conduct",
   },
   {
+    href: "https://access-ci.org/glossary/",
+    name: "Glossary",
+  },
+  {
     href: "https://access-ci.org/privacy-policy",
     name: "Privacy Policy",
   },
   {
-    href: "https://access-ci.org/glossary/",
-    name: "Glossary",
+    href: "https://operations.access-ci.org/report-security-incident",
+    name: "Report a Security Incident",
   },
   {
     href: "https://access-ci.org/site-map/",
