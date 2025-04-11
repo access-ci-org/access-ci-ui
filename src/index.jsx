@@ -92,8 +92,11 @@ const siteMenus = ({ items, siteName, target }) =>
     [baseStyle, menusStyle]
   );
 
-const footerMenus = ({ items, target }) =>
-  renderShadow(<FooterMenus items={items} />, target, [baseStyle, menusStyle]);
+const footerMenus = ({ items, siteName, target }) =>
+  renderShadow(<FooterMenus items={items} siteName={siteName} />, target, [
+    baseStyle,
+    menusStyle,
+  ]);
 
 const tableOfContents = ({ headings = [], target }) =>
   renderShadow(<TableOfContents headings={headings} />, target, [

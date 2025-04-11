@@ -120,6 +120,7 @@ The library includes functions for rendering common ACCESS user interface compon
 
   footerMenus({
     items: siteItems,
+    siteName: "Allocations",
     target: document.getElementById("footer-menus"),
   });
 

@@ -92,7 +92,7 @@ export const Menus = ({ classes, items, name, target }) => {
   );
 };
 
-export const FooterMenus = ({ items }) => {
+export const FooterMenus = ({ items, siteName = "" }) => {
   const mode = useMode(768);
 
   const menus = items.map(({ name, href, items }) => {
@@ -104,14 +104,14 @@ export const FooterMenus = ({ items }) => {
     if (href)
       return (
         <div class="column">
-          <h2>
+          <h3>
             <a href={href}>{name}</a>
-          </h2>
+          </h3>
         </div>
       );
     return (
       <div class="column">
-        <h2>{name}</h2>
+        <h3>{name}</h3>
         <LinksList items={items} />
       </div>
     );
@@ -119,6 +119,7 @@ export const FooterMenus = ({ items }) => {
 
   return (
     <nav class="footer">
+      <h2>ACCESS {siteName}</h2>
       <div class="columns">{menus}</div>
     </nav>
   );
