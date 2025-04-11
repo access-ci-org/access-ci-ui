@@ -38,7 +38,7 @@ export const universalMenuItems = [
     classes: "track",
   },
   {
-    name: "Training",
+    name: "Events & Trainings",
     href: "https://support.access-ci.org/events",
     classes: "track",
   },
