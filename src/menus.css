@@ -1,3 +1,8 @@
+.menu {
+  --icon-caret-down-dark: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23232323' viewBox='0 0 16 16'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>");
+  --icon-caret-down-light: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>");
+  --icon-caret-down-teal: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23107180' viewBox='0 0 16 16'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>");
+}
 .universal {
   --background: var(--teal-700);
   --border: rgba(19, 133, 151, 0.35);
@@ -58,7 +63,7 @@
   text-transform: uppercase;
 }
 .menu button::after {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>");
+  background-image: var(--icon-caret-down-light);
   background-repeat: no-repeat;
   background-size: 18px;
   content: "";
@@ -73,7 +78,7 @@
   transform: rotate(180deg);
 }
 .menu .highlight button::after {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23232323' viewBox='0 0 16 16'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>");
+  background-image: var(--icon-caret-down-dark);
 }
 .menu button,
 .menu ul li {
@@ -212,6 +217,9 @@
   .universal {
     background-color: var(--teal-700);
   }
+  .universal > ul > li:first-child {
+    margin-left: -10px;
+  }
   .universal > ul > li:last-child {
     margin-right: -10px;
   }
@@ -226,7 +234,22 @@
   .menu button.expanded::after,
   .menu .highlight button::after,
   .menu .highlight button.expanded::after {
-    display: none;
+    display: inline-block;
+    margin-left: 5px;
+    position: static;
+    vertical-align: middle;
+  }
+  .menu button::after {
+    background-image: var(--icon-caret-down-teal);
+  }
+  .universal button::after {
+    background-image: var(--icon-caret-down-light);
+  }
+  .menu button.expanded::after,
+  .menu button.item:active::after,
+  .menu button.item:focus::after,
+  .menu button.item:hover::after {
+    background-image: var(--icon-caret-down-light);
   }
   .menu > ul > li {
     display: flex;
