@@ -1,4 +1,5 @@
 import Breadcrumbs from "./breadcrumbs";
+import { AccessQABot } from "./access-qa-bot";
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { FooterMenus, Menus } from "./menu";
@@ -34,6 +35,10 @@ const header = (params = {}) => {
     logoStyle,
     headerStyle,
   ]);
+};
+
+const accessQABot = (params = {}) => {
+  renderShadow(<AccessQABot {...params} />, params.target, [baseStyle]);
 };
 
 const universalMenus = ({
@@ -112,6 +117,7 @@ const resourceCatalog = ({ baseUri, showTitle, target, title }) =>
   );
 
 export {
+  accessQABot,
   breadcrumbs,
   footer,
   header,

@@ -50,8 +50,10 @@
     </div>
     <div id="footer-menus"></div>
     <div id="footer"></div>
+    <div id="qa-bot"></div>
     <script type="module">
       import {
+        accessQABot,
         footer,
         header,
         resourceCatalog,
@@ -76,6 +78,10 @@
       });
 
       footer({ target: document.getElementById("footer") });
+
+      accessQABot({
+        target: document.getElementById("qa-bot"),
+      });
     </script>
   </body>
 </html>
