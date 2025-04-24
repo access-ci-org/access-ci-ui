@@ -46,6 +46,12 @@
     <div id="main" class="container">
       <div id="body">
         <div id="resource-catalog"></div>
+
+        <!-- Embedded QA Bot demo -->
+        <div class="container" style="margin-top: 50px;">
+          <h2>Embedded QA Bot</h2>
+          <div id="embedded-qa-bot" style="height: 550px;"></div>
+        </div>
       </div>
     </div>
     <div id="footer-menus"></div>
@@ -79,8 +85,18 @@
 
       footer({ target: document.getElementById("footer") });
 
+      // Floating QA Bot
       accessQABot({
         target: document.getElementById("qa-bot"),
+      });
+
+      // Embedded QA Bot
+      accessQABot({
+        target: document.getElementById("embedded-qa-bot"),
+        embedded: true,
+        isOpen: true,
+        welcome: "Welcome to the embedded ACCESS Q&A Bot!",
+        prompt: "What would you like to know about ACCESS?"
       });
     </script>
   </body>

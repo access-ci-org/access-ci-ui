@@ -17,6 +17,7 @@ import logoStyle from "./logo.css?inline";
 import menusStyle from "./menus.css?inline";
 import resourceCatalogStyle from "./resource-catalog.css?inline";
 import tocStyle from "./table-of-contents.css?inline";
+import qaStyle from "../node_modules/@snf/access-qa-bot/build/static/css/main.css?inline";
 
 const breadcrumbs = (params = {}) => {
   renderShadow(<Breadcrumbs {...params} />, params.target, [
@@ -38,7 +39,7 @@ const header = (params = {}) => {
 };
 
 const accessQABot = (params = {}) => {
-  renderShadow(<AccessQABot {...params} />, params.target, [baseStyle]);
+  renderShadow(<AccessQABot {...params} />, params.target, [baseStyle, qaStyle]);
 };
 
 const universalMenus = ({
