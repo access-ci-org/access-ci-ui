@@ -25,7 +25,11 @@ const breadcrumbs = (params = {}) => {
 };
 
 const footer = (params = {}) => {
-  renderShadow(<Footer {...params} />, params.target, [baseStyle, footerStyle]);
+  renderShadow(<Footer {...params} />, params.target, [
+    baseStyle,
+    footerStyle,
+    logoStyle,
+  ]);
 };
 
 const header = (params = {}) => {
@@ -61,7 +65,7 @@ const universalMenus = ({
     let currentItem = items.find(
       (item) =>
         (item.href || "").replace(/\/$/, "") ==
-        document.location.href.replace(/\/$/, "")
+        document.location.href.replace(/\/$/, ""),
     );
     if (siteName && !currentItem)
       currentItem = items.find((item) => item.name == siteName);
@@ -76,7 +80,7 @@ const universalMenus = ({
       target={target}
     />,
     target,
-    [baseStyle, menusStyle]
+    [baseStyle, menusStyle],
   );
 };
 
@@ -89,7 +93,7 @@ const siteMenus = ({ items, siteName, target }) =>
       target={target}
     />,
     target,
-    [baseStyle, menusStyle]
+    [baseStyle, menusStyle],
   );
 
 const footerMenus = ({ items, siteName, target }) =>
@@ -108,7 +112,7 @@ const resourceCatalog = ({ baseUri, showTitle, target, title }) =>
   renderShadow(
     <ResourceCatalog baseUri={baseUri} showTitle={showTitle} title={title} />,
     target,
-    [baseStyle, contentStyle, resourceCatalogStyle]
+    [baseStyle, contentStyle, resourceCatalogStyle],
   );
 
 export {
