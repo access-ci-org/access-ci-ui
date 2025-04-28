@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0-beta2](https://github.com/access-ci-org/access-ci-ui/compare/v0.8.0-beta1...v0.8.0-beta2) (2025-04-28)
+
+
+### Bug Fixes
+
+* **footer:** add missing logo styles ([bcfcfbf](https://github.com/access-ci-org/access-ci-ui/commit/bcfcfbff2d2a04fc063e797dcad036eafea430bb))
+
+
+### Miscellaneous Chores
+
+* release 0.8.0-beta2 ([7a881b8](https://github.com/access-ci-org/access-ci-ui/commit/7a881b88d96ba72a3e973f22d1706757f38999ab))
+
 ## [0.8.0-beta1](https://github.com/access-ci-org/access-ci-ui/compare/v0.7.0...v0.8.0-beta1) (2025-04-11)
 
 
