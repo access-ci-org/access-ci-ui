@@ -1,5 +1,5 @@
 import Breadcrumbs from "./breadcrumbs";
-import { AccessQABot } from "./access-qa-bot";
+import { QABot } from "./qa-bot";
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { FooterMenus, Menus } from "./menu";
@@ -38,8 +38,19 @@ const header = (params = {}) => {
   ]);
 };
 
-const accessQABot = (params = {}) => {
-  renderShadow(<AccessQABot {...params} />, params.target, [baseStyle, qaStyle]);
+const qaBot = ({
+  isLoggedIn,
+  target,
+  ...otherParams
+} = {}) => {
+  if (isLoggedIn === undefined)
+    isLoggedIn = document.cookie.split("; ").includes("SESSaccesscisso=1");
+
+  renderShadow(
+    <QABot isLoggedIn={isLoggedIn} target={target} {...otherParams} />,
+     target,
+    [baseStyle, qaStyle]
+  );
 };
 
 const universalMenus = ({
@@ -118,7 +129,7 @@ const resourceCatalog = ({ baseUri, showTitle, target, title }) =>
   );
 
 export {
-  accessQABot,
+  qaBot,
   breadcrumbs,
   footer,
   header,

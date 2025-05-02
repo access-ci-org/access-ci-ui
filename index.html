@@ -59,7 +59,7 @@
     <div id="qa-bot"></div>
     <script type="module">
       import {
-        accessQABot,
+        qaBot,
         footer,
         header,
         resourceCatalog,
@@ -86,17 +86,21 @@
       footer({ target: document.getElementById("footer") });
 
       // Floating QA Bot
-      accessQABot({
+      qaBot({
         target: document.getElementById("qa-bot"),
+        apiKey: "my-api-key",
+        // isLoggedIn: true
       });
 
       // Embedded QA Bot
-      accessQABot({
+      qaBot({
         target: document.getElementById("embedded-qa-bot"),
         embedded: true,
         isOpen: true,
         welcome: "Welcome to the embedded ACCESS Q&A Bot!",
-        prompt: "What would you like to know about ACCESS?"
+        prompt: "What would you like to know about ACCESS?",
+        apiKey: "my-api-key",
+        // isLoggedIn: true
       });
     </script>
   </body>
