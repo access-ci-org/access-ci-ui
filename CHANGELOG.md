@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.8.0-beta2...v0.8.0) (2025-05-07)
+
+
+### Features
+
+* address PR feedback ([e18cfe9](https://github.com/access-ci-org/access-ci-ui/commit/e18cfe9ec10d29bc91eb56c940da3a335aebadc0))
+* **qa-bot:** add QA bot component ([993e48b](https://github.com/access-ci-org/access-ci-ui/commit/993e48b8cfaa4da0ecdda0b9e33529f8b53aaf19))
+
+
+### Miscellaneous Chores
+
+* release 0.8.0 ([55c8131](https://github.com/access-ci-org/access-ci-ui/commit/55c81312f3a6752c870b60bbf7d5647010054baf))
+
 ## [0.8.0-beta2](https://github.com/access-ci-org/access-ci-ui/compare/v0.8.0-beta1...v0.8.0-beta2) (2025-04-28)
 
 
