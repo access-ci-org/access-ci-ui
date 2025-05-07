@@ -29,6 +29,7 @@ The library includes functions for rendering common ACCESS user interface compon
 - `footerMenus`: Site-specific navigation menus above the footer
 - `footer`: Universal footer
 - `resourceCatalog`: ACCESS resource catalog
+- `qaBot`: Question/answer bot
 
 ## Example
 
@@ -47,6 +48,7 @@ The library includes functions for rendering common ACCESS user interface compon
 </div>
 <div id="footer-menus"></div>
 <div id="footer"></div>
+<div id="qa-bot"></div>
 <script type="module">
   import {
     footer,
@@ -125,5 +127,10 @@ The library includes functions for rendering common ACCESS user interface compon
   });
 
   footer({ target: document.getElementById("footer") });
+
+  qaBot({
+    target: document.getElementById("qa-bot"),
+    apiKey: "my-api-key",
+  });
 </script>
 ```
