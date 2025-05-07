@@ -1,4 +1,5 @@
 import Breadcrumbs from "./breadcrumbs";
+import { QABot } from "./qa-bot";
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { FooterMenus, Menus } from "./menu";
@@ -16,6 +17,7 @@ import logoStyle from "./logo.css?inline";
 import menusStyle from "./menus.css?inline";
 import resourceCatalogStyle from "./resource-catalog.css?inline";
 import tocStyle from "./table-of-contents.css?inline";
+import qaStyle from "../node_modules/@snf/access-qa-bot/build/static/css/main.css?inline";
 
 const breadcrumbs = (params = {}) => {
   renderShadow(<Breadcrumbs {...params} />, params.target, [
@@ -38,6 +40,21 @@ const header = (params = {}) => {
     logoStyle,
     headerStyle,
   ]);
+};
+
+const qaBot = ({
+  isLoggedIn,
+  target,
+  ...otherParams
+} = {}) => {
+  if (isLoggedIn === undefined)
+    isLoggedIn = document.cookie.split("; ").includes("SESSaccesscisso=1");
+
+  renderShadow(
+    <QABot isLoggedIn={isLoggedIn} target={target} {...otherParams} />,
+     target,
+    [baseStyle, qaStyle]
+  );
 };
 
 const universalMenus = ({
@@ -116,6 +133,7 @@ const resourceCatalog = ({ baseUri, showTitle, target, title }) =>
   );
 
 export {
+  qaBot,
   breadcrumbs,
   footer,
   header,
