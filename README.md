@@ -54,11 +54,12 @@ The library includes functions for rendering common ACCESS user interface compon
     footer,
     footerMenus,
     header,
+    qaBot,
     siteMenus,
     tableOfContents,
     universalMenuItems,
     universalMenus,
-  } from "https://esm.sh/@access-ci/ui@0.3.1";
+  } from "https://esm.sh/@access-ci/ui@0.8.0";
 
   const siteItems = [
     {
