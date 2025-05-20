@@ -9,7 +9,7 @@ const LazyQABot = lazy(() =>
 
 export class QABot extends Component {
   render() {
-    const { welcome, prompt, isLoggedIn, isOpen, apiKey, embedded } = this.props;
+    const { welcome, prompt, isLoggedIn, defaultOpen, apiKey, embedded } = this.props;
 
     // Support environment variable if apiKey is not provided via props
     const botApiKey = apiKey || import.meta.env.VITE_QA_BOT_API_KEY || null;
@@ -25,7 +25,7 @@ export class QABot extends Component {
           welcome={welcome || "Welcome to ACCESS Q&A Bot!"}
           prompt={prompt || "Ask me anything..."}
           isLoggedIn={isLoggedIn}
-          isOpen={isOpen === true}
+          defaultOpen={defaultOpen === true}
           embedded={embedded === true}
           apiKey={botApiKey}
         />
