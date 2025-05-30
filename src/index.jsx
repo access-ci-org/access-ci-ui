@@ -1,5 +1,5 @@
 import Breadcrumbs from "./breadcrumbs";
-import { QABot } from "./qa-bot";
+import { qaBot } from "@snf/access-qa-bot";
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { FooterMenus, Menus } from "./menu";
@@ -40,21 +40,6 @@ const header = (params = {}) => {
     logoStyle,
     headerStyle,
   ]);
-};
-
-const qaBot = ({
-  isLoggedIn,
-  target,
-  ...otherParams
-} = {}) => {
-  if (isLoggedIn === undefined)
-    isLoggedIn = document.cookie.split("; ").includes("SESSaccesscisso=1");
-
-  renderShadow(
-    <QABot isLoggedIn={isLoggedIn} target={target} {...otherParams} />,
-     target,
-    [baseStyle, qaStyle]
-  );
 };
 
 const universalMenus = ({

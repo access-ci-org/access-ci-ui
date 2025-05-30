@@ -85,7 +85,7 @@
       footer({ target: document.getElementById("footer") });
 
       // Floating QA Bot
-      qaBot({
+      const floatingBot = qaBot({
         target: document.getElementById("qa-bot"),
         apiKey: "my-api-key",
         defaultOpen: false,
@@ -99,6 +99,9 @@
         apiKey: "my-api-key",
         isLoggedIn: true
       });
+
+      // example programattic open
+      setTimeout(() => floatingBot.openChat(), 1000);
     </script>
   </body>
 </html>
