@@ -130,7 +130,7 @@ const resourceCatalog = ({ baseUri, showTitle, target, title }) =>
   renderShadow(
     <ResourceCatalog baseUri={baseUri} showTitle={showTitle} title={title} />,
     target,
-    [baseStyle, contentStyle, resourceCatalogStyle],
+    [baseStyle, contentStyle, resourceCatalogStyle, qaStyle],
   );
 
 export {
