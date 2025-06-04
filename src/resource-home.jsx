@@ -5,6 +5,7 @@ import Breadcrumbs from "./breadcrumbs";
 import { ResourceCategory } from "./resource-category";
 import { ResourceFilters } from "./resource-filters";
 import { ResourcePathways } from "./resource-pathways";
+import { QABot } from "./qa-bot";
 
 export default function ResourceHome({
   baseUri,
@@ -13,6 +14,7 @@ export default function ResourceHome({
   showTitle = true,
 }) {
   const [activeTagIds, setActiveTagIds] = useState([]);
+  const [botOpen, setBotOpen] = useState(false);
   const groups = useResourceGroups();
   const active = useMemo(
     () => (groups ? filterResourceGroups(groups, activeTagIds) : null),
@@ -27,6 +29,9 @@ export default function ResourceHome({
     );
 
   const clearTags = () => setActiveTagIds([]);
+
+  // Auto-detect login state
+  const isLoggedIn = document.cookie.split("; ").includes("SESSaccesscisso=1");
 
   return (
     <>
@@ -64,6 +69,15 @@ export default function ResourceHome({
               ))
           : null}
       </div>
+
+      <QABot
+        embedded={false}
+        open={botOpen}
+        onOpenChange={setBotOpen}
+        isLoggedIn={isLoggedIn}
+        welcome="Welcome to the ACCESS Q&A Bot!"
+        apiKey={import.meta.env.VITE_QA_BOT_API_KEY || "my-api-key"}
+      />
     </>
   );
 }
