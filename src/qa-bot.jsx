@@ -1,3 +1,4 @@
+import "preact/compat";
 import { Component } from "preact";
 import { QABot as AccessQABot } from "@snf/access-qa-bot";
 

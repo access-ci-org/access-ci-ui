@@ -1,3 +1,4 @@
+import "preact/compat";
 import Breadcrumbs from "./breadcrumbs";
 import { QABot } from "./qa-bot";
 import { Footer } from "./footer";
