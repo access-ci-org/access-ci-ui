@@ -1,5 +1,11 @@
 import { Component } from "preact";
-import { QABot as AccessQABot } from "@snf/access-qa-bot";
+import { ErrorBoundary, lazy } from "preact-iso";
+
+const AsyncLoadedQABot = lazy(() =>
+  import("@snf/access-qa-bot").then(module => ({
+    default: module.QABot
+  }))
+);
 
 export class QABot extends Component {
   render() {
@@ -27,15 +33,17 @@ export class QABot extends Component {
       : document.cookie.split("; ").includes("SESSaccesscisso=1");
 
     return (
-      <AccessQABot
-        welcome={welcome || "Welcome to ACCESS Q&A Bot!"}
-        isLoggedIn={loggedIn}
-        open={open}
-        onOpenChange={onOpenChange}
-        embedded={embedded === true}
-        apiKey={botApiKey}
-        loginUrl={loginUrl}
-      />
+      <ErrorBoundary>
+        <AsyncLoadedQABot
+          welcome={welcome || "Welcome to ACCESS Q&A Bot!"}
+          isLoggedIn={loggedIn}
+          open={open}
+          onOpenChange={onOpenChange}
+          embedded={embedded === true}
+          apiKey={botApiKey}
+          loginUrl={loginUrl}
+        />
+      </ErrorBoundary>
     );
   }
 }
