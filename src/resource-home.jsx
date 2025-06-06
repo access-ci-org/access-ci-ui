@@ -30,9 +30,6 @@ export default function ResourceHome({
 
   const clearTags = () => setActiveTagIds([]);
 
-  // Auto-detect login state
-  const isLoggedIn = document.cookie.split("; ").includes("SESSaccesscisso=1");
-
   return (
     <>
       {showBreadcrumbs && (
@@ -74,7 +71,6 @@ export default function ResourceHome({
         embedded={false}
         open={botOpen}
         onOpenChange={setBotOpen}
-        isLoggedIn={isLoggedIn}
         welcome="Welcome to the ACCESS Q&A Bot!"
         apiKey={import.meta.env.VITE_QA_BOT_API_KEY || "my-api-key"}
       />
