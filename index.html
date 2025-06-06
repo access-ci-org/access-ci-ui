@@ -56,7 +56,6 @@
     </div>
     <div id="footer-menus"></div>
     <div id="footer"></div>
-    <div id="qa-bot"></div>
     <script type="module">
       import {
         qaBot,
@@ -84,13 +83,6 @@
       });
 
       footer({ target: document.getElementById("footer") });
-
-      // Floating QA Bot
-      qaBot({
-        target: document.getElementById("qa-bot"),
-        apiKey: "my-api-key",
-        // isLoggedIn: true
-      });
 
       // Embedded QA Bot
       qaBot({
