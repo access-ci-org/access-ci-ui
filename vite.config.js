@@ -15,5 +15,8 @@ export default defineConfig(({ mode }) => ({
         }
       : null,
   base: "/access-ci-ui",
+  define: {
+    "process.env.NODE_ENV": JSON.stringify(mode),
+  },
   plugins: [preact()],
 }));
