@@ -15,5 +15,5 @@ export default defineConfig(({ mode }) => ({
         }
       : null,
   base: "/access-ci-ui",
-  plugins: [preact()]
+  plugins: [preact()],
 }));
