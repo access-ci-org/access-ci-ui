@@ -15,14 +15,5 @@ export default defineConfig(({ mode }) => ({
         }
       : null,
   base: "/access-ci-ui",
-  plugins: [preact()],
-  resolve: {
-    alias: {
-      "react": "preact/compat",
-      "react-dom": "preact/compat"
-    }
-  },
-  define: {
-    'process.env': {}
-  }
+  plugins: [preact()]
 }));
