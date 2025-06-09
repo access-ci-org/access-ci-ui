@@ -1,7 +1,7 @@
 import { useRef } from "preact/hooks";
 import Icon from "./icon";
 
-export function ResourcePathways() {
+export function ResourcePathways({ setBotOpen }) {
   const container = useRef(null);
 
   const pathways = [
@@ -18,7 +18,10 @@ export function ResourcePathways() {
     {
       title: "Ask a question",
       icon: "question-circle",
-      href: "https://support.access-ci.org/",
+      onClick: (e) => {
+        e.preventDefault();
+        setBotOpen(true);
+      },
       description: "You have resource questions. Our Q&A bot has answers!",
       login: true,
     },
@@ -58,7 +61,7 @@ export function ResourcePathways() {
                 </span>
               </a>
             </li>
-          )
+          ),
         )}
       </ul>
     </section>

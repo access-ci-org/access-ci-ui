@@ -18,17 +18,19 @@ export default function ResourceHome({
   const groups = useResourceGroups();
   const active = useMemo(
     () => (groups ? filterResourceGroups(groups, activeTagIds) : null),
-    [groups, activeTagIds]
+    [groups, activeTagIds],
   );
 
   const toggleTag = (tagId) =>
     setActiveTagIds(
       activeTagIds.includes(tagId)
         ? activeTagIds.filter((id) => id != tagId)
-        : [...activeTagIds, tagId]
+        : [...activeTagIds, tagId],
     );
 
   const clearTags = () => setActiveTagIds([]);
+
+  console.log({ botOpen });
 
   return (
     <>
@@ -40,7 +42,7 @@ export default function ResourceHome({
         />
       )}
       {title && <h1 class={showTitle ? "" : "visually-hidden"}>{title}</h1>}
-      <ResourcePathways />
+      <ResourcePathways setBotOpen={setBotOpen} />
       <div id="browse-resources">
         {active ? (
           <ResourceFilters
@@ -53,7 +55,7 @@ export default function ResourceHome({
         {groups
           ? groups.resourceCategories
               .filter(({ resourceCategoryId }) =>
-                active.resourceCategoryIds.has(resourceCategoryId)
+                active.resourceCategoryIds.has(resourceCategoryId),
               )
               .map((resourceCategory) => (
                 <ResourceCategory
