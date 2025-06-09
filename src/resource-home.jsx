@@ -30,8 +30,6 @@ export default function ResourceHome({
 
   const clearTags = () => setActiveTagIds([]);
 
-  console.log({ botOpen });
-
   return (
     <>
       {showBreadcrumbs && (
