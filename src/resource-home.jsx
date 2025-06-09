@@ -5,6 +5,7 @@ import Breadcrumbs from "./breadcrumbs";
 import { ResourceCategory } from "./resource-category";
 import { ResourceFilters } from "./resource-filters";
 import { ResourcePathways } from "./resource-pathways";
+import { QABot } from "./qa-bot";
 
 export default function ResourceHome({
   baseUri,
@@ -13,17 +14,18 @@ export default function ResourceHome({
   showTitle = true,
 }) {
   const [activeTagIds, setActiveTagIds] = useState([]);
+  const [botOpen, setBotOpen] = useState(false);
   const groups = useResourceGroups();
   const active = useMemo(
     () => (groups ? filterResourceGroups(groups, activeTagIds) : null),
-    [groups, activeTagIds]
+    [groups, activeTagIds],
   );
 
   const toggleTag = (tagId) =>
     setActiveTagIds(
       activeTagIds.includes(tagId)
         ? activeTagIds.filter((id) => id != tagId)
-        : [...activeTagIds, tagId]
+        : [...activeTagIds, tagId],
     );
 
   const clearTags = () => setActiveTagIds([]);
@@ -38,7 +40,7 @@ export default function ResourceHome({
         />
       )}
       {title && <h1 class={showTitle ? "" : "visually-hidden"}>{title}</h1>}
-      <ResourcePathways />
+      <ResourcePathways setBotOpen={setBotOpen} />
       <div id="browse-resources">
         {active ? (
           <ResourceFilters
@@ -51,7 +53,7 @@ export default function ResourceHome({
         {groups
           ? groups.resourceCategories
               .filter(({ resourceCategoryId }) =>
-                active.resourceCategoryIds.has(resourceCategoryId)
+                active.resourceCategoryIds.has(resourceCategoryId),
               )
               .map((resourceCategory) => (
                 <ResourceCategory
@@ -64,6 +66,14 @@ export default function ResourceHome({
               ))
           : null}
       </div>
+
+      <QABot
+        embedded={false}
+        open={botOpen}
+        onOpenChange={setBotOpen}
+        welcome="Welcome to the ACCESS Q&A Bot!"
+        apiKey={import.meta.env.VITE_QA_BOT_API_KEY || "my-api-key"}
+      />
     </>
   );
 }
