@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0-beta1](https://github.com/access-ci-org/access-ci-ui/compare/v0.8.0...v0.9.0-beta1) (2025-06-09)
+
+
+### Features
+
+* add back asynchronous loading ([d8314d0](https://github.com/access-ci-org/access-ci-ui/commit/d8314d0a5d4130e702b7883c6a8e6708bd83e631))
+* **resource-pathways:** open QA bot from pathway button ([00dbf4e](https://github.com/access-ci-org/access-ci-ui/commit/00dbf4e2601fe449e45c048d6bd3de2a72fa6e32))
+
+
+### Bug Fixes
+
+* pass style we need throughto  the resource catalog's shadow dom ([2b15256](https://github.com/access-ci-org/access-ci-ui/commit/2b15256f215427a4b7cb4eeeaef2112e53644c51))
+
+
+### Miscellaneous Chores
+
+* release 0.9.0-beta1 ([23aa5be](https://github.com/access-ci-org/access-ci-ui/commit/23aa5be0d4734cd53587362331b50488ddb5f566))
+
 ## [0.8.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.8.0-beta2...v0.8.0) (2025-05-07)
 
 
