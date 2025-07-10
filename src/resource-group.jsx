@@ -28,7 +28,12 @@ export function ResourceGroup({
         </h3>
         <Tags>
           {tags.map((tag) => (
-            <Tag {...tag} active={active} toggleTag={toggleTag} />
+            <Tag
+              {...tag}
+              active={active.tagIds.has(tag.tagId)}
+              disabled={active.disabledTagIds.has(tag.tagId)}
+              onClick={toggleTag}
+            />
           ))}
         </Tags>
         <p>

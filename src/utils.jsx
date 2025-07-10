@@ -21,7 +21,7 @@ export const renderShadow = (content, target, styles = []) => {
         <style>{style}</style>
       ))}
     </>,
-    shadow
+    shadow,
   );
 };
 
@@ -35,12 +35,12 @@ const fetchJsonDataCache = {};
 const fetchJsonPromiseCache = {};
 const fetchJson = (
   uri,
-  { cache = true, corsProxy = false } = { cache: true, corsProxy: false }
+  { cache = true, corsProxy = false } = { cache: true, corsProxy: false },
 ) => {
   if (cache && uri in fetchJsonDataCache) return fetchJsonDataCache[uri];
   if (uri in fetchJsonPromiseCache) return fetchJsonPromiseCache[uri];
   const promise = fetch(
-    corsProxy ? `https://corsproxy.io/?${encodeURIComponent(uri)}` : uri
+    corsProxy ? `https://corsproxy.io/?${encodeURIComponent(uri)}` : uri,
   ).then((response) => {
     delete fetchJsonPromiseCache[uri];
     if (response.status < 200 || response.status > 299) {
@@ -63,7 +63,7 @@ export const useJSON = (
     cache: true,
     corsProxy: false,
     defaultValue: null,
-  }
+  },
 ) => {
   const [value, setValue] = useState(defaultValue);
   let single = false;
@@ -75,7 +75,7 @@ export const useJSON = (
     if (uris.length) {
       (async () => {
         const json = await Promise.all(
-          uris.map((uri) => fetchJson(uri, { cache, corsProxy }))
+          uris.map((uri) => fetchJson(uri, { cache, corsProxy })),
         );
         const result = single ? json[0] : json;
         setValue(result);
@@ -87,7 +87,7 @@ export const useJSON = (
 
 export const useResourceGroups = () => {
   const response = useJSON(
-    "https://operations-api.access-ci.org/wh2/cider/v1/access-active-groups/type/resource-catalog.access-ci.org/"
+    "https://operations-api.access-ci.org/wh2/cider/v1/access-active-groups/type/resource-catalog.access-ci.org/",
   );
   return useTransform([response], ({ results }) => {
     const {
@@ -124,6 +124,10 @@ export const useResourceGroups = () => {
         tagId: feature.feature_id,
         name: feature.feature_name,
         tagCategoryId: feature.feature_category_id,
+        // FIXME: Add real description and action URI/label.
+        description: "This is a desciption of the feature.",
+        actionUri: "/",
+        actionLabel: `Learn More about ${feature.feature_name}`,
       }));
 
     const organizationsMap = {};
@@ -173,7 +177,7 @@ export const useResourceGroups = () => {
             .map((orgId) => orgId * -1)
             .filter((tagId) => tagIds.includes(tagId)),
           ...group.rollup_feature_ids.filter((featureId) =>
-            tagIds.includes(featureId)
+            tagIds.includes(featureId),
           ),
         ],
         resourceCategoryId: group.rollup_feature_ids.includes(137) ? 2 : 1,
@@ -182,7 +186,7 @@ export const useResourceGroups = () => {
           .map((orgId) => organizationsMap[orgId])
           .filter((org) => org),
         resources: resources.filter((res) =>
-          group.rollup_info_resourceids.includes(res.info_resourceid)
+          group.rollup_info_resourceids.includes(res.info_resourceid),
         ),
       }))
       .sort((a, b) => a.name.localeCompare(b.name));
@@ -207,7 +211,7 @@ export const useResourceGroup = (infoGroupId, defaultValue = null) => {
 
 export const useResourceGroupResources = (infoGroupId, defaultValue = []) => {
   const res = useJSON(
-    `https://operations-api.access-ci.org/wh2/cider/v1/access-active/info_groupid/${infoGroupId}/?format=json`
+    `https://operations-api.access-ci.org/wh2/cider/v1/access-active/info_groupid/${infoGroupId}/?format=json`,
   );
   return res && !res.error ? res.results : defaultValue;
 };
@@ -215,7 +219,7 @@ export const useResourceGroupResources = (infoGroupId, defaultValue = []) => {
 export const useTransform = (
   responseArray,
   transformFunction,
-  defaultValue = null
+  defaultValue = null,
 ) => {
   return useMemo(() => {
     if (!responseArray.length) return defaultValue;
@@ -263,7 +267,7 @@ const linkResourceGroups = ({
 
 export const filterResourceGroups = (
   { resourceGroups, tags, tagCategories },
-  activeTagIds
+  activeTagIds,
 ) => {
   const resourceCategoryIds = new Set();
   const infoGroupIds = new Set();
@@ -274,7 +278,7 @@ export const filterResourceGroups = (
     if (tagIds.has(tag.tagId)) tagCategoryIds.add(tag.tagCategoryId);
 
   const activeTagCategories = tagCategories.filter(({ tagCategoryId }) =>
-    tagCategoryIds.has(tagCategoryId)
+    tagCategoryIds.has(tagCategoryId),
   );
 
   // TODO: Improve logic for disabled tags. Tags should be disabled if the active
@@ -284,7 +288,7 @@ export const filterResourceGroups = (
   const disabledTagIds = new Set(
     tags
       .filter((tag) => !tagCategoryIds.has(tag.tagCategoryId))
-      .map((tag) => tag.tagId)
+      .map((tag) => tag.tagId),
   );
 
   for (let resourceGroup of resourceGroups) {
@@ -319,7 +323,7 @@ export const filterResourceGroups = (
   };
 };
 
-export const sortOn = (prop) => (a, b) => a[prop] < b[prop] ? -1 : 1;
+export const sortOn = (prop) => (a, b) => (a[prop] < b[prop] ? -1 : 1);
 
 export const extractHref = (html) => {
   let href = html.match(/href="([^"]+)"/);

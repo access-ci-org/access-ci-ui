@@ -2,20 +2,28 @@ import { defaultIcons } from "./icons";
 
 import Icon from "./icon";
 
-export function Tag({ active, tagCategory, tagId, iconUri, name, toggleTag }) {
+export function Tag({
+  active = false,
+  disabled = false,
+  tagCategory,
+  tagId,
+  iconUri,
+  name,
+  onClick,
+}) {
   const icon = iconUri || defaultIcons[name] || "tag";
   return (
     <li
       class={`tag tag-category-${tagCategory.name
         .toLowerCase()
-        .replace(/[^a-z]+/g, "-")}${active.tagIds.has(tagId) ? " active" : ""}`}
+        .replace(/[^a-z]+/g, "-")}${active ? " active" : ""}`}
     >
       <button
         href="#"
-        disabled={active.disabledTagIds.has(tagId)}
+        disabled={disabled}
         onClick={(e) => {
           e.preventDefault();
-          toggleTag(tagId);
+          onClick(tagId);
         }}
       >
         {icon.startsWith("http") ? (
