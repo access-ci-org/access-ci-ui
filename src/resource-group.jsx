@@ -33,6 +33,7 @@ export function ResourceGroup({
               active={active.tagIds.has(tag.tagId)}
               disabled={active.disabledTagIds.has(tag.tagId)}
               onClick={toggleTag}
+              tooltip={tag.description}
             />
           ))}
         </Tags>
