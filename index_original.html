@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>ACCESS Resource Catalog Development Prototype</title>
+    <link
+      rel="stylesheet"
+      id="google-font-archivo-css"
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,70,400;0,100,400;0,100,500;0,100,600;0,100,700;0,100,800;1,100,400&amp;display=swap"
+      media="all"
+    />
+
+    <link rel="stylesheet" href="/src/base.css" />
+    <link rel="stylesheet" href="/src/icon.css" />
+
+    <style>
+      body {
+        color: #232323;
+        font-family: "Archivo", sans-serif;
+        margin: 0;
+        min-height: 100vh;
+        padding: 0;
+      }
+      @media (min-width: 768px) {
+        #main {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+        #table-of-contents {
+          margin-left: 20px;
+          width: calc((var(--width) - 140px) / 4 + 20px);
+        }
+        #banner {
+          background-color: #fff3cd;
+          color: #856404;
+          padding: 12px calc((100% - var(--width)) / 2);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="universal-menus"></div>
+    <div id="header"></div>
+    <div id="site-menus"></div>
+    <div id="main" class="container">
+      <div id="body">
+        <div id="resource-catalog"></div>
+
+        <!-- Embedded QA Bot demo -->
+       <div class="container" style="margin-top: 50px;">
+          <h2>Embedded QA Bot</h2>
+          <div id="embedded-qa-bot" style="height: 550px;"></div>
+        </div>
+      </div>
+    </div>
+    <div id="footer-menus"></div>
+    <div id="footer"></div>
+
+    <script type="module">
+      import {
+        qaBot,
+        footer,
+        header,
+        resourceCatalog,
+        tableOfContents,
+        universalMenuItems,
+        universalMenus,
+      } from "/src/index.jsx";
+
+      universalMenus({
+        loginUrl: "/login",
+        logoutUrl: "/logout",
+        target: document.getElementById("universal-menus"),
+      });
+
+      header({
+        target: document.getElementById("header"),
+      });
+
+      resourceCatalog({
+        baseUri: "/access-ci-ui",
+        target: document.getElementById("resource-catalog"),
+      });
+
+      footer({ target: document.getElementById("footer") });
+
+      // Embedded QA Bot
+      qaBot({
+        target: document.getElementById("embedded-qa-bot"),
+        embedded: true,
+        isOpen: true,
+        welcome: "Welcome to the embedded ACCESS Q&A Bot!",
+        prompt: "What would you like to know about ACCESS?",
+        apiKey: "my-api-key",
+        // isLoggedIn: true
+      });
+    </script>
+
+  </body>
+</html>
