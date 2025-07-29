@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.9.0-beta2...v0.9.0) (2025-07-29)
+
+
+### Features
+
+* **qa-bot:** upgrade @snf/access-qa-bot to version 2.4.2 ([9dff34b](https://github.com/access-ci-org/access-ci-ui/commit/9dff34b9ae8bcf9c7116d5dc0aab37ef32dc0fa8))
+
+
+### Miscellaneous Chores
+
+* release 0.9.0 ([9586602](https://github.com/access-ci-org/access-ci-ui/commit/9586602e55b4e89cf629bb2220e11c05d2a7f913))
+
 ## [0.9.0-beta2](https://github.com/access-ci-org/access-ci-ui/compare/v0.9.0-beta1...v0.9.0-beta2) (2025-07-21)
 
 
