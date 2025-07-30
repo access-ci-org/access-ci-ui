@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => ({
   base: "/access-ci-ui",
   define: {
     "process.env.NODE_ENV": JSON.stringify(mode),
-    "process.env.REACT_APP_NETLIFY_BASE_URL": JSON.stringify("https://access-ai.ccs.uky.edu/api/query"),
+    "process.env.REACT_APP_NETLIFY_BASE_URL": JSON.stringify("https://access-jsm-api.netlify.app"),
   },
   plugins: [preact()],
 }));
