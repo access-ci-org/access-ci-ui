@@ -42,18 +42,14 @@ const header = (params = {}) => {
   ]);
 };
 
-const qaBot = ({
-  isLoggedIn,
-  target,
-  ...otherParams
-} = {}) => {
+const qaBot = ({ isLoggedIn, target, ...otherParams } = {}) => {
   if (isLoggedIn === undefined)
     isLoggedIn = document.cookie.split("; ").includes("SESSaccesscisso=1");
 
   renderShadow(
     <QABot isLoggedIn={isLoggedIn} target={target} {...otherParams} />,
-     target,
-    [baseStyle, qaStyle]
+    target,
+    [baseStyle, qaStyle],
   );
 };
 
@@ -125,9 +121,22 @@ const tableOfContents = ({ headings = [], target }) =>
     tocStyle,
   ]);
 
-const resourceCatalog = ({ baseUri, showTitle, target, title }) =>
+const resourceCatalog = ({
+  baseUri,
+  isLoggedIn,
+  qaBotApiKey,
+  showTitle,
+  target,
+  title,
+}) =>
   renderShadow(
-    <ResourceCatalog baseUri={baseUri} showTitle={showTitle} title={title} />,
+    <ResourceCatalog
+      baseUri={baseUri}
+      isLoggedIn={isLoggedIn}
+      qaBotApiKey={qaBotApiKey}
+      showTitle={showTitle}
+      title={title}
+    />,
     target,
     [baseStyle, contentStyle, resourceCatalogStyle, qaStyle],
   );

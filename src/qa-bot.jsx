@@ -2,9 +2,9 @@ import { Component } from "preact";
 import { ErrorBoundary, lazy } from "preact-iso";
 
 const AsyncLoadedQABot = lazy(() =>
-  import("@snf/access-qa-bot").then(module => ({
-    default: module.QABot
-  }))
+  import("@snf/access-qa-bot").then((module) => ({
+    default: module.QABot,
+  })),
 );
 
 export class QABot extends Component {
@@ -16,7 +16,7 @@ export class QABot extends Component {
       onOpenChange,
       apiKey,
       embedded,
-      loginUrl
+      loginUrl,
     } = this.props;
 
     // Support environment variable if apiKey is not provided via props
@@ -28,9 +28,10 @@ export class QABot extends Component {
     }
 
     // Detect login state if not provided via props
-    const loggedIn = isLoggedIn !== undefined
-      ? isLoggedIn
-      : document.cookie.split("; ").includes("SESSaccesscisso=1");
+    const loggedIn =
+      isLoggedIn !== undefined
+        ? isLoggedIn
+        : document.cookie.split("; ").includes("SESSaccesscisso=1");
 
     return (
       <ErrorBoundary>
