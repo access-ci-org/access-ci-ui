@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.1](https://github.com/access-ci-org/access-ci-ui/compare/v0.9.0...v0.9.1) (2025-08-01)
+
+
+### Bug Fixes
+
+* **resource-catalog:** show QA bot on every page and pass through params ([5ce1cf9](https://github.com/access-ci-org/access-ci-ui/commit/5ce1cf9af350df3c8c88586689242f7746e033dc))
+
 ## [0.9.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.9.0-beta2...v0.9.0) (2025-07-29)
 
 
