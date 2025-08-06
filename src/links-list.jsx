@@ -1,7 +1,7 @@
 export const LinksList = ({ className = null, items }) => (
-  <ul class={className}>
+  <ul className={className}>
     {items.map(({ className, name, href }) => (
-      <li>
+      <li key={href}>
         <a className={className} href={href}>
           {name}
         </a>

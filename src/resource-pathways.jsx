@@ -1,4 +1,4 @@
-import { useRef } from "preact/hooks";
+import { useRef } from "react";
 import Icon from "./icon";
 
 export function ResourcePathways({ setBotOpen }) {
@@ -40,21 +40,21 @@ export function ResourcePathways({ setBotOpen }) {
   ];
   return (
     <section id="resource-pathways" ref={container}>
-      <p class="intro">
+      <p className="intro">
         ACCESS provides advanced computing resources <strong>at no cost</strong>{" "}
         to researchers and educators.
       </p>
-      <ul class="resource-pathways">
+      <ul className="resource-pathways">
         {pathways.map(
           ({ title, icon, href, description, login, onClick }, i) => (
-            <li class={`resource-pathway-${i}`}>
+            <li className={`resource-pathway-${i}`} key={title}>
               <a href={href || "#"} onClick={onClick}>
                 {icon ? <Icon name={icon} /> : null}{" "}
-                <span class="detail">
-                  <span class="title">{title}</span>
-                  <span class="description">{description}</span>
+                <span className="detail">
+                  <span className="title">{title}</span>
+                  <span className="description">{description}</span>
                   {login ? (
-                    <span class="login">
+                    <span className="login">
                       <Icon name="key" /> Requires ACCESS Login
                     </span>
                   ) : null}

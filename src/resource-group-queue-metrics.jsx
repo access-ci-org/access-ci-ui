@@ -1,4 +1,4 @@
-import { useState } from "preact/hooks";
+import { useState } from "react";
 import { useJSON, useResourceGroupResources } from "./utils";
 
 import Section from "./section";
@@ -41,23 +41,23 @@ const formatName = (name) => name.replace(/ \([^)]+\)/, "");
 export default function ResourceGroupQueueMetrics({ infoGroupId }) {
   const [view, setView] = useState("overview");
   const resources = useResourceGroupResources(infoGroupId).filter(
-    (res) => res.cider_type == "Compute"
+    (res) => res.cider_type == "Compute",
   );
 
   const overviewMetrics = useJSON(
     resources.length
       ? resources.map(
           (res) =>
-            `https://rest-test.ccr.xdmod.org/rest/v0.1/custom_queries/wait_times/${res.info_resourceid}/`
+            `https://rest-test.ccr.xdmod.org/rest/v0.1/custom_queries/wait_times/${res.info_resourceid}/`,
         )
       : null,
-    { defaultValue: [] }
+    { defaultValue: [] },
   );
 
   const detailMetrics = useJSON(
     view !== "overview"
       ? `https://rest-test.ccr.xdmod.org/rest/v0.1/custom_queries/wait_times/${view}/queue/job_walltime`
-      : null
+      : null,
   );
 
   if (!overviewMetrics.length || !resources.length) return;
@@ -69,10 +69,12 @@ export default function ResourceGroupQueueMetrics({ infoGroupId }) {
   if (!overview.length) return;
 
   const headerComponents = [
-    <select value={view} onChange={(e) => setView(e.target.value)}>
-      <option value="overview">Overview</option>
+    <select key="select" value={view} onChange={(e) => setView(e.target.value)}>
+      <option key="overview" value="overview">
+        Overview
+      </option>
       {overview.map((res) => (
-        <option value={res.info_resourceid}>
+        <option key={res.info_resourceid} value={res.info_resourceid}>
           {formatName(res.resource_descriptive_name)}
         </option>
       ))}
@@ -82,7 +84,7 @@ export default function ResourceGroupQueueMetrics({ infoGroupId }) {
   let content = null;
   if (view === "overview") {
     content = (
-      <div class="cards">
+      <div className="cards">
         {overview.map(
           ({
             info_resourceid,
@@ -93,7 +95,7 @@ export default function ResourceGroupQueueMetrics({ infoGroupId }) {
             resource_descriptive_name,
           }) => {
             return (
-              <p class="card metrics-overview">
+              <p className="card metrics-overview" key={info_resourceid}>
                 <b>{formatName(resource_descriptive_name)}:</b> Users ran{" "}
                 <strong>
                   <Icon name="file-earmark-code" />
@@ -106,7 +108,7 @@ export default function ResourceGroupQueueMetrics({ infoGroupId }) {
                     "en-us",
                     {
                       maximumFractionDigits: 0,
-                    }
+                    },
                   )}
                   % increase
                 </strong>{" "}
@@ -122,7 +124,7 @@ export default function ResourceGroupQueueMetrics({ infoGroupId }) {
                 .{" "}
                 <a
                   title={`Wait time chart for ${formatName(
-                    resource_descriptive_name
+                    resource_descriptive_name,
                   )}`}
                   href="#"
                   onClick={(e) => {
@@ -134,7 +136,7 @@ export default function ResourceGroupQueueMetrics({ infoGroupId }) {
                 </a>
               </p>
             );
-          }
+          },
         )}
       </div>
     );
@@ -153,11 +155,11 @@ export default function ResourceGroupQueueMetrics({ infoGroupId }) {
     datasets.forEach((ds, i) => {
       let colorVar = colorVars[i % (colorVars.length - 1)];
       ds.backgroundColor = getComputedStyle(document.body).getPropertyValue(
-        colorVar
+        colorVar,
       );
     });
     const overviewItem = overview.find(
-      (item) => item.info_resourceid == detailMetrics.info_resource_id
+      (item) => item.info_resourceid == detailMetrics.info_resource_id,
     );
     const options = {
       interaction: {
@@ -168,7 +170,7 @@ export default function ResourceGroupQueueMetrics({ infoGroupId }) {
         title: {
           display: true,
           text: `Median Wait Time by Queue on ${formatName(
-            overviewItem.resource_descriptive_name
+            overviewItem.resource_descriptive_name,
           )}: Last 30 Days`,
         },
       },
@@ -206,7 +208,7 @@ export default function ResourceGroupQueueMetrics({ infoGroupId }) {
       headerComponents={headerComponents}
     >
       {content}
-      <p class="metrics-disclaimer">
+      <p className="metrics-disclaimer">
         <Icon name="info-circle" />
         These metrics describe activity from ACCESS projects. Many resources
         have additional projects that are not part of ACCESS.

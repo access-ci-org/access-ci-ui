@@ -6,7 +6,7 @@ import Section from "./section";
 
 export default function ResourceGroupDiscussion({ infoGroupId }) {
   const data = useJSON(
-    `https://support.access-ci.org/api/1.0/affinity_groups/${infoGroupId}`
+    `https://support.access-ci.org/api/1.0/affinity_groups/${infoGroupId}`,
   );
 
   const categoryWebUri =
@@ -52,10 +52,10 @@ export default function ResourceGroupDiscussion({ infoGroupId }) {
   ];
 
   const headerComponents = [
-    <a href={categoryWebUri} class="btn secondary">
+    <a key="ask" href={categoryWebUri} className="btn secondary">
       Ask a Question
     </a>,
-    <a href={categoryWebUri} class="btn">
+    <a key="all" href={categoryWebUri} className="btn">
       View All Topics
     </a>,
   ];

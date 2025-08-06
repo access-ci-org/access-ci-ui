@@ -8,20 +8,20 @@ export const Logo = ({
   siteUrl = "/",
 }) => {
   return (
-    <div class={`logo logo-${placement}`}>
-      <a class="nsf" href={nsfUrl}>
+    <div className={`logo logo-${placement}`}>
+      <a className="nsf" href={nsfUrl}>
         <img
-          class="nsf-logo"
+          className="nsf-logo"
           src={nsfLogoUrl}
           alt="National Science Foundation"
         />
       </a>
-      <div class="divider" />
-      <a class="access" href={siteUrl}>
-        <img class="access-logo" src={accessLogoUrl} alt="ACCESS" />
+      <div className="divider" />
+      <a className="access" href={siteUrl}>
+        <img className="access-logo" src={accessLogoUrl} alt="ACCESS" />
         {siteName && placement == "header" ? (
           <span
-            class={`name name-${siteName
+            className={`name name-${siteName
               .toLocaleLowerCase()
               .replace(" ", "-")}`}
           >

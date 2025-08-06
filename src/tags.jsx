@@ -1,3 +1,3 @@
 export function Tags({ children }) {
-  return <ul class="tags">{children}</ul>;
+  return <ul className="tags">{children}</ul>;
 }

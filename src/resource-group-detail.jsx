@@ -1,3 +1,4 @@
+import { useParams } from "react-router";
 import Breadcrumbs from "./breadcrumbs";
 import ResourceGroupAffinityGroup from "./resource-group-affinity-group";
 import ResourceGroupDescription from "./resource-group-description";
@@ -13,9 +14,9 @@ import { useResourceGroup } from "./utils";
 
 export default function ResourceGroupDetail({
   baseUri,
-  infoGroupId,
   showBreadcrumbs = true,
 }) {
+  const { infoGroupId } = useParams();
   const resourceGroup = useResourceGroup(infoGroupId);
 
   const breadcrumbItems = [{ name: "Resources", href: baseUri }];
@@ -30,7 +31,7 @@ export default function ResourceGroupDetail({
           topBorder={true}
         />
       )}
-      <div class="resource-group-detail">
+      <div className="resource-group-detail">
         <ResourceGroupDescription infoGroupId={infoGroupId} />
         <SectionNavigation />
         <ResourceGroupHardware infoGroupId={infoGroupId} />

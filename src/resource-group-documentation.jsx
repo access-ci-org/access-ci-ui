@@ -5,7 +5,7 @@ import Section from "./section";
 
 export default function ResourceGroupDocumentation({ infoGroupId }) {
   const data = useJSON(
-    `https://support.access-ci.org/api/1.0/kb/${infoGroupId}`
+    `https://support.access-ci.org/api/1.0/kb/${infoGroupId}`,
   );
 
   if (!data || data.error || !data.length) return;
@@ -14,7 +14,7 @@ export default function ResourceGroupDocumentation({ infoGroupId }) {
     <Section title="Documentation" icon="book">
       <ul>
         {data.map(({ title, description, link }) => (
-          <li>
+          <li key={title}>
             <a href={extractHref(link)}>{title}</a>
             {description ? <InfoTip tooltip={stripTags(description)} /> : null}
           </li>

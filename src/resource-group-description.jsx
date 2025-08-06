@@ -7,7 +7,7 @@ export default function ResourceGroupDescription({ infoGroupId }) {
   const firstResource = useJSON(
     resourceGroup && resourceGroup.infoResourceIds.length
       ? `https://operations-api.access-ci.org/wh2/cider/v1/info_resourceid/${resourceGroup.infoResourceIds[0]}/?format=json`
-      : null
+      : null,
   );
 
   if (!resourceGroup) return;
@@ -25,14 +25,14 @@ export default function ResourceGroupDescription({ infoGroupId }) {
       : null;
 
   return (
-    <div class="resource-group-description">
+    <div className="resource-group-description">
       {imageUri ? (
-        <img class="resource-group-feature-image" src={imageUri} />
+        <img className="resource-group-feature-image" src={imageUri} />
       ) : null}
       <h1>{resourceGroup.name}</h1>
 
       {organizations.map((org) => (
-        <p>
+        <p key={org.organization_name}>
           <a href={org.organization_url || "#"}>
             {org.organization_favicon_url ? (
               <Icon
@@ -48,12 +48,12 @@ export default function ResourceGroupDescription({ infoGroupId }) {
 
       <div style={{ marginTop: "1rem" }}>
         {getStartedUri ? (
-          <a href={getStartedUri} class="btn secondary lg">
+          <a href={getStartedUri} className="btn secondary lg">
             <Icon name="check2-circle" /> Get Started with {name}
           </a>
         ) : null}
         {userGuideUri ? (
-          <a href={userGuideUri} class="btn lg">
+          <a href={userGuideUri} className="btn lg">
             <Icon name="book" /> User Guide
           </a>
         ) : null}

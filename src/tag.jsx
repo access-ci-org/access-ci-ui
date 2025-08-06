@@ -6,7 +6,7 @@ export function Tag({ active, tagCategory, tagId, iconUri, name, toggleTag }) {
   const icon = iconUri || defaultIcons[name] || "tag";
   return (
     <li
-      class={`tag tag-category-${tagCategory.name
+      className={`tag tag-category-${tagCategory.name
         .toLowerCase()
         .replace(/[^a-z]+/g, "-")}${active.tagIds.has(tagId) ? " active" : ""}`}
     >

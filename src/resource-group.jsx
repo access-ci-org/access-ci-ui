@@ -15,20 +15,25 @@ export function ResourceGroup({
 }) {
   const detailUri = `${baseUri}/${infoGroupId}`;
   return (
-    <div class="resource-group">
+    <div className="resource-group">
       <a
-        class={`resource-group-image image-type-${imageType}`}
+        className={`resource-group-image image-type-${imageType}`}
         href={detailUri}
       >
         {imageUri ? <img src={imageUri} /> : <Icon name="motherboard" />}
       </a>
-      <div class="resource-group-text">
+      <div className="resource-group-text">
         <h3>
           <a href={detailUri}>{name}</a>
         </h3>
         <Tags>
           {tags.map((tag) => (
-            <Tag {...tag} active={active} toggleTag={toggleTag} />
+            <Tag
+              key={tag.tagId}
+              {...tag}
+              active={active}
+              toggleTag={toggleTag}
+            />
           ))}
         </Tags>
         <p>

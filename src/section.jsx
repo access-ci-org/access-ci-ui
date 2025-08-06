@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "preact/hooks";
+import { useLayoutEffect } from "react";
 
 import Icon from "./icon";
 
@@ -21,13 +21,13 @@ export default function Section({
   }, []);
   return (
     <section id={id} data-section-title={title} data-section-icon={icon}>
-      <div class="flex-header">
+      <div className="flex-header">
         <h2>
           {icon ? <Icon name={icon} /> : null}
           {title}
         </h2>
         {headerComponents ? (
-          <div class="header-components">{headerComponents}</div>
+          <div className="header-components">{headerComponents}</div>
         ) : null}
       </div>
       {children}

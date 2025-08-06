@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "preact/hooks";
+import { useLayoutEffect, useRef, useState } from "react";
 
 import Icon from "./icon";
 
@@ -32,11 +32,11 @@ export default function Search({
 
   return (
     <>
-      <div class="search">
+      <div className="search">
         <input placeholder={placeholder} style={{ width }} ref={input} />
         {text.length ? (
           <button
-            class="btn btn-clear"
+            className="btn btn-clear"
             title="Clear search"
             onClick={clearSearch}
           >

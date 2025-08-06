@@ -1,4 +1,4 @@
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useState } from "react";
 
 const circleCoords = (pct, radius) =>
   `${Math.cos(2 * Math.PI * pct) * radius} ${
@@ -10,7 +10,7 @@ const formatItem = (
   total = null,
   itemLabel,
   separator = "",
-  noBreak = false
+  noBreak = false,
 ) => {
   return (
     <>
@@ -26,7 +26,7 @@ const formatItem = (
       {total !== null ? (
         <>
           {" "}
-          <span class="percent">
+          <span className="percent">
             (
             {((count * 100) / total).toLocaleString("en-US", {
               maximumFractionDigits: 1,
@@ -60,7 +60,7 @@ export default function DonutChart({
   useEffect(() => setActiveIdx(null), [items]);
 
   const sortedItems = items.toSorted((a, b) =>
-    a.count < b.count || (a.count == b.count && a.name < b.name) ? 1 : -1
+    a.count < b.count || (a.count == b.count && a.name < b.name) ? 1 : -1,
   );
   const total = items
     .map(({ count }) => count)
@@ -110,7 +110,7 @@ export default function DonutChart({
         <span>
           {activeItem.count.toLocaleString()} {itemLabel}
         </span>
-        <span class="percent">
+        <span className="percent">
           (
           {((activeItem.count * 100) / total).toLocaleString("en-US", {
             maximumFractionDigits: 1,
@@ -121,12 +121,12 @@ export default function DonutChart({
     );
   const svgLabel = (
     <foreignObject key="center-text" x="-50" y="-50" width="100" height="100">
-      <div class="center-text">{labelContent}</div>
+      <div className="center-text">{labelContent}</div>
     </foreignObject>
   );
 
   return (
-    <div class="donut-chart">
+    <div className="donut-chart">
       <svg
         version="1.1"
         viewBox="-100 -100 200 200"
@@ -141,11 +141,11 @@ export default function DonutChart({
       {topItems > 0 ? (
         <>
           <h3>{topItemsHeading || `Top ${title}s`}</h3>
-          <ul class="top-items">
+          <ul className="top-items">
             {sortedItems.slice(0, topItems).map((item, i) => (
               <li>
                 <span
-                  class="symbol"
+                  className="symbol"
                   style={{ backgroundColor: colors[i % colors.length] }}
                 ></span>
                 <span>{formatItem(item, null, itemLabel, ":", true)}</span>

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "preact/hooks";
+import { useEffect, useRef, useState } from "react";
 
 import Icon from "./icon";
 
@@ -9,7 +9,7 @@ export default function SectionNavigation({ prompt = "Jump To:" }) {
   const updateSections = () => {
     const newSections = [];
     for (let heading of container.current.querySelectorAll(
-      "[data-section-title]"
+      "[data-section-title]",
     ))
       newSections.push({
         icon: heading.dataset.sectionIcon,
@@ -34,11 +34,11 @@ export default function SectionNavigation({ prompt = "Jump To:" }) {
   return (
     <div ref={(el) => (container.current = el?.parentElement)}>
       {sections.length >= 2 ? (
-        <nav class="section-navigation">
+        <nav className="section-navigation">
           {prompt ? <h2>{prompt}</h2> : null}
           <ul>
             {sections.map(({ icon, id, title }) => (
-              <li>
+              <li key={id}>
                 <a
                   href={`#${id}`}
                   onClick={(e) => {

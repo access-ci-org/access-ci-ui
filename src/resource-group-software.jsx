@@ -1,4 +1,4 @@
-import { useMemo, useState } from "preact/hooks";
+import { useMemo, useState } from "react";
 import { useJSON } from "./utils";
 import Fuse from "fuse.js";
 
@@ -20,7 +20,7 @@ export default function ResourceGroupSoftware({ infoGroupId }) {
   const data = useJSON(
     `https://ara-db.ccs.uky.edu/api=API_0/${
       import.meta.env.VITE_SDS_API_KEY
-    }/rp=${infoGroupId}?include=${apiFields.join(",")}`
+    }/rp=${infoGroupId}?include=${apiFields.join(",")}`,
   );
   const [searchText, setSearchText] = useState("");
   const fuse = useMemo(
@@ -33,7 +33,7 @@ export default function ResourceGroupSoftware({ infoGroupId }) {
             ],
           })
         : null,
-    [data]
+    [data],
   );
   if (!data || !data.length) return;
 
@@ -53,7 +53,7 @@ export default function ResourceGroupSoftware({ infoGroupId }) {
           title={`Documentation for ${value}`}
         >
           <Icon name="book" />
-        </a>
+        </a>,
       );
     if (
       row.software_use_link &&
@@ -66,7 +66,7 @@ export default function ResourceGroupSoftware({ infoGroupId }) {
           title={`Usage example for ${value}`}
         >
           <Icon name="terminal" />
-        </a>
+        </a>,
       );
     return <span style={{ lineHeight: 1.3 }}>{result}</span>;
   };
@@ -89,7 +89,7 @@ export default function ResourceGroupSoftware({ infoGroupId }) {
   };
   const versionsFormat = (value, row) => {
     return value.map((item) =>
-      item.replace(`${row.rp_name}: `, "").split(",").join(", ")
+      item.replace(`${row.rp_name}: `, "").split(",").join(", "),
     );
   };
   const columns = [

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "preact/hooks";
+import { useLayoutEffect, useRef } from "react";
 
 import {
   Chart as ChartJS,
@@ -20,7 +20,7 @@ ChartJS.register(
   LinearScale,
   Legend,
   Title,
-  Tooltip
+  Tooltip,
 );
 
 export default function Chart({ type = "bar", data, options }) {
@@ -43,7 +43,7 @@ export default function Chart({ type = "bar", data, options }) {
   }, [type, data, options]);
 
   return (
-    <div class="chart">
+    <div className="chart">
       <canvas ref={canvas}></canvas>
     </div>
   );

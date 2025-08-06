@@ -14,6 +14,7 @@ export function ResourceCategory({
         .filter(({ infoGroupId }) => active.infoGroupIds.has(infoGroupId))
         .map((resourceGroup) => (
           <ResourceGroup
+            key={resourceGroup.infoGroupId}
             {...resourceGroup}
             baseUri={baseUri}
             active={active}

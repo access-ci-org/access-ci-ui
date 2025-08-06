@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "preact/hooks";
+import { useEffect, useRef } from "react";
 import Glide, { Controls } from "@glidejs/glide/dist/glide.modular.esm";
 
 export default function Carousel({ children, cssClass = "" }) {
@@ -7,13 +7,16 @@ export default function Carousel({ children, cssClass = "" }) {
     if (glide.current) new Glide(glide.current).mount({ Controls });
   }, []);
   return (
-    <section class={`carousel ${cssClass}`}>
-      <div class="glide" ref={glide}>
-        <div class="glide__track" data-glide-el="track">
-          <ul class="glide__slides">{children}</ul>
+    <section className={`carousel ${cssClass}`}>
+      <div className="glide" ref={glide}>
+        <div className="glide__track" data-glide-el="track">
+          <ul className="glide__slides">{children}</ul>
         </div>
-        <div class="glide__arrows" data-glide-el="controls">
-          <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+        <div className="glide__arrows" data-glide-el="controls">
+          <button
+            className="glide__arrow glide__arrow--left"
+            data-glide-dir="<"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -23,7 +26,10 @@ export default function Carousel({ children, cssClass = "" }) {
               <path d="M0 12l10.975 11 2.848-2.828-6.176-6.176H24v-3.992H7.646l6.176-6.176L10.975 1 0 12z" />
             </svg>
           </button>
-          <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+          <button
+            className="glide__arrow glide__arrow--right"
+            data-glide-dir=">"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -40,7 +46,7 @@ export default function Carousel({ children, cssClass = "" }) {
 }
 
 function Slide({ children }) {
-  return <li class="glide__slide">{children}</li>;
+  return <li className="glide__slide">{children}</li>;
 }
 
 function ImageSlide({
@@ -53,13 +59,13 @@ function ImageSlide({
 }) {
   return (
     <Slide>
-      <span class="slide-inner">
+      <span className="slide-inner">
         {imageURI && (
-          <a href={linkURI} class="slide-image">
+          <a href={linkURI} className="slide-image">
             <img src={imageURI} alt={imageAltText} />
           </a>
         )}
-        <span class="slide-text">
+        <span className="slide-text">
           {title && <h2>{title}</h2>}
           {description && <p>{description}</p>}
           {linkText && <a href={linkURI}>{linkText}</a>}

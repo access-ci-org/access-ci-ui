@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "preact/hooks";
+import { useLayoutEffect, useRef } from "react";
 
 import GridText from "./grid-text";
 
@@ -40,7 +40,7 @@ export default function Grid({
   const th = columns.map((column, i) => (
     <th
       key={column.key}
-      class={column.headerClass || column.class || ""}
+      className={column.headerClass || column.class || ""}
       style={getStyle(i, 100)}
     >
       {column.formatHeader
@@ -57,7 +57,7 @@ export default function Grid({
       );
     });
     return (
-      <tr key={i} class={rowClasses[i] || ""}>
+      <tr key={i} className={rowClasses[i] || ""}>
         {td}
       </tr>
     );
@@ -68,17 +68,17 @@ export default function Grid({
 
   return (
     <div
-      class={`grid ${classes || ""}`}
+      className={`grid ${classes || ""}`}
       style={{
         maxHeight: Number.isInteger(maxHeight)
           ? `${maxHeight}px`
           : maxHeight
-          ? maxHeight
-          : null,
+            ? maxHeight
+            : null,
       }}
       ref={container}
     >
-      <table class="table" style={style}>
+      <table className="table" style={style}>
         <thead>
           <tr>{th}</tr>
         </thead>

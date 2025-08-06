@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "preact/hooks";
+import { useEffect, useRef, useState } from "react";
 
 import { Tag } from "./tag";
 import { Tags } from "./tags";
@@ -10,28 +10,34 @@ export function ResourceFilters({
   tagCategories,
   toggleTag,
 }) {
-  const [open, setOpen] = useState(false);
-  const outer = useRef(null);
-  useLayoutEffect(() => {
-    if (outer.current) {
-      outer.current.addEventListener("click", (e) => e.stopPropagation());
-      document.body.addEventListener("click", () => setOpen(false));
-    }
-  }, [outer.current]);
+  const [isOpen, setIsOpen] = useState(false);
+  const button = useRef(null);
+  useEffect(() => {
+    const handleBodyClick = () => setIsOpen(false);
+    document.body.addEventListener("click", handleBodyClick);
+
+    return () => document.body.removeEventListener("click", handleBodyClick);
+  }, []);
 
   return (
-    <section class="filters-outer" ref={outer}>
+    <section
+      className="filters-outer"
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
+    >
       <button
-        onClick={() => setOpen(!open)}
-        class={`btn-filters btn ${open ? "active" : ""}`}
+        ref={button}
+        onClick={() => setIsOpen(!isOpen)}
+        className={`btn-filters btn ${isOpen ? "active" : ""}`}
       >
         <Icon name="filter" /> Filters
         {active.tagIds.size > 0 ? (
-          <span class="active-tag-count">{active.tagIds.size}</span>
+          <span className="active-tag-count">{active.tagIds.size}</span>
         ) : null}
       </button>
-      {open ? (
-        <div class="filters-inner">
+      {isOpen ? (
+        <div className="filters-inner">
           {tagCategories.map((tagCategory) => (
             <>
               <h2>{tagCategory.name}</h2>
@@ -45,7 +51,7 @@ export function ResourceFilters({
           <button
             onClick={clearTags}
             disabled={active.tagIds.size == 0}
-            class="btn danger"
+            className="btn danger"
           >
             <Icon name="trash" /> Clear Filters
           </button>

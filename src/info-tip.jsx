@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "preact/hooks";
+import { useLayoutEffect, useRef } from "react";
 import tippy from "tippy.js";
 
 import Icon from "./icon";
@@ -19,7 +19,7 @@ export default function InfoTip({
   }, [trigger.current]);
 
   return (
-    <button class="info-tip" style={{ color }} ref={trigger}>
+    <button className="info-tip" style={{ color }} ref={trigger}>
       <Icon name={icon} />
     </button>
   );
