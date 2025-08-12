@@ -11,7 +11,7 @@ const apiBaseUrl = "https://allocations.access-ci.org/current-projects.json";
 export function ProjectMetadata({ icon, text, title }) {
   if (!text) return;
   return (
-    <abbr class="project-meta" title={title}>
+    <abbr className="project-meta" title={title}>
       <Icon name={icon} />
       {text}
     </abbr>
@@ -26,7 +26,7 @@ export default function ResourceGroupProjects({ infoGroupId }) {
       ? `${apiBaseUrl}?${resourceGroup.infoResourceIds
           .map((infoResourceId) => `info_resourceids[]=${infoResourceId}`)
           .join("&")}`
-      : null
+      : null,
   );
 
   if (!data || !data.projects || !data.projects.length) return null;
@@ -47,11 +47,11 @@ export default function ResourceGroupProjects({ infoGroupId }) {
 
   return (
     <Section title="Recent Projects" icon="pc-display">
-      <Carousel cssClass="carousel-projects">
+      <Carousel cssclassName="carousel-projects">
         {data.projects.map((project) => (
-          <Carousel.Slide>
+          <Carousel.Slide key={project.requestTitle}>
             <h3>{project.requestTitle}</h3>
-            <div class="project-metadata">
+            <div className="project-metadata">
               <ProjectMetadata
                 icon="cash-coin"
                 text={project.allocationType}
@@ -73,7 +73,7 @@ export default function ResourceGroupProjects({ infoGroupId }) {
                   .map((dateStr) =>
                     new Date(dateStr).toLocaleString("en-US", {
                       dateStyle: "medium",
-                    })
+                    }),
                   )
                   .join(" to ")}
                 title="Project Dates"

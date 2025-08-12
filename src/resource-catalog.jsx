@@ -1,7 +1,8 @@
-import { useState } from "preact/hooks";
-import { ErrorBoundary, lazy, LocationProvider, Router } from "preact-iso";
+import { BrowserRouter, Routes, Route } from "react-router";
+import { lazy, useState } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 
-import { QABot } from "./qa-bot";
+import { QABot } from "./qa-bot.jsx";
 const ResourceGroupDetail = lazy(() => import("./resource-group-detail.jsx"));
 const ResourceHome = lazy(() => import("./resource-home.jsx"));
 
@@ -16,23 +17,27 @@ export function ResourceCatalog({
 
   return (
     <>
-      <LocationProvider>
+      <BrowserRouter>
         <ErrorBoundary>
-          <Router>
-            <ResourceHome
+          <Routes>
+            <Route
               path={baseUri}
-              baseUri={baseUri}
-              title={title}
-              setBotOpen={setBotOpen}
-              showTitle={showTitle}
+              element={
+                <ResourceHome
+                  baseUri={baseUri}
+                  title={title}
+                  setBotOpen={setBotOpen}
+                  showTitle={showTitle}
+                />
+              }
             />
-            <ResourceGroupDetail
+            <Route
               path={`${baseUri}/:infoGroupId`}
-              baseUri={baseUri}
+              element={<ResourceGroupDetail baseUri={baseUri} />}
             />
-          </Router>
+          </Routes>
         </ErrorBoundary>
-      </LocationProvider>
+      </BrowserRouter>
       <QABot
         apiKey={qaBotApiKey}
         embedded={false}

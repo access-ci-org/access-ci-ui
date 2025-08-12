@@ -8,7 +8,7 @@ export default function GridText({ column, row, style = {} }) {
   if (column.rowClass) classes.push(column.rowClass(row));
 
   return (
-    <td class={classes.join(" ")} style={style}>
+    <td className={classes.join(" ")} style={style}>
       {value}
     </td>
   );

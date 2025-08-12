@@ -10,10 +10,10 @@ export default function ResourceGroupHardware({ infoGroupId }) {
     resourceGroup
       ? resourceGroup.infoResourceIds.map(
           (infoResourceId) =>
-            `https://operations-api.access-ci.org/wh2/cider/v1/info_resourceid/${infoResourceId}/?format=json`
+            `https://operations-api.access-ci.org/wh2/cider/v1/info_resourceid/${infoResourceId}/?format=json`,
         )
       : null,
-    { defaultValue: [] }
+    { defaultValue: [] },
   );
 
   const computeColumns = resources
@@ -84,7 +84,7 @@ export default function ResourceGroupHardware({ infoGroupId }) {
 
   for (let { results: res } of resources)
     (resourceTypes[res.cider_type.toLowerCase()] || resourceTypes.other).push(
-      <ResourceDetail {...res} />
+      <ResourceDetail key={res.resource_descriptive_name} {...res} />,
     );
 
   return (

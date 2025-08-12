@@ -10,17 +10,17 @@ export default function Breadcrumbs({
   if (!items || !items.length) return;
   return (
     <ul
-      class={`breadcrumbs ${expandWidth ? "expand" : ""} ${
+      className={`breadcrumbs ${expandWidth ? "expand" : ""} ${
         topBorder ? "top-border" : ""
       }`}
     >
-      <li class="home">
+      <li className="home" key="home">
         <a href={homeUrl} title={homeTitle}>
           <img src={homeIconUrl} alt={homeTitle} height="14" />
         </a>
       </li>
       {items.map((item) => (
-        <li class={item.classes || ""}>
+        <li className={item.classes || ""} key={item.name}>
           {item.href ? <a href={item.href}>{item.name}</a> : item.name}
         </li>
       ))}

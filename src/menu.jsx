@@ -1,4 +1,4 @@
-import { useEffect, useId, useState } from "preact/hooks";
+import { useEffect, useId, useState } from "react";
 import { getMode, useMode } from "./utils";
 
 import { LinksList } from "./links-list";
@@ -26,7 +26,7 @@ export const Menu = ({
 
   if (href)
     return (
-      <a href={href} class={`item ${classes || ""}`}>
+      <a href={href} className={`item ${classes || ""}`}>
         {name}
       </a>
     );
@@ -37,15 +37,20 @@ export const Menu = ({
           <button
             aria-expanded={expanded}
             aria-controls={id}
-            class={`item ${expanded ? "expanded" : "collapsed"}`}
+            className={`item ${expanded ? "expanded" : "collapsed"}`}
             onClick={toggleOpen}
           >
             {name}
           </button>
         )}
-        <ul class={classes} id={id} hidden={!expanded} aria-hidden={!expanded}>
+        <ul
+          className={classes}
+          id={id}
+          hidden={!expanded}
+          aria-hidden={!expanded}
+        >
           {items.map(({ autoOpenMode, classes, href, html, items, name }) => (
-            <li class={classes || ""}>
+            <li className={classes || ""} key={name}>
               <Menu
                 autoOpenMode={autoOpenMode}
                 href={href}
@@ -79,7 +84,7 @@ export const Menus = ({ classes, items, name, target }) => {
   }, []);
 
   return (
-    <nav class={`menu ${classes || ""}`}>
+    <nav className={`menu ${classes || ""}`}>
       <Menu
         autoOpenMode="desktop"
         items={items}
@@ -103,14 +108,14 @@ export const FooterMenus = ({ items, siteName = "" }) => {
       }
     if (href)
       return (
-        <div class="column">
+        <div className="column">
           <h3>
             <a href={href}>{name}</a>
           </h3>
         </div>
       );
     return (
-      <div class="column">
+      <div className="column">
         <h3>{name}</h3>
         <LinksList items={items} />
       </div>
@@ -118,9 +123,9 @@ export const FooterMenus = ({ items, siteName = "" }) => {
   });
 
   return (
-    <nav class="footer">
+    <nav className="footer">
       <h2>ACCESS {siteName}</h2>
-      <div class="columns">{menus}</div>
+      <div className="columns">{menus}</div>
     </nav>
   );
 };

@@ -1,5 +1,5 @@
-import { Component } from "preact";
-import { ErrorBoundary, lazy } from "preact-iso";
+import { Component, lazy } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 
 const AsyncLoadedQABot = lazy(() =>
   import("@snf/access-qa-bot").then((module) => ({

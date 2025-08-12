@@ -2,9 +2,9 @@ import Icon from "./icon";
 
 export default function Alert({ children, icon = "megaphone-fill" }) {
   return (
-    <div class="alert">
+    <div className="alert">
       {icon ? <Icon name={icon} /> : null}
-      <div class="alert-body">{children}</div>
+      <div className="alert-body">{children}</div>
     </div>
   );
 }

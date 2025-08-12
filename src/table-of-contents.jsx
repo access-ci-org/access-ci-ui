@@ -1,4 +1,4 @@
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useState } from "react";
 import { getScrollTop } from "./utils";
 
 export const TableOfContents = ({
@@ -38,7 +38,7 @@ export const TableOfContents = ({
   if (!h2.length) return;
 
   return (
-    <div class="toc">
+    <div className="toc">
       {h1 && <h2>{h1.textContent}</h2>}
       {h2.length > 0 && (
         <ul>
@@ -46,7 +46,7 @@ export const TableOfContents = ({
             <li>
               <a
                 href={`#${h.id}`}
-                class={i == activeIdx ? "active" : ""}
+                className={i == activeIdx ? "active" : ""}
                 onClick={(e) => {
                   if (smoothScroll) {
                     e.preventDefault();

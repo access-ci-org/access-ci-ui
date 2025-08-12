@@ -20,14 +20,14 @@ export function MiniBar({
   minColor = "#1a5b6e",
 }) {
   return (
-    <div class="mini-bar">
+    <div className="mini-bar">
       <div
-        class="bar"
+        className="bar"
         style={{
           backgroundColor: interpolateColor(
             value / maxValue,
             minColor,
-            maxColor
+            maxColor,
           ),
           width: `${(100 * value) / maxValue}%`,
         }}

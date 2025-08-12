@@ -1,4 +1,4 @@
-import { useMemo, useState } from "preact/hooks";
+import { useMemo, useState } from "react";
 import { filterResourceGroups, useResourceGroups } from "./utils";
 
 import Breadcrumbs from "./breadcrumbs";
@@ -38,7 +38,7 @@ export default function ResourceHome({
           topBorder={true}
         />
       )}
-      {title && <h1 class={showTitle ? "" : "visually-hidden"}>{title}</h1>}
+      {title && <h1 className={showTitle ? "" : "visually-hidden"}>{title}</h1>}
       <ResourcePathways setBotOpen={setBotOpen} />
       <div id="browse-resources">
         {active ? (
@@ -56,6 +56,7 @@ export default function ResourceHome({
               )
               .map((resourceCategory) => (
                 <ResourceCategory
+                  key={resourceCategory.name}
                   {...resourceCategory}
                   active={active}
                   baseUri={baseUri}

@@ -8,10 +8,10 @@ import { ScrollToTop } from "./scroll-to-top";
 export const Footer = (params = {}) => {
   return (
     <>
-      <div class="container">
-        <div class="upper">
-          <div class="about">
-            <p class="awards">
+      <div className="container">
+        <div className="upper">
+          <div className="about">
+            <p className="awards">
               ACCESS is an advanced computing and data resource program
               supported by the U.S. National Science Foundation (NSF) under the
               Office of Advanced Cyberinfrastructure awards{" "}
@@ -19,22 +19,22 @@ export const Footer = (params = {}) => {
               <AwardLink number={2138307} />, <AwardLink number={2137603} /> and{" "}
               <AwardLink number={2138296} />.
             </p>
-            <p class="disclaimer">
+            <p className="disclaimer">
               Any opinions, findings, conclusions or recommendations expressed
               in this material are those of the authors and do not necessarily
               reflect the views of NSF.
             </p>
-            <a class="contact" href="https://access-ci.org/contact/">
+            <a className="contact" href="https://access-ci.org/contact/">
               Contact ACCESS
             </a>
             <LinksList className="social" items={socialItems} />
           </div>
-          <div class="personas">
+          <div className="personas">
             <p>For:</p>
             <LinksList items={personaItems} />
           </div>
         </div>
-        <div class="lower">
+        <div className="lower">
           <Logo
             siteName="ACCESS"
             siteUrl="https://access-ci.org"

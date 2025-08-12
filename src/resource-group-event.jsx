@@ -24,10 +24,10 @@ export default function ResourceGroupEvent({
     const start = new Date(startDateTime);
     const end = new Date(endDateTime || startDateTime);
     const [startDate, endDate] = [start, end].map((date) =>
-      date.toLocaleString("en-US", { dateStyle: "long" })
+      date.toLocaleString("en-US", { dateStyle: "long" }),
     );
     const [startTime, endTime] = [start, end].map((date) =>
-      date.toLocaleString("en-US", { timeStyle: "short" })
+      date.toLocaleString("en-US", { timeStyle: "short" }),
     );
     const tz = start
       .toLocaleTimeString("en-US", { timeZoneName: "short" })
@@ -51,25 +51,27 @@ export default function ResourceGroupEvent({
       .toLocaleString("en-US", { dateStyle: "medium" })
       .split(",")[0]
       .split(" ")
-      .map((part) => <span>{part}</span>);
+      .map((part) => <span key={part}>{part}</span>);
     icon = eventUri ? (
-      <a href={eventUri} class="event-icon">
+      <a href={eventUri} className="event-icon">
         {iconContent}
       </a>
     ) : (
-      <div class="event-icon">{iconContent}</div>
+      <div className="event-icon">{iconContent}</div>
     );
   }
 
   return (
-    <div class="event">
+    <div className="event">
       {icon}
-      <div class="event-details">
+      <div className="event-details">
         <h3>{headingContent}</h3>
-        {metadata.length ? <div class="event-metadata">{metadata}</div> : null}
+        {metadata.length ? (
+          <div className="event-metadata">{metadata}</div>
+        ) : null}
         {description ? (
           <ExpandText>
-            <p>{htmlToJsx(description)}</p>
+            <div>{htmlToJsx(description)}</div>
           </ExpandText>
         ) : null}
       </div>
