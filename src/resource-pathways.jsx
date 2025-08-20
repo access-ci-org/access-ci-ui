@@ -28,7 +28,7 @@ export function ResourcePathways({ setBotOpen }) {
     {
       title: "Get suggestions",
       icon: "card-checklist",
-      href: "https://access-ara.ccs.uky.edu:8080/",
+      href: "https://ara.access-ci.org/",
       description: "Fill out a form to get resource recommendations.",
     },
     {
