@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.10.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.10.0-beta1...v0.10.0) (2025-08-25)
+
+
+### Features
+
+* upgrade @snf/access-qa-bot to version 2.6.1 ([e876870](https://github.com/access-ci-org/access-ci-ui/commit/e876870959982bc98fda63f3374a2284ecfd0620))
+* upgrade @snf/access-qa-bot to version 2.6.1 ([cad733e](https://github.com/access-ci-org/access-ci-ui/commit/cad733e78027a777647e69869cc4f47407f4c1be))
+
+
+### Bug Fixes
+
+* **resource-pathways:** update ARA URL ([950c3fb](https://github.com/access-ci-org/access-ci-ui/commit/950c3fb2da785b906e1bdef717bdca4b058c81de))
+
+
+### Miscellaneous Chores
+
+* release 0.10.0 ([72a1e93](https://github.com/access-ci-org/access-ci-ui/commit/72a1e939179f0a3aab15daea2685bacc79983746))
+
 ## [0.10.0-beta1](https://github.com/access-ci-org/access-ci-ui/compare/v0.9.0...v0.10.0-beta1) (2025-08-12)
 
 
