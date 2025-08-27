@@ -19,7 +19,7 @@ export const renderShadow = (content, target, styles = []) => {
     <StrictMode>
       {content}
       {styles.map((style) => (
-        <style>{style}</style>
+        <style key={style}>{style}</style>
       ))}
     </StrictMode>,
   );

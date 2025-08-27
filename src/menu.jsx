@@ -56,7 +56,7 @@ export const Menu = ({
         >
           {items.map(
             ({ autoOpenMode, classes, href, html, items, name, onClick }) => (
-              <li className={classes || ""} key={name}>
+              <li className={classes || ""} key={name || html}>
                 <Menu
                   autoOpenMode={autoOpenMode}
                   href={href}
@@ -116,14 +116,14 @@ export const FooterMenus = ({ items, siteName = "" }) => {
       }
     if (href)
       return (
-        <div className="column">
+        <div className="column" key={name}>
           <h3>
             <a href={href}>{name}</a>
           </h3>
         </div>
       );
     return (
-      <div className="column">
+      <div className="column" key={name}>
         <h3>{name}</h3>
         <LinksList items={items} />
       </div>
