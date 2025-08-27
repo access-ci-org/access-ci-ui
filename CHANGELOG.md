@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.10.0...v0.11.0) (2025-08-27)
+
+
+### Features
+
+* **menus:** add optional onClick parameter to menu items ([f84de06](https://github.com/access-ci-org/access-ci-ui/commit/f84de06d97fe00f13cfed9a7140ab0f86cb520f0))
+
+
+### Bug Fixes
+
+* add missing key props ([1cde3d6](https://github.com/access-ci-org/access-ci-ui/commit/1cde3d6ddc8cfe5e2eb665bea785ff34f1da2269))
+* **menus:** only style buttons rendered by the menu ([4e41bcb](https://github.com/access-ci-org/access-ci-ui/commit/4e41bcbc14bad8b010241f72d5c815ea48869c60))
+
 ## [0.10.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.10.0-beta1...v0.10.0) (2025-08-25)
 
 
