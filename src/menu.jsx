@@ -11,6 +11,7 @@ export const Menu = ({
   items,
   mode,
   name,
+  onClick,
   open,
   parentId = "root",
   setOpen,
@@ -24,9 +25,13 @@ export const Menu = ({
 
   if (html) return <div dangerouslySetInnerHTML={{ __html: html }}></div>;
 
-  if (href)
+  if (href || onClick)
     return (
-      <a href={href} className={`item ${classes || ""}`}>
+      <a
+        href={href || "#"}
+        onClick={onClick}
+        className={`item ${classes || ""}`}
+      >
         {name}
       </a>
     );
@@ -49,21 +54,24 @@ export const Menu = ({
           hidden={!expanded}
           aria-hidden={!expanded}
         >
-          {items.map(({ autoOpenMode, classes, href, html, items, name }) => (
-            <li className={classes || ""} key={name}>
-              <Menu
-                autoOpenMode={autoOpenMode}
-                href={href}
-                html={html}
-                items={items}
-                mode={mode}
-                name={name}
-                open={open}
-                parentId={id}
-                setOpen={setOpen}
-              />
-            </li>
-          ))}
+          {items.map(
+            ({ autoOpenMode, classes, href, html, items, name, onClick }) => (
+              <li className={classes || ""} key={name}>
+                <Menu
+                  autoOpenMode={autoOpenMode}
+                  href={href}
+                  html={html}
+                  items={items}
+                  mode={mode}
+                  name={name}
+                  onClick={onClick}
+                  open={open}
+                  parentId={id}
+                  setOpen={setOpen}
+                />
+              </li>
+            ),
+          )}
         </ul>
       </>
     );
