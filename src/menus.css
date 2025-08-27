@@ -46,7 +46,7 @@
 .menu li:last-child li:last-child > .item {
   border-bottom: 1px solid var(--border);
 }
-.menu li.highlight button,
+.menu li.highlight button.item,
 .menu li:last-child > .item,
 .menu > .collapsed {
   border-bottom: 0 none transparent;
@@ -54,15 +54,15 @@
 .expanded {
   border-bottom-width: 2px;
 }
-.menu button {
+.menu button.item {
   position: relative;
 }
-.menu > button {
+.menu > button.item {
   font-weight: 500;
   padding: 13.5px var(--padding) 13.5px;
   text-transform: uppercase;
 }
-.menu button::after {
+.menu button.item::after {
   background-image: var(--icon-caret-down-light);
   background-repeat: no-repeat;
   background-size: 18px;
@@ -74,17 +74,17 @@
   top: 15px;
   width: 18px;
 }
-.menu button.expanded::after {
+.menu button.item.expanded::after {
   transform: rotate(180deg);
 }
-.menu .highlight button::after {
+.menu .highlight button.item::after {
   background-image: var(--icon-caret-down-dark);
 }
-.menu button,
+.menu button.item,
 .menu ul li {
   background-color: var(--background);
 }
-.menu button,
+.menu button.item,
 .menu ul li a {
   color: var(--color);
 }
@@ -120,7 +120,7 @@
 .track .item {
   border-bottom: 0 none transparent;
 }
-.highlight button {
+.highlight button.item {
   background-color: var(--yellow-400);
   color: var(--contrast);
 }
@@ -198,7 +198,7 @@
   .site > ul {
     justify-content: end;
   }
-  .menu > button {
+  .menu > button.item {
     display: none;
   }
   .menu > ul {
@@ -230,32 +230,32 @@
   .universal > ul > li:last-child {
     margin-right: -10px;
   }
-  .universal li button {
+  .universal li button.item {
     --padding: 20px;
   }
   .icon > .item {
     background-position: center center;
     width: 56px;
   }
-  .menu button::after,
-  .menu button.expanded::after,
-  .menu .highlight button::after,
-  .menu .highlight button.expanded::after {
+  .menu button.item::after,
+  .menu button.item.expanded::after,
+  .menu .highlight button.item::after,
+  .menu .highlight button.item.expanded::after {
     display: inline-block;
     margin-left: 5px;
     position: static;
     vertical-align: middle;
   }
-  .menu button::after {
+  .menu button.item::after {
     background-image: var(--icon-caret-down-teal);
   }
-  .universal button::after {
+  .universal button.item::after {
     background-image: var(--icon-caret-down-light);
   }
-  .menu button.expanded::after,
-  .menu button.item:active::after,
-  .menu button.item:focus::after,
-  .menu button.item:hover::after {
+  .menu button.item.expanded::after,
+  .menu button.item.item:active::after,
+  .menu button.item.item:focus::after,
+  .menu button.item.item:hover::after {
     background-image: var(--icon-caret-down-light);
   }
   .menu > ul > li {
