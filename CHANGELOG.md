@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.12.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.11.0...v0.12.0) (2025-09-04)
+
+
+### Features
+
+* update access-qa-bot to 2.7.0 which includes metrics flow ([2b86659](https://github.com/access-ci-org/access-ci-ui/commit/2b866593143edeccdbd45ba2d810d0aad123636c))
+* update access-qa-bot to 2.7.0 which includes metrics flow ([2e3fc38](https://github.com/access-ci-org/access-ci-ui/commit/2e3fc38accdb6b5c1a03475f22e73cae5a0ef538))
+
+
+### Bug Fixes
+
+* update @snf/access-qa-bot from 2.6.2 to 2.6.4 ([f4a707d](https://github.com/access-ci-org/access-ci-ui/commit/f4a707d8b5b443bc2bb906238672ceab9ecb593b))
+
 ## [0.11.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.10.0...v0.11.0) (2025-08-27)
 
 
