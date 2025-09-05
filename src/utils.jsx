@@ -87,7 +87,7 @@ export const useJSON = (
 
 export const useResourceGroups = () => {
   const response = useJSON(
-    "https://operations-beta-api.access-ci.org/wh2/cider/v2/access-active-groups/type/resource-catalog.access-ci.org/",
+    "https://operations-api.access-ci.org/wh2/cider/v2/access-active-groups/type/resource-catalog.access-ci.org/",
   );
   return useTransform([response], ({ results }) => {
     const {
