@@ -87,11 +87,12 @@ export const useJSON = (
 
 export const useResourceGroups = () => {
   const response = useJSON(
-    "https://operations-api.access-ci.org/wh2/cider/v1/access-active-groups/type/resource-catalog.access-ci.org/",
+    "https://operations-beta-api.access-ci.org/wh2/cider/v2/access-active-groups/type/resource-catalog.access-ci.org/",
   );
   return useTransform([response], ({ results }) => {
     const {
       active_groups,
+      badges,
       feature_categories,
       features,
       organizations,
@@ -104,8 +105,13 @@ export const useResourceGroups = () => {
         name: "Resource Provider",
         tags: [],
       },
+      {
+        tagCategoryId: -2,
+        name: "Resource Features",
+        tags: [],
+      },
     ];
-    const tagCategoryIds = [-1];
+    const tagCategoryIds = [-1, -2];
     for (let category of feature_categories)
       if ([100, 102, 103].includes(category.feature_category_id)) {
         tagCategories.push({
@@ -119,15 +125,19 @@ export const useResourceGroups = () => {
     tagCategories.sort((a, b) => a.name.localeCompare(b.name));
 
     const tags = features
-      .filter((feature) => tagCategoryIds.includes(feature.feature_category_id))
+      .filter(
+        (feature) =>
+          tagCategoryIds.includes(feature.feature_category_id) &&
+          ![166, 167, 397].includes(feature.feature_id),
+      )
       .map((feature) => ({
         tagId: feature.feature_id,
         name: feature.feature_name,
         tagCategoryId: feature.feature_category_id,
         // FIXME: Add real description and action URI/label.
-        description: "This is a desciption of the feature.",
-        actionUri: "/",
-        actionLabel: `Learn More about ${feature.feature_name}`,
+        // description: "This is a desciption of the feature.",
+        // actionUri: "/",
+        // actionLabel: `Learn More about ${feature.feature_name}`,
       }));
 
     const organizationsMap = {};
@@ -139,6 +149,20 @@ export const useResourceGroups = () => {
         iconUri: organization.organization_favicon_url || null,
       });
       organizationsMap[organization.organization_id] = organization;
+    }
+
+    const badgeIds = [4, 7, 9, 10, 14, 15, 67];
+    for (let badge of badges) {
+      if (badgeIds.includes(badge.badge_id))
+        tags.push({
+          tagId: badge.badge_id * -1 - 1_000_000,
+          name: badge.name,
+          tagCategoryId: -2,
+          iconUri: null,
+          description: badge.researcher_summary,
+          actionUri: badge.default_badge_access_url,
+          actionLabel: badge.default_badge_access_url_label,
+        });
     }
 
     tags.sort((a, b) => a.name.localeCompare(b.name));
@@ -173,13 +197,10 @@ export const useResourceGroups = () => {
             }/logo`
           : null,
         tagIds: [
-          ...group.rollup_organization_ids
-            .map((orgId) => orgId * -1)
-            .filter((tagId) => tagIds.includes(tagId)),
-          ...group.rollup_feature_ids.filter((featureId) =>
-            tagIds.includes(featureId),
-          ),
-        ],
+          ...group.rollup_organization_ids.map((orgId) => orgId * -1),
+          ...group.rollup_feature_ids,
+          ...group.rollup_badge_ids.map((badgeId) => badgeId * -1 - 1_000_000),
+        ].filter((tagId) => tagIds.includes(tagId)),
         resourceCategoryId: group.rollup_feature_ids.includes(137) ? 2 : 1,
         accessAllocated: group.rollup_feature_ids.includes(139),
         organizations: group.rollup_organization_ids

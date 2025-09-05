@@ -1,7 +1,7 @@
 export const defaultIcons = {
   "ACCESS Pegasus":
     "https://pegasus.isi.edu/wordpress/wp-content/uploads/2016/01/favicon.ico",
-  "ACCESS OnDemand":
+  "ACCESS Open OnDemand":
     "https://openondemand.org/themes/fire/theme/assets/media/favicons/favicon.ico",
   "Advance reservations": "calendar-check",
   "Composable hardware fabric": "boxes",
