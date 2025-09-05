@@ -43,7 +43,13 @@ export function ResourceFilters({
               <h2>{tagCategory.name}</h2>
               <Tags>
                 {tagCategory.tags.map((tag) => (
-                  <Tag {...tag} active={active} toggleTag={toggleTag} />
+                  <Tag
+                    {...tag}
+                    active={active.tagIds.has(tag.tagId)}
+                    disabled={active.disabledTagIds.has(tag.tagId)}
+                    onClick={toggleTag}
+                    tooltip={tag.description}
+                  />
                 ))}
               </Tags>
             </>

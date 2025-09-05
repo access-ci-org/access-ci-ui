@@ -29,10 +29,11 @@ export function ResourceGroup({
         <Tags>
           {tags.map((tag) => (
             <Tag
-              key={tag.tagId}
               {...tag}
-              active={active}
-              toggleTag={toggleTag}
+              active={active.tagIds.has(tag.tagId)}
+              disabled={active.disabledTagIds.has(tag.tagId)}
+              onClick={toggleTag}
+              tooltip={tag.description}
             />
           ))}
         </Tags>

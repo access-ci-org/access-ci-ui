@@ -124,6 +124,10 @@ export const useResourceGroups = () => {
         tagId: feature.feature_id,
         name: feature.feature_name,
         tagCategoryId: feature.feature_category_id,
+        // FIXME: Add real description and action URI/label.
+        description: "This is a desciption of the feature.",
+        actionUri: "/",
+        actionLabel: `Learn More about ${feature.feature_name}`,
       }));
 
     const organizationsMap = {};
