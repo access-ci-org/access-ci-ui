@@ -34,7 +34,7 @@ export default function ResourceGroupFeatures({ infoGroupId }) {
           ))}
         </Tags>
         {selectedTag && (
-          <>
+          <div className="selected-feature">
             <h3>
               {icon.startsWith("http") ? (
                 <Icon alt={selectedTag.name} src={icon} />
@@ -49,7 +49,7 @@ export default function ResourceGroupFeatures({ infoGroupId }) {
                 {actionLabel ? actionLabel : "Learn More"}
               </a>
             )}
-          </>
+          </div>
         )}
       </Section>
     )
