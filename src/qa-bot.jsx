@@ -17,6 +17,9 @@ export class QABot extends Component {
       apiKey,
       embedded,
       loginUrl,
+      userEmail,
+      userName,
+      accessId
     } = this.props;
 
     // Support environment variable if apiKey is not provided via props
@@ -43,6 +46,9 @@ export class QABot extends Component {
           embedded={embedded === true}
           apiKey={botApiKey}
           loginUrl={loginUrl}
+          userEmail={userEmail}
+          userName={userName}
+          accessId={accessId}
         />
       </ErrorBoundary>
     );
