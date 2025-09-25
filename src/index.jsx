@@ -122,6 +122,7 @@ const tableOfContents = ({ headings = [], target }) =>
   ]);
 
 const resourceCatalog = ({
+  accessId,
   baseUri,
   isLoggedIn,
   qaBotApiKey,
@@ -131,6 +132,7 @@ const resourceCatalog = ({
 }) =>
   renderShadow(
     <ResourceCatalog
+      accessId={accessId}
       baseUri={baseUri}
       isLoggedIn={isLoggedIn}
       qaBotApiKey={qaBotApiKey}

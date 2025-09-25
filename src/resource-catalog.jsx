@@ -7,6 +7,7 @@ const ResourceGroupDetail = lazy(() => import("./resource-group-detail.jsx"));
 const ResourceHome = lazy(() => import("./resource-home.jsx"));
 
 export function ResourceCatalog({
+  accessId,
   baseUri = "/resources",
   isLoggedIn,
   qaBotApiKey,
@@ -39,6 +40,7 @@ export function ResourceCatalog({
         </ErrorBoundary>
       </BrowserRouter>
       <QABot
+        accessId={accessId}
         apiKey={qaBotApiKey}
         embedded={false}
         isLoggedIn={isLoggedIn}
