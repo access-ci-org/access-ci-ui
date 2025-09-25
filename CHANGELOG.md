@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.13.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.12.0...v0.13.0) (2025-09-25)
+
+
+### Features
+
+* **resource-catalog:** pass ACCESS ID to QA bot ([ec63d73](https://github.com/access-ci-org/access-ci-ui/commit/ec63d73ed72bf53f570e47529330537f10edff3e))
+
+
+### Bug Fixes
+
+* qa-bot wrapper should accept and use userEmail, userName, accessId params ([8fbf748](https://github.com/access-ci-org/access-ci-ui/commit/8fbf748da57bc1175b99e09232bb18d0613ca7dd))
+* qa-bot wrapper should accept and use userEmail, userName, accessId params ([744f64b](https://github.com/access-ci-org/access-ci-ui/commit/744f64b94bf52bbca034c52f6e8bdc43255c7d1e))
+
 ## [0.12.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.11.0...v0.12.0) (2025-09-04)
 
 
