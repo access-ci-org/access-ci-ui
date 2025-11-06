@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.13.1](https://github.com/access-ci-org/access-ci-ui/compare/v0.13.0...v0.13.1) (2025-11-06)
+
+
+### Bug Fixes
+
+* **award-link:** update NSF award base URL ([ff1ec99](https://github.com/access-ci-org/access-ci-ui/commit/ff1ec99d8ba9d9b8cb46925ce52516794972adfe))
+* **deps:** update @snf/access-qa-bot to 2.7.2 ([323fa03](https://github.com/access-ci-org/access-ci-ui/commit/323fa03dde1efa4c2a598454241b03019291dcc8))
+* **menu:** add aria-label for navigation landmarks ([7269367](https://github.com/access-ci-org/access-ci-ui/commit/7269367303f5c388fa4b1d39d441cc87bedbc30b))
+
 ## [0.13.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.12.0...v0.13.0) (2025-09-25)
 
 
