@@ -91,8 +91,15 @@ export const Menus = ({ classes, items, name, target }) => {
     });
   }, []);
 
+  // Create unique aria-label based on menu type
+  const ariaLabel = classes?.includes('universal')
+    ? 'ACCESS universal navigation'
+    : classes?.includes('site')
+    ? `${name}`
+    : name;
+
   return (
-    <nav className={`menu ${classes || ""}`}>
+    <nav className={`menu ${classes || ""}`} aria-label={ariaLabel}>
       <Menu
         autoOpenMode="desktop"
         items={items}
