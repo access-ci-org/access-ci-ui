@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.13.2](https://github.com/access-ci-org/access-ci-ui/compare/v0.13.1...v0.13.2) (2025-11-13)
+
+
+### Bug Fixes
+
+* **deps:** update @snf/access-qa-bot to 2.7.3 ([982cc07](https://github.com/access-ci-org/access-ci-ui/commit/982cc074a5e559b1cc3b8dd55b6a44c7fb45ea1d))
+
 ## [0.13.1](https://github.com/access-ci-org/access-ci-ui/compare/v0.13.0...v0.13.1) (2025-11-06)
 
 
