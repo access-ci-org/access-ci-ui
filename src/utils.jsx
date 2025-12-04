@@ -184,8 +184,27 @@ export const useResourceGroups = () => {
         resources: resources.filter((res) =>
           group.rollup_info_resourceids.includes(res.info_resourceid),
         ),
-      }))
-      .sort((a, b) => a.name.localeCompare(b.name));
+      }));
+
+    // Add aliases for CloudBank resource group.
+    const cloudBank = resourceGroups.find(
+      (group) => group.infoGroupId === "cloudbank.access-ci.org",
+    );
+    if (cloudBank)
+      for (const alias of [
+        "Amazon Web Services",
+        "Google Cloud",
+        "IBM Cloud",
+        "Microsoft Azure",
+      ])
+        resourceGroups.push({
+          ...cloudBank,
+          infoGroupId: `${alias.toLowerCase().replaceAll(" ", "-")}${cloudBank.infoGroupId}`,
+          parentInfoGroupId: cloudBank.infoGroupId,
+          name: alias,
+        });
+
+    resourceGroups.sort((a, b) => a.name.localeCompare(b.name));
 
     return linkResourceGroups({
       resourceCategories,

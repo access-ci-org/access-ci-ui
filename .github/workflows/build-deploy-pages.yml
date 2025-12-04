@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "main"
+      - "resource-catalog-aliases"
 
 permissions:
   contents: read

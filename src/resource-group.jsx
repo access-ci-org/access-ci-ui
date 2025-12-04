@@ -10,10 +10,11 @@ export function ResourceGroup({
   imageUri,
   name,
   infoGroupId,
+  parentInfoGroupId,
   tags,
   toggleTag,
 }) {
-  const detailUri = `${baseUri}/${infoGroupId}`;
+  const detailUri = `${baseUri}/${parentInfoGroupId || infoGroupId}`;
   return (
     <div className="resource-group">
       <a
