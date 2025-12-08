@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.14.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.13.2...v0.14.0) (2025-12-08)
+
+
+### Features
+
+* **resource-catalog:** add CloudBank aliases ([39513bc](https://github.com/access-ci-org/access-ci-ui/commit/39513bce5eb2746a4bd22c6f1a13c9578219b598))
+
 ## [0.13.2](https://github.com/access-ci-org/access-ci-ui/compare/v0.13.1...v0.13.2) (2025-11-13)
 
 
