@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.15.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.14.0...v0.15.0) (2026-01-06)
+
+
+### Features
+
+* **footer:** replace X with Bluesky ([97ad373](https://github.com/access-ci-org/access-ci-ui/commit/97ad373e61cbb2ad1dec4f48becf5f8835938aab))
+
 ## [0.14.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.13.2...v0.14.0) (2025-12-08)
 
 
