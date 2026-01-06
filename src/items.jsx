@@ -123,9 +123,9 @@ export const loginMenuItem = {
 
 export const socialItems = [
   {
-    className: "x",
-    href: "https://twitter.com/ACCESSforCI",
-    name: "X",
+    className: "bluesky",
+    href: "https://bsky.app/profile/accessforci.bsky.social",
+    name: "Bluesky",
   },
   {
     className: "youtube",
