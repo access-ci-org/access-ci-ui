@@ -35,12 +35,27 @@ const fetchJsonDataCache = {};
 const fetchJsonPromiseCache = {};
 const fetchJson = (
   uri,
-  { cache = true, corsProxy = false } = { cache: true, corsProxy: false },
+  {
+    body = null,
+    cache = true,
+    corsProxy = false,
+    headers = undefined,
+    method = "GET",
+  } = {
+    body: null,
+    cache: true,
+    corsProxy: false,
+    headers: undefined,
+    method: "GET",
+  },
 ) => {
-  if (cache && uri in fetchJsonDataCache) return fetchJsonDataCache[uri];
-  if (uri in fetchJsonPromiseCache) return fetchJsonPromiseCache[uri];
+  const cacheKey = `${uri}|${body}`;
+  if (cache && cacheKey in fetchJsonDataCache)
+    return fetchJsonDataCache[cacheKey];
+  if (cacheKey in fetchJsonPromiseCache) return fetchJsonPromiseCache[cacheKey];
   const promise = fetch(
     corsProxy ? `https://corsproxy.io/?${encodeURIComponent(uri)}` : uri,
+    { body, headers, method },
   ).then((response) => {
     delete fetchJsonPromiseCache[uri];
     if (response.status < 200 || response.status > 299) {
@@ -53,16 +68,26 @@ const fetchJson = (
       }
     }
   });
-  fetchJsonPromiseCache[uri] = promise;
+  fetchJsonPromiseCache[cacheKey] = promise;
   return promise;
 };
 
 export const useJSON = (
   uris,
-  { cache = true, corsProxy = false, defaultValue = null } = {
+  {
+    body = null,
+    cache = true,
+    corsProxy = false,
+    defaultValue = null,
+    headers = undefined,
+    method = "GET",
+  } = {
+    body: null,
     cache: true,
     corsProxy: false,
     defaultValue: null,
+    headers: undefined,
+    method: "GET",
   },
 ) => {
   const [value, setValue] = useState(defaultValue);
@@ -75,7 +100,9 @@ export const useJSON = (
     if (uris.length) {
       (async () => {
         const json = await Promise.all(
-          uris.map((uri) => fetchJson(uri, { cache, corsProxy })),
+          uris.map((uri) =>
+            fetchJson(uri, { body, cache, corsProxy, headers, method }),
+          ),
         );
         const result = single ? json[0] : json;
         setValue(result);

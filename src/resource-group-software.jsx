@@ -14,61 +14,72 @@ const apiFields = [
   "software_web_page",
   "software_documentation",
   "software_use_link",
+  "software_versions",
 ];
 
 export default function ResourceGroupSoftware({ infoGroupId }) {
-  const data = useJSON(
-    `https://ara-db.ccs.uky.edu/api=API_0/${
-      import.meta.env.VITE_SDS_API_KEY
-    }/rp=${infoGroupId}?include=${apiFields.join(",")}`,
-  );
+  const response = useJSON("https://sds-ara-api.access-ci.org/api/v1", {
+    body: JSON.stringify({
+      rps: [infoGroupId],
+      columns: apiFields,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+      "X-API-Key": import.meta.env.VITE_SDS_API_KEY,
+    },
+    method: "POST",
+  });
   const [searchText, setSearchText] = useState("");
   const fuse = useMemo(
     () =>
-      data && data.length
-        ? new Fuse(data, {
+      response?.data && response.data.length
+        ? new Fuse(response.data, {
             keys: [
               { name: "software_name", weight: 0.6 },
               { name: "software_description", weight: 0.4 },
             ],
           })
         : null,
-    [data],
+    [response?.data],
   );
-  if (!data || !data.length) return;
+  if (!response?.data || !response.data.length) return;
 
   const highlightFormat = (value) => (
     <Highlight text={value} highlight={searchText} />
   );
   const nameFormat = (value, row) => {
-    const result = [];
     const name = highlightFormat(value);
     const nameLink = row.software_web_page || row.software_documentation;
-    result.push(nameLink ? <a href={nameLink}>{name}</a> : name);
-    if (row.software_documentation)
-      result.push(
-        <> </>,
-        <a
-          href={row.software_documentation}
-          title={`Documentation for ${value}`}
-        >
-          <Icon name="book" />
-        </a>,
-      );
-    if (
-      row.software_use_link &&
-      row.software_use_link != row.software_documentation
-    )
-      result.push(
-        <> </>,
-        <a
-          href={row.software_use_link.split("\n")[0].trim()}
-          title={`Usage example for ${value}`}
-        >
-          <Icon name="terminal" />
-        </a>,
-      );
-    return <span style={{ lineHeight: 1.3 }}>{result}</span>;
+    const useLink =
+      row.software_use_link && row.software_use_link.length
+        ? row.software_use_link[0]
+        : "";
+
+    return (
+      <span style={{ lineHeight: 1.3 }}>
+        {nameLink ? (
+          <a key="name" href={nameLink}>
+            {name}
+          </a>
+        ) : (
+          name
+        )}{" "}
+        {row.software_documentation && (
+          <a
+            key="documentation"
+            href={row.software_documentation}
+            title={`Documentation for ${value}`}
+          >
+            <Icon name="book" />
+          </a>
+        )}{" "}
+        {useLink && useLink != row.software_documentation && (
+          <a key="use" href={useLink} title={`Usage example for ${value}`}>
+            <Icon name="terminal" />
+          </a>
+        )}
+      </span>
+    );
   };
   const descriptionFormat = (value, row) => {
     const sourcePattern = /Description Source:[ ]+(http[^ ]+)/;
@@ -87,11 +98,8 @@ export default function ResourceGroupSoftware({ infoGroupId }) {
       </>
     );
   };
-  const versionsFormat = (value, row) => {
-    return value.map((item) =>
-      item.replace(`${row.rp_name}: `, "").split(",").join(", "),
-    );
-  };
+  const versionsFormat = (_value, row) =>
+    row.rps[infoGroupId].software_versions.join(", ");
   const columns = [
     {
       key: "software_name",
@@ -112,10 +120,11 @@ export default function ResourceGroupSoftware({ infoGroupId }) {
 
   const rows = searchText.length
     ? fuse.search(searchText).map((result) => result.item)
-    : data;
+    : response.data;
 
   const headerComponents = [
     <Search
+      key="search"
       placeholder="Search software packages..."
       setSearchText={setSearchText}
     />,
