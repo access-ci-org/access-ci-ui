@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.16.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.15.0...v0.16.0) (2026-01-22)
+
+
+### Features
+
+* **resource-group-software:** use SDS API v1 ([871bcee](https://github.com/access-ci-org/access-ci-ui/commit/871bceed3ebe801166cce210a52df356991b9724))
+
 ## [0.15.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.14.0...v0.15.0) (2026-01-06)
 
 
