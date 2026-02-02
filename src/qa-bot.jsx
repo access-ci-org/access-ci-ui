@@ -19,7 +19,8 @@ export class QABot extends Component {
       loginUrl,
       userEmail,
       userName,
-      accessId
+      accessId,
+      onAnalyticsEvent
     } = this.props;
 
     // Support environment variable if apiKey is not provided via props
@@ -49,6 +50,7 @@ export class QABot extends Component {
           userEmail={userEmail}
           userName={userName}
           accessId={accessId}
+          onAnalyticsEvent={onAnalyticsEvent}
         />
       </ErrorBoundary>
     );
