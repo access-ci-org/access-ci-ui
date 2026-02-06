@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.17.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.16.0...v0.17.0) (2026-02-06)
+
+
+### Features
+
+* **qa-bot:** pass through onAnalyticsEvent prop ([215b629](https://github.com/access-ci-org/access-ci-ui/commit/215b6298b8ca4ccee4fc19b3aff5dbcd6502783d))
+* **qa-bot:** upgrade @snf/access-qa-bot to v3.0.4 ([2356aef](https://github.com/access-ci-org/access-ci-ui/commit/2356aef2cfcda4bff5703a7b77b0c7e103c05693))
+
 ## [0.16.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.15.0...v0.16.0) (2026-01-22)
 
 
