@@ -59,7 +59,7 @@ The library includes functions for rendering common ACCESS user interface compon
     tableOfContents,
     universalMenuItems,
     universalMenus,
-  } from "https://unpkg.com/@access-ci/ui@0.14.0/dist/access-ci-ui.js";
+  } from "https://unpkg.com/@access-ci/ui@0.17.0/dist/access-ci-ui.js";
 
   const siteItems = [
     {
@@ -137,6 +137,10 @@ The library includes functions for rendering common ACCESS user interface compon
     accessId: "jdoe123",
     isLoggedIn: true,
     welcome: "Welcome to the ACCESS Q&A Bot!",
+    onAnalyticsEvent: (event) => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(event);
+    },
   });
 </script>
 ```
