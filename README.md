@@ -129,14 +129,20 @@ The library includes functions for rendering common ACCESS user interface compon
 
   footer({ target: document.getElementById("footer") });
 
+  // Detect login state via ACCESS SSO cookie
+  const isLoggedIn = document.cookie.split("; ").includes("SESSaccesscisso=1")
+
+  // User info is typically provided by your CMS, something like this:
+  const { email, name, accessId } = window.cmsSettings?.currentUser || {};
+
   qaBot({
     target: document.getElementById("qa-bot"),
     apiKey: "my-api-key",
-    userEmail: "user@example.com",
-    userName: "John Doe",
-    accessId: "jdoe123",
-    isLoggedIn: true,
-    welcome: "Welcome to the ACCESS Q&A Bot!",
+    isLoggedIn: isLoggedIn,
+    userEmail: email,
+    userName: name,
+    accessId: accessId,
+    loginUrl: "/login",
     onAnalyticsEvent: (event) => {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push(event);
