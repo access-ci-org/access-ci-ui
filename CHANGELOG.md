@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.18.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.17.0...v0.18.0) (2026-02-16)
+
+
+### Features
+
+* **qa-bot:** update access-qa-bot to 3.3.0 ([16ab1a5](https://github.com/access-ci-org/access-ci-ui/commit/16ab1a50d995bd71546a5170aeaa72db3e3f862b))
+* **qa-bot:** update access-qa-bot to 3.3.0 with privacy notice and auto-open fix ([16a4771](https://github.com/access-ci-org/access-ci-ui/commit/16a4771e7f37e8b71faaffb20582abee71477543))
+
 ## [0.17.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.16.0...v0.17.0) (2026-02-06)
 
 
