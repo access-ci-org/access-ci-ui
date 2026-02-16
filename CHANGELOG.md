@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.18.1](https://github.com/access-ci-org/access-ci-ui/compare/v0.18.0...v0.18.1) (2026-02-16)
+
+
+### Bug Fixes
+
+* **qa-bot:** update access-qa-bot to 3.3.1 for welcome message markdown rendering ([948c33d](https://github.com/access-ci-org/access-ci-ui/commit/948c33d86c68a90f76bd06803dcaab54e812c0eb))
+
 ## [0.18.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.17.0...v0.18.0) (2026-02-16)
 
 
