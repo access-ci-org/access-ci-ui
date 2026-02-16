@@ -20,7 +20,9 @@ export class QABot extends Component {
       userEmail,
       userName,
       accessId,
-      onAnalyticsEvent
+      onAnalyticsEvent,
+      qaEndpoint,
+      ratingEndpoint,
     } = this.props;
 
     // Support environment variable if apiKey is not provided via props
@@ -40,7 +42,7 @@ export class QABot extends Component {
     return (
       <ErrorBoundary>
         <AsyncLoadedQABot
-          welcome={welcome || "Welcome to ACCESS Q&A Bot!"}
+          welcome={welcome}
           isLoggedIn={loggedIn}
           open={open}
           onOpenChange={onOpenChange}
@@ -51,6 +53,8 @@ export class QABot extends Component {
           userName={userName}
           accessId={accessId}
           onAnalyticsEvent={onAnalyticsEvent}
+          qaEndpoint={qaEndpoint}
+          ratingEndpoint={ratingEndpoint}
         />
       </ErrorBoundary>
     );
