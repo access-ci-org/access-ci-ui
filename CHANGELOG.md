@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.18.4](https://github.com/access-ci-org/access-ci-ui/compare/v0.18.3...v0.18.4) (2026-02-17)
+
+
+### Bug Fixes
+
+* update @snf/access-qa-bot to 3.3.4 ([7c89ebb](https://github.com/access-ci-org/access-ci-ui/commit/7c89ebbfc36341bb64f67993cf7077bb4f649dc6))
+
 ## [0.18.3](https://github.com/access-ci-org/access-ci-ui/compare/v0.18.2...v0.18.3) (2026-02-17)
 
 
