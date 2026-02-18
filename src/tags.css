@@ -8,6 +8,9 @@ li.tag {
   margin: 0 5px 5px 0;
   max-width: 100%;
 }
+.tag img {
+  display: inline-block;
+}
 .tag button {
   background-color: var(--teal-100);
   border: 1px solid var(--teal-400);
