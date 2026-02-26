@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.19.0-beta1](https://github.com/access-ci-org/access-ci-ui/compare/v0.18.4...v0.19.0-beta1) (2026-02-26)
+
+
+### Features
+
+* make components available for use in React applications ([05d2d95](https://github.com/access-ci-org/access-ci-ui/commit/05d2d951666616458684418cf409ca98bfe92d26))
+
+
+### Miscellaneous Chores
+
+* release 0.19.0-beta1 ([203439d](https://github.com/access-ci-org/access-ci-ui/commit/203439d656b045ba330f6b676a67c6acc950d7d6))
+
 ## [0.18.4](https://github.com/access-ci-org/access-ci-ui/compare/v0.18.3...v0.18.4) (2026-02-17)
 
 
