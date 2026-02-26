@@ -1,5 +1,3 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
 import { useEffect, useMemo, useState } from "react";
 
 export const getMode = (breakpoint = 900) =>
@@ -11,18 +9,6 @@ export const useMode = (breakpoint = 900) => {
     window.addEventListener("resize", () => setMode(getMode(breakpoint)));
   }, []);
   return mode;
-};
-
-export const renderShadow = (content, target, styles = []) => {
-  const shadow = createRoot(target.attachShadow({ mode: "open" }));
-  shadow.render(
-    <StrictMode>
-      {content}
-      {styles.map((style) => (
-        <style key={style}>{style}</style>
-      ))}
-    </StrictMode>,
-  );
 };
 
 export const getScrollTop = () =>

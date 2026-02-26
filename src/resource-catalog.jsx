@@ -3,6 +3,7 @@ import { lazy, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 
 import { QABot } from "./qa-bot.jsx";
+import { Suspense } from "react";
 const ResourceGroupDetail = lazy(() => import("./resource-group-detail.jsx"));
 const ResourceHome = lazy(() => import("./resource-home.jsx"));
 
@@ -17,7 +18,7 @@ export function ResourceCatalog({
   const [botOpen, setBotOpen] = useState(false);
 
   return (
-    <>
+    <Suspense>
       <BrowserRouter>
         <ErrorBoundary>
           <Routes>
@@ -48,6 +49,6 @@ export function ResourceCatalog({
         open={botOpen}
         welcome="Welcome to the ACCESS Q&A Bot!"
       />
-    </>
+    </Suspense>
   );
 }

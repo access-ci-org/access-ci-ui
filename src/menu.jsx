@@ -1,5 +1,6 @@
 import { useEffect, useId, useState } from "react";
 import { getMode, useMode } from "./utils";
+import { loginMenuItem, myAccessMenuItem, universalMenuItems } from "./items";
 
 import { LinksList } from "./links-list";
 
@@ -83,7 +84,7 @@ export const Menus = ({ classes, items, name, target }) => {
 
   useEffect(() => {
     document.body.addEventListener("click", (e) => {
-      if (e.target == target) return;
+      if (e.target.parentElement == target) return;
       if (getMode() == "desktop") setOpen({});
     });
     target.addEventListener("keydown", ({ key }) => {
@@ -92,11 +93,11 @@ export const Menus = ({ classes, items, name, target }) => {
   }, []);
 
   // Create unique aria-label based on menu type
-  const ariaLabel = classes?.includes('universal')
-    ? 'ACCESS universal navigation'
-    : classes?.includes('site')
-    ? `${name}`
-    : name;
+  const ariaLabel = classes?.includes("universal")
+    ? "ACCESS universal navigation"
+    : classes?.includes("site")
+      ? `${name}`
+      : name;
 
   return (
     <nav className={`menu ${classes || ""}`} aria-label={ariaLabel}>
@@ -142,5 +143,58 @@ export const FooterMenus = ({ items, siteName = "" }) => {
       <h2>ACCESS {siteName}</h2>
       <div className="columns">{menus}</div>
     </nav>
+  );
+};
+
+export const UniversalMenus = ({
+  items,
+  isLoggedIn,
+  loginUrl,
+  logoutUrl,
+  siteName,
+  target,
+}) => {
+  if (isLoggedIn === undefined)
+    isLoggedIn = document.cookie.split("; ").includes("SESSaccesscisso=1");
+
+  if (items === undefined) {
+    const lastItem = { ...(isLoggedIn ? myAccessMenuItem : loginMenuItem) };
+    lastItem.items = lastItem.items.map((item) => ({
+      ...item,
+      href:
+        (item.name == "Login" && loginUrl) ||
+        (item.name == "Log out" && logoutUrl) ||
+        item.href,
+    }));
+
+    items = [...universalMenuItems, lastItem];
+    let currentItem = items.find(
+      (item) =>
+        (item.href || "").replace(/\/$/, "") ==
+        document.location.href.replace(/\/$/, ""),
+    );
+    if (siteName && !currentItem)
+      currentItem = items.find((item) => item.name == siteName);
+    if (currentItem) currentItem.classes += " active";
+  }
+
+  return (
+    <Menus
+      classes="universal"
+      items={items}
+      name="ACCESS Menu"
+      target={target}
+    />
+  );
+};
+
+export const SiteMenus = ({ items, siteName, target }) => {
+  return (
+    <Menus
+      classes="site"
+      items={items}
+      name={`${siteName} Menu`}
+      target={target}
+    />
   );
 };
