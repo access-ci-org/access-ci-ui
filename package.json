@@ -22,7 +22,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite build --mode react",
+    "build": "vite build && vite build --mode=react",
+    "build-staging": "vite build --mode=staging",
     "lint": "eslint .",
     "preview": "vite preview"
   },
