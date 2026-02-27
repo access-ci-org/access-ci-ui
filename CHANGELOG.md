@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.19.0-beta3](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta2...v0.19.0-beta3) (2026-02-27)
+
+
+### Bug Fixes
+
+* prevent library build from clearing full bundle ([c997fc7](https://github.com/access-ci-org/access-ci-ui/commit/c997fc795435db4938e0cb1aa23a05a46a3b32cc))
+
+
+### Miscellaneous Chores
+
+* release 0.19.0-beta3 ([906a80e](https://github.com/access-ci-org/access-ci-ui/commit/906a80ed81edb39f49102dfa3e7bebf5cb2b7ec3))
+
 ## [0.19.0-beta2](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta1...v0.19.0-beta2) (2026-02-27)
 
 
