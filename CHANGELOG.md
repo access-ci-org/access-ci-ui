@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.19.0-beta2](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta1...v0.19.0-beta2) (2026-02-27)
+
+
+### Bug Fixes
+
+* create a separate library build for React ([f6164d9](https://github.com/access-ci-org/access-ci-ui/commit/f6164d9a7b81dc1f18c7094bcbe4e5414382c307))
+* remove local references in lock file ([0f7a666](https://github.com/access-ci-org/access-ci-ui/commit/0f7a666facf130e63a94d4f29035266b5b4f1383))
+
+
+### Miscellaneous Chores
+
+* release 0.19.0-beta2 ([afec743](https://github.com/access-ci-org/access-ci-ui/commit/afec74330babb6ff8ef00ac682fd797ebdc4a20a))
+
 ## [0.19.0-beta1](https://github.com/access-ci-org/access-ci-ui/compare/v0.18.4...v0.19.0-beta1) (2026-02-26)
 
 
