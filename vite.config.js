@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => ({
               name: "AccessCiUi",
               fileName: "access-ci-ui-react",
             },
-            emptyOutDir: true,
+            emptyOutDir: false,
             rollupOptions: {
               external: [
                 "react",
