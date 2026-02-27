@@ -1,4 +1,4 @@
-import Root from "react-shadow";
+// import Root from "react-shadow";
 import BreadcrumbsBase from "./breadcrumbs";
 import { QABot as QABotBase } from "./qa-bot";
 import { Footer as FooterBase } from "./footer";
@@ -26,15 +26,41 @@ import qaStyleOverrides from "../node_modules/@snf/access-qa-bot/dist/style.css?
 import localQaStyles from "./qa-bot.css?inline";
 const qaStyle = rcbStyle + qaStyleOverrides + localQaStyles;
 
+import { useEffect, useRef, useState } from "react";
+import ReactDOM from "react-dom";
+
+// A wrapper component that creates a shadow root and renders children into it
+const ShadowWrapper = ({ children }) => {
+  const hostRef = useRef(null);
+  const [mountNode, setMountNode] = useState(null);
+
+  useEffect(() => {
+    if (hostRef.current && !mountNode && !hostRef.current.shadowRoot) {
+      // Create shadow root and append a container
+      const shadowRoot = hostRef.current.attachShadow({ mode: "open" });
+      const container = document.createElement("div");
+      shadowRoot.appendChild(container);
+      setMountNode(container);
+    }
+  }, [mountNode]);
+
+  // Use portal to render children into the shadow DOM node
+  return (
+    <div ref={hostRef}>
+      {mountNode ? ReactDOM.createPortal(children, mountNode) : null}
+    </div>
+  );
+};
+
 const shadowize = (Comp, styles) => {
   return (props) => {
     return (
-      <Root.div>
+      <ShadowWrapper>
         <Comp {...props} />
         {styles.map((style) => (
           <style key={style}>{style}</style>
         ))}
-      </Root.div>
+      </ShadowWrapper>
     );
   };
 };

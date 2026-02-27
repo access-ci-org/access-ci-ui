@@ -3,6 +3,7 @@ import { getMode, useMode } from "./utils";
 import { loginMenuItem, myAccessMenuItem, universalMenuItems } from "./items";
 
 import { LinksList } from "./links-list";
+import { useRef } from "react";
 
 export const Menu = ({
   autoOpenMode,
@@ -78,18 +79,22 @@ export const Menu = ({
     );
 };
 
-export const Menus = ({ classes, items, name, target }) => {
+export const Menus = ({ classes, items, name }) => {
+  const navRef = useRef(null);
   const mode = useMode(1280);
   const [open, setOpen] = useState({});
 
   useEffect(() => {
-    document.body.addEventListener("click", (e) => {
-      if (e.target.parentElement == target) return;
-      if (getMode() == "desktop") setOpen({});
-    });
-    target.addEventListener("keydown", ({ key }) => {
-      if (key == "Escape") setOpen({});
-    });
+    if (navRef.current) {
+      document.body.addEventListener("click", (e) => {
+        const host = navRef.current.getRootNode()?.host;
+        if (e.target === host) return;
+        if (getMode() == "desktop") setOpen({});
+      });
+      navRef.current.addEventListener("keydown", ({ key }) => {
+        if (key == "Escape") setOpen({});
+      });
+    }
   }, []);
 
   // Create unique aria-label based on menu type
@@ -100,7 +105,11 @@ export const Menus = ({ classes, items, name, target }) => {
       : name;
 
   return (
-    <nav className={`menu ${classes || ""}`} aria-label={ariaLabel}>
+    <nav
+      className={`menu ${classes || ""}`}
+      aria-label={ariaLabel}
+      ref={navRef}
+    >
       <Menu
         autoOpenMode="desktop"
         items={items}
