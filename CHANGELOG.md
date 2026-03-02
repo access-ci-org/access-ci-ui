@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.19.0-beta4](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta3...v0.19.0-beta4) (2026-03-02)
+
+
+### Features
+
+* add TypeScript defininitions for React components ([699b86a](https://github.com/access-ci-org/access-ci-ui/commit/699b86afd9618bc2cb5c84328342dae82e75a2e0))
+
+
+### Bug Fixes
+
+* only export render functions from root package ([ffcb066](https://github.com/access-ci-org/access-ci-ui/commit/ffcb06674ba6c7051d69f81f920573f10022dd26))
+* remove vite-plugin-dts ([a31d157](https://github.com/access-ci-org/access-ci-ui/commit/a31d157076a17787d393006ebe4689f77dbfc205))
+
+
+### Miscellaneous Chores
+
+* release 0.19.0-beta4 ([05313c9](https://github.com/access-ci-org/access-ci-ui/commit/05313c9bfc7100cdab4a5a52094a2a8f67d27de6))
+
 ## [0.19.0-beta3](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta2...v0.19.0-beta3) (2026-02-27)
 
 
