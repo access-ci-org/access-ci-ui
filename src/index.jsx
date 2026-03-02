@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
@@ -24,17 +23,6 @@ const createRenderer = (Comp) => {
     );
 };
 
-export {
-  Breadcrumbs,
-  Footer,
-  FooterMenus,
-  Header,
-  QABot,
-  ResourceCatalog,
-  SiteMenus,
-  TableOfContents,
-  UniversalMenus,
-};
 export { loginMenuItem, myAccessMenuItem, universalMenuItems } from "./items";
 
 export const breadcrumbs = createRenderer(Breadcrumbs);
