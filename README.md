@@ -31,6 +31,37 @@ The library includes functions for rendering common ACCESS user interface compon
 - `resourceCatalog`: ACCESS resource catalog
 - `qaBot`: Question/answer bot
 
+## Usage
+
+### Standalone (via unpkg / CDN)
+
+The default build externalizes React. You must provide React via an
+[import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap)
+before loading the library:
+
+```html
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18",
+    "react-dom": "https://esm.sh/react-dom@18",
+    "react-dom/client": "https://esm.sh/react-dom@18/client",
+    "react-dom/server": "https://esm.sh/react-dom@18/server",
+    "react/jsx-runtime": "https://esm.sh/react@18/jsx-runtime"
+  }
+}
+</script>
+```
+
+### In a React application
+
+Install the package and import from the `/react` entry point, which
+expects React as a peer dependency:
+
+```js
+import { Header, Footer, QABot } from "@access-ci/ui/react";
+```
+
 ## Example
 
 ```html
@@ -49,6 +80,17 @@ The library includes functions for rendering common ACCESS user interface compon
 <div id="footer-menus"></div>
 <div id="footer"></div>
 <div id="qa-bot"></div>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18",
+    "react-dom": "https://esm.sh/react-dom@18",
+    "react-dom/client": "https://esm.sh/react-dom@18/client",
+    "react-dom/server": "https://esm.sh/react-dom@18/server",
+    "react/jsx-runtime": "https://esm.sh/react@18/jsx-runtime"
+  }
+}
+</script>
 <script type="module">
   import {
     footer,

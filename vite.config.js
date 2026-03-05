@@ -37,6 +37,24 @@ export default defineConfig(({ mode }) => ({
               name: "AccessCiUi",
               fileName: "access-ci-ui",
             },
+            rollupOptions: {
+              external: [
+                "react",
+                "react-dom",
+                "react-dom/client",
+                "react-dom/server",
+                "react/jsx-runtime",
+              ],
+              output: {
+                globals: {
+                  react: "React",
+                  "react-dom": "ReactDOM",
+                  "react-dom/client": "ReactDOMClient",
+                  "react-dom/server": "ReactDOMServer",
+                  "react/jsx-runtime": "jsxRuntime",
+                },
+              },
+            },
           },
   base: "/access-ci-ui",
   define: {
