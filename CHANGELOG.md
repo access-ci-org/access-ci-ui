@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.19.0-beta5](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta4...v0.19.0-beta5) (2026-03-06)
+
+
+### Features
+
+* **breadcrumbs:** add an optional onClick handler for breadcrumb items ([66ce810](https://github.com/access-ci-org/access-ci-ui/commit/66ce81064d3bc24c319899ce91c354c3ec19ac5b))
+
+
+### Bug Fixes
+
+* include render functions in the /react export ([3465457](https://github.com/access-ci-org/access-ci-ui/commit/346545780bdd04d85ab3362bb020d9c0285e1a2f))
+
+
+### Miscellaneous Chores
+
+* release 0.19.0-beta5 ([d0d336e](https://github.com/access-ci-org/access-ci-ui/commit/d0d336e2dbd82855a63c892c1e70392abb162b4b))
+
 ## [0.19.0-beta4](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta3...v0.19.0-beta4) (2026-03-02)
 
 
