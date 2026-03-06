@@ -1,9 +1,10 @@
-import { FC } from "react";
+import { FC, MouseEvent } from "react";
 
 export interface BreadcrumbItem {
   name: string;
   href?: string;
   classes?: string;
+  onClick?: (e: MouseEvent<HTMLAnchorElement>) => void;
 }
 
 export interface BreadcrumbsProps {
