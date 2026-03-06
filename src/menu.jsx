@@ -161,7 +161,6 @@ export const UniversalMenus = ({
   loginUrl,
   logoutUrl,
   siteName,
-  target,
 }) => {
   if (isLoggedIn === undefined)
     isLoggedIn = document.cookie.split("; ").includes("SESSaccesscisso=1");
@@ -187,23 +186,9 @@ export const UniversalMenus = ({
     if (currentItem) currentItem.classes += " active";
   }
 
-  return (
-    <Menus
-      classes="universal"
-      items={items}
-      name="ACCESS Menu"
-      target={target}
-    />
-  );
+  return <Menus classes="universal" items={items} name="ACCESS Menu" />;
 };
 
-export const SiteMenus = ({ items, siteName, target }) => {
-  return (
-    <Menus
-      classes="site"
-      items={items}
-      name={`${siteName} Menu`}
-      target={target}
-    />
-  );
+export const SiteMenus = ({ items, siteName }) => {
+  return <Menus classes="site" items={items} name={`${siteName} Menu`} />;
 };

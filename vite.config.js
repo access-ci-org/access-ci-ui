@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => ({
       : mode === "react"
         ? {
             lib: {
-              entry: ["src/shadow.jsx"],
+              entry: ["src/access-ci-ui-react.jsx"],
               name: "AccessCiUi",
               fileName: "access-ci-ui-react",
             },

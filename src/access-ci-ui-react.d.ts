@@ -47,7 +47,6 @@ export interface FooterMenusProps {
 export interface SiteMenusProps {
   items: MenuItem[];
   siteName: string;
-  target?: string;
 }
 
 export interface UniversalMenusProps {
@@ -58,7 +57,6 @@ export interface UniversalMenusProps {
   loginUrl?: string;
   logoutUrl?: string;
   siteName?: string;
-  target?: string;
 }
 
 export interface QABotProps {
@@ -107,3 +105,35 @@ export declare const ResourceCatalog: FC<ResourceCatalogProps>;
 export declare const SiteMenus: FC<SiteMenusProps>;
 export declare const TableOfContents: FC<TableOfContentsProps>;
 export declare const UniversalMenus: FC<UniversalMenusProps>;
+
+// Renderer functions — mount a component into a DOM target
+export declare const breadcrumbs: (
+  params: BreadcrumbsProps & { target: Element },
+) => void;
+export declare const footer: (
+  params: FooterProps & { target: Element },
+) => void;
+export declare const footerMenus: (
+  params: FooterMenusProps & { target: Element },
+) => void;
+export declare const header: (
+  params: HeaderProps & { target: Element },
+) => void;
+export declare const qaBot: (params: QABotProps & { target: Element }) => void;
+export declare const resourceCatalog: (
+  params: ResourceCatalogProps & { target: Element },
+) => void;
+export declare const siteMenus: (
+  params: SiteMenusProps & { target: Element },
+) => void;
+export declare const tableOfContents: (
+  params: TableOfContentsProps & { target: Element },
+) => void;
+export declare const universalMenus: (
+  params: UniversalMenusProps & { target: Element },
+) => void;
+
+// Pre-built menu item constants
+export declare const loginMenuItem: MenuItem;
+export declare const myAccessMenuItem: MenuItem;
+export declare const universalMenuItems: MenuItem[];

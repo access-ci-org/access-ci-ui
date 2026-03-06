@@ -23,7 +23,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite build --mode=react && cp src/shadow.d.ts dist/access-ci-ui-react.d.ts",
+    "build": "vite build && vite build --mode=react && cp src/access-ci-ui-react.d.ts dist/",
     "build-staging": "vite build --mode=staging",
     "lint": "eslint .",
     "preview": "vite preview"
