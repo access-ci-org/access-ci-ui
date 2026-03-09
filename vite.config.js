@@ -18,6 +18,7 @@ export default defineConfig(({ mode }) => ({
               external: [
                 "react",
                 "react-dom",
+                "react-dom/client",
                 "react-dom/server",
                 "react/jsx-runtime",
               ],
@@ -25,6 +26,7 @@ export default defineConfig(({ mode }) => ({
                 globals: {
                   react: "React",
                   "react-dom": "ReactDOM",
+                  "react-dom/client": "ReactDOMClient",
                   "react-dom/server": "ReactDOMServer",
                   "react/jsx-runtime": "jsxRuntime",
                 },
