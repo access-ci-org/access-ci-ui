@@ -1,4 +1,4 @@
-import { Component, lazy } from "react";
+import { Component, Suspense, lazy } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 
 const AsyncLoadedQABot = lazy(() =>
@@ -41,6 +41,7 @@ export class QABot extends Component {
 
     return (
       <ErrorBoundary>
+        <Suspense fallback={null}>
         <AsyncLoadedQABot
           welcome={welcome}
           isLoggedIn={loggedIn}
@@ -56,6 +57,7 @@ export class QABot extends Component {
           qaEndpoint={qaEndpoint}
           ratingEndpoint={ratingEndpoint}
         />
+        </Suspense>
       </ErrorBoundary>
     );
   }
