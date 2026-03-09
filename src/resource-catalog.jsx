@@ -18,7 +18,7 @@ export function ResourceCatalog({
   const [botOpen, setBotOpen] = useState(false);
 
   return (
-    <Suspense>
+    <Suspense fallback={null}>
       <BrowserRouter>
         <ErrorBoundary>
           <Routes>
