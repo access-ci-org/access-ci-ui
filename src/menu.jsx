@@ -125,17 +125,19 @@ export const Menus = ({ classes, items, name }) => {
 export const FooterMenus = ({ items, siteName = "" }) => {
   const mode = useMode(768);
 
-  const menus = items.map(({ name, href, items }) => {
+  const menus = items.map(({ name, href, items, onClick }) => {
     if (mode == "mobile")
       while (!href) {
         href = items[0].href;
         items = items[0];
       }
-    if (href)
+    if (href || onClick)
       return (
         <div className="column" key={name}>
           <h3>
-            <a href={href}>{name}</a>
+            <a href={href} onClick={onClick}>
+              {name}
+            </a>
           </h3>
         </div>
       );

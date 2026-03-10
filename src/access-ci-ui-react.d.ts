@@ -36,7 +36,7 @@ export interface MenuItem {
   items?: MenuItem[];
   classes?: string;
   autoOpenMode?: string;
-  onClick?: () => void;
+  onClick?: (e: MouseEvent<HTMLAnchorElement>) => void;
 }
 
 export interface FooterMenusProps {
