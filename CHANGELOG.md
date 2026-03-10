@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.19.0-beta6](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta5...v0.19.0-beta6) (2026-03-10)
+
+
+### Bug Fixes
+
+* add Suspense to lazy-loaded chatbot, bump access-qa-bot ([84ce829](https://github.com/access-ci-org/access-ci-ui/commit/84ce829f6a1d6a336f21b037d3a8fca8d2e01ca4))
+* add Suspense to lazy-loaded chatbot, bump access-qa-bot ([39991ba](https://github.com/access-ci-org/access-ci-ui/commit/39991ba6ddc52c06c0c4d7aa4dbc99455a6557c0))
+* bump @snf/access-qa-bot to 3.3.9 ([32a7d03](https://github.com/access-ci-org/access-ci-ui/commit/32a7d03213e7ac22978e238e6c21e2613bc792d1))
+* bump @snf/access-qa-bot to 3.3.9, picks up React externalization fix and new analytics events. ([b19c454](https://github.com/access-ci-org/access-ci-ui/commit/b19c454e9a98bfa8dd76564ab0c2c88cbfd95003))
+* externalize react-dom/client for library build ([56b1c9e](https://github.com/access-ci-org/access-ci-ui/commit/56b1c9e3a920a7fe35b4fce130849ce1838c03e8))
+* **menus:** add onClick handler to footer menu items ([5e816c9](https://github.com/access-ci-org/access-ci-ui/commit/5e816c981886976400577ee7162683f1efd1b63d))
+* **resource-catalog:** specify null fallback for Suspense ([007b0d5](https://github.com/access-ci-org/access-ci-ui/commit/007b0d55605d1798ec9bd1ffa7a11033d79b481c))
+
+
+### Miscellaneous Chores
+
+* release 0.19.0-beta6 ([4252e0b](https://github.com/access-ci-org/access-ci-ui/commit/4252e0b0debe57f7daec7a628085932adba1c8d8))
+
 ## [0.19.0-beta5](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta4...v0.19.0-beta5) (2026-03-06)
 
 
