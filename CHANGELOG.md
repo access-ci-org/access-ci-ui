@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.19.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta6...v0.19.0) (2026-03-10)
+
+
+### Bug Fixes
+
+* bump access-qa-bot to 3.3.10 to fix sr-only text leak ([7be91c2](https://github.com/access-ci-org/access-ci-ui/commit/7be91c2f5ebbb7a991a565a17acc2f02b0422925))
+
+
+### Miscellaneous Chores
+
+* release 0.19.0 ([5cecf66](https://github.com/access-ci-org/access-ci-ui/commit/5cecf663dd430aa5277bb13ced5f395535a52be4))
+
 ## [0.19.0-beta6](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta5...v0.19.0-beta6) (2026-03-10)
 
 
