@@ -24,7 +24,7 @@
 .name {
   color: var(--teal-700);
   display: block;
-  font-size: 17.5px;
+  font-size: 1.09375rem;
   font-stretch: 80%;
   font-weight: 200;
   line-height: 1;
@@ -92,7 +92,7 @@
     width: 253px;
   }
   .name {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
   .name-allocations::before {
     border-bottom: 20px solid var(--orange-400);

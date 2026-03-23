@@ -2,7 +2,7 @@ ul.breadcrumbs {
   --offset: calc((100vw - var(--width)) / 2);
   border-bottom: 1px solid var(--contrast-7);
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-stretch: 70%;
   font-weight: 600;
   line-height: 20px;

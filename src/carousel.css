@@ -19,16 +19,16 @@
   padding: 20px;
 }
 .slide-text h2 {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.1;
   margin: 0 0 0.25rem;
 }
 .slide-text a {
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.1;
 }
 .slide-text p {
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.2;
   margin-bottom: 0.5rem;
 }
@@ -71,13 +71,13 @@
 }
 @media (min-width: 1280px) {
   .slide-text h2 {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
   .slide-text a {
-    font-size: 16px;
+    font-size: 1rem;
   }
   .slide-text p {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.2;
     margin-bottom: 0.5rem;
   }
