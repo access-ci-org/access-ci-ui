@@ -37,6 +37,7 @@ The library includes functions for rendering common ACCESS user interface compon
 <div id="universal-menus"></div>
 <div id="header"></div>
 <div id="site-menus"></div>
+<div id="breadcrumbs" data-page-title="Page Title"></div>
 <div id="main" class="container">
   <div id="body">
     <h1>Page Title</h1>
@@ -51,6 +52,7 @@ The library includes functions for rendering common ACCESS user interface compon
 <div id="qa-bot"></div>
 <script type="module">
   import {
+    breadcrumbs,
     footer,
     footerMenus,
     header,
@@ -114,6 +116,18 @@ The library includes functions for rendering common ACCESS user interface compon
     items: siteItems,
     siteName: "Allocations",
     target: document.getElementById("site-menus"),
+  });
+
+  // Breadcrumbs example — adapt items to your site's navigation structure
+  const breadcrumbTarget = document.getElementById("breadcrumbs");
+  const pageTitle = breadcrumbTarget.dataset.pageTitle;
+  const breadcrumbItems = [
+    { name: "Allocations", href: pageTitle ? "/" : null },
+  ];
+  if (pageTitle) breadcrumbItems.push({ name: pageTitle });
+  breadcrumbs({
+    items: breadcrumbItems,
+    target: breadcrumbTarget,
   });
 
   tableOfContents({

@@ -10,7 +10,7 @@
   color: var(--teal-700);
   cursor: pointer;
   display: block;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 800;
   padding: 16px 40px 16px 20px;
   position: relative;
