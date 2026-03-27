@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.19.1](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0...v0.19.1) (2026-03-27)
+
+
+### Bug Fixes
+
+* add role="img" to ACCESS SVG logo for screen reader recognition ([6e99fce](https://github.com/access-ci-org/access-ci-ui/commit/6e99fcee87b456f735dd68bbbd74c79d5ccad690))
+* convert all px font-sizes to rem for accessibility, update qa-bot for a11y fixes ([4f47bd5](https://github.com/access-ci-org/access-ci-ui/commit/4f47bd5513f7ec73bd0e4c14199ef65b4a56a1a2))
+
 ## [0.19.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta6...v0.19.0) (2026-03-10)
 
 
