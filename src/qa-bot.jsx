@@ -20,6 +20,7 @@ export class QABot extends Component {
       userEmail,
       userName,
       accessId,
+      resourceContext,
       onAnalyticsEvent
     } = this.props;
 
@@ -50,6 +51,7 @@ export class QABot extends Component {
           userEmail={userEmail}
           userName={userName}
           accessId={accessId}
+          resourceContext={resourceContext}
           onAnalyticsEvent={onAnalyticsEvent}
         />
       </ErrorBoundary>
