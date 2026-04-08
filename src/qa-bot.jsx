@@ -41,7 +41,7 @@ export class QABot extends Component {
     return (
       <ErrorBoundary>
         <AsyncLoadedQABot
-          welcome={welcome || "Welcome to ACCESS Q&A Bot!"}
+          welcome={welcome}
           isLoggedIn={loggedIn}
           open={open}
           onOpenChange={onOpenChange}
