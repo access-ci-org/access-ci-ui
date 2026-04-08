@@ -15,7 +15,7 @@ li.tag {
   color: var(--contrast);
   cursor: pointer;
   display: inline-block;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 18px;
   max-width: 100%;

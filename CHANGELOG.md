@@ -2,6 +2,160 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.19.1](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0...v0.19.1) (2026-03-27)
+
+
+### Bug Fixes
+
+* add role="img" to ACCESS SVG logo for screen reader recognition ([6e99fce](https://github.com/access-ci-org/access-ci-ui/commit/6e99fcee87b456f735dd68bbbd74c79d5ccad690))
+* convert all px font-sizes to rem for accessibility, update qa-bot for a11y fixes ([4f47bd5](https://github.com/access-ci-org/access-ci-ui/commit/4f47bd5513f7ec73bd0e4c14199ef65b4a56a1a2))
+
+## [0.19.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta6...v0.19.0) (2026-03-10)
+
+
+### Bug Fixes
+
+* bump access-qa-bot to 3.3.10 to fix sr-only text leak ([7be91c2](https://github.com/access-ci-org/access-ci-ui/commit/7be91c2f5ebbb7a991a565a17acc2f02b0422925))
+
+
+### Miscellaneous Chores
+
+* release 0.19.0 ([5cecf66](https://github.com/access-ci-org/access-ci-ui/commit/5cecf663dd430aa5277bb13ced5f395535a52be4))
+
+## [0.19.0-beta6](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta5...v0.19.0-beta6) (2026-03-10)
+
+
+### Bug Fixes
+
+* add Suspense to lazy-loaded chatbot, bump access-qa-bot ([84ce829](https://github.com/access-ci-org/access-ci-ui/commit/84ce829f6a1d6a336f21b037d3a8fca8d2e01ca4))
+* add Suspense to lazy-loaded chatbot, bump access-qa-bot ([39991ba](https://github.com/access-ci-org/access-ci-ui/commit/39991ba6ddc52c06c0c4d7aa4dbc99455a6557c0))
+* bump @snf/access-qa-bot to 3.3.9 ([32a7d03](https://github.com/access-ci-org/access-ci-ui/commit/32a7d03213e7ac22978e238e6c21e2613bc792d1))
+* bump @snf/access-qa-bot to 3.3.9, picks up React externalization fix and new analytics events. ([b19c454](https://github.com/access-ci-org/access-ci-ui/commit/b19c454e9a98bfa8dd76564ab0c2c88cbfd95003))
+* externalize react-dom/client for library build ([56b1c9e](https://github.com/access-ci-org/access-ci-ui/commit/56b1c9e3a920a7fe35b4fce130849ce1838c03e8))
+* **menus:** add onClick handler to footer menu items ([5e816c9](https://github.com/access-ci-org/access-ci-ui/commit/5e816c981886976400577ee7162683f1efd1b63d))
+* **resource-catalog:** specify null fallback for Suspense ([007b0d5](https://github.com/access-ci-org/access-ci-ui/commit/007b0d55605d1798ec9bd1ffa7a11033d79b481c))
+
+
+### Miscellaneous Chores
+
+* release 0.19.0-beta6 ([4252e0b](https://github.com/access-ci-org/access-ci-ui/commit/4252e0b0debe57f7daec7a628085932adba1c8d8))
+
+## [0.19.0-beta5](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta4...v0.19.0-beta5) (2026-03-06)
+
+
+### Features
+
+* **breadcrumbs:** add an optional onClick handler for breadcrumb items ([66ce810](https://github.com/access-ci-org/access-ci-ui/commit/66ce81064d3bc24c319899ce91c354c3ec19ac5b))
+
+
+### Bug Fixes
+
+* include render functions in the /react export ([3465457](https://github.com/access-ci-org/access-ci-ui/commit/346545780bdd04d85ab3362bb020d9c0285e1a2f))
+
+
+### Miscellaneous Chores
+
+* release 0.19.0-beta5 ([d0d336e](https://github.com/access-ci-org/access-ci-ui/commit/d0d336e2dbd82855a63c892c1e70392abb162b4b))
+
+## [0.19.0-beta4](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta3...v0.19.0-beta4) (2026-03-02)
+
+
+### Features
+
+* add TypeScript defininitions for React components ([699b86a](https://github.com/access-ci-org/access-ci-ui/commit/699b86afd9618bc2cb5c84328342dae82e75a2e0))
+
+
+### Bug Fixes
+
+* only export render functions from root package ([ffcb066](https://github.com/access-ci-org/access-ci-ui/commit/ffcb06674ba6c7051d69f81f920573f10022dd26))
+* remove vite-plugin-dts ([a31d157](https://github.com/access-ci-org/access-ci-ui/commit/a31d157076a17787d393006ebe4689f77dbfc205))
+
+
+### Miscellaneous Chores
+
+* release 0.19.0-beta4 ([05313c9](https://github.com/access-ci-org/access-ci-ui/commit/05313c9bfc7100cdab4a5a52094a2a8f67d27de6))
+
+## [0.19.0-beta3](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta2...v0.19.0-beta3) (2026-02-27)
+
+
+### Bug Fixes
+
+* prevent library build from clearing full bundle ([c997fc7](https://github.com/access-ci-org/access-ci-ui/commit/c997fc795435db4938e0cb1aa23a05a46a3b32cc))
+
+
+### Miscellaneous Chores
+
+* release 0.19.0-beta3 ([906a80e](https://github.com/access-ci-org/access-ci-ui/commit/906a80ed81edb39f49102dfa3e7bebf5cb2b7ec3))
+
+## [0.19.0-beta2](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0-beta1...v0.19.0-beta2) (2026-02-27)
+
+
+### Bug Fixes
+
+* create a separate library build for React ([f6164d9](https://github.com/access-ci-org/access-ci-ui/commit/f6164d9a7b81dc1f18c7094bcbe4e5414382c307))
+* remove local references in lock file ([0f7a666](https://github.com/access-ci-org/access-ci-ui/commit/0f7a666facf130e63a94d4f29035266b5b4f1383))
+
+
+### Miscellaneous Chores
+
+* release 0.19.0-beta2 ([afec743](https://github.com/access-ci-org/access-ci-ui/commit/afec74330babb6ff8ef00ac682fd797ebdc4a20a))
+
+## [0.19.0-beta1](https://github.com/access-ci-org/access-ci-ui/compare/v0.18.4...v0.19.0-beta1) (2026-02-26)
+
+
+### Features
+
+* make components available for use in React applications ([05d2d95](https://github.com/access-ci-org/access-ci-ui/commit/05d2d951666616458684418cf409ca98bfe92d26))
+
+
+### Miscellaneous Chores
+
+* release 0.19.0-beta1 ([203439d](https://github.com/access-ci-org/access-ci-ui/commit/203439d656b045ba330f6b676a67c6acc950d7d6))
+
+## [0.18.4](https://github.com/access-ci-org/access-ci-ui/compare/v0.18.3...v0.18.4) (2026-02-17)
+
+
+### Bug Fixes
+
+* update @snf/access-qa-bot to 3.3.4 ([7c89ebb](https://github.com/access-ci-org/access-ci-ui/commit/7c89ebbfc36341bb64f67993cf7077bb4f649dc6))
+
+## [0.18.3](https://github.com/access-ci-org/access-ci-ui/compare/v0.18.2...v0.18.3) (2026-02-17)
+
+
+### Bug Fixes
+
+* update @snf/access-qa-bot to 3.3.3 (rebuilt dist with HTML disclaimer) ([c9941fa](https://github.com/access-ci-org/access-ci-ui/commit/c9941fa2d4d86c129baf2ccfe24b6058d0e6e075))
+
+## [0.18.2](https://github.com/access-ci-org/access-ci-ui/compare/v0.18.1...v0.18.2) (2026-02-16)
+
+
+### Bug Fixes
+
+* update @snf/access-qa-bot to 3.3.2 (AI disclaimer in flow steps) ([3fc307d](https://github.com/access-ci-org/access-ci-ui/commit/3fc307d6f3ec39c37dc00f75eb8516556a8b6b65))
+
+## [0.18.1](https://github.com/access-ci-org/access-ci-ui/compare/v0.18.0...v0.18.1) (2026-02-16)
+
+
+### Bug Fixes
+
+* **qa-bot:** update access-qa-bot to 3.3.1 for welcome message markdown rendering ([948c33d](https://github.com/access-ci-org/access-ci-ui/commit/948c33d86c68a90f76bd06803dcaab54e812c0eb))
+
+## [0.18.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.17.0...v0.18.0) (2026-02-16)
+
+
+### Features
+
+* **qa-bot:** update access-qa-bot to 3.3.0 ([16ab1a5](https://github.com/access-ci-org/access-ci-ui/commit/16ab1a50d995bd71546a5170aeaa72db3e3f862b))
+* **qa-bot:** update access-qa-bot to 3.3.0 with privacy notice and auto-open fix ([16a4771](https://github.com/access-ci-org/access-ci-ui/commit/16a4771e7f37e8b71faaffb20582abee71477543))
+
+## [0.17.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.16.0...v0.17.0) (2026-02-06)
+
+
+### Features
+
+* **qa-bot:** pass through onAnalyticsEvent prop ([215b629](https://github.com/access-ci-org/access-ci-ui/commit/215b6298b8ca4ccee4fc19b3aff5dbcd6502783d))
+* **qa-bot:** upgrade @snf/access-qa-bot to v3.0.4 ([2356aef](https://github.com/access-ci-org/access-ci-ui/commit/2356aef2cfcda4bff5703a7b77b0c7e103c05693))
+
 ## [0.16.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.15.0...v0.16.0) (2026-01-22)
 
 

@@ -37,6 +37,7 @@ The library includes functions for rendering common ACCESS user interface compon
 <div id="universal-menus"></div>
 <div id="header"></div>
 <div id="site-menus"></div>
+<div id="breadcrumbs" data-page-title="Page Title"></div>
 <div id="main" class="container">
   <div id="body">
     <h1>Page Title</h1>
@@ -51,6 +52,7 @@ The library includes functions for rendering common ACCESS user interface compon
 <div id="qa-bot"></div>
 <script type="module">
   import {
+    breadcrumbs,
     footer,
     footerMenus,
     header,
@@ -59,7 +61,7 @@ The library includes functions for rendering common ACCESS user interface compon
     tableOfContents,
     universalMenuItems,
     universalMenus,
-  } from "https://unpkg.com/@access-ci/ui@0.14.0/dist/access-ci-ui.js";
+  } from "https://unpkg.com/@access-ci/ui@0.18.1/dist/access-ci-ui.js";
 
   const siteItems = [
     {
@@ -116,6 +118,18 @@ The library includes functions for rendering common ACCESS user interface compon
     target: document.getElementById("site-menus"),
   });
 
+  // Breadcrumbs example — adapt items to your site's navigation structure
+  const breadcrumbTarget = document.getElementById("breadcrumbs");
+  const pageTitle = breadcrumbTarget.dataset.pageTitle;
+  const breadcrumbItems = [
+    { name: "Allocations", href: pageTitle ? "/" : null },
+  ];
+  if (pageTitle) breadcrumbItems.push({ name: pageTitle });
+  breadcrumbs({
+    items: breadcrumbItems,
+    target: breadcrumbTarget,
+  });
+
   tableOfContents({
     headings: document.querySelectorAll("#body h1, #body h2"),
     target: document.getElementById("table-of-contents"),
@@ -129,14 +143,24 @@ The library includes functions for rendering common ACCESS user interface compon
 
   footer({ target: document.getElementById("footer") });
 
+  // Detect login state via ACCESS SSO cookie
+  const isLoggedIn = document.cookie.split("; ").includes("SESSaccesscisso=1")
+
+  // User info is typically provided by your CMS, something like this:
+  const { email, name, accessId } = window.cmsSettings?.currentUser || {};
+
   qaBot({
     target: document.getElementById("qa-bot"),
     apiKey: "my-api-key",
-    userEmail: "user@example.com",
-    userName: "John Doe",
-    accessId: "jdoe123",
-    isLoggedIn: true,
-    welcome: "Welcome to the ACCESS Q&A Bot!",
+    isLoggedIn: isLoggedIn,
+    userEmail: email,
+    userName: name,
+    accessId: accessId,
+    loginUrl: "/login",
+    onAnalyticsEvent: (event) => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(event);
+    },
   });
 </script>
 ```

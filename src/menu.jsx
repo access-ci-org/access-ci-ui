@@ -1,7 +1,9 @@
 import { useEffect, useId, useState } from "react";
 import { getMode, useMode } from "./utils";
+import { loginMenuItem, myAccessMenuItem, universalMenuItems } from "./items";
 
 import { LinksList } from "./links-list";
+import { useRef } from "react";
 
 export const Menu = ({
   autoOpenMode,
@@ -77,29 +79,37 @@ export const Menu = ({
     );
 };
 
-export const Menus = ({ classes, items, name, target }) => {
+export const Menus = ({ classes, items, name }) => {
+  const navRef = useRef(null);
   const mode = useMode(1280);
   const [open, setOpen] = useState({});
 
   useEffect(() => {
-    document.body.addEventListener("click", (e) => {
-      if (e.target == target) return;
-      if (getMode() == "desktop") setOpen({});
-    });
-    target.addEventListener("keydown", ({ key }) => {
-      if (key == "Escape") setOpen({});
-    });
+    if (navRef.current) {
+      document.body.addEventListener("click", (e) => {
+        const host = navRef.current.getRootNode()?.host;
+        if (e.target === host) return;
+        if (getMode() == "desktop") setOpen({});
+      });
+      navRef.current.addEventListener("keydown", ({ key }) => {
+        if (key == "Escape") setOpen({});
+      });
+    }
   }, []);
 
   // Create unique aria-label based on menu type
-  const ariaLabel = classes?.includes('universal')
-    ? 'ACCESS universal navigation'
-    : classes?.includes('site')
-    ? `${name}`
-    : name;
+  const ariaLabel = classes?.includes("universal")
+    ? "ACCESS universal navigation"
+    : classes?.includes("site")
+      ? `${name}`
+      : name;
 
   return (
-    <nav className={`menu ${classes || ""}`} aria-label={ariaLabel}>
+    <nav
+      className={`menu ${classes || ""}`}
+      aria-label={ariaLabel}
+      ref={navRef}
+    >
       <Menu
         autoOpenMode="desktop"
         items={items}
@@ -115,17 +125,19 @@ export const Menus = ({ classes, items, name, target }) => {
 export const FooterMenus = ({ items, siteName = "" }) => {
   const mode = useMode(768);
 
-  const menus = items.map(({ name, href, items }) => {
+  const menus = items.map(({ name, href, items, onClick }) => {
     if (mode == "mobile")
       while (!href) {
         href = items[0].href;
         items = items[0];
       }
-    if (href)
+    if (href || onClick)
       return (
         <div className="column" key={name}>
           <h3>
-            <a href={href}>{name}</a>
+            <a href={href} onClick={onClick}>
+              {name}
+            </a>
           </h3>
         </div>
       );
@@ -143,4 +155,42 @@ export const FooterMenus = ({ items, siteName = "" }) => {
       <div className="columns">{menus}</div>
     </nav>
   );
+};
+
+export const UniversalMenus = ({
+  items,
+  isLoggedIn,
+  loginUrl,
+  logoutUrl,
+  siteName,
+}) => {
+  if (isLoggedIn === undefined)
+    isLoggedIn = document.cookie.split("; ").includes("SESSaccesscisso=1");
+
+  if (items === undefined) {
+    const lastItem = { ...(isLoggedIn ? myAccessMenuItem : loginMenuItem) };
+    lastItem.items = lastItem.items.map((item) => ({
+      ...item,
+      href:
+        (item.name == "Login" && loginUrl) ||
+        (item.name == "Log out" && logoutUrl) ||
+        item.href,
+    }));
+
+    items = [...universalMenuItems, lastItem];
+    let currentItem = items.find(
+      (item) =>
+        (item.href || "").replace(/\/$/, "") ==
+        document.location.href.replace(/\/$/, ""),
+    );
+    if (siteName && !currentItem)
+      currentItem = items.find((item) => item.name == siteName);
+    if (currentItem) currentItem.classes += " active";
+  }
+
+  return <Menus classes="universal" items={items} name="ACCESS Menu" />;
+};
+
+export const SiteMenus = ({ items, siteName }) => {
+  return <Menus classes="site" items={items} name={`${siteName} Menu`} />;
 };

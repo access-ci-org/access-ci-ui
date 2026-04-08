@@ -1,4 +1,4 @@
-import { Component, lazy } from "react";
+import { Component, Suspense, lazy } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 
 const AsyncLoadedQABot = lazy(() =>
@@ -21,7 +21,9 @@ export class QABot extends Component {
       userName,
       accessId,
       resourceContext,
-      onAnalyticsEvent
+      onAnalyticsEvent,
+      qaEndpoint,
+      ratingEndpoint,
     } = this.props;
 
     // Support environment variable if apiKey is not provided via props
@@ -40,6 +42,7 @@ export class QABot extends Component {
 
     return (
       <ErrorBoundary>
+        <Suspense fallback={null}>
         <AsyncLoadedQABot
           welcome={welcome}
           isLoggedIn={loggedIn}
@@ -53,7 +56,10 @@ export class QABot extends Component {
           accessId={accessId}
           resourceContext={resourceContext}
           onAnalyticsEvent={onAnalyticsEvent}
+          qaEndpoint={qaEndpoint}
+          ratingEndpoint={ratingEndpoint}
         />
+        </Suspense>
       </ErrorBoundary>
     );
   }

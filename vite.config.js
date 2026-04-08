@@ -1,19 +1,45 @@
-import { resolve } from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
   build:
-    mode !== "staging"
-      ? {
-          lib: {
-            entry: resolve(__dirname, "src/index.jsx"),
-            name: "AccessCiUi",
-            fileName: "access-ci-ui",
+    mode === "staging"
+      ? null
+      : mode === "react"
+        ? {
+            lib: {
+              entry: ["src/access-ci-ui-react.jsx"],
+              name: "AccessCiUi",
+              fileName: "access-ci-ui-react",
+            },
+            emptyOutDir: false,
+            rollupOptions: {
+              external: [
+                "react",
+                "react-dom",
+                "react-dom/client",
+                "react-dom/server",
+                "react/jsx-runtime",
+              ],
+              output: {
+                globals: {
+                  react: "React",
+                  "react-dom": "ReactDOM",
+                  "react-dom/client": "ReactDOMClient",
+                  "react-dom/server": "ReactDOMServer",
+                  "react/jsx-runtime": "jsxRuntime",
+                },
+              },
+            },
+          }
+        : {
+            lib: {
+              entry: ["src/index.jsx"],
+              name: "AccessCiUi",
+              fileName: "access-ci-ui",
+            },
           },
-        }
-      : null,
   base: "/access-ci-ui",
   define: {
     "process.env.NODE_ENV": JSON.stringify(mode),

@@ -34,7 +34,7 @@
   width: 100%;
 }
 .item {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: 21px;
   padding: 13.5px var(--padding) 13.5px;
@@ -130,7 +130,7 @@
   color: white;
 }
 .footer h2 {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   margin: 0 auto 20px;
   text-transform: uppercase;
@@ -155,7 +155,7 @@
   text-decoration: underline;
 }
 .footer h3 {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 800;
   margin: 0;
 }
@@ -164,7 +164,7 @@
   padding: 0;
 }
 .footer li {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   list-style-type: none;
   padding: 14px 0 0;
@@ -216,7 +216,7 @@
     padding-bottom: 12px;
   }
   .site .item {
-    font-size: 16px;
+    font-size: 1rem;
   }
   .grow {
     flex: 1 0 auto;

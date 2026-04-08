@@ -18,7 +18,7 @@ export const Logo = ({
       </a>
       <div className="divider" />
       <a className="access" href={siteUrl}>
-        <img className="access-logo" src={accessLogoUrl} alt="ACCESS" />
+        <img className="access-logo" src={accessLogoUrl} alt="ACCESS" role="img" />
         {siteName && placement == "header" ? (
           <span
             className={`name name-${siteName
