@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.20.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.1...v0.20.0) (2026-04-12)
+
+
+### Features
+
+* add resourceContext prop to QABot wrapper ([6fbcc53](https://github.com/access-ci-org/access-ci-ui/commit/6fbcc5389dab3ad18c5c0d57868382490c9899ff))
+* resourceContext prop for resource scoping (F.4) ([1087dcd](https://github.com/access-ci-org/access-ci-ui/commit/1087dcdae5b39390b896ea4c82eb6e4348fa5a8d))
+* update access-qa-bot to 3.6.0 (non-agentic mode with Turnstile proxy) ([29a85f7](https://github.com/access-ci-org/access-ci-ui/commit/29a85f7e36da4dc7bc932c2a9298fdb5d90315af))
+
+
+### Bug Fixes
+
+* remove hardcoded welcome message default ([4dd29af](https://github.com/access-ci-org/access-ci-ui/commit/4dd29afc2a57870c87d8a0af066c0d09962f7676))
+
 ## [0.19.1](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.0...v0.19.1) (2026-03-27)
 
 
