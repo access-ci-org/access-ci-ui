@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.20.1](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.0...v0.20.1) (2026-04-22)
+
+
+### Bug Fixes
+
+* pull qa-bot styling into shadow DOM via access-qa-bot 3.7.0 ([fe7dedb](https://github.com/access-ci-org/access-ci-ui/commit/fe7dedbb170e08f7411d1f7fdb784c2aa9f1b900))
+
 ## [0.20.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.19.1...v0.20.0) (2026-04-12)
 
 
