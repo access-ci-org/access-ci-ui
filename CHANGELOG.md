@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.20.2](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.1...v0.20.2) (2026-04-23)
+
+
+### Bug Fixes
+
+* bump @snf/access-qa-bot to 3.7.1 for chatbot menu + Turnstile fixes ([3d00508](https://github.com/access-ci-org/access-ci-ui/commit/3d00508081cd6cfa98901a79af885bb40b0178a7))
+
 ## [0.20.1](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.0...v0.20.1) (2026-04-22)
 
 
