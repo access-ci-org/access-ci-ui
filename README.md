@@ -61,7 +61,7 @@ The library includes functions for rendering common ACCESS user interface compon
     tableOfContents,
     universalMenuItems,
     universalMenus,
-  } from "https://unpkg.com/@access-ci/ui@0.20.1/dist/access-ci-ui.js";
+  } from "https://unpkg.com/@access-ci/ui@0.20.2/dist/access-ci-ui.js";
 
   const siteItems = [
     {
