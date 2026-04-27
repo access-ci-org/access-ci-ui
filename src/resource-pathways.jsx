@@ -23,7 +23,6 @@ export function ResourcePathways({ setBotOpen }) {
         setBotOpen(true);
       },
       description: "You have resource questions. Our Q&A bot has answers!",
-      login: true,
     },
     {
       title: "Get suggestions",
@@ -45,24 +44,17 @@ export function ResourcePathways({ setBotOpen }) {
         to researchers and educators.
       </p>
       <ul className="resource-pathways">
-        {pathways.map(
-          ({ title, icon, href, description, login, onClick }, i) => (
-            <li className={`resource-pathway-${i}`} key={title}>
-              <a href={href || "#"} onClick={onClick}>
-                {icon ? <Icon name={icon} /> : null}{" "}
-                <span className="detail">
-                  <span className="title">{title}</span>
-                  <span className="description">{description}</span>
-                  {login ? (
-                    <span className="login">
-                      <Icon name="key" /> Requires ACCESS Login
-                    </span>
-                  ) : null}
-                </span>
-              </a>
-            </li>
-          ),
-        )}
+        {pathways.map(({ title, icon, href, description, onClick }, i) => (
+          <li className={`resource-pathway-${i}`} key={title}>
+            <a href={href || "#"} onClick={onClick}>
+              {icon ? <Icon name={icon} /> : null}{" "}
+              <span className="detail">
+                <span className="title">{title}</span>
+                <span className="description">{description}</span>
+              </span>
+            </a>
+          </li>
+        ))}
       </ul>
     </section>
   );
