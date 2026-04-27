@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.20.3](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.2...v0.20.3) (2026-04-27)
+
+
+### Bug Fixes
+
+* **resource-pathways:** remove login notice for QA bot ([00b49f1](https://github.com/access-ci-org/access-ci-ui/commit/00b49f135e3f5b34f4fed0afa8b4646e67a79913))
+
 ## [0.20.2](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.1...v0.20.2) (2026-04-23)
 
 
