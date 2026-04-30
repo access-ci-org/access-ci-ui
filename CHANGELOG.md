@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.20.4](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.3...v0.20.4) (2026-04-30)
+
+
+### Bug Fixes
+
+* fix dependencies in 0.20.3 release ([306674e](https://github.com/access-ci-org/access-ci-ui/commit/306674e1352e7ff5354d92c9dda8df99ff9500f0))
+
 ## [0.20.3](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.2...v0.20.3) (2026-04-27)
 
 
