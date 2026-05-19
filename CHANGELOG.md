@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.20.5](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.4...v0.20.5) (2026-05-19)
+
+
+### Bug Fixes
+
+* bump @snf/access-qa-bot to 3.7.2 for Turnstile modal fix ([b1c0d0d](https://github.com/access-ci-org/access-ci-ui/commit/b1c0d0d09ca1511b6c204b0055450239dd82144a))
+
 ## [0.20.4](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.3...v0.20.4) (2026-04-30)
 
 
