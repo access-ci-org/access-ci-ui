@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.20.6](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.5...v0.20.6) (2026-05-22)
+
+
+### Bug Fixes
+
+* bump @snf/access-qa-bot to 3.7.3 for resource_context field name ([54f9951](https://github.com/access-ci-org/access-ci-ui/commit/54f995138f7ae8cec858a42b629ad0536b5aab4d))
+
 ## [0.20.5](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.4...v0.20.5) (2026-05-19)
 
 
