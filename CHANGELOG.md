@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.20.9](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.8...v0.20.9) (2026-06-01)
+
+
+### Bug Fixes
+
+* pin @snf/access-qa-bot to 3.7.3 (keep agent build off latest) ([b5b8383](https://github.com/access-ci-org/access-ci-ui/commit/b5b8383b7e31dd0430f1b95cacb7ba57217559a9))
+* pin @snf/access-qa-bot to 3.7.3 (revert agent build off latest) ([a24313a](https://github.com/access-ci-org/access-ci-ui/commit/a24313ac238ff889f5c0832e6673eed79016642e))
+
 ## [0.20.8](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.7...v0.20.8) (2026-06-01)
 
 
