@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.20.7](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.6...v0.20.7) (2026-06-01)
+
+
+### Bug Fixes
+
+* bump @snf/access-qa-bot to 3.7.4 (agent-enabled chatbot) ([a751bb9](https://github.com/access-ci-org/access-ci-ui/commit/a751bb945ebd98d7b225bd10dbdc8675be430727))
+* bump @snf/access-qa-bot to 3.7.4 (agent-enabled chatbot) ([21d5cb5](https://github.com/access-ci-org/access-ci-ui/commit/21d5cb5c71021d4a8606645a65b73244fb1a7757))
+
 ## [0.20.6](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.5...v0.20.6) (2026-05-22)
 
 
