@@ -61,7 +61,7 @@ The library includes functions for rendering common ACCESS user interface compon
     tableOfContents,
     universalMenuItems,
     universalMenus,
-  } from "https://unpkg.com/@access-ci/ui@0.20.2/dist/access-ci-ui.js";
+  } from "https://unpkg.com/@access-ci/ui@0.20.10/dist/access-ci-ui.js";
 
   const siteItems = [
     {
@@ -157,6 +157,10 @@ The library includes functions for rendering common ACCESS user interface compon
     userName: name,
     accessId: accessId,
     loginUrl: "/login",
+    // Optional: on a resource's documentation page, scope the bot to that
+    // resource by passing its slug. The bot frames its answers around the
+    // resource. Omit (as below) for the general ACCESS assistant.
+    // resourceContext: "delta",
     onAnalyticsEvent: (event) => {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push(event);
