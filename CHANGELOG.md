@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.20.10](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.9...v0.20.10) (2026-06-26)
+
+
+### Bug Fixes
+
+* document qaBot resourceContext option and update example version ([5d4fbd4](https://github.com/access-ci-org/access-ci-ui/commit/5d4fbd4f6fc0a13bc67438486067d4ad579a305b))
+* document qaBot resourceContext option and update example version ([9cf5826](https://github.com/access-ci-org/access-ci-ui/commit/9cf58263ba745e7df762989a87eb16a8d3418339))
+
 ## [0.20.9](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.8...v0.20.9) (2026-06-01)
 
 
