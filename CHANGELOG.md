@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.21.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.11...v0.21.0) (2026-07-28)
+
+
+### Features
+
+* **menus:** update My ACCESS items ([4b73a3a](https://github.com/access-ci-org/access-ci-ui/commit/4b73a3aad7c2dfb95cdbf3dd9907a897c3f5c74f))
+
 ## [0.20.11](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.10...v0.20.11) (2026-07-28)
 
 
