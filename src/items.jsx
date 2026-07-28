@@ -73,8 +73,8 @@ export const myAccessMenuItem = {
   name: "My ACCESS",
   items: [
     {
-      name: "Allocations",
-      href: "https://allocations.access-ci.org/requests",
+      name: "Account",
+      href: "https://account.access-ci.org",
     },
     {
       name: "Community Persona",
@@ -82,15 +82,19 @@ export const myAccessMenuItem = {
     },
     {
       name: "Edit Profile",
-      href: "https://allocations.access-ci.org/profile",
+      href: "https://account.access-ci.org/profile",
+    },
+    {
+      name: "FAQ",
+      href: "https://identity.access-ci.org/",
+    },
+    {
+      name: "Projects",
+      href: "https://allocations.access-ci.org",
     },
     {
       name: "Publications",
       href: "https://allocations.access-ci.org/publications",
-    },
-    {
-      name: "Share with ORCID",
-      href: "https://allocations.access-ci.org/orcid",
     },
     {
       name: "Log out",
@@ -107,7 +111,7 @@ export const loginMenuItem = {
       href: "https://cilogon.org/?skin=access",
     },
     {
-      name: "Questions",
+      name: "FAQ",
       href: "https://identity.access-ci.org/",
     },
     {
