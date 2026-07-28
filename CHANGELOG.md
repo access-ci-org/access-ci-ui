@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.20.11](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.10...v0.20.11) (2026-07-28)
+
+
+### Bug Fixes
+
+* bump @snf/access-qa-bot to 3.8.2 for embedded chatbot CSS ([148bc58](https://github.com/access-ci-org/access-ci-ui/commit/148bc58e1f578fe133793cb98968ae580f4b25e9))
+* bump @snf/access-qa-bot to 3.8.2 for embedded chatbot CSS ([a02db80](https://github.com/access-ci-org/access-ci-ui/commit/a02db804b300ca00424ccebcfe27d0bad7d236d1))
+
 ## [0.20.10](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.9...v0.20.10) (2026-06-26)
 
 
