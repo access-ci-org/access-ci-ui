@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.22.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.21.0...v0.22.0) (2026-08-27)
+
+
+### Features
+
+* forward scopeSlug/headerTitle/inputPlaceholder through qaBot wrapper ([800d9e1](https://github.com/access-ci-org/access-ci-ui/commit/800d9e1a4d336708f1059f52c6da8144f9a311f4))
+
 ## [0.21.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.20.11...v0.21.0) (2026-07-28)
 
 
