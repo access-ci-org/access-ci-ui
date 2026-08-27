@@ -20,7 +20,9 @@ export class QABot extends Component {
       userEmail,
       userName,
       accessId,
-      resourceContext,
+      scopeSlug,
+      headerTitle,
+      inputPlaceholder,
       onAnalyticsEvent,
       qaEndpoint,
       ratingEndpoint,
@@ -54,7 +56,9 @@ export class QABot extends Component {
           userEmail={userEmail}
           userName={userName}
           accessId={accessId}
-          resourceContext={resourceContext}
+          scopeSlug={scopeSlug}
+          headerTitle={headerTitle}
+          inputPlaceholder={inputPlaceholder}
           onAnalyticsEvent={onAnalyticsEvent}
           qaEndpoint={qaEndpoint}
           ratingEndpoint={ratingEndpoint}
