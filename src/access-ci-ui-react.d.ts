@@ -72,6 +72,12 @@ export interface QABotProps {
   userEmail?: string;
   userName?: string;
   accessId?: string;
+  /** Slug of what the bot is scoped to (e.g. 'delta'); drives resource-scoped mode. */
+  scopeSlug?: string;
+  /** Full header string for the scoped/embedded bot, e.g. "Ask about Delta". */
+  headerTitle?: string;
+  /** Chat input placeholder text. */
+  inputPlaceholder?: string;
   onAnalyticsEvent?: (...args: unknown[]) => void;
   qaEndpoint?: string;
   ratingEndpoint?: string;
