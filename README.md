@@ -160,7 +160,7 @@ The library includes functions for rendering common ACCESS user interface compon
     // Optional: on a resource's documentation page, scope the bot to that
     // resource by passing its slug. The bot frames its answers around the
     // resource. Omit (as below) for the general ACCESS assistant.
-    // resourceContext: "delta",
+    // scopeSlug: "delta",
     onAnalyticsEvent: (event) => {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push(event);
