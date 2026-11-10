@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.22.2](https://github.com/access-ci-org/access-ci-ui/compare/v0.22.1...v0.22.2) (2026-11-10)
+
+
+### Bug Fixes
+
+* bump @snf/access-qa-bot to 3.10.1 ([73b56ad](https://github.com/access-ci-org/access-ci-ui/commit/73b56ad9a5da3982789e62ebdefc01a0934ad007))
+* bump @snf/access-qa-bot to 3.10.1 (D8-3073) ([c24f21e](https://github.com/access-ci-org/access-ci-ui/commit/c24f21e279c115551e20f64f0a526922c56e6724))
+
 ## [0.22.1](https://github.com/access-ci-org/access-ci-ui/compare/v0.22.0...v0.22.1) (2026-11-07)
 
 
